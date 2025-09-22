@@ -44,7 +44,6 @@
 #define SWETZ_LOW_WARNING_TIME      1//低电提醒
 #define LOW_WARNING_TIME            (600)
 
-
 #define SWETZ_APP                   1
 #define SWETZ_RECON_AG              1
 #define SWETZ_RING_DOUBLE           1 //修改ring下双击功能
@@ -54,10 +53,9 @@
 #define SWETZ_DEL_CALL_SHORT_FUC    1//去掉call下单击功能
 #define SWETZ_MULT_DEL_TONE         1//双连B手机连接和断开不播提示音
 #define SWETZ_CLSOE_INBOX_WALEUP    1//关掉inbox唤醒
-
-#define SWETZ_BT_TO_PAIR            1
-#define SWETZ_INCASE_MUTE           1
-#define SWETZ_EVT_1S                1
+#define SWETZ_BT_TO_PAIR            1//重新进配对逻辑
+#define SWETZ_INCASE_MUTE           1//入仓mute
+#define SWETZ_EVT_1S                1//1s事件
 #endif
 
 
