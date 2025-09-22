@@ -57,7 +57,7 @@
 #define SWETZ_INCASE_MUTE           1//入仓mute
 #define SWETZ_EVT_1S                1//1s事件
 #define SWETZ_LOWVBAT_OUT_SYNC_OFF  1//sys_cb.discon_reason 0不同步 1同步//低电不同步关机
-
+#define test        1
 #endif
 
 
