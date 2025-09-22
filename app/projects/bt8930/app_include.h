@@ -8,6 +8,7 @@
 #include "app_ringbuf.h"
 #include "app_message.h"
 #include "app_ble.h"
+#include "app_dm.h"
 
 
 #if SWETZ_BT_TO_PAIR

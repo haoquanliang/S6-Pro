@@ -2539,6 +2539,32 @@ Discarded input sections
                 0x0000000000000000       0x5a Output\obj\system\vbat.o
  .text          0x0000000000000000        0x0 Output\obj\projects\bt8930\app_ble.o
  .data          0x0000000000000000        0x0 Output\obj\projects\bt8930\app_ble.o
+ .text          0x0000000000000000        0x0 Output\obj\projects\bt8930\app_dm.o
+ .data          0x0000000000000000        0x0 Output\obj\projects\bt8930\app_dm.o
+ .bss           0x0000000000000000        0xc Output\obj\projects\bt8930\app_dm.o
+ .text.app_dm_init
+                0x0000000000000000       0x18 Output\obj\projects\bt8930\app_dm.o
+ .text.app_dm_is_bd_addr_zero
+                0x0000000000000000        0x4 Output\obj\projects\bt8930\app_dm.o
+ .text.app_dm_get_connected_ag_num
+                0x0000000000000000        0x2 Output\obj\projects\bt8930\app_dm.o
+ .text.app_dm_get_ag_addr_by_index
+                0x0000000000000000        0x2 Output\obj\projects\bt8930\app_dm.o
+ .text.app_dm_handle_ag_connect
+                0x0000000000000000        0x2 Output\obj\projects\bt8930\app_dm.o
+ .text.app_dm_handle_ag_disconnect
+                0x0000000000000000        0x2 Output\obj\projects\bt8930\app_dm.o
+ .text.app_dm_sync_info
+                0x0000000000000000        0x2 Output\obj\projects\bt8930\app_dm.o
+ .text.app_dm_get_info
+                0x0000000000000000        0x2 Output\obj\projects\bt8930\app_dm.o
+ .text.app_dm_is_addr_connected
+                0x0000000000000000        0x2 Output\obj\projects\bt8930\app_dm.o
+ .text.app_dm_get_next_ag_addr
+                0x0000000000000000        0x2 Output\obj\projects\bt8930\app_dm.o
+ .text.app_dm_get_software_version
+                0x0000000000000000        0x2 Output\obj\projects\bt8930\app_dm.o
+ .comment       0x0000000000000000       0x12 Output\obj\projects\bt8930\app_dm.o
  .text          0x0000000000000000        0x0 Output\obj\projects\bt8930\app_lr.o
  .data          0x0000000000000000        0x0 Output\obj\projects\bt8930\app_lr.o
  .text          0x0000000000000000        0x0 Output\obj\projects\bt8930\app_message.o
@@ -5364,6 +5390,7 @@ LOAD Output\obj\system\param.o
 LOAD Output\obj\system\system.o
 LOAD Output\obj\system\vbat.o
 LOAD Output\obj\projects\bt8930\app_ble.o
+LOAD Output\obj\projects\bt8930\app_dm.o
 LOAD Output\obj\projects\bt8930\app_lr.o
 LOAD Output\obj\projects\bt8930\app_message.o
 LOAD Output\obj\projects\bt8930\app_ringbuf.o
