@@ -51,7 +51,11 @@ void lowpower_switch_to_normal_do(void)
 void lowpower_poweroff_do(void)
 {
     bsp_piano_warning_play(WARNING_TONE, TONE_LOW_BATTERY);
-    sys_cb.pwrdwn_tone_en = 1;                  
+    sys_cb.pwrdwn_tone_en = 1;     
+#if SWETZ_LOWVBAT_OUT_SYNC_OFF
+    sys_cb.local_bat_level = 0;//关机前把电量归0
+    sys_cb.discon_reason = 0;
+#endif
     func_cb.sta = FUNC_PWROFF;     //低电，进入关机或省电模式
 }
 
@@ -392,7 +396,7 @@ void func_message(u16 msg)
             break;
 #endif
 
-#if SWETZ_RECON_AG
+#if SWETZ_KEY_RECON
         case EVT_RECONN_AG:
         if (bt_tws_is_connected() && bt_tws_is_slave())
         {

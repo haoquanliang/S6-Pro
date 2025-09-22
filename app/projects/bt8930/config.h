@@ -45,7 +45,7 @@
 #define LOW_WARNING_TIME            (600)
 
 #define SWETZ_APP                   1
-#define SWETZ_RECON_AG              1
+#define SWETZ_KEY_RECON             1//单击有配对记录要耳机回连
 #define SWETZ_RING_DOUBLE           1 //修改ring下双击功能
 #define SWETZ_CALL_DOUBLE           1 //修改call下双击功能
 #define SWETZ_RING_TONE             1
@@ -56,6 +56,8 @@
 #define SWETZ_BT_TO_PAIR            1//重新进配对逻辑
 #define SWETZ_INCASE_MUTE           1//入仓mute
 #define SWETZ_EVT_1S                1//1s事件
+#define SWETZ_LOWVBAT_OUT_SYNC_OFF  1//sys_cb.discon_reason 0不同步 1同步//低电不同步关机
+
 #endif
 
 

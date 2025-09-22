@@ -189,8 +189,8 @@ void func_bt_message_do(u16 msg)
    // app_lr_send_msg(EVT_SYS_5S);//发给对耳执行
 #endif
 
-#if SWETZ_RECON_AG
-        if(!bt_nor_is_connected() &&  BT_STA_CONNECTING > bt_get_status()){
+#if SWETZ_KEY_RECON
+    if(!bt_nor_is_connected()){
                 printf("112215\r\n");
                 msg_enqueue(EVT_RECONN_AG);//-触发蓝牙重连逻辑     
         }

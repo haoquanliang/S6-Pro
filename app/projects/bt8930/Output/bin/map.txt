@@ -9566,100 +9566,100 @@ LOAD Output\obj\projects\bt8930\port\port_update.o
                 0x000000001002935a       0x58 Output\obj\projects\bt8930\message\msg_bt.o
                 0x000000001002935a                bt_tws_pair_mode
  .text.func.bt.msg
-                0x00000000100293b2      0x3ee Output\obj\projects\bt8930\message\msg_bt.o
+                0x00000000100293b2      0x3e0 Output\obj\projects\bt8930\message\msg_bt.o
                 0x00000000100293b2                func_bt_message_do
-                0x000000001002979a                func_bt_message
+                0x000000001002978c                func_bt_message
  .text.func.btring.msg
-                0x00000000100297a0      0x202 Output\obj\projects\bt8930\message\msg_bt.o
-                0x00000000100297a0                sfunc_bt_ring_message_do
-                0x000000001002999c                sfunc_bt_ring_message
+                0x0000000010029792      0x202 Output\obj\projects\bt8930\message\msg_bt.o
+                0x0000000010029792                sfunc_bt_ring_message_do
+                0x000000001002998e                sfunc_bt_ring_message
  .text.sfunc_bt_call_message_do
-                0x00000000100299a2      0x1e8 Output\obj\projects\bt8930\message\msg_bt.o
-                0x00000000100299a2                sfunc_bt_call_message_do
+                0x0000000010029994      0x1e8 Output\obj\projects\bt8930\message\msg_bt.o
+                0x0000000010029994                sfunc_bt_call_message_do
  .text.sfunc_bt_call_message
-                0x0000000010029b8a        0x8 Output\obj\projects\bt8930\message\msg_bt.o
-                0x0000000010029b8a                sfunc_bt_call_message
+                0x0000000010029b7c        0x8 Output\obj\projects\bt8930\message\msg_bt.o
+                0x0000000010029b7c                sfunc_bt_call_message
  .text.bt_sco_aec_init
-                0x0000000010029b92      0x114 Output\obj\projects\bt8930\plugin\bt_call.o
-                0x0000000010029b92                bt_sco_aec_init
+                0x0000000010029b84      0x114 Output\obj\projects\bt8930\plugin\bt_call.o
+                0x0000000010029b84                bt_sco_aec_init
  .text.bt_sco_far_nr_init
-                0x0000000010029ca6       0x5a Output\obj\projects\bt8930\plugin\bt_call.o
-                0x0000000010029ca6                bt_sco_far_nr_init
+                0x0000000010029c98       0x5a Output\obj\projects\bt8930\plugin\bt_call.o
+                0x0000000010029c98                bt_sco_far_nr_init
  .text.bt_sco_nr_exit
-                0x0000000010029d00        0x4 Output\obj\projects\bt8930\plugin\bt_call.o
-                0x0000000010029d00                bt_sco_nr_exit
+                0x0000000010029cf2        0x4 Output\obj\projects\bt8930\plugin\bt_call.o
+                0x0000000010029cf2                bt_sco_nr_exit
  .text.bt_sco_dnn_pro_init
-                0x0000000010029d04       0x94 Output\obj\projects\bt8930\plugin\bt_call.o
-                0x0000000010029d04                bt_sco_dnn_pro_init
+                0x0000000010029cf6       0x94 Output\obj\projects\bt8930\plugin\bt_call.o
+                0x0000000010029cf6                bt_sco_dnn_pro_init
  .text.bt_sco_nr_init
-                0x0000000010029d98       0x24 Output\obj\projects\bt8930\plugin\bt_call.o
-                0x0000000010029d98                bt_sco_nr_init
- *fill*         0x0000000010029dbc        0x0 
+                0x0000000010029d8a       0x24 Output\obj\projects\bt8930\plugin\bt_call.o
+                0x0000000010029d8a                bt_sco_nr_init
+ *fill*         0x0000000010029dae        0x2 
  .text.sco.gain.tbl
-                0x0000000010029dbc       0x82 Output\obj\projects\bt8930\plugin\bt_call.o
-                0x0000000010029dbc                mic_gain_tbl
+                0x0000000010029db0       0x82 Output\obj\projects\bt8930\plugin\bt_call.o
+                0x0000000010029db0                mic_gain_tbl
  .text.multi_lang_init
-                0x0000000010029e3e        0x2 Output\obj\projects\bt8930\plugin\multi_lang.o
-                0x0000000010029e3e                multi_lang_init
+                0x0000000010029e32        0x2 Output\obj\projects\bt8930\plugin\multi_lang.o
+                0x0000000010029e32                multi_lang_init
  .text.plugin_init
-                0x0000000010029e40       0x3a Output\obj\projects\bt8930\plugin\plugin.o
-                0x0000000010029e40                plugin_init
+                0x0000000010029e34       0x3a Output\obj\projects\bt8930\plugin\plugin.o
+                0x0000000010029e34                plugin_init
  .text.plugin_var_init
-                0x0000000010029e7a      0x15c Output\obj\projects\bt8930\plugin\plugin.o
-                0x0000000010029e7a                plugin_var_init
+                0x0000000010029e6e      0x15c Output\obj\projects\bt8930\plugin\plugin.o
+                0x0000000010029e6e                plugin_var_init
  .text.sleep_wakeup_config
-                0x0000000010029fd6        0x2 Output\obj\projects\bt8930\plugin\plugin.o
-                0x0000000010029fd6                sleep_wakeup_config
+                0x0000000010029fca        0x2 Output\obj\projects\bt8930\plugin\plugin.o
+                0x0000000010029fca                sleep_wakeup_config
  .text.is_sleep_dac_off_enable
-                0x0000000010029fd8       0x22 Output\obj\projects\bt8930\plugin\plugin.o
-                0x0000000010029fd8                is_sleep_dac_off_enable
+                0x0000000010029fcc       0x22 Output\obj\projects\bt8930\plugin\plugin.o
+                0x0000000010029fcc                is_sleep_dac_off_enable
  .text.get_wav_res_digvol
-                0x0000000010029ffa       0x12 Output\obj\projects\bt8930\plugin\plugin.o
-                0x0000000010029ffa                get_wav_res_digvol
+                0x0000000010029fee       0x12 Output\obj\projects\bt8930\plugin\plugin.o
+                0x0000000010029fee                get_wav_res_digvol
  .text.get_piano_digvol
-                0x000000001002a00c        0x4 Output\obj\projects\bt8930\plugin\plugin.o
-                0x000000001002a00c                get_piano_digvol
+                0x000000001002a000        0x4 Output\obj\projects\bt8930\plugin\plugin.o
+                0x000000001002a000                get_piano_digvol
  .text.maxvol_tone_play
-                0x000000001002a010        0x8 Output\obj\projects\bt8930\plugin\plugin.o
-                0x000000001002a010                maxvol_tone_play
+                0x000000001002a004        0x8 Output\obj\projects\bt8930\plugin\plugin.o
+                0x000000001002a004                maxvol_tone_play
  .text.plugin_lowbat_vol_recover
-                0x000000001002a018        0x2 Output\obj\projects\bt8930\plugin\plugin.o
-                0x000000001002a018                plugin_lowbat_vol_recover
+                0x000000001002a00c        0x2 Output\obj\projects\bt8930\plugin\plugin.o
+                0x000000001002a00c                plugin_lowbat_vol_recover
  .text.plugin_music_eq
-                0x000000001002a01a       0x1a Output\obj\projects\bt8930\plugin\plugin.o
-                0x000000001002a01a                plugin_music_eq
+                0x000000001002a00e       0x1a Output\obj\projects\bt8930\plugin\plugin.o
+                0x000000001002a00e                plugin_music_eq
  .text.led_disp
-                0x000000001002a034       0x20 Output\obj\projects\bt8930\port\port_led.o
-                0x000000001002a034                led_power_up
-                0x000000001002a03e                led_power_down
-                0x000000001002a048                led_idle
+                0x000000001002a028       0x20 Output\obj\projects\bt8930\port\port_led.o
+                0x000000001002a028                led_power_up
+                0x000000001002a032                led_power_down
+                0x000000001002a03c                led_idle
  .text.led_disp.bt
-                0x000000001002a054       0x48 Output\obj\projects\bt8930\port\port_led.o
-                0x000000001002a054                led_bt_init
-                0x000000001002a05e                led_bt_idle
-                0x000000001002a068                led_bt_reconnect
-                0x000000001002a072                led_bt_connected
-                0x000000001002a07c                led_bt_play
-                0x000000001002a086                led_bt_ring
-                0x000000001002a090                led_bt_call
-                0x000000001002a09a                led_bt_scan
+                0x000000001002a048       0x48 Output\obj\projects\bt8930\port\port_led.o
+                0x000000001002a048                led_bt_init
+                0x000000001002a052                led_bt_idle
+                0x000000001002a05c                led_bt_reconnect
+                0x000000001002a066                led_bt_connected
+                0x000000001002a070                led_bt_play
+                0x000000001002a07a                led_bt_ring
+                0x000000001002a084                led_bt_call
+                0x000000001002a08e                led_bt_scan
  .text.led_func_init
-                0x000000001002a09c       0xb8 Output\obj\projects\bt8930\port\port_led.o
-                0x000000001002a09c                led_func_init
+                0x000000001002a090       0xb8 Output\obj\projects\bt8930\port\port_led.o
+                0x000000001002a090                led_func_init
  .text.led_get_cfg_port
-                0x000000001002a154       0x32 Output\obj\projects\bt8930\port\port_led.o
-                0x000000001002a154                led_get_cfg_port
+                0x000000001002a148       0x32 Output\obj\projects\bt8930\port\port_led.o
+                0x000000001002a148                led_get_cfg_port
  .text.sdadc0_anlog_init
-                0x000000001002a186       0x98 ..\..\libs\bt8930\libplatform.a(audio.o)
+                0x000000001002a17a       0x98 ..\..\libs\bt8930\libplatform.a(audio.o)
  .text.sdadc1_anlog_init
-                0x000000001002a21e       0x98 ..\..\libs\bt8930\libplatform.a(audio.o)
+                0x000000001002a212       0x98 ..\..\libs\bt8930\libplatform.a(audio.o)
  .text.sdadc2_anlog_init
-                0x000000001002a2b6       0x98 ..\..\libs\bt8930\libplatform.a(audio.o)
+                0x000000001002a2aa       0x98 ..\..\libs\bt8930\libplatform.a(audio.o)
  .text.sdadc3_anlog_init
-                0x000000001002a34e       0x98 ..\..\libs\bt8930\libplatform.a(audio.o)
+                0x000000001002a342       0x98 ..\..\libs\bt8930\libplatform.a(audio.o)
  .text.sdadc4_anlog_init
-                0x000000001002a3e6       0x98 ..\..\libs\bt8930\libplatform.a(audio.o)
- *fill*         0x000000001002a47e       0x82 
+                0x000000001002a3da       0x98 ..\..\libs\bt8930\libplatform.a(audio.o)
+ *fill*         0x000000001002a472       0x8e 
  .text.dac_clk_source_sel
                 0x000000001002a500       0xfa ..\..\libs\bt8930\libplatform.a(audio.o)
                 0x000000001002a500                dac_clk_source_sel

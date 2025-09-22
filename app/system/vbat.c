@@ -34,7 +34,6 @@ uint16_t vbat_get_voltage(void)
         vbat_bak = adc_cb.vbat_val;
 //        printf(bat_str, adc_cb.vbat_val/1000, adc_cb.vbat_val%1000);
     }
-
     return vbat_bak;
 }
 
