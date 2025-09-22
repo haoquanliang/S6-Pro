@@ -1,0 +1,866 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="app" />
+		<Option pch_mode="2" />
+		<Option compiler="riscv32" />
+		<Build>
+			<Target title="Debug">
+				<Option output="Output/bin/app.rv32" prefix_auto="1" extension_auto="0" />
+				<Option object_output="Output/obj/" />
+				<Option type="1" />
+				<Option compiler="riscv32" />
+				<Compiler>
+					<Add directory="../../modules/bluetooth/app/tuya/include" />
+					<Add directory="../../modules/bluetooth/app/tuya/port" />
+					<Add directory="../../modules/bluetooth/app/tuya/mbedtls" />
+					<Add directory="D:/Work/S6Pro/sdk_bt893x_v016_s11397_20250707/app/projects/bt8930/" />
+				</Compiler>
+				<Linker>
+					<Add library="../../modules/bluetooth/app/tuya/lib/tuya_ble_sdk_lib.a" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Os" />
+			<Add option="-Wall" />
+			<Add option="-march=rv32imacxbs1" />
+			<Add option="-ffunction-sections" />
+			<Add option="-msave-restore" />
+			<Add option="-mjump-tables-in-text" />
+			<Add directory="." />
+			<Add directory="display" />
+			<Add directory="message" />
+			<Add directory="port" />
+			<Add directory="plugin" />
+			<Add directory="../../libs/bt8930" />
+			<Add directory="../../include" />
+			<Add directory="../../3rd-party" />
+			<Add directory="../../bsp" />
+			<Add directory="../../system" />
+			<Add directory="../../modules" />
+			<Add directory="../../functions" />
+			<Add directory="../../modules/gui" />
+			<Add directory="../../modules/gui/ledseg" />
+			<Add directory="../../modules/gui/lcd" />
+			<Add directory="../../modules/gui/led" />
+			<Add directory="../../modules/bluetooth/app/ab_mate" />
+			<Add directory="../../modules/bluetooth/gfps" />
+			<Add directory="../../modules/bluetooth/call" />
+			<Add directory="../../modules/asr" />
+			<Add directory="../../modules/bluetooth/app/doubao" />
+			<Add directory="../../modules/bluetooth/bt" />
+			<Add directory="../bt8930" />
+		</Compiler>
+		<Linker>
+			<Add option="-T$(TARGET_OBJECT_DIR)ram.o" />
+			<Add option="--gc-sections" />
+			<Add option="-Map=Output\bin\map.txt" />
+			<Add library="libplatform" />
+			<Add library="libbtstack" />
+			<Add library="libcodecs" />
+			<Add library="libdrivers" />
+			<Add library="libvoices" />
+			<Add library="libeffects" />
+			<Add directory="../../libs/bt8930" />
+		</Linker>
+		<ExtraCommands>
+			<Add before='$compiler $options $includes -E -P -x c -c &quot;$(PROJECT_DIR)output\bin\res.xm&quot; -o &quot;$(PROJECT_DIR)output\bin\res.bat&quot;' />
+			<Add before='$compiler $options $includes -E -P -x c -c &quot;$(PROJECT_DIR)output\bin\res_user.xm&quot; -o &quot;$(PROJECT_DIR)output\bin\res_user.bat&quot;' />
+			<Add before="Output\bin\prebuild.bat $(PROJECT_NAME)" />
+			<Add after="Output\bin\postbuild.bat $(PROJECT_NAME)" />
+		</ExtraCommands>
+		<Unit filename="../../3rd-party/3rd_party.h" />
+		<Unit filename="../../3rd-party/i2s/ta5711.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../3rd-party/i2s/ta5711.h" />
+		<Unit filename="../../3rd-party/i2s/wm8978.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../3rd-party/i2s/wm8978.h" />
+		<Unit filename="../../3rd-party/sensor/sc7a20.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../3rd-party/sensor/sc7a20.h" />
+		<Unit filename="../../bsp/bsp.h" />
+		<Unit filename="../../bsp/bsp_asr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../bsp/bsp_asr.h" />
+		<Unit filename="../../bsp/bsp_huart.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../bsp/bsp_huart.h" />
+		<Unit filename="../../bsp/bsp_i2c.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../bsp/bsp_i2c.h" />
+		<Unit filename="../../bsp/bsp_iis.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../bsp/bsp_iis.h" />
+		<Unit filename="../../bsp/bsp_opus.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../bsp/bsp_opus.h" />
+		<Unit filename="../../bsp/bsp_port_int.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../bsp/bsp_port_int.h" />
+		<Unit filename="../../bsp/bsp_saradc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../bsp/bsp_saradc.h" />
+		<Unit filename="../../bsp/bsp_timer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../bsp/bsp_timer.h" />
+		<Unit filename="../../bsp/bsp_uart.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../bsp/bsp_uart.h" />
+		<Unit filename="../../bsp/bsp_vad.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../bsp/bsp_vad.h" />
+		<Unit filename="../../functions/func.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../functions/func.h" />
+		<Unit filename="../../functions/func_aux.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../functions/func_aux.h" />
+		<Unit filename="../../functions/func_bt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../functions/func_bt.h" />
+		<Unit filename="../../functions/func_bt_dut.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../functions/func_bt_dut.h" />
+		<Unit filename="../../functions/func_bt_hid.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../functions/func_bt_hid.h" />
+		<Unit filename="../../functions/func_charge.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../functions/func_idle.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../functions/func_idle.h" />
+		<Unit filename="../../functions/func_lowpwr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../functions/func_lowpwr.h" />
+		<Unit filename="../../functions/func_music.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../functions/func_music.h" />
+		<Unit filename="../../functions/func_speaker.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../functions/func_speaker.h" />
+		<Unit filename="../../functions/func_update.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../functions/func_update.h" />
+		<Unit filename="../../functions/func_usbdev.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../functions/func_usbdev.h" />
+		<Unit filename="../../functions/sfunc_bt_call.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../functions/sfunc_bt_ota.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../functions/sfunc_bt_ring.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../include/clib.h" />
+		<Unit filename="../../include/config_define.h" />
+		<Unit filename="../../include/config_extra.h" />
+		<Unit filename="../../include/global.h" />
+		<Unit filename="../../include/include.h" />
+		<Unit filename="../../include/io_def.h" />
+		<Unit filename="../../include/macro.h" />
+		<Unit filename="../../include/s_common.h" />
+		<Unit filename="../../include/sfr.h" />
+		<Unit filename="../../include/typedef.h" />
+		<Unit filename="../../libs/bt8930/api.h" />
+		<Unit filename="../../libs/bt8930/api_btstack.h" />
+		<Unit filename="../../libs/bt8930/api_charge.h" />
+		<Unit filename="../../libs/bt8930/api_cm.h" />
+		<Unit filename="../../libs/bt8930/api_dac.h" />
+		<Unit filename="../../libs/bt8930/api_device.h" />
+		<Unit filename="../../libs/bt8930/api_effects.h" />
+		<Unit filename="../../libs/bt8930/api_eq.h" />
+		<Unit filename="../../libs/bt8930/api_fs.h" />
+		<Unit filename="../../libs/bt8930/api_gpio.h" />
+		<Unit filename="../../libs/bt8930/api_irrx.h" />
+		<Unit filename="../../libs/bt8930/api_karaok.h" />
+		<Unit filename="../../libs/bt8930/api_key.h" />
+		<Unit filename="../../libs/bt8930/api_math.h" />
+		<Unit filename="../../libs/bt8930/api_msg.h" />
+		<Unit filename="../../libs/bt8930/api_music.h" />
+		<Unit filename="../../libs/bt8930/api_nr.h" />
+		<Unit filename="../../libs/bt8930/api_pwr.h" />
+		<Unit filename="../../libs/bt8930/api_rtc.h" />
+		<Unit filename="../../libs/bt8930/api_saradc.h" />
+		<Unit filename="../../libs/bt8930/api_sd.h" />
+		<Unit filename="../../libs/bt8930/api_sdadc.h" />
+		<Unit filename="../../libs/bt8930/api_sensor.h" />
+		<Unit filename="../../libs/bt8930/api_spiflash_ex.h" />
+		<Unit filename="../../libs/bt8930/api_stream.h" />
+		<Unit filename="../../libs/bt8930/api_sys.h" />
+		<Unit filename="../../libs/bt8930/api_sysclk.h" />
+		<Unit filename="../../libs/bt8930/api_tkey.h" />
+		<Unit filename="../../libs/bt8930/api_tws.h" />
+		<Unit filename="../../libs/bt8930/api_uart.h" />
+		<Unit filename="../../libs/bt8930/api_update.h" />
+		<Unit filename="../../libs/bt8930/api_usb.h" />
+		<Unit filename="../../libs/bt8930/strong_bt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../libs/bt8930/strong_le.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../libs/bt8930/strong_sco.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../libs/bt8930/strong_symbol.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../libs/bt8930/strong_tws.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/asr/asr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/asr/asr.h" />
+		<Unit filename="../../modules/asr/asr_prefetch.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/asr/asr_strong_symbol.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/audio/audio.h" />
+		<Unit filename="../../modules/audio/bsp_anc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/audio/bsp_anc.h" />
+		<Unit filename="../../modules/audio/bsp_anc_alg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/audio/bsp_anc_alg.h" />
+		<Unit filename="../../modules/audio/bsp_anc_param_table.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/audio/bsp_anc_param_table.h" />
+		<Unit filename="../../modules/audio/bsp_anc_tool.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/audio/bsp_anc_tool.h" />
+		<Unit filename="../../modules/audio/bsp_audio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/audio/bsp_audio.h" />
+		<Unit filename="../../modules/audio/bsp_aux.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/audio/bsp_aux.h" />
+		<Unit filename="../../modules/audio/bsp_dac.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/audio/bsp_dac.h" />
+		<Unit filename="../../modules/audio/bsp_effect.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/audio/bsp_effect.h" />
+		<Unit filename="../../modules/audio/bsp_eq.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/audio/bsp_eq.h" />
+		<Unit filename="../../modules/audio/bsp_set_effect.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/audio/bsp_set_effect.h" />
+		<Unit filename="../../modules/bluetooth/app/ab_mate/ab_mate_app.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/ab_mate/ab_mate_app.h" />
+		<Unit filename="../../modules/bluetooth/app/ab_mate/ab_mate_gfps_profile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/ab_mate/ab_mate_ota.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/ab_mate/ab_mate_ota.h" />
+		<Unit filename="../../modules/bluetooth/app/ab_mate/ab_mate_profile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/ab_mate/ab_mate_profile.h" />
+		<Unit filename="../../modules/bluetooth/app/ab_mate/ab_mate_timer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/ab_mate/ab_mate_timer.h" />
+		<Unit filename="../../modules/bluetooth/app/ab_mate/ab_mate_tws.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/ab_mate/ab_mate_tws.h" />
+		<Unit filename="../../modules/bluetooth/app/app.h" />
+		<Unit filename="../../modules/bluetooth/app/app_demo/app_demo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/app_demo/app_demo.h" />
+		<Unit filename="../../modules/bluetooth/app/app_fota/app_fota.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/app_fota/app_fota.h" />
+		<Unit filename="../../modules/bluetooth/app/app_fota/app_fota_profile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/app_fota/app_fota_profile.h" />
+		<Unit filename="../../modules/bluetooth/app/app_interface.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/app_test/app_test.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/doubao/doubao.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/dueros_dma/dma.pb-c.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/dueros_dma/dma.pb-c.h" />
+		<Unit filename="../../modules/bluetooth/app/dueros_dma/dma_stream.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/dueros_dma/dma_stream.h" />
+		<Unit filename="../../modules/bluetooth/app/dueros_dma/dma_utils.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/dueros_dma/dma_utils.h" />
+		<Unit filename="../../modules/bluetooth/app/dueros_dma/dma_wrapper.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/dueros_dma/dma_wrapper.h" />
+		<Unit filename="../../modules/bluetooth/app/dueros_dma/dueros_dma_app.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/dueros_dma/dueros_dma_app.h" />
+		<Unit filename="../../modules/bluetooth/app/dueros_dma/dueros_dma_extern.h" />
+		<Unit filename="../../modules/bluetooth/app/dueros_dma/dueros_dma_profile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/dueros_dma/dueros_dma_profile.h" />
+		<Unit filename="../../modules/bluetooth/app/dueros_dma/dueros_dma_sha256.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/dueros_dma/dueros_dma_sha256.h" />
+		<Unit filename="../../modules/bluetooth/app/dueros_dma/dueros_dma_tws.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/dueros_dma/dueros_dma_tws.h" />
+		<Unit filename="../../modules/bluetooth/app/dueros_dma/protobuf-c.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/dueros_dma/protobuf-c.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_api.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_app_production_test.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_app_uart_common_handler.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_bulk_data.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_config.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_data_handler.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_event.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_event_handler.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_feature_weather.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_gatt_send_queue.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_heap.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_internal_config.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_log.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_log_internal.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_main.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_mem.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_mutli_tsf_protocol.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_port.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_queue.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_sdk_version.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_secure.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_stdlib.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_storage.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_type.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_unix_time.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/include/tuya_ble_utils.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/mbedtls/aes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/tuya/mbedtls/aes.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/mbedtls/ccm.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/mbedtls/ctr_drbg.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/mbedtls/hmac.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/mbedtls/md5.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/tuya/mbedtls/md5.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/mbedtls/sha1.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/mbedtls/sha256.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/tuya/mbedtls/sha256.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/port/tuya_ble_app.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/tuya/port/tuya_ble_app.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/port/tuya_ble_bt892x.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/tuya/port/tuya_ble_bt892x.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/port/tuya_ble_custom_config.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/port/tuya_ble_ota.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/tuya/port/tuya_ble_ota.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/port/tuya_ble_profile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/tuya/port/tuya_ble_profile.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/port/tuya_ble_timer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/tuya/port/tuya_ble_timer.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/port/tuya_ble_tws.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/tuya/port/tuya_ble_tws.h" />
+		<Unit filename="../../modules/bluetooth/app/tuya/src/tuya_ble_api.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/tuya/src/tuya_ble_bulk_data.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/tuya/src/tuya_ble_data_handler.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/tuya/src/tuya_ble_event.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/tuya/src/tuya_ble_event_handler.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/tuya/src/tuya_ble_event_handler_weak.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/tuya/src/tuya_ble_gatt_send_queue.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/tuya/src/tuya_ble_heap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/tuya/src/tuya_ble_main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/tuya/src/tuya_ble_mem.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/tuya/src/tuya_ble_mutli_tsf_protocol.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/tuya/src/tuya_ble_port.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/tuya/src/tuya_ble_queue.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/tuya/src/tuya_ble_storage.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/tuya/src/tuya_ble_unix_time.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/app/tuya/src/tuya_ble_utils.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/ble/adv0.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/ble/ble.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/ble/popup.h" />
+		<Unit filename="../../modules/bluetooth/ble/priv_ble.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/bluetooth.h" />
+		<Unit filename="../../modules/bluetooth/bsp_bt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/bsp_bt.h" />
+		<Unit filename="../../modules/bluetooth/bt/a2dp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/bt/bt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/bt/dev_vol.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/bt/hfhs.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/bt/hfhs.h" />
+		<Unit filename="../../modules/bluetooth/bt/hid.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/bt/id3_tag.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/bt/id3_tag.h" />
+		<Unit filename="../../modules/bluetooth/bt/map.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/bt/map.h" />
+		<Unit filename="../../modules/bluetooth/bt/pbap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/bt/pbap.h" />
+		<Unit filename="../../modules/bluetooth/bt/profile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/bt/spp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/call/bt_sco.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/call/bt_sco.h" />
+		<Unit filename="../../modules/bluetooth/gfps/gfps.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/gfps/gfps.h" />
+		<Unit filename="../../modules/bluetooth/gfps/gfps_util.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/tws/tws.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/tws/tws.h" />
+		<Unit filename="../../modules/bluetooth/tws/tws_res.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/tws/tws_res.h" />
+		<Unit filename="../../modules/bluetooth/tws/tws_res_tbl.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/tws/tws_res_tbl.h" />
+		<Unit filename="../../modules/bluetooth/tws/tws_sync.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/bluetooth/tws/tws_sync.h" />
+		<Unit filename="../../modules/bluetooth/tws/tws_util.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/charge/charge.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/charge/charge.h" />
+		<Unit filename="../../modules/charge/charge_box.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/charge/charge_box.h" />
+		<Unit filename="../../modules/debug/debug.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/debug/debug.h" />
+		<Unit filename="../../modules/debug/offline_log.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/debug/offline_log.h" />
+		<Unit filename="../../modules/fs/fs.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/fs/fs.h" />
+		<Unit filename="../../modules/gui/gui.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/gui/gui.h" />
+		<Unit filename="../../modules/gui/led/led.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/gui/led/led.h" />
+		<Unit filename="../../modules/gui/ledseg/ledseg_6c6s.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/gui/ledseg/ledseg_6c6s.h" />
+		<Unit filename="../../modules/gui/ledseg/ledseg_7p7s.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/gui/ledseg/ledseg_7p7s.h" />
+		<Unit filename="../../modules/gui/ledseg/ledseg_common.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/gui/ledseg/ledseg_common.h" />
+		<Unit filename="../../modules/key/adkey.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/key/adkey.h" />
+		<Unit filename="../../modules/key/irkey.h" />
+		<Unit filename="../../modules/key/key_scan.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/key/key_scan.h" />
+		<Unit filename="../../modules/key/knob.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/key/pwrkey.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/key/pwrkey.h" />
+		<Unit filename="../../modules/key/tkey.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/key/tkey.h" />
+		<Unit filename="../../modules/modules.h" />
+		<Unit filename="../../modules/music/bsp_abp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/music/bsp_abp.h" />
+		<Unit filename="../../modules/music/bsp_id3_tag.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/music/bsp_id3_tag.h" />
+		<Unit filename="../../modules/music/bsp_karaok.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/music/bsp_karaok.h" />
+		<Unit filename="../../modules/music/bsp_lrc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/music/bsp_lrc.h" />
+		<Unit filename="../../modules/music/bsp_music.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/music/bsp_music.h" />
+		<Unit filename="../../modules/music/bsp_piano.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/music/bsp_piano.h" />
+		<Unit filename="../../modules/record/record.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/record/record.h" />
+		<Unit filename="../../modules/test/anc_test.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/test/enc_test.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/test/iodm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/test/iodm.h" />
+		<Unit filename="../../modules/test/qtest.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/test/qtest.h" />
+		<Unit filename="../../modules/update/upd_uart.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/update/upd_uart.h" />
+		<Unit filename="../../modules/usb_device/usb_audio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/usb_device/usb_audio.h" />
+		<Unit filename="../../modules/usb_device/usb_enum.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/usb_device/usb_enum.h" />
+		<Unit filename="../../modules/usb_device/usb_table.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/usb_device/usb_table.h" />
+		<Unit filename="../../modules/usb_host/usb_iap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/warning/warning_play.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/warning/warning_play.h" />
+		<Unit filename="../../modules/warning/wsbc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../modules/warning/wsbc.h" />
+		<Unit filename="../../system/cm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../system/device.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../system/device.h" />
+		<Unit filename="../../system/interrupt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../system/mute.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../system/mute.h" />
+		<Unit filename="../../system/param.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../system/param.h" />
+		<Unit filename="../../system/system.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../system/system.h" />
+		<Unit filename="../../system/vbat.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../system/vbat.h" />
+		<Unit filename="Output/bin/app.xm">
+			<Option compile="1" />
+			<Option compiler="riscv32" use="1" buildCommand="$compiler $options $includes -E -P -x c -c $file -o $(TARGET_OUTPUT_DIR)appxm.o" />
+		</Unit>
+		<Unit filename="Output/bin/download.xm">
+			<Option compile="1" />
+			<Option compiler="riscv32" use="1" buildCommand=" " />
+		</Unit>
+		<Unit filename="Output/bin/res.h" />
+		<Unit filename="Output/bin/res.xm">
+			<Option compile="1" />
+			<Option compiler="riscv32" use="1" buildCommand=" " />
+		</Unit>
+		<Unit filename="Output/bin/xcfg.h" />
+		<Unit filename="Output/bin/xcfg.xm">
+			<Option compile="1" />
+			<Option compiler="riscv32" use="1" buildCommand=" " />
+		</Unit>
+		<Unit filename="app_ble.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="app_lr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="app_message.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="app_ringbuf.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="app_role_switch.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="config.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="config.h" />
+		<Unit filename="display/display_aux.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="display/display_bt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="display/display_idle.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="display/display_speaker.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="display/display_usbdev.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="display/ledseg/display_ledseg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="display/ledseg/display_ledseg.h" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="message/msg_aux.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="message/msg_bt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="message/msg_idle.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="message/msg_music.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="message/msg_speaker.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="message/msg_usbdev.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="plugin/bt_call.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="plugin/bt_call.h" />
+		<Unit filename="plugin/eq_table.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="plugin/karaok.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="plugin/multi_lang.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="plugin/multi_lang.h" />
+		<Unit filename="plugin/plugin.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="plugin/plugin.h" />
+		<Unit filename="plugin/usb_call.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="plugin/usb_call.h" />
+		<Unit filename="port/port_key.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="port/port_led.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="port/port_led.h" />
+		<Unit filename="port/port_ledseg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="port/port_linein.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="port/port_linein.h" />
+		<Unit filename="port/port_mute.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="port/port_pwm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="port/port_pwm.h" />
+		<Unit filename="port/port_sd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="port/port_sd.h" />
+		<Unit filename="port/port_tkey.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="port/port_tkey.h" />
+		<Unit filename="port/port_update.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ram.ld">
+			<Option compile="1" />
+			<Option compiler="riscv32-v2" use="1" buildCommand="$compiler $options $includes -E -P -x c -c $file -o $(TARGET_OBJECT_DIR)ram.o" />
+			<Option compiler="riscv32" use="1" buildCommand="$compiler $options $includes -E -P -x c -c $file -o $(TARGET_OBJECT_DIR)ram.o" />
+		</Unit>
+		<Unit filename="res.h" />
+		<Unit filename="res2.h" />
+		<Unit filename="res_userbin.h" />
+		<Unit filename="xcfg.h" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>

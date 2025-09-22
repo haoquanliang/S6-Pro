@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "app_include.h": "c",
+        "include.h": "c",
+        "res2.h": "c",
+        "3rd_party.h": "c",
+        "app_ringbuf.h": "c",
+        "config_define.h": "c",
+        "map.h": "c",
+        "ab_mate_profile.h": "c"
+    }
+}
