@@ -2545,23 +2545,23 @@ Discarded input sections
  .text.app_dm_init
                 0x0000000000000000       0x18 Output\obj\projects\bt8930\app_dm.o
  .text.app_dm_is_bd_addr_zero
-                0x0000000000000000        0x4 Output\obj\projects\bt8930\app_dm.o
+                0x0000000000000000       0x2c Output\obj\projects\bt8930\app_dm.o
  .text.app_dm_get_connected_ag_num
-                0x0000000000000000        0x2 Output\obj\projects\bt8930\app_dm.o
+                0x0000000000000000       0x42 Output\obj\projects\bt8930\app_dm.o
  .text.app_dm_get_ag_addr_by_index
-                0x0000000000000000        0x2 Output\obj\projects\bt8930\app_dm.o
+                0x0000000000000000       0x36 Output\obj\projects\bt8930\app_dm.o
  .text.app_dm_handle_ag_connect
                 0x0000000000000000        0x2 Output\obj\projects\bt8930\app_dm.o
  .text.app_dm_handle_ag_disconnect
                 0x0000000000000000        0x2 Output\obj\projects\bt8930\app_dm.o
  .text.app_dm_sync_info
-                0x0000000000000000        0x2 Output\obj\projects\bt8930\app_dm.o
+                0x0000000000000000       0x58 Output\obj\projects\bt8930\app_dm.o
  .text.app_dm_get_info
-                0x0000000000000000        0x2 Output\obj\projects\bt8930\app_dm.o
+                0x0000000000000000        0xa Output\obj\projects\bt8930\app_dm.o
  .text.app_dm_is_addr_connected
-                0x0000000000000000        0x2 Output\obj\projects\bt8930\app_dm.o
+                0x0000000000000000       0x50 Output\obj\projects\bt8930\app_dm.o
  .text.app_dm_get_next_ag_addr
-                0x0000000000000000        0x2 Output\obj\projects\bt8930\app_dm.o
+                0x0000000000000000       0x7c Output\obj\projects\bt8930\app_dm.o
  .text.app_dm_get_software_version
                 0x0000000000000000        0x2 Output\obj\projects\bt8930\app_dm.o
  .comment       0x0000000000000000       0x12 Output\obj\projects\bt8930\app_dm.o
@@ -14815,6 +14815,18 @@ LOAD Output\obj\projects\bt8930\port\port_update.o
  .rela.text.is_lowpower_vbat_warning
                 0x00000000100918a4        0x0 Output\obj\bsp\bsp_huart.o
  .rela.text.app_priv_ble_handle_received
+                0x00000000100918a4        0x0 Output\obj\bsp\bsp_huart.o
+ .rela.text.app_dm_is_bd_addr_zero
+                0x00000000100918a4        0x0 Output\obj\bsp\bsp_huart.o
+ .rela.text.app_dm_get_connected_ag_num
+                0x00000000100918a4        0x0 Output\obj\bsp\bsp_huart.o
+ .rela.text.app_dm_get_ag_addr_by_index
+                0x00000000100918a4        0x0 Output\obj\bsp\bsp_huart.o
+ .rela.text.app_dm_sync_info
+                0x00000000100918a4        0x0 Output\obj\bsp\bsp_huart.o
+ .rela.text.app_dm_is_addr_connected
+                0x00000000100918a4        0x0 Output\obj\bsp\bsp_huart.o
+ .rela.text.app_dm_get_next_ag_addr
                 0x00000000100918a4        0x0 Output\obj\bsp\bsp_huart.o
  .rela.text.lr_send
                 0x00000000100918a4        0x0 Output\obj\bsp\bsp_huart.o
