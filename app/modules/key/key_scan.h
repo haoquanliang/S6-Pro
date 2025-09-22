@@ -547,6 +547,7 @@
 #define EVT_RECONN_AG           0x708
 #define EVT_BOX_CMD_AG_PAIR     0x709
 #define EVT_PAIRING             0x70a
+#define EVT_SYS_1S              0x70b
 #endif
 
 

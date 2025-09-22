@@ -255,6 +255,34 @@ static void spp_at_cmd_process(void)
 #endif
 
 
+#if SWETZ_INCASE_MUTE
+AT(.text.func.msg)
+void app_check_mute(void)
+{
+    bool current_state = CHARGE_INBOX();
+    if (current_state)
+    {   
+        if (!sys_cb.mute)
+        {
+            bsp_sys_mute();
+        }
+    }
+    
+    else
+    {
+        if (sys_cb.mute)
+        {
+            bsp_sys_unmute();
+        }
+        
+    }
+
+
+
+}
+#endif
+
+
 
 //func common message process
 AT(.text.func.msg)
@@ -329,11 +357,13 @@ void func_message(u16 msg)
 #if SWETZ_CHECK_INBOX
         case EVT_IN_CASE:
                 printf("EVT_IN_CASE\r\n");
-                
+
                  app_lr_send_notification(LR_NOTIFY_IN_CASE_STATUS, 1, &sys_cb.flag_local_in_case);
 #if SWETZ_ROLE_SWITCH_BY_INBOX
                  msg_enqueue(EVT_INBOX_CHANGED);
 #endif
+
+
             break;
 
         case EVT_OUT_CASE:
@@ -425,6 +455,12 @@ void func_message(u16 msg)
 
 #endif
 
+#if SWETZ_EVT_1S
+        case EVT_SYS_1S:
+                app_check_mute();
+            break;
+#endif
+
 #if SWETZ_SPP_CMD
         case EVT_SPP_AT_CMD:
             spp_at_cmd_process();
@@ -433,6 +469,13 @@ void func_message(u16 msg)
 #endif
 
 #if SWETZ_BT_TO_PAIR    
+
+// 在断开设备时，根据不同的状态选择断开哪个设备：
+// • 如果正在播放音乐（BT_STA_PLAYING）：断开非当前A2DP媒体索引的设备。
+// • 如果正在来电（BT_STA_INCOMING）：断开非当前响铃索引的设备。
+// • 如果正在去电或通话中（BT_STA_OUTGOING或BT_STA_INCALL）：断开非当前HFP索引的设备。
+// • 如果以上都不是，但当前活动地址已连接：断开非活动地址的设备。
+// • 否则，断开非当前HFP索引的设备。
         case EVT_BOX_CMD_AG_PAIR:
             printf("EVT_BOX_CMD_AG_PAIR\r\n");
             if(!bt_tws_is_slave()){

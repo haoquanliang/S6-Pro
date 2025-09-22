@@ -8,6 +8,7 @@
         "config_define.h": "c",
         "map.h": "c",
         "ab_mate_profile.h": "c",
-        "app_role_switch.h": "c"
+        "app_role_switch.h": "c",
+        "func.h": "c"
     }
 }

@@ -267,6 +267,12 @@ void usr_tmr5ms_thread(void)
         msg_enqueue(EVT_MSG_SYS_30S);
         tmr5ms_cnt = 0;
     }
+#if SWETZ_EVT_1S
+    if ((tmr5ms_cnt % 200) == 0) {
+        msg_enqueue(EVT_SYS_1S);
+       
+    }
+#endif
 }
 
 

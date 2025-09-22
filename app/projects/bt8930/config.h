@@ -56,8 +56,8 @@
 #define SWETZ_CLSOE_INBOX_WALEUP    1//关掉inbox唤醒
 
 #define SWETZ_BT_TO_PAIR            1
-
-
+#define SWETZ_INCASE_MUTE           1
+#define SWETZ_EVT_1S                1
 #endif
 
 
