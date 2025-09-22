@@ -458,7 +458,20 @@ void func_message(u16 msg)
                                 {
                                     disc_index = 1;
                                 }      
+                        }else if ((bt_status == BT_STA_OUTGOING) || (bt_status == BT_STA_INCALL))
+                    {
+                        if (hfp_index)
+                        {
+                            disc_index = 0;
                         }
+                        else 
+                        {
+                            disc_index = 1;
+                        }
+                    }
+
+                        
+
                         
                         bt_get_link_btaddr(disc_index, bt_addr);//拿到没活动设备的连接地址
                         bt_nor_get_link_info_name(bt_addr, name, 32);//获取配对信息中的蓝牙名

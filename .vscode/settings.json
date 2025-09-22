@@ -7,6 +7,7 @@
         "app_ringbuf.h": "c",
         "config_define.h": "c",
         "map.h": "c",
-        "ab_mate_profile.h": "c"
+        "ab_mate_profile.h": "c",
+        "app_role_switch.h": "c"
     }
 }
