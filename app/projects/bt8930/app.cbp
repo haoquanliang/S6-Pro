@@ -742,6 +742,9 @@
 		<Unit filename="app_ble.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="app_dm.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="app_lr.c">
 			<Option compilerVar="CC" />
 		</Unit>

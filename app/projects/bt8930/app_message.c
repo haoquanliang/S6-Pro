@@ -233,6 +233,12 @@ static void message_process(message_item_t *message)
         }     
         break;
 
+#if SWETZ_OUTCASE_AFTER_NOT_KEY
+        case MSG_ID_TIMEOUT_5S_AFTER_OUT_BOX:
+             sys_cb.flag_outcase_5s_kye_null = false; 
+             printf("MSG_ID_TIMEOUT_5S_AFTER_OUT_BOX\r\n");  
+            break;
+#endif
 
         default:
         break;

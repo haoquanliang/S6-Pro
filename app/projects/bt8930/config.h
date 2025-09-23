@@ -57,6 +57,9 @@
 #define SWETZ_INCASE_MUTE           1//入仓mute
 #define SWETZ_EVT_1S                1//1s事件
 #define SWETZ_LOWVBAT_OUT_SYNC_OFF  1//sys_cb.discon_reason 0不同步 1同步//低电不同步关机
+#define SWETZ_OUTCASE_AFTER_NOT_KEY 1//出仓5s不响应按键消息//flag_outcase_5s_kye_null
+
+
 
 #endif
 

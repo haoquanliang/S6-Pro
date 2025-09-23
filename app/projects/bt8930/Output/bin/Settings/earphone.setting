@@ -44,7 +44,7 @@
         <add key="charge_dc_reset" value="True" />
         <add key="charge_dc_not_pwron" value="True" />
         <add key="charge_voltage_follow" value="True" />
-        <add key="charge_stop_curr" value="5mA" />
+        <add key="charge_stop_curr" value="2.5mA" />
         <add key="charge_constant_curr" value="90mA" />
         <add key="charge_trickle_curr" value="20mA" />
         <add key="charge_full_bled" value="0" />
@@ -58,7 +58,7 @@
         <add key="chbox_out_delay" value="15" />
         <add key="bt_name" value="BT893X-TWS" />
         <add key="bt_addr_mode" value="单次递增" />
-        <add key="bt_addr" value="41:42:00:00:01:1F" />
+        <add key="bt_addr" value="41:42:00:00:01:39" />
         <add key="bt_addr_start" value="41:42:00:00:00:00" />
         <add key="bt_addr_step" value="00:00:00:00:00:01" />
         <add key="bt_addr_end" value="41:42:FF:FF:FF:FF" />

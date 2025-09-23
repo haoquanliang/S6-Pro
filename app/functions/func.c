@@ -363,6 +363,7 @@ void func_message(u16 msg)
                 printf("EVT_IN_CASE\r\n");
 
                  app_lr_send_notification(LR_NOTIFY_IN_CASE_STATUS, 1, &sys_cb.flag_local_in_case);
+                
 #if SWETZ_ROLE_SWITCH_BY_INBOX
                  msg_enqueue(EVT_INBOX_CHANGED);
 #endif
@@ -370,9 +371,16 @@ void func_message(u16 msg)
 
             break;
 
+
+
         case EVT_OUT_CASE:
                 printf("EVT_OUT_CASE\r\n");
                 app_lr_send_notification(LR_NOTIFY_IN_CASE_STATUS, 1, &sys_cb.flag_local_in_case);
+#if SWETZ_OUTCASE_AFTER_NOT_KEY
+             sys_cb.flag_outcase_5s_kye_null = true;
+             message_cancel_all(MSG_ID_TIMEOUT_5S_AFTER_OUT_BOX);
+             message_send(MSG_ID_TIMEOUT_5S_AFTER_OUT_BOX, 0, 5000);
+#endif                 
 #if SWETZ_ROLE_SWITCH_BY_INBOX
                  msg_enqueue(EVT_OUTBOX_CHANGED);
 #endif

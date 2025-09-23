@@ -475,8 +475,11 @@ static void charge_box_send_data(u8 *buf,u8 len)
     }
 #endif
 #if SWETZ 
-    printf("box tx:");
-    print_r(buf, len);
+    if(buf[3] != 0x01){
+        printf("box tx:");
+        print_r(buf, len);
+    }
+
 #endif 
 }
 
@@ -862,7 +865,7 @@ u32 charge_box_ssw_process(u32 charge_sta)
     if(vhouse_cb.rx_flag) {
         if(packet->checksum == crc8_maxim((u8 *)packet, 5 + packet->length)) {
             TRACE("cmd [%d], %d\n", packet->cmd, charge_sta);
-            print_r(packet,20);
+           // print_r(packet,20);
             if (charge_sta) {
                 charge_box_analysis_packet_for_charge(packet);
             } else {
