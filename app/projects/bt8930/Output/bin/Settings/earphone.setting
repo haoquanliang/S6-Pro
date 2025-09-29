@@ -21,7 +21,7 @@
         <add key="pwroff_press_time" value="3" />
         <add key="eq_dgb_spp_en" value="True" />
         <add key="huart_en" value="True" />
-        <add key="huart_sel" value="2" />
+        <add key="huart_sel" value="10" />
         <add key="uart1_en" value="False" />
         <add key="uart1_sel" value="2" />
         <add key="dac_sel" value="4" />
@@ -57,8 +57,8 @@
         <add key="chg_inbox_pwrdwn_en" value="False" />
         <add key="chbox_out_delay" value="15" />
         <add key="bt_name" value="BT893X-TWS" />
-        <add key="bt_addr_mode" value="单次递增" />
-        <add key="bt_addr" value="41:42:00:00:01:40" />
+        <add key="bt_addr_mode" value="固定地址" />
+        <add key="bt_addr" value="41:42:00:00:01:47" />
         <add key="bt_addr_start" value="41:42:00:00:00:00" />
         <add key="bt_addr_step" value="00:00:00:00:00:01" />
         <add key="bt_addr_end" value="41:42:FF:FF:FF:FF" />
