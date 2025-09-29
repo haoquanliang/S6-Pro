@@ -59,8 +59,10 @@
 #define SWETZ_LOWVBAT_OUT_SYNC_OFF  1//sys_cb.discon_reason 0不同步 1同步//低电不同步关机
 #define SWETZ_OUTCASE_AFTER_NOT_KEY 1//出仓5s不响应按键消息//flag_outcase_5s_kye_null
 #define SWETZ_FACTORY_RESET         1//恢复出厂
+#define SWETZ_DYN_EQ_DEBUG          0//动态EQ调试
 
-#define SWETZ_DYN_EQ_DEBUG          0//动态EQ
+
+
 #endif
 
 

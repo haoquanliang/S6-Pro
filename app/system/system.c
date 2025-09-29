@@ -122,6 +122,9 @@ void check_ear_inbox()
             {
                 if (inbox)
                 {
+#if SWETZ_OUTCASE_AFTER_NOT_KEY
+                    sys_cb.flag_outcase_5s_kye_null = false;//入仓关掉出仓5s防误触
+#endif
                     msg_enqueue(EVT_IN_CASE);
                 }
             }

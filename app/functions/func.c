@@ -361,7 +361,7 @@ void func_message(u16 msg)
 #if SWETZ_CHECK_INBOX
         case EVT_IN_CASE:
                 printf("EVT_IN_CASE\r\n");
-
+                    
                  app_lr_send_notification(LR_NOTIFY_IN_CASE_STATUS, 1, &sys_cb.flag_local_in_case);
                 
 #if SWETZ_ROLE_SWITCH_BY_INBOX

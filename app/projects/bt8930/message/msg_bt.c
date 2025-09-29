@@ -177,7 +177,7 @@ void func_bt_message_do(u16 msg)
     int klu_flag = 0;
 
 #if SWETZ_OUTCASE_AFTER_NOT_KEY
-     if(sys_cb.flag_outcase_5s_kye_null == true){
+     if(sys_cb.flag_outcase_5s_kye_null == true && (msg != EVT_SYS_1S && msg != EVT_SYS_5S)){
         return;
      }   
 #endif
@@ -412,7 +412,7 @@ void sfunc_bt_ring_message_do(u16 msg)
 {
 
 #if SWETZ_OUTCASE_AFTER_NOT_KEY
-     if(sys_cb.flag_outcase_5s_kye_null == true){
+     if(sys_cb.flag_outcase_5s_kye_null == true && (msg != EVT_SYS_1S && msg != EVT_SYS_5S)){
         return;
      }   
 #endif
@@ -531,7 +531,7 @@ void sfunc_bt_call_message_do(u16 msg)
     u8 call_status;
 
 #if SWETZ_OUTCASE_AFTER_NOT_KEY
-     if(sys_cb.flag_outcase_5s_kye_null == true){
+     if(sys_cb.flag_outcase_5s_kye_null == true && (msg != EVT_SYS_1S && msg != EVT_SYS_5S)){
         return;
      }   
 #endif
