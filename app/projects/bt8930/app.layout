@@ -2,9 +2,19 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="plugin\multi_lang.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="app_dm.c" open="1" top="1" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="104" topLine="0" />
+			<Cursor1 position="5128" topLine="192" />
+		</Cursor>
+	</File>
+	<File name="..\..\functions\sfunc_bt_ring.c" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8234" topLine="293" />
+		</Cursor>
+	</File>
+	<File name="..\..\functions\func.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="12122" topLine="467" />
 		</Cursor>
 	</File>
 	<File name="..\..\system\system.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -12,34 +22,9 @@
 			<Cursor1 position="7546" topLine="214" />
 		</Cursor>
 	</File>
-	<File name="app_dm.c" open="1" top="1" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="plugin\multi_lang.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="5128" topLine="192" />
-		</Cursor>
-	</File>
-	<File name="..\..\functions\func.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="12122" topLine="461" />
-		</Cursor>
-	</File>
-	<File name="app_message.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4710" topLine="200" />
-		</Cursor>
-	</File>
-	<File name="app_lr.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2583" topLine="77" />
-		</Cursor>
-	</File>
-	<File name="app_ble.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3753" topLine="109" />
-		</Cursor>
-	</File>
-	<File name="..\..\include\clib.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="180" topLine="0" />
+			<Cursor1 position="104" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="app_role_switch.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -47,9 +32,24 @@
 			<Cursor1 position="2067" topLine="52" />
 		</Cursor>
 	</File>
-	<File name="..\..\functions\sfunc_bt_ring.c" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="app_message.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="8234" topLine="293" />
+			<Cursor1 position="4710" topLine="204" />
+		</Cursor>
+	</File>
+	<File name="..\..\include\clib.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="180" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="app_ble.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3753" topLine="109" />
+		</Cursor>
+	</File>
+	<File name="app_lr.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2583" topLine="77" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

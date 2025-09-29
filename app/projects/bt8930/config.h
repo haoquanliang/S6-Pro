@@ -58,9 +58,9 @@
 #define SWETZ_EVT_1S                1//1s事件
 #define SWETZ_LOWVBAT_OUT_SYNC_OFF  1//sys_cb.discon_reason 0不同步 1同步//低电不同步关机
 #define SWETZ_OUTCASE_AFTER_NOT_KEY 1//出仓5s不响应按键消息//flag_outcase_5s_kye_null
+#define SWETZ_FACTORY_RESET         1//恢复出厂
 
-
-
+#define SWETZ_DYN_EQ_DEBUG              1//动态EQ
 #endif
 
 
@@ -312,9 +312,9 @@
 /*****************************************************************************
  * Module    : 蓝牙音乐算法配置
  *****************************************************************************/
-#define BT_MUSIC_EFFECT_EN              0                   //蓝牙音乐音效算法处理使能
-#define BT_MUSIC_EFFECT_DBG_EN          0                   //蓝牙音乐音效在线调试使能
-#define BT_MUSIC_EFFECT_ABT_EN          0                   //是否使用abt文件获取音效参数，abt文件由在线调试工具生成，需要自行替换abt文件或在setting中选择对应算法的资源文件
+#define BT_MUSIC_EFFECT_EN              1                   //蓝牙音乐音效算法处理使能
+#define BT_MUSIC_EFFECT_DBG_EN          1                   //蓝牙音乐音效在线调试使能
+#define BT_MUSIC_EFFECT_ABT_EN          1                   //是否使用abt文件获取音效参数，abt文件由在线调试工具生成，需要自行替换abt文件或在setting中选择对应算法的资源文件
 #define BT_MUSIC_PAUSE_CLK_BACK_EN      0                   //蓝牙音乐暂停播放是否把音乐音效的主频调回去
 //动态低音
 #define BT_MUSIC_EFFECT_DBB_EN          0                   //动态低音音效使能
@@ -328,8 +328,8 @@
 //虚拟低音
 #define BT_MUSIC_EFFECT_VBASS_EN        0                   //虚拟低音使能
 //动态EQ
-#define BT_MUSIC_EFFECT_DYEQ_EN         0                   //动态EQ使能
-#define BT_MUSIC_EFFECT_DYEQ_VBASS_EN   0                   //动态EQ和VBASS配合使用，不需要打开 BT_MUSIC_EFFECT_VBASS_EN
+#define BT_MUSIC_EFFECT_DYEQ_EN         1                   //动态EQ使能
+#define BT_MUSIC_EFFECT_DYEQ_VBASS_EN   1                   //动态EQ和VBASS配合使用，不需要打开 BT_MUSIC_EFFECT_VBASS_EN
 //2段DRC
 #define BT_MUSIC_EFFECT_XDRC_EN         0                   //2段DRC使能
 #define BT_MUSIC_EFFECT_XDRC_EQ_EN      0                   //2段DRC软件EQ使能

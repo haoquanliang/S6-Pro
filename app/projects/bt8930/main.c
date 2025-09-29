@@ -54,6 +54,9 @@ int main(void)
     }
 
     sys_init();
+#if SWETZ_EQ_TEST
+    music_dyeq_audio_start();
+#endif
     func_run();
     return 0;
 }
