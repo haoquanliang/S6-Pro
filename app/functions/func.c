@@ -456,10 +456,10 @@ void func_message(u16 msg)
             if(sys_cb.local_bat_level != bat_level){
                     sys_cb.local_bat_level = bat_level;
                     app_lr_send_notification(LR_NOTIFY_BATTERY_LEVEL, 1, &sys_cb.local_bat_level);
-                    printf("sys_cb.local_bat_level:%d  sys_cb.peer_bat_level:%d\r\n",sys_cb.local_bat_level,sys_cb.peer_bat_level);
+                    
             }
         }
-            
+        printf("sys_cb.local_bat_level:%d  sys_cb.peer_bat_level:%d\r\n",sys_cb.local_bat_level,sys_cb.peer_bat_level);
       // printf("sys_cb.SWETZ_tick:%d\r\n",sys_cb.SWETZ_tick);
         printf("disp status %d,tws conn %d,tws slave %d, nor conn %d, scan %d, sys_cb.vol:%d  sys_cb.hfp_vol:%d sys_cb.lang_id:%d low_latency:%d\n\r",
         f_bt.disp_status,bt_tws_is_connected(),bt_tws_is_slave(),bt_nor_is_connected(), bt_get_scan(),

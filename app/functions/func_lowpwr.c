@@ -9,7 +9,7 @@ void unlock_code_vad(void);
 bool bt_is_pre_wakeup(void);
 
 
-#if SWETZ_TEST
+#if SWETZ
 AT(.text.lowpwr.sleep)
 static bool is_sleep_ready(void)
 {
@@ -491,11 +491,8 @@ bool sleep_process(is_sleep_func is_sleep)
 
     if ((*is_sleep)()) {
 
-#if SWETZ_TEST
-        if ((!sys_cb.sleep_en) || (!port_2led_is_sleep_en()) || (!is_sleep_ready())) {
-#else
         if ((!sys_cb.sleep_en) || (!port_2led_is_sleep_en())) {
-#endif
+
             reset_sleep_delay();
             return false;
         }

@@ -128,12 +128,54 @@ static uint8_t get_empty_ag_addr_index(void)//查找音频网关设备列表中�
 
 void app_dm_handle_ag_connect(bt_bd_addr_t* addr)//处理音频网关设备的连接请求，包括验证连接条件、存储设备地址和触发相关事件 addr: 指向要连接的蓝牙设备地址的指针
 {
+    uint8_t connected_num, store_index;
+    DM_DEBUG("addr %x:%x:%x:%x:%x:%x\n", (*addr)[5], (*addr)[4], (*addr)[3], (*addr)[2], (*addr)[1], (*addr)[0]);
+        if (func_cb.sta != FUNC_BT)
+    {
+        return;
+    }
+    if (dm_is_ag_addr_connected(addr))
+    {
+        DM_DEBUG("already connected, igore it\n");
+        return;
+    }
 
+    connected_num = app_dm_get_connected_ag_num();
+    if (connected_num == 2)
+    {
+        DM_DEBUG("already 2 AGs ?\n");
+        return;
+    }
+     else if (connected_num == 1)
+    {
+        if (!ab_mate_app.mult_dev.en)
+        {
+            DM_DEBUG("1 AG, ignore it\n");
+            return;
+        }
+    }
+
+    /* store the addr */
+    store_index = get_empty_ag_addr_index();
+
+    if (store_index != 0xFF){
+        memcpy(&dm.ag_addr[store_index], addr, sizeof(bt_bd_addr_t));
+    }
 }
 
 void app_dm_handle_ag_disconnect(bt_bd_addr_t* addr)//处理音频网关设备的断开连接事件，包括清除设备地址和触发相关事件  addr: 指向要断开连接的蓝牙设备地址的指针
 {
-
+    uint8_t disconnct_index;
+    DM_DEBUG("addr %x:%x:%x:%x:%x:%x\n", (*addr)[5], (*addr)[4], (*addr)[3], (*addr)[2], (*addr)[1], (*addr)[0]);
+    if (func_cb.sta != FUNC_BT)
+    {
+        return;
+    }
+    disconnct_index = dm_get_ag_index_by_addr(addr);    
+    if (disconnct_index != 0xFF)
+    {       
+        memset(&dm.ag_addr[disconnct_index], 0, sizeof(bt_bd_addr_t)); //清掉对应ag的地址
+    }
 }
 
 void app_dm_sync_info(void)//在 TWS 连接且设备为主设备时，将设备管理信息同步到从设备

@@ -226,7 +226,7 @@ void bt_emit_notice(uint evt, void *params)
     u8 *packet = params;
     u8 opcode = 0;
     u8 scan_status = 0x03;
-
+    u8 ag_num = 0;
     switch(evt) {
     case BT_NOTICE_INIT_FINISH:
 #if BT_TWS_EN
@@ -257,13 +257,13 @@ void bt_emit_notice(uint evt, void *params)
 
     case BT_NOTICE_DISCONNECT:
 #if SWETZ_SET_SCAN_STATE
-        // u8 ag_num = app_dm_get_connected_ag_num();
-        // if(ag_num == 0){
-        //         bt_set_scan(0x03);
+            ag_num = app_dm_get_connected_ag_num();
+        if(ag_num == 0){
+                bt_set_scan(0x03);
 
-        // }else{
-        //         bt_set_scan(0x02);
-        // }
+        }else{
+                bt_set_scan(0x02);
+        }
 #endif
 
 
