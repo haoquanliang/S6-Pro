@@ -2553,13 +2553,8 @@ Discarded input sections
  .data          0x0000000000000000        0x0 Output\obj\projects\bt8930\app_ble.o
  .text          0x0000000000000000        0x0 Output\obj\projects\bt8930\app_dm.o
  .data          0x0000000000000000        0x0 Output\obj\projects\bt8930\app_dm.o
- .bss           0x0000000000000000        0xc Output\obj\projects\bt8930\app_dm.o
  .text.app_dm_init
                 0x0000000000000000       0x18 Output\obj\projects\bt8930\app_dm.o
- .text.app_dm_is_bd_addr_zero
-                0x0000000000000000       0x2c Output\obj\projects\bt8930\app_dm.o
- .text.app_dm_get_connected_ag_num
-                0x0000000000000000       0x42 Output\obj\projects\bt8930\app_dm.o
  .text.app_dm_get_ag_addr_by_index
                 0x0000000000000000       0x36 Output\obj\projects\bt8930\app_dm.o
  .text.app_dm_handle_ag_connect
@@ -2576,7 +2571,6 @@ Discarded input sections
                 0x0000000000000000       0x7c Output\obj\projects\bt8930\app_dm.o
  .text.app_dm_get_software_version
                 0x0000000000000000        0x2 Output\obj\projects\bt8930\app_dm.o
- .comment       0x0000000000000000       0x12 Output\obj\projects\bt8930\app_dm.o
  .text          0x0000000000000000        0x0 Output\obj\projects\bt8930\app_lr.o
  .data          0x0000000000000000        0x0 Output\obj\projects\bt8930\app_lr.o
  .text          0x0000000000000000        0x0 Output\obj\projects\bt8930\app_message.o
@@ -8557,731 +8551,731 @@ LOAD Output\obj\projects\bt8930\port\port_update.o
                 0x000000001001fe32        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
                 0x000000001001fe32                ab_mate_mult_dev_addr_decrypt
  .text.ab_mate_mult_dev_en_set_do
-                0x000000001001fe36       0x5e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x000000001001fe36       0x96 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
                 0x000000001001fe36                ab_mate_mult_dev_en_set_do
  .text.ab_mate_mult_dev_unpair_do
-                0x000000001001fe94       0x1a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x000000001001fe94                ab_mate_mult_dev_unpair_do
+                0x000000001001fecc       0x1a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x000000001001fecc                ab_mate_mult_dev_unpair_do
  .text.ab_mate_connect_info_get
-                0x000000001001feae       0xe4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x000000001001feae                ab_mate_connect_info_get
+                0x000000001001fee6       0xe4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x000000001001fee6                ab_mate_connect_info_get
  .text.ab_mate_device_info_query
-                0x000000001001ff92      0x852 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x000000001001ff92                ab_mate_device_info_query
+                0x000000001001ffca      0x852 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x000000001001ffca                ab_mate_device_info_query
  .text.ab_mate_connect_info_set
-                0x00000000100207e4       0xd6 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x00000000100207e4                ab_mate_connect_info_set
+                0x000000001002081c       0xd6 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x000000001002081c                ab_mate_connect_info_set
  .text.ab_mate_connect_info_notify
-                0x00000000100208ba       0x60 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x00000000100208ba                ab_mate_connect_info_notify
+                0x00000000100208f2       0x60 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100208f2                ab_mate_connect_info_notify
  .text.ab_mate_mult_dev_set
-                0x000000001002091a      0x196 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x000000001002091a                ab_mate_mult_dev_set
+                0x0000000010020952      0x196 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010020952                ab_mate_mult_dev_set
  .text.ab_mate_bt_sta_timer_creat
-                0x0000000010020ab0       0x1a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010020ab0                ab_mate_bt_sta_timer_creat
- *fill*         0x0000000010020aca        0x2 
+                0x0000000010020ae8       0x1a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010020ae8                ab_mate_bt_sta_timer_creat
+ *fill*         0x0000000010020b02        0x2 
  .text.ab_mate_hid_ctrl
-                0x0000000010020acc       0x66 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010020acc                ab_mate_hid_ctrl
+                0x0000000010020b04       0x66 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010020b04                ab_mate_hid_ctrl
  .text.ab_mate_custom_request_receive_proc
-                0x0000000010020b32       0xdc Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010020b32                ab_mate_custom_request_receive_proc
+                0x0000000010020b6a       0xdc Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010020b6a                ab_mate_custom_request_receive_proc
  .text.ab_mate_request_receive_proc
-                0x0000000010020c0e      0x164 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010020c0e                ab_mate_request_receive_proc
+                0x0000000010020c46      0x164 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010020c46                ab_mate_request_receive_proc
  .text.ab_mate_receive_proc_do
-                0x0000000010020d72       0x24 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010020d72                ab_mate_receive_proc_do
- *fill*         0x0000000010020d96        0x2 
+                0x0000000010020daa       0x24 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010020daa                ab_mate_receive_proc_do
+ *fill*         0x0000000010020dce        0x2 
  .text.ab_mate_eq_overall_gain_set
-                0x0000000010020d98       0x46 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010020d98                ab_mate_eq_overall_gain_set
+                0x0000000010020dd0       0x46 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010020dd0                ab_mate_eq_overall_gain_set
  .text.ab_mate_eq_set_do
-                0x0000000010020dde       0xc4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010020dde                ab_mate_eq_set_do
+                0x0000000010020e16       0xc4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010020e16                ab_mate_eq_set_do
  .text.ab_mate_key_init
-                0x0000000010020ea2       0xec Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010020ea2                ab_mate_key_init
+                0x0000000010020eda       0xec Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010020eda                ab_mate_key_init
  .text.ab_mate_mode_set_do
-                0x0000000010020f8e       0x2e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010020f8e                ab_mate_mode_set_do
+                0x0000000010020fc6       0x2e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010020fc6                ab_mate_mode_set_do
  .text.ab_mate_eq_init
-                0x0000000010020fbc       0x94 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010020fbc                ab_mate_eq_init
+                0x0000000010020ff4       0x94 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010020ff4                ab_mate_eq_init
  .text.ab_mate_bt_name_init
-                0x0000000010021050       0x66 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010021050                ab_mate_bt_name_init
+                0x0000000010021088       0x66 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010021088                ab_mate_bt_name_init
  .text.ab_mate_lang_init
-                0x00000000100210b6       0x40 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x00000000100210b6                ab_mate_lang_init
+                0x00000000100210ee       0x40 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100210ee                ab_mate_lang_init
  .text.ab_mate_led_init
-                0x00000000100210f6       0x3c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x00000000100210f6                ab_mate_led_init
+                0x000000001002112e       0x3c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x000000001002112e                ab_mate_led_init
  .text.ab_mate_mult_dev_init
-                0x0000000010021132       0x62 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010021132                ab_mate_mult_dev_init
+                0x000000001002116a       0x62 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x000000001002116a                ab_mate_mult_dev_init
  .text.ab_mate_device_reset_do
-                0x0000000010021194       0x5a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010021194                ab_mate_device_reset_do
+                0x00000000100211cc       0x5a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100211cc                ab_mate_device_reset_do
  .text.ab_mate_var_init
-                0x00000000100211ee       0xb2 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x00000000100211ee                ab_mate_var_init
+                0x0000000010021226       0xb2 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010021226                ab_mate_var_init
  .text.ab_mate_init_do
-                0x00000000100212a0       0x84 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x00000000100212a0                ab_mate_init_do
+                0x00000000100212d8       0x84 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100212d8                ab_mate_init_do
  .text.ab_mate_connect_proc
-                0x0000000010021324       0x48 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010021324                ab_mate_connect_proc
+                0x000000001002135c       0x48 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x000000001002135c                ab_mate_connect_proc
  .text.ab_mate_disconnect_proc
-                0x000000001002136c       0x44 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x000000001002136c                ab_mate_disconnect_proc
+                0x00000000100213a4       0x44 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100213a4                ab_mate_disconnect_proc
  .text.ab_mate_ble_connect_callback
-                0x00000000100213b0       0x1c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x00000000100213b0                ab_mate_ble_connect_callback
+                0x00000000100213e8       0x1c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100213e8                ab_mate_ble_connect_callback
  .text.ab_mate_ble_disconnect_callback
-                0x00000000100213cc       0x16 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x00000000100213cc                ab_mate_ble_disconnect_callback
+                0x0000000010021404       0x16 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010021404                ab_mate_ble_disconnect_callback
  .text.ab_mate_disable_adv_for_spp_connect
-                0x00000000100213e2       0x1c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x00000000100213e2                ab_mate_disable_adv_for_spp_connect
+                0x000000001002141a       0x1c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x000000001002141a                ab_mate_disable_adv_for_spp_connect
  .text.ab_mate_receive_proc
-                0x00000000100213fe      0x1d4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x00000000100213fe                ab_mate_receive_proc
+                0x0000000010021436      0x1d4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010021436                ab_mate_receive_proc
  .text.ab_mate.flag
-                0x00000000100215d2      0x142 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x00000000100215d2                ab_mate_flag_do
+                0x000000001002160a      0x142 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x000000001002160a                ab_mate_flag_do
  .text.ab_mate_enable_adv_for_spp_disconnect
-                0x0000000010021714       0x2a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010021714                ab_mate_enable_adv_for_spp_disconnect
+                0x000000001002174c       0x2a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x000000001002174c                ab_mate_enable_adv_for_spp_disconnect
  .text.ab_mate_spp_connect_callback
-                0x000000001002173e        0x6 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x000000001002173e                ab_mate_spp_connect_callback
+                0x0000000010021776        0x6 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010021776                ab_mate_spp_connect_callback
  .text.ab_mate_spp_disconnect_callback
-                0x0000000010021744       0x28 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010021744                ab_mate_spp_disconnect_callback
+                0x000000001002177c       0x28 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x000000001002177c                ab_mate_spp_disconnect_callback
  .text.ab_mate_tws_connect_callback
-                0x000000001002176c       0x2a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x000000001002176c                ab_mate_tws_connect_callback
+                0x00000000100217a4       0x2a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100217a4                ab_mate_tws_connect_callback
  .text.ab_mate_tws_disconnect_callback
-                0x0000000010021796       0x4a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010021796                ab_mate_tws_disconnect_callback
+                0x00000000100217ce       0x4a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100217ce                ab_mate_tws_disconnect_callback
  .text.ab_mate_tws_role_switch_callback
-                0x00000000100217e0       0x28 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x00000000100217e0                ab_mate_tws_role_switch_callback
+                0x0000000010021818       0x28 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010021818                ab_mate_tws_role_switch_callback
  .text.ab_mate_bt_connect_callback
-                0x0000000010021808       0x18 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010021808                ab_mate_bt_connect_callback
+                0x0000000010021840       0x18 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010021840                ab_mate_bt_connect_callback
  .text.ab_mate_ble_role_switch_get_data
-                0x0000000010021820        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010021820                ab_mate_ble_role_switch_get_data
+                0x0000000010021858        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010021858                ab_mate_ble_role_switch_get_data
  .text.ab_mate_ble_role_switch_set_data
-                0x0000000010021824        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010021824                ab_mate_ble_role_switch_set_data
+                0x000000001002185c        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x000000001002185c                ab_mate_ble_role_switch_set_data
  .text.role_switch_get_user_data
-                0x0000000010021828       0x60 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010021828                role_switch_get_user_data
+                0x0000000010021860       0x60 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010021860                role_switch_get_user_data
  .text.role_switch_set_user_data
-                0x0000000010021888       0x9c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010021888                role_switch_set_user_data
+                0x00000000100218c0       0x9c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100218c0                role_switch_set_user_data
  .text.ab_mate_bt_evt_notice
-                0x0000000010021924       0x44 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010021924                ab_mate_bt_evt_notice
+                0x000000001002195c       0x44 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x000000001002195c                ab_mate_bt_evt_notice
  .text.ab_mate_enter_sleep
-                0x0000000010021968       0x4e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010021968                ab_mate_enter_sleep
+                0x00000000100219a0       0x4e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100219a0                ab_mate_enter_sleep
  .text.ab_mate_exit_sleep
-                0x00000000100219b6       0x1e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x00000000100219b6                ab_mate_exit_sleep
+                0x00000000100219ee       0x1e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100219ee                ab_mate_exit_sleep
  .text.fot.update
-                0x00000000100219d4       0x2a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010021a0c       0x2a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
  .text.app_fota_breakpoint_info_read
-                0x00000000100219fe        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x00000000100219fe                app_fota_breakpoint_info_read
+                0x0000000010021a36        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010021a36                app_fota_breakpoint_info_read
  .text.app_fota_init
-                0x0000000010021a02       0x10 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x0000000010021a02                app_fota_init
+                0x0000000010021a3a       0x10 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010021a3a                app_fota_init
  .text.ab_mate_ota_init
-                0x0000000010021a12       0x2c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x0000000010021a12                ab_mate_ota_init
+                0x0000000010021a4a       0x2c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010021a4a                ab_mate_ota_init
  .text.ab_mate_ota_exit
-                0x0000000010021a3e       0x4e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x0000000010021a3e                ab_mate_ota_exit
+                0x0000000010021a76       0x4e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010021a76                ab_mate_ota_exit
  .text.ab_mate_ota_is_start
-                0x0000000010021a8c       0x10 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x0000000010021a8c                ab_mate_ota_is_start
+                0x0000000010021ac4       0x10 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010021ac4                ab_mate_ota_is_start
  .text.ab_mate_ota_seq_err_notify
-                0x0000000010021a9c       0x1c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x0000000010021a9c                ab_mate_ota_seq_err_notify
+                0x0000000010021ad4       0x1c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010021ad4                ab_mate_ota_seq_err_notify
  .text.fot_update_pause
-                0x0000000010021ab8       0x22 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x0000000010021ab8                fot_update_pause
+                0x0000000010021af0       0x22 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010021af0                fot_update_pause
  .text.fot_update_continue
-                0x0000000010021ada       0x18 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x0000000010021ada                fot_update_continue
+                0x0000000010021b12       0x18 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010021b12                fot_update_continue
  .text.is_fot_tws_support
-                0x0000000010021af2        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x0000000010021af2                is_fot_tws_support
+                0x0000000010021b2a        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010021b2a                is_fot_tws_support
  .text.ab_mate_tws_ota_req_proc
-                0x0000000010021af6      0x116 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x0000000010021af6                ab_mate_tws_ota_req_proc
+                0x0000000010021b2e      0x116 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010021b2e                ab_mate_tws_ota_req_proc
  .text.ab_mate_ota_disconnect_callback
-                0x0000000010021c0c       0x1e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x0000000010021c0c                ab_mate_ota_disconnect_callback
- *fill*         0x0000000010021c2a        0x2 
+                0x0000000010021c44       0x1e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010021c44                ab_mate_ota_disconnect_callback
+ *fill*         0x0000000010021c62        0x2 
  .text.ab_mate_ota_tws_data_proc
-                0x0000000010021c2c      0x1de Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x0000000010021c2c                ab_mate_ota_tws_data_proc
+                0x0000000010021c64      0x1de Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010021c64                ab_mate_ota_tws_data_proc
  .text.ab_mate_ota_proc
-                0x0000000010021e0a      0x230 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x0000000010021e0a                ab_mate_ota_proc
+                0x0000000010021e42      0x230 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010021e42                ab_mate_ota_proc
  .text.ab_mate_ota_flag_do
-                0x000000001002203a       0x64 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x000000001002203a                ab_mate_ota_flag_do
+                0x0000000010022072       0x64 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010022072                ab_mate_ota_flag_do
  .text.gatt_callback_ab_mate_write
-                0x000000001002209e       0x52 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
+                0x00000000100220d6       0x52 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
  .text.ble_get_scan_data
-                0x00000000100220f0       0x50 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
-                0x00000000100220f0                ble_get_scan_data
+                0x0000000010022128       0x50 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
+                0x0000000010022128                ble_get_scan_data
  .text.ble_get_adv_data
-                0x0000000010022140       0x78 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
-                0x0000000010022140                ble_get_adv_data
+                0x0000000010022178       0x78 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
+                0x0000000010022178                ble_get_adv_data
  .text.ble_adv_data_update_bit
-                0x00000000100221b8       0x52 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
-                0x00000000100221b8                ble_adv_data_update_bit
+                0x00000000100221f0       0x52 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
+                0x00000000100221f0                ble_adv_data_update_bit
  .text.ab_mate_update_ble_adv_fmsk
-                0x000000001002220a        0xe Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
-                0x000000001002220a                ab_mate_update_ble_adv_fmsk
+                0x0000000010022242        0xe Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
+                0x0000000010022242                ab_mate_update_ble_adv_fmsk
  .text.ab_mate_update_ble_adv_bt_sta
-                0x0000000010022218        0xc Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
-                0x0000000010022218                ab_mate_update_ble_adv_bt_sta
+                0x0000000010022250        0xc Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
+                0x0000000010022250                ab_mate_update_ble_adv_bt_sta
  .text.ble_txpkt_init
-                0x0000000010022224       0x30 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
-                0x0000000010022224                ble_txpkt_init
+                0x000000001002225c       0x30 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
+                0x000000001002225c                ble_txpkt_init
  .text.ab_mate_ble_send_packet
-                0x0000000010022254       0x30 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
-                0x0000000010022254                ab_mate_ble_send_packet
+                0x000000001002228c       0x30 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
+                0x000000001002228c                ab_mate_ble_send_packet
  .text.ble_app_gatts_service_init
-                0x0000000010022284       0xec Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
-                0x0000000010022284                ble_app_gatts_service_init
+                0x00000000100222bc       0xec Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
+                0x00000000100222bc                ble_app_gatts_service_init
  .text.ab_mate_ble_app_init
-                0x0000000010022370        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
-                0x0000000010022370                ab_mate_ble_app_init
+                0x00000000100223a8        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
+                0x00000000100223a8                ab_mate_ble_app_init
  .text.soft_timer_init
-                0x0000000010022374       0x22 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_timer.o
-                0x0000000010022374                soft_timer_init
+                0x00000000100223ac       0x22 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_timer.o
+                0x00000000100223ac                soft_timer_init
  .text.soft_timer_create
-                0x0000000010022396       0x44 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_timer.o
-                0x0000000010022396                soft_timer_create
+                0x00000000100223ce       0x44 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_timer.o
+                0x00000000100223ce                soft_timer_create
  .text.soft_timer_start
-                0x00000000100223da       0x60 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_timer.o
-                0x00000000100223da                soft_timer_start
+                0x0000000010022412       0x60 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_timer.o
+                0x0000000010022412                soft_timer_start
  .text.soft_timer_restart
-                0x000000001002243a       0x64 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_timer.o
-                0x000000001002243a                soft_timer_restart
+                0x0000000010022472       0x64 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_timer.o
+                0x0000000010022472                soft_timer_restart
  .text.soft_timer_stop
-                0x000000001002249e       0x4e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_timer.o
-                0x000000001002249e                soft_timer_stop
+                0x00000000100224d6       0x4e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_timer.o
+                0x00000000100224d6                soft_timer_stop
  .text.tws_get_fot_data
-                0x00000000100224ec       0x48 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x00000000100224ec                tws_get_fot_data
+                0x0000000010022524       0x48 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010022524                tws_get_fot_data
  .text.tws_data_sync_do
-                0x0000000010022534       0x24 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010022534                tws_data_sync_do
+                0x000000001002256c       0x24 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x000000001002256c                tws_data_sync_do
  .text.ab_mate_tws_cmd_sync_byte
-                0x0000000010022558       0x1e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010022558                ab_mate_tws_cmd_sync_byte
+                0x0000000010022590       0x1e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010022590                ab_mate_tws_cmd_sync_byte
  .text.ab_mate_tws_cmd_sync_nbyte
-                0x0000000010022576       0x2e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010022576                ab_mate_tws_cmd_sync_nbyte
+                0x00000000100225ae       0x2e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x00000000100225ae                ab_mate_tws_cmd_sync_nbyte
  .text.ab_mate_tws_vbat_sync
-                0x00000000100225a4       0x42 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x00000000100225a4                ab_mate_tws_vbat_sync
+                0x00000000100225dc       0x42 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x00000000100225dc                ab_mate_tws_vbat_sync
  .text.ab_mate_tws_eq_info_sync
-                0x00000000100225e6       0x10 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x00000000100225e6                ab_mate_tws_eq_info_sync
+                0x000000001002261e       0x10 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x000000001002261e                ab_mate_tws_eq_info_sync
  .text.ab_mate_tws_key_info_sync
-                0x00000000100225f6       0x10 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x00000000100225f6                ab_mate_tws_key_info_sync
+                0x000000001002262e       0x10 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x000000001002262e                ab_mate_tws_key_info_sync
  .text.ab_mate_tws_device_reset_sync
-                0x0000000010022606        0x8 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010022606                ab_mate_tws_device_reset_sync
+                0x000000001002263e        0x8 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x000000001002263e                ab_mate_tws_device_reset_sync
  .text.ab_mate_tws_bt_name_sync
-                0x000000001002260e       0x48 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x000000001002260e                ab_mate_tws_bt_name_sync
+                0x0000000010022646       0x48 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010022646                ab_mate_tws_bt_name_sync
  .text.ab_mate_tws_connect_sta_sync
-                0x0000000010022656        0xe Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010022656                ab_mate_tws_connect_sta_sync
+                0x000000001002268e        0xe Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x000000001002268e                ab_mate_tws_connect_sta_sync
  .text.ab_mate_tws_link_clear_sync
-                0x0000000010022664        0x8 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010022664                ab_mate_tws_link_clear_sync
+                0x000000001002269c        0x8 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x000000001002269c                ab_mate_tws_link_clear_sync
  .text.ab_mate_tws_led_info_sync
-                0x000000001002266c        0xe Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x000000001002266c                ab_mate_tws_led_info_sync
+                0x00000000100226a4        0xe Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x00000000100226a4                ab_mate_tws_led_info_sync
  .text.ab_mate_tws_mult_dev_info_sync
-                0x000000001002267a       0x56 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x000000001002267a                ab_mate_tws_mult_dev_info_sync
+                0x00000000100226b2       0x56 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x00000000100226b2                ab_mate_tws_mult_dev_info_sync
  .text.ab_mate_tws_device_find_sync
-                0x00000000100226d0        0xe Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x00000000100226d0                ab_mate_tws_device_find_sync
+                0x0000000010022708        0xe Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010022708                ab_mate_tws_device_find_sync
  .text.ab_mate_tws_info_all_sync
-                0x00000000100226de      0x108 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x00000000100226de                ab_mate_tws_info_all_sync
+                0x0000000010022716      0x108 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010022716                ab_mate_tws_info_all_sync
  .text.ab_mate_tws_info_all_rsp
-                0x00000000100227e6       0x7e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x00000000100227e6                ab_mate_tws_info_all_rsp
+                0x000000001002281e       0x7e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x000000001002281e                ab_mate_tws_info_all_rsp
  .text.ab_mate_tws_info_eq_proc
-                0x0000000010022864       0x44 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010022864                ab_mate_tws_info_eq_proc
+                0x000000001002289c       0x44 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x000000001002289c                ab_mate_tws_info_eq_proc
  .text.ab_mate_tws_info_bat_proc
-                0x00000000100228a8       0x22 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x00000000100228a8                ab_mate_tws_info_bat_proc
+                0x00000000100228e0       0x22 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x00000000100228e0                ab_mate_tws_info_bat_proc
  .text.ab_mate_tws_info_key_proc
-                0x00000000100228ca       0x1c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x00000000100228ca                ab_mate_tws_info_key_proc
+                0x0000000010022902       0x1c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010022902                ab_mate_tws_info_key_proc
  .text.ab_mate_tws_info_all_proc
-                0x00000000100228e6      0x22a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x00000000100228e6                ab_mate_tws_info_all_proc
+                0x000000001002291e      0x22a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x000000001002291e                ab_mate_tws_info_all_proc
  .text.ab_mate_tws_info_name_proc
-                0x0000000010022b10       0x3a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010022b10                ab_mate_tws_info_name_proc
+                0x0000000010022b48       0x3a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010022b48                ab_mate_tws_info_name_proc
  .text.ab_mate_tws_info_all_rsp_proc
-                0x0000000010022b4a       0x5c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010022b4a                ab_mate_tws_info_all_rsp_proc
+                0x0000000010022b82       0x5c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010022b82                ab_mate_tws_info_all_rsp_proc
  .text.ab_mate_tws_info_connect_sta_proc
-                0x0000000010022ba6       0x14 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010022ba6                ab_mate_tws_info_connect_sta_proc
+                0x0000000010022bde       0x14 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010022bde                ab_mate_tws_info_connect_sta_proc
  .text.ab_mate_tws_info_led_proc
-                0x0000000010022bba       0x2e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010022bba                ab_mate_tws_info_led_proc
+                0x0000000010022bf2       0x2e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010022bf2                ab_mate_tws_info_led_proc
  .text.ab_mate_tws_info_mult_dev_en_set
-                0x0000000010022be8       0x1e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010022be8                ab_mate_tws_info_mult_dev_en_set
+                0x0000000010022c20       0x1e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010022c20                ab_mate_tws_info_mult_dev_en_set
  .text.ab_mate_tws_info_mult_dev_info_set
-                0x0000000010022c06       0xd4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010022c06                ab_mate_tws_info_mult_dev_info_set
+                0x0000000010022c3e       0xd4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010022c3e                ab_mate_tws_info_mult_dev_info_set
  .text.ab_mate_tws_info_mult_dev_proc
-                0x0000000010022cda       0x6a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010022cda                ab_mate_tws_info_mult_dev_proc
- *fill*         0x0000000010022d44        0x0 
+                0x0000000010022d12       0x6a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010022d12                ab_mate_tws_info_mult_dev_proc
+ *fill*         0x0000000010022d7c        0x0 
  .text.ab_mate_tws_recv_proc
-                0x0000000010022d44      0x1ba Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010022d44                ab_mate_tws_recv_proc
+                0x0000000010022d7c      0x1ba Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010022d7c                ab_mate_tws_recv_proc
  .text.tws_set_fot_data
-                0x0000000010022efe        0xe Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010022efe                tws_set_fot_data
+                0x0000000010022f36        0xe Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010022f36                tws_set_fot_data
  .text.app_ble_connect_callback
-                0x0000000010022f0c        0x4 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010022f0c                app_ble_connect_callback
+                0x0000000010022f44        0x4 Output\obj\modules\bluetooth\app\app_interface.o
+                0x0000000010022f44                app_ble_connect_callback
  .text.app_ble_disconnect_callback
-                0x0000000010022f10        0x4 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010022f10                app_ble_disconnect_callback
+                0x0000000010022f48        0x4 Output\obj\modules\bluetooth\app\app_interface.o
+                0x0000000010022f48                app_ble_disconnect_callback
  .text.app_process
-                0x0000000010022f14        0x4 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010022f14                app_process
+                0x0000000010022f4c        0x4 Output\obj\modules\bluetooth\app\app_interface.o
+                0x0000000010022f4c                app_process
  .text.app_var_init
-                0x0000000010022f18        0x4 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010022f18                app_var_init
+                0x0000000010022f50        0x4 Output\obj\modules\bluetooth\app\app_interface.o
+                0x0000000010022f50                app_var_init
  .text.app_ble_init
-                0x0000000010022f1c        0x4 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010022f1c                app_ble_init
+                0x0000000010022f54        0x4 Output\obj\modules\bluetooth\app\app_interface.o
+                0x0000000010022f54                app_ble_init
  .text.app_init_do
-                0x0000000010022f20        0x4 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010022f20                app_init_do
+                0x0000000010022f58        0x4 Output\obj\modules\bluetooth\app\app_interface.o
+                0x0000000010022f58                app_init_do
  .text.app_eq_set
-                0x0000000010022f24        0x4 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010022f24                app_eq_set
+                0x0000000010022f5c        0x4 Output\obj\modules\bluetooth\app\app_interface.o
+                0x0000000010022f5c                app_eq_set
  .text.app_enter_sleep
-                0x0000000010022f28        0x4 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010022f28                app_enter_sleep
+                0x0000000010022f60        0x4 Output\obj\modules\bluetooth\app\app_interface.o
+                0x0000000010022f60                app_enter_sleep
  .text.app_exit_sleep
-                0x0000000010022f2c        0x4 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010022f2c                app_exit_sleep
+                0x0000000010022f64        0x4 Output\obj\modules\bluetooth\app\app_interface.o
+                0x0000000010022f64                app_exit_sleep
  .text.app_need_wakeup
-                0x0000000010022f30        0x8 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010022f30                app_need_wakeup
+                0x0000000010022f68        0x8 Output\obj\modules\bluetooth\app\app_interface.o
+                0x0000000010022f68                app_need_wakeup
  .text.app_bt_evt_notice
-                0x0000000010022f38        0x4 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010022f38                app_bt_evt_notice
+                0x0000000010022f70        0x4 Output\obj\modules\bluetooth\app\app_interface.o
+                0x0000000010022f70                app_bt_evt_notice
  .text.app_ble_role_switch_get_data
-                0x0000000010022f3c        0x4 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010022f3c                app_ble_role_switch_get_data
+                0x0000000010022f74        0x4 Output\obj\modules\bluetooth\app\app_interface.o
+                0x0000000010022f74                app_ble_role_switch_get_data
  .text.app_ble_role_switch_set_data
-                0x0000000010022f40        0x4 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010022f40                app_ble_role_switch_set_data
+                0x0000000010022f78        0x4 Output\obj\modules\bluetooth\app\app_interface.o
+                0x0000000010022f78                app_ble_role_switch_set_data
  .text.app_sleep_mode_process
-                0x0000000010022f44        0x2 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010022f44                app_sleep_mode_process
+                0x0000000010022f7c        0x2 Output\obj\modules\bluetooth\app\app_interface.o
+                0x0000000010022f7c                app_sleep_mode_process
  .text.app_tws_user_key_process
-                0x0000000010022f46        0x2 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010022f46                app_tws_user_key_process
+                0x0000000010022f7e        0x2 Output\obj\modules\bluetooth\app\app_interface.o
+                0x0000000010022f7e                app_tws_user_key_process
  .text.app_tws_connect_callback
-                0x0000000010022f48        0x2 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010022f48                app_tws_connect_callback
+                0x0000000010022f80        0x2 Output\obj\modules\bluetooth\app\app_interface.o
+                0x0000000010022f80                app_tws_connect_callback
  .text.app_tws_disconnect_callback
-                0x0000000010022f4a        0x2 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010022f4a                app_tws_disconnect_callback
+                0x0000000010022f82        0x2 Output\obj\modules\bluetooth\app\app_interface.o
+                0x0000000010022f82                app_tws_disconnect_callback
  .text.app_spp_connect_callback
-                0x0000000010022f4c        0x8 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010022f4c                app_spp_connect_callback
+                0x0000000010022f84        0x8 Output\obj\modules\bluetooth\app\app_interface.o
+                0x0000000010022f84                app_spp_connect_callback
  .text.app_spp_disconnect_callback
-                0x0000000010022f54        0x8 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010022f54                app_spp_disconnect_callback
+                0x0000000010022f8c        0x8 Output\obj\modules\bluetooth\app\app_interface.o
+                0x0000000010022f8c                app_spp_disconnect_callback
  .text.app_spp_rx_callback
-                0x0000000010022f5c       0x38 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010022f5c                app_spp_rx_callback
+                0x0000000010022f94       0x38 Output\obj\modules\bluetooth\app\app_interface.o
+                0x0000000010022f94                app_spp_rx_callback
  .text.app_test_send_aec_param
-                0x0000000010022f94       0x72 Output\obj\modules\bluetooth\app\app_test\app_test.o
-                0x0000000010022f94                app_test_send_aec_param
+                0x0000000010022fcc       0x72 Output\obj\modules\bluetooth\app\app_test\app_test.o
+                0x0000000010022fcc                app_test_send_aec_param
  .text.app_test_send_aec_ack
-                0x0000000010023006       0x46 Output\obj\modules\bluetooth\app\app_test\app_test.o
-                0x0000000010023006                app_test_send_aec_ack
+                0x000000001002303e       0x46 Output\obj\modules\bluetooth\app\app_test\app_test.o
+                0x000000001002303e                app_test_send_aec_ack
  .text.app_test_cmd_process
-                0x000000001002304c      0x1b6 Output\obj\modules\bluetooth\app\app_test\app_test.o
-                0x000000001002304c                app_test_cmd_process
+                0x0000000010023084      0x1b6 Output\obj\modules\bluetooth\app\app_test\app_test.o
+                0x0000000010023084                app_test_cmd_process
  .text.ble_get_local_addr_mode
-                0x0000000010023202        0x4 Output\obj\modules\bluetooth\ble\ble.o
-                0x0000000010023202                ble_get_local_addr_mode
+                0x000000001002323a        0x4 Output\obj\modules\bluetooth\ble\ble.o
+                0x000000001002323a                ble_get_local_addr_mode
  .text.ble_disconnect_callback
-                0x0000000010023206       0x18 Output\obj\modules\bluetooth\ble\ble.o
-                0x0000000010023206                ble_disconnect_callback
+                0x000000001002323e       0x18 Output\obj\modules\bluetooth\ble\ble.o
+                0x000000001002323e                ble_disconnect_callback
  .text.ble_connect_callback
-                0x000000001002321e       0x18 Output\obj\modules\bluetooth\ble\ble.o
-                0x000000001002321e                ble_connect_callback
+                0x0000000010023256       0x18 Output\obj\modules\bluetooth\ble\ble.o
+                0x0000000010023256                ble_connect_callback
  .text.role_switch_get_user_ble_data
-                0x0000000010023236       0x1c Output\obj\modules\bluetooth\ble\ble.o
-                0x0000000010023236                role_switch_get_user_ble_data
+                0x000000001002326e       0x1c Output\obj\modules\bluetooth\ble\ble.o
+                0x000000001002326e                role_switch_get_user_ble_data
  .text.role_switch_set_user_ble_data
-                0x0000000010023252       0x22 Output\obj\modules\bluetooth\ble\ble.o
-                0x0000000010023252                role_switch_set_user_ble_data
+                0x000000001002328a       0x22 Output\obj\modules\bluetooth\ble\ble.o
+                0x000000001002328a                role_switch_set_user_ble_data
  .text.ble_sm_param_init
-                0x0000000010023274        0xa Output\obj\modules\bluetooth\ble\ble.o
-                0x0000000010023274                ble_sm_param_init
+                0x00000000100232ac        0xa Output\obj\modules\bluetooth\ble\ble.o
+                0x00000000100232ac                ble_sm_param_init
  .text.ble_init_att
-                0x000000001002327e       0x2e Output\obj\modules\bluetooth\ble\ble.o
-                0x000000001002327e                ble_init_att
+                0x00000000100232b6       0x2e Output\obj\modules\bluetooth\ble\ble.o
+                0x00000000100232b6                ble_init_att
  .text.priv_ble_gatts_service_init
-                0x00000000100232ac        0x2 Output\obj\modules\bluetooth\ble\priv_ble.o
-                0x00000000100232ac                priv_ble_gatts_service_init
- .text.bts.clk  0x00000000100232ae       0x1e Output\obj\modules\bluetooth\bsp_bt.o
-                0x00000000100232ae                bt_set_sys_clk
+                0x00000000100232e4        0x2 Output\obj\modules\bluetooth\ble\priv_ble.o
+                0x00000000100232e4                priv_ble_gatts_service_init
+ .text.bts.clk  0x00000000100232e6       0x1e Output\obj\modules\bluetooth\bsp_bt.o
+                0x00000000100232e6                bt_set_sys_clk
  .text.bsp_bt_init
-                0x00000000100232cc      0x1be Output\obj\modules\bluetooth\bsp_bt.o
-                0x00000000100232cc                bsp_bt_init
+                0x0000000010023304      0x1be Output\obj\modules\bluetooth\bsp_bt.o
+                0x0000000010023304                bsp_bt_init
  .text.bsp_bt_vol_set
-                0x000000001002348a       0x22 Output\obj\modules\bluetooth\bsp_bt.o
-                0x000000001002348a                bsp_bt_vol_set
+                0x00000000100234c2       0x22 Output\obj\modules\bluetooth\bsp_bt.o
+                0x00000000100234c2                bsp_bt_vol_set
  .text.bsp_bt_vol_change
-                0x00000000100234ac       0x3a Output\obj\modules\bluetooth\bsp_bt.o
-                0x00000000100234ac                bsp_bt_vol_change
+                0x00000000100234e4       0x3a Output\obj\modules\bluetooth\bsp_bt.o
+                0x00000000100234e4                bsp_bt_vol_change
  .text.bsp_bt_get_hfp_vol
-                0x00000000100234e6       0x1a Output\obj\modules\bluetooth\bsp_bt.o
-                0x00000000100234e6                bsp_bt_get_hfp_vol
+                0x000000001002351e       0x1a Output\obj\modules\bluetooth\bsp_bt.o
+                0x000000001002351e                bsp_bt_get_hfp_vol
  .text.bsp_bt_call_volume_msg
-                0x0000000010023500       0x3c Output\obj\modules\bluetooth\bsp_bt.o
-                0x0000000010023500                bsp_bt_call_volume_msg
+                0x0000000010023538       0x3c Output\obj\modules\bluetooth\bsp_bt.o
+                0x0000000010023538                bsp_bt_call_volume_msg
  .text.bt_emit_notice
-                0x000000001002353c      0x34e Output\obj\modules\bluetooth\bsp_bt.o
-                0x000000001002353c                bt_emit_notice
+                0x0000000010023574      0x360 Output\obj\modules\bluetooth\bsp_bt.o
+                0x0000000010023574                bt_emit_notice
  .text.a2dp_recon_hook
-                0x000000001002388a        0x2 Output\obj\modules\bluetooth\bt\a2dp.o
-                0x000000001002388a                a2dp_recon_hook
+                0x00000000100238d4        0x2 Output\obj\modules\bluetooth\bt\a2dp.o
+                0x00000000100238d4                a2dp_recon_hook
  .text.a2dp_vol_reverse
-                0x000000001002388c       0x3a Output\obj\modules\bluetooth\bt\a2dp.o
-                0x000000001002388c                a2dp_vol_reverse
+                0x00000000100238d6       0x3a Output\obj\modules\bluetooth\bt\a2dp.o
+                0x00000000100238d6                a2dp_vol_reverse
  .text.a2dp_vol_conver
-                0x00000000100238c6       0x34 Output\obj\modules\bluetooth\bt\a2dp.o
-                0x00000000100238c6                a2dp_vol_conver
+                0x0000000010023910       0x34 Output\obj\modules\bluetooth\bt\a2dp.o
+                0x0000000010023910                a2dp_vol_conver
  .text.a2dp_get_vol
-                0x00000000100238fa       0x14 Output\obj\modules\bluetooth\bt\a2dp.o
-                0x00000000100238fa                a2dp_get_vol
+                0x0000000010023944       0x14 Output\obj\modules\bluetooth\bt\a2dp.o
+                0x0000000010023944                a2dp_get_vol
  .text.a2dp_vol_get_init_cb
-                0x000000001002390e       0x1e Output\obj\modules\bluetooth\bt\a2dp.o
-                0x000000001002390e                a2dp_vol_get_init_cb
+                0x0000000010023958       0x1e Output\obj\modules\bluetooth\bt\a2dp.o
+                0x0000000010023958                a2dp_vol_get_init_cb
  .text.a2dp_vol_adj_cb
-                0x000000001002392c       0x24 Output\obj\modules\bluetooth\bt\a2dp.o
-                0x000000001002392c                a2dp_vol_adj_cb
+                0x0000000010023976       0x24 Output\obj\modules\bluetooth\bt\a2dp.o
+                0x0000000010023976                a2dp_vol_adj_cb
  .text.bt_is_test_mode
-                0x0000000010023950       0x32 Output\obj\modules\bluetooth\bt\bt.o
+                0x000000001002399a       0x32 Output\obj\modules\bluetooth\bt\bt.o
  .text.bt_get_class_of_device
-                0x0000000010023982       0x1a Output\obj\modules\bluetooth\bt\bt.o
-                0x0000000010023982                bt_get_class_of_device
+                0x00000000100239cc       0x1a Output\obj\modules\bluetooth\bt\bt.o
+                0x00000000100239cc                bt_get_class_of_device
  .text.bt_get_local_name
-                0x000000001002399c       0x16 Output\obj\modules\bluetooth\bt\bt.o
-                0x000000001002399c                bt_get_local_name
+                0x00000000100239e6       0x16 Output\obj\modules\bluetooth\bt\bt.o
+                0x00000000100239e6                bt_get_local_name
  .text.bt_clr_master_addr
-                0x00000000100239b2       0x2c Output\obj\modules\bluetooth\bt\bt.o
-                0x00000000100239b2                bt_clr_master_addr
+                0x00000000100239fc       0x2c Output\obj\modules\bluetooth\bt\bt.o
+                0x00000000100239fc                bt_clr_master_addr
  .text.bt_save_master_addr
-                0x00000000100239de       0x64 Output\obj\modules\bluetooth\bt\bt.o
-                0x00000000100239de                bt_save_master_addr
+                0x0000000010023a28       0x64 Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010023a28                bt_save_master_addr
  .text.bt_get_master_addr
-                0x0000000010023a42       0x3a Output\obj\modules\bluetooth\bt\bt.o
-                0x0000000010023a42                bt_get_master_addr
+                0x0000000010023a8c       0x3a Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010023a8c                bt_get_master_addr
  .text.bt_get_local_bd_addr
-                0x0000000010023a7c       0x30 Output\obj\modules\bluetooth\bt\bt.o
-                0x0000000010023a7c                bt_get_local_bd_addr
+                0x0000000010023ac6       0x30 Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010023ac6                bt_get_local_bd_addr
  .text.bt_get_rand_seed
-                0x0000000010023aac        0xa Output\obj\modules\bluetooth\bt\bt.o
-                0x0000000010023aac                bt_get_rand_seed
+                0x0000000010023af6        0xa Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010023af6                bt_get_rand_seed
  .text.bt_get_fixed_bd_addr
-                0x0000000010023ab6       0x1e Output\obj\modules\bluetooth\bt\bt.o
-                0x0000000010023ab6                bt_get_fixed_bd_addr
+                0x0000000010023b00       0x1e Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010023b00                bt_get_fixed_bd_addr
  .text.bt_get_link_info_flash
-                0x0000000010023ad4       0x16 Output\obj\modules\bluetooth\bt\bt.o
-                0x0000000010023ad4                bt_get_link_info_flash
+                0x0000000010023b1e       0x16 Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010023b1e                bt_get_link_info_flash
  .text.bt_put_link_info_flash
-                0x0000000010023aea       0x16 Output\obj\modules\bluetooth\bt\bt.o
-                0x0000000010023aea                bt_put_link_info_flash
+                0x0000000010023b34       0x16 Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010023b34                bt_put_link_info_flash
  .text.bt_get_ext_link_info_flash
-                0x0000000010023b00        0x8 Output\obj\modules\bluetooth\bt\bt.o
-                0x0000000010023b00                bt_get_ext_link_info_flash
+                0x0000000010023b4a        0x8 Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010023b4a                bt_get_ext_link_info_flash
  .text.bt_put_ext_link_info_flash
-                0x0000000010023b08        0x8 Output\obj\modules\bluetooth\bt\bt.o
-                0x0000000010023b08                bt_put_ext_link_info_flash
+                0x0000000010023b52        0x8 Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010023b52                bt_put_ext_link_info_flash
  .text.bt_sync_link_info
-                0x0000000010023b10        0x4 Output\obj\modules\bluetooth\bt\bt.o
-                0x0000000010023b10                bt_sync_link_info
+                0x0000000010023b5a        0x4 Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010023b5a                bt_sync_link_info
  .text.bt_test_mode_init
-                0x0000000010023b14       0x12 Output\obj\modules\bluetooth\bt\bt.o
-                0x0000000010023b14                bt_test_mode_init
+                0x0000000010023b5e       0x12 Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010023b5e                bt_test_mode_init
  .text.bt_get_link_info
-                0x0000000010023b26       0x34 Output\obj\modules\bluetooth\bt\bt.o
-                0x0000000010023b26                bt_get_link_info
+                0x0000000010023b70       0x34 Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010023b70                bt_get_link_info
  .text.bt_put_link_info
-                0x0000000010023b5a       0x34 Output\obj\modules\bluetooth\bt\bt.o
-                0x0000000010023b5a                bt_put_link_info
+                0x0000000010023ba4       0x34 Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010023ba4                bt_put_link_info
  .text.bt_get_ext_link_info
-                0x0000000010023b8e        0x4 Output\obj\modules\bluetooth\bt\bt.o
-                0x0000000010023b8e                bt_get_ext_link_info
+                0x0000000010023bd8        0x4 Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010023bd8                bt_get_ext_link_info
  .text.bt_put_ext_link_info
-                0x0000000010023b92        0x4 Output\obj\modules\bluetooth\bt\bt.o
-                0x0000000010023b92                bt_put_ext_link_info
+                0x0000000010023bdc        0x4 Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010023bdc                bt_put_ext_link_info
  .text.bt_decode_init_cb
-                0x0000000010023b96        0x2 Output\obj\modules\bluetooth\bt\bt.o
-                0x0000000010023b96                bt_decode_init_cb
+                0x0000000010023be0        0x2 Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010023be0                bt_decode_init_cb
  .text.dev_vol_set_cb
-                0x0000000010023b98       0x66 Output\obj\modules\bluetooth\bt\dev_vol.o
-                0x0000000010023b98                dev_vol_set_cb
+                0x0000000010023be2       0x66 Output\obj\modules\bluetooth\bt\dev_vol.o
+                0x0000000010023be2                dev_vol_set_cb
  .text.dev_vol_req_cb
-                0x0000000010023bfe       0x72 Output\obj\modules\bluetooth\bt\dev_vol.o
-                0x0000000010023bfe                dev_vol_req_cb
+                0x0000000010023c48       0x72 Output\obj\modules\bluetooth\bt\dev_vol.o
+                0x0000000010023c48                dev_vol_req_cb
  .text.bt_redial_init
-                0x0000000010023c70       0x10 Output\obj\modules\bluetooth\bt\hfhs.o
-                0x0000000010023c70                bt_redial_init
+                0x0000000010023cba       0x10 Output\obj\modules\bluetooth\bt\hfhs.o
+                0x0000000010023cba                bt_redial_init
  .text.bt_reset_redial_number
-                0x0000000010023c80       0x14 Output\obj\modules\bluetooth\bt\hfhs.o
-                0x0000000010023c80                bt_reset_redial_number
- .text.bt_update_redial_number
-                0x0000000010023c94       0x36 Output\obj\modules\bluetooth\bt\hfhs.o
-                0x0000000010023c94                bt_update_redial_number
- .text.bt_get_last_call_number
                 0x0000000010023cca       0x14 Output\obj\modules\bluetooth\bt\hfhs.o
-                0x0000000010023cca                bt_get_last_call_number
+                0x0000000010023cca                bt_reset_redial_number
+ .text.bt_update_redial_number
+                0x0000000010023cde       0x36 Output\obj\modules\bluetooth\bt\hfhs.o
+                0x0000000010023cde                bt_update_redial_number
+ .text.bt_get_last_call_number
+                0x0000000010023d14       0x14 Output\obj\modules\bluetooth\bt\hfhs.o
+                0x0000000010023d14                bt_get_last_call_number
  .text.hfp_get_last_call_number
-                0x0000000010023cde       0x14 Output\obj\modules\bluetooth\bt\hfhs.o
-                0x0000000010023cde                hfp_get_last_call_number
+                0x0000000010023d28       0x14 Output\obj\modules\bluetooth\bt\hfhs.o
+                0x0000000010023d28                hfp_get_last_call_number
  .text.hfp_get_mic_gain
-                0x0000000010023cf2        0x4 Output\obj\modules\bluetooth\bt\hfhs.o
-                0x0000000010023cf2                hfp_get_mic_gain
+                0x0000000010023d3c        0x4 Output\obj\modules\bluetooth\bt\hfhs.o
+                0x0000000010023d3c                hfp_get_mic_gain
  .text.hfp_get_spk_gain
-                0x0000000010023cf6       0x10 Output\obj\modules\bluetooth\bt\hfhs.o
-                0x0000000010023cf6                hfp_get_spk_gain
+                0x0000000010023d40       0x10 Output\obj\modules\bluetooth\bt\hfhs.o
+                0x0000000010023d40                hfp_get_spk_gain
  .text.hfp_get_bat_level
-                0x0000000010023d06       0x3e Output\obj\modules\bluetooth\bt\hfhs.o
-                0x0000000010023d06                hfp_get_bat_level
+                0x0000000010023d50       0x3e Output\obj\modules\bluetooth\bt\hfhs.o
+                0x0000000010023d50                hfp_get_bat_level
  .text.hfp_is_list_curr_calls
-                0x0000000010023d44        0x4 Output\obj\modules\bluetooth\bt\hfhs.o
-                0x0000000010023d44                hfp_is_list_curr_calls
+                0x0000000010023d8e        0x4 Output\obj\modules\bluetooth\bt\hfhs.o
+                0x0000000010023d8e                hfp_is_list_curr_calls
  .text.hfp_get_at_cmd
-                0x0000000010023d48        0x8 Output\obj\modules\bluetooth\bt\hfhs.o
-                0x0000000010023d48                hfp_get_at_cmd
+                0x0000000010023d92        0x8 Output\obj\modules\bluetooth\bt\hfhs.o
+                0x0000000010023d92                hfp_get_at_cmd
  .text.bt_hfp_send_at_cmd_with_str
-                0x0000000010023d50       0x1e Output\obj\modules\bluetooth\bt\hfhs.o
-                0x0000000010023d50                bt_hfp_send_at_cmd_with_str
+                0x0000000010023d9a       0x1e Output\obj\modules\bluetooth\bt\hfhs.o
+                0x0000000010023d9a                bt_hfp_send_at_cmd_with_str
  .text.hfp_at_dial
-                0x0000000010023d6e       0x38 Output\obj\modules\bluetooth\bt\hfhs.o
-                0x0000000010023d6e                hfp_at_dial
+                0x0000000010023db8       0x38 Output\obj\modules\bluetooth\bt\hfhs.o
+                0x0000000010023db8                hfp_at_dial
  .text.bt_init_lib
-                0x0000000010023da6       0x6a Output\obj\modules\bluetooth\bt\profile.o
-                0x0000000010023da6                bt_init_lib
+                0x0000000010023df0       0x6a Output\obj\modules\bluetooth\bt\profile.o
+                0x0000000010023df0                bt_init_lib
  .text.spp_txpkt_init
-                0x0000000010023e10       0x30 Output\obj\modules\bluetooth\bt\spp.o
-                0x0000000010023e10                spp_txpkt_init
+                0x0000000010023e5a       0x30 Output\obj\modules\bluetooth\bt\spp.o
+                0x0000000010023e5a                spp_txpkt_init
  .text.get_spp_mtu_size
-                0x0000000010023e40        0x6 Output\obj\modules\bluetooth\bt\spp.o
-                0x0000000010023e40                get_spp_mtu_size
+                0x0000000010023e8a        0x6 Output\obj\modules\bluetooth\bt\spp.o
+                0x0000000010023e8a                get_spp_mtu_size
  .text.spp_rx_callback
-                0x0000000010023e46        0xa Output\obj\modules\bluetooth\bt\spp.o
-                0x0000000010023e46                spp_rx_callback
+                0x0000000010023e90        0xa Output\obj\modules\bluetooth\bt\spp.o
+                0x0000000010023e90                spp_rx_callback
  .text.spp_connect_callback
-                0x0000000010023e50       0x1c Output\obj\modules\bluetooth\bt\spp.o
-                0x0000000010023e50                spp_connect_callback
+                0x0000000010023e9a       0x1c Output\obj\modules\bluetooth\bt\spp.o
+                0x0000000010023e9a                spp_connect_callback
  .text.spp_disconnect_callback
-                0x0000000010023e6c       0x1c Output\obj\modules\bluetooth\bt\spp.o
-                0x0000000010023e6c                spp_disconnect_callback
+                0x0000000010023eb6       0x1c Output\obj\modules\bluetooth\bt\spp.o
+                0x0000000010023eb6                spp_disconnect_callback
  .text.peri_nr_init
-                0x0000000010023e88       0x1a Output\obj\modules\bluetooth\call\bt_sco.o
-                0x0000000010023e88                peri_nr_init
+                0x0000000010023ed2       0x1a Output\obj\modules\bluetooth\call\bt_sco.o
+                0x0000000010023ed2                peri_nr_init
  .text.bt_call_init
-                0x0000000010023ea2       0x50 Output\obj\modules\bluetooth\call\bt_sco.o
-                0x0000000010023ea2                bt_call_init
+                0x0000000010023eec       0x50 Output\obj\modules\bluetooth\call\bt_sco.o
+                0x0000000010023eec                bt_call_init
  .text.bt_call_exit
-                0x0000000010023ef2       0x2e Output\obj\modules\bluetooth\call\bt_sco.o
-                0x0000000010023ef2                bt_call_exit
+                0x0000000010023f3c       0x2e Output\obj\modules\bluetooth\call\bt_sco.o
+                0x0000000010023f3c                bt_call_exit
  .text.bt_tws_get_pair_id
-                0x0000000010023f20        0xa Output\obj\modules\bluetooth\tws\tws.o
-                0x0000000010023f20                bt_tws_get_pair_id
+                0x0000000010023f6a        0xa Output\obj\modules\bluetooth\tws\tws.o
+                0x0000000010023f6a                bt_tws_get_pair_id
  .text.bt_tws_name_suffix_replace
-                0x0000000010023f2a       0x38 Output\obj\modules\bluetooth\tws\tws.o
-                0x0000000010023f2a                bt_tws_name_suffix_replace
+                0x0000000010023f74       0x38 Output\obj\modules\bluetooth\tws\tws.o
+                0x0000000010023f74                bt_tws_name_suffix_replace
  .text.bt_tws_set_discon
-                0x0000000010023f62       0x2c Output\obj\modules\bluetooth\tws\tws.o
-                0x0000000010023f62                bt_tws_set_discon
+                0x0000000010023fac       0x2c Output\obj\modules\bluetooth\tws\tws.o
+                0x0000000010023fac                bt_tws_set_discon
  .text.bt_tws_get_channel_cfg
-                0x0000000010023f8e       0x48 Output\obj\modules\bluetooth\tws\tws.o
-                0x0000000010023f8e                bt_tws_get_channel_cfg
+                0x0000000010023fd8       0x48 Output\obj\modules\bluetooth\tws\tws.o
+                0x0000000010023fd8                bt_tws_get_channel_cfg
  .text.bt_tws_get_channel
-                0x0000000010023fd6       0x22 Output\obj\modules\bluetooth\tws\tws.o
-                0x0000000010023fd6                bt_tws_get_channel
+                0x0000000010024020       0x22 Output\obj\modules\bluetooth\tws\tws.o
+                0x0000000010024020                bt_tws_get_channel
  .text.bt_tws_channel_read
-                0x0000000010023ff8       0x1a Output\obj\modules\bluetooth\tws\tws.o
-                0x0000000010023ff8                bt_tws_channel_read
+                0x0000000010024042       0x1a Output\obj\modules\bluetooth\tws\tws.o
+                0x0000000010024042                bt_tws_channel_read
  .text.bt_tws_get_tws_channel
-                0x0000000010024012       0x24 Output\obj\modules\bluetooth\tws\tws.o
-                0x0000000010024012                bt_tws_get_tws_channel
+                0x000000001002405c       0x24 Output\obj\modules\bluetooth\tws\tws.o
+                0x000000001002405c                bt_tws_get_tws_channel
  .text.bt_tws_get_tws_role
-                0x0000000010024036       0x56 Output\obj\modules\bluetooth\tws\tws.o
-                0x0000000010024036                bt_tws_get_tws_role
+                0x0000000010024080       0x56 Output\obj\modules\bluetooth\tws\tws.o
+                0x0000000010024080                bt_tws_get_tws_role
  .text.bt_tws_channel_check
-                0x000000001002408c       0x80 Output\obj\modules\bluetooth\tws\tws.o
-                0x000000001002408c                bt_tws_channel_check
+                0x00000000100240d6       0x80 Output\obj\modules\bluetooth\tws\tws.o
+                0x00000000100240d6                bt_tws_channel_check
  .text.bt_tws_get_info
-                0x000000001002410c       0x2c Output\obj\modules\bluetooth\tws\tws.o
-                0x000000001002410c                bt_tws_get_info
+                0x0000000010024156       0x2c Output\obj\modules\bluetooth\tws\tws.o
+                0x0000000010024156                bt_tws_get_info
  .text.bt_tws_set_info
-                0x0000000010024138       0x64 Output\obj\modules\bluetooth\tws\tws.o
-                0x0000000010024138                bt_tws_set_info
+                0x0000000010024182       0x64 Output\obj\modules\bluetooth\tws\tws.o
+                0x0000000010024182                bt_tws_set_info
  .text.tws_get_custom_data
-                0x000000001002419c       0x1e Output\obj\modules\bluetooth\tws\tws.o
-                0x000000001002419c                tws_get_custom_data
+                0x00000000100241e6       0x1e Output\obj\modules\bluetooth\tws\tws.o
+                0x00000000100241e6                tws_get_custom_data
  .text.tws_set_custom_data
-                0x00000000100241ba       0x2a Output\obj\modules\bluetooth\tws\tws.o
-                0x00000000100241ba                tws_set_custom_data
+                0x0000000010024204       0x2a Output\obj\modules\bluetooth\tws\tws.o
+                0x0000000010024204                tws_set_custom_data
  .text.tws_user_key_process
-                0x00000000100241e4        0x4 Output\obj\modules\bluetooth\tws\tws.o
-                0x00000000100241e4                tws_user_key_process
- *fill*         0x00000000100241e8       0x18 
+                0x000000001002422e        0x4 Output\obj\modules\bluetooth\tws\tws.o
+                0x000000001002422e                tws_user_key_process
+ *fill*         0x0000000010024232       0x4e 
  .text.res_list_add
-                0x0000000010024200       0x80 Output\obj\modules\bluetooth\tws\tws_res.o
- *fill*         0x0000000010024280        0x0 
- .text.res_list_peek
                 0x0000000010024280       0x80 Output\obj\modules\bluetooth\tws\tws_res.o
  *fill*         0x0000000010024300        0x0 
- .text.res_list_get
+ .text.res_list_peek
                 0x0000000010024300       0x80 Output\obj\modules\bluetooth\tws\tws_res.o
  *fill*         0x0000000010024380        0x0 
- .text.res_list_search
+ .text.res_list_get
                 0x0000000010024380       0x80 Output\obj\modules\bluetooth\tws\tws_res.o
  *fill*         0x0000000010024400        0x0 
+ .text.res_list_search
+                0x0000000010024400       0x80 Output\obj\modules\bluetooth\tws\tws_res.o
+ *fill*         0x0000000010024480        0x0 
  .text.res_list_try_add
-                0x0000000010024400       0x40 Output\obj\modules\bluetooth\tws\tws_res.o
+                0x0000000010024480       0x40 Output\obj\modules\bluetooth\tws\tws_res.o
  .text.tws_res_add_do
-                0x0000000010024440       0x40 Output\obj\modules\bluetooth\tws\tws_res.o
+                0x00000000100244c0       0x40 Output\obj\modules\bluetooth\tws\tws_res.o
  .text.tws_res_slave_w4_start
-                0x0000000010024480       0x60 Output\obj\modules\bluetooth\tws\tws_res.o
- *fill*         0x00000000100244e0       0x20 
+                0x0000000010024500       0x60 Output\obj\modules\bluetooth\tws\tws_res.o
+ *fill*         0x0000000010024560       0x20 
  .text.tws_res_alarm_start
-                0x0000000010024500       0xf0 Output\obj\modules\bluetooth\tws\tws_res.o
+                0x0000000010024580       0xf0 Output\obj\modules\bluetooth\tws\tws_res.o
  .text.tws_res_cleanup
-                0x00000000100245f0       0x1a Output\obj\modules\bluetooth\tws\tws_res.o
-                0x00000000100245f0                tws_res_cleanup
+                0x0000000010024670       0x1a Output\obj\modules\bluetooth\tws\tws_res.o
+                0x0000000010024670                tws_res_cleanup
  .text.tws_res_search
-                0x000000001002460a       0x26 Output\obj\modules\bluetooth\tws\tws_res.o
-                0x000000001002460a                tws_res_search
+                0x000000001002468a       0x26 Output\obj\modules\bluetooth\tws\tws_res.o
+                0x000000001002468a                tws_res_search
  .text.tws_res_add
-                0x0000000010024630       0xbe Output\obj\modules\bluetooth\tws\tws_res.o
-                0x0000000010024630                tws_res_add
+                0x00000000100246b0       0xbe Output\obj\modules\bluetooth\tws\tws_res.o
+                0x00000000100246b0                tws_res_add
  .text.tws_res_var_init
-                0x00000000100246ee       0x4c Output\obj\modules\bluetooth\tws\tws_res.o
-                0x00000000100246ee                tws_res_var_init
+                0x000000001002476e       0x4c Output\obj\modules\bluetooth\tws\tws_res.o
+                0x000000001002476e                tws_res_var_init
  .text.tws_local_res_add_cb
-                0x000000001002473a        0x4 Output\obj\modules\bluetooth\tws\tws_res.o
-                0x000000001002473a                tws_local_res_add_cb
+                0x00000000100247ba        0x4 Output\obj\modules\bluetooth\tws\tws_res.o
+                0x00000000100247ba                tws_local_res_add_cb
  .text.tws_remote_res_add_cb
-                0x000000001002473e        0x8 Output\obj\modules\bluetooth\tws\tws_res.o
-                0x000000001002473e                tws_remote_res_add_cb
+                0x00000000100247be        0x8 Output\obj\modules\bluetooth\tws\tws_res.o
+                0x00000000100247be                tws_remote_res_add_cb
  .text.tws_remote_res_done_cb
-                0x0000000010024746       0x18 Output\obj\modules\bluetooth\tws\tws_res.o
-                0x0000000010024746                tws_remote_res_done_cb
+                0x00000000100247c6       0x18 Output\obj\modules\bluetooth\tws\tws_res.o
+                0x00000000100247c6                tws_remote_res_done_cb
  .text.tws_slave_res_add_req_cb
-                0x000000001002475e       0x2c Output\obj\modules\bluetooth\tws\tws_res.o
-                0x000000001002475e                tws_slave_res_add_req_cb
+                0x00000000100247de       0x2c Output\obj\modules\bluetooth\tws\tws_res.o
+                0x00000000100247de                tws_slave_res_add_req_cb
  .text.tws_res_play_init_cb
-                0x000000001002478a       0x38 Output\obj\modules\bluetooth\tws\tws_res.o
-                0x000000001002478a                tws_res_play_init_cb
+                0x000000001002480a       0x38 Output\obj\modules\bluetooth\tws\tws_res.o
+                0x000000001002480a                tws_res_play_init_cb
  .text.tws_res_play_exit_cb
-                0x00000000100247c2        0xa Output\obj\modules\bluetooth\tws\tws_res.o
-                0x00000000100247c2                tws_res_play_exit_cb
- *fill*         0x00000000100247cc        0x0 
+                0x0000000010024842        0xa Output\obj\modules\bluetooth\tws\tws_res.o
+                0x0000000010024842                tws_res_play_exit_cb
+ *fill*         0x000000001002484c        0x0 
  .text.tws_res_process_do
-                0x00000000100247cc      0x4b0 Output\obj\modules\bluetooth\tws\tws_res.o
-                0x00000000100247cc                tws_res_process_do
+                0x000000001002484c      0x4b0 Output\obj\modules\bluetooth\tws\tws_res.o
+                0x000000001002484c                tws_res_process_do
  .text.tws.res.type
-                0x0000000010024c7c       0x30 Output\obj\modules\bluetooth\tws\tws_res_tbl.o
-                0x0000000010024c7c                tws_res_get_type
- *fill*         0x0000000010024cac        0x0 
+                0x0000000010024cfc       0x30 Output\obj\modules\bluetooth\tws\tws_res_tbl.o
+                0x0000000010024cfc                tws_res_get_type
+ *fill*         0x0000000010024d2c        0x0 
  .text.tws.res.addr
-                0x0000000010024cac      0x4fa Output\obj\modules\bluetooth\tws\tws_res_tbl.o
-                0x0000000010024cac                tws_res_get_addr
+                0x0000000010024d2c      0x4fa Output\obj\modules\bluetooth\tws\tws_res_tbl.o
+                0x0000000010024d2c                tws_res_get_addr
  .text.tws_local_alarm_req_cb
-                0x00000000100251a6       0x32 Output\obj\modules\bluetooth\tws\tws_sync.o
-                0x00000000100251a6                tws_local_alarm_req_cb
+                0x0000000010025226       0x32 Output\obj\modules\bluetooth\tws\tws_sync.o
+                0x0000000010025226                tws_local_alarm_req_cb
  .text.tws_remote_alarm_req_cb
-                0x00000000100251d8       0x74 Output\obj\modules\bluetooth\tws\tws_sync.o
-                0x00000000100251d8                tws_remote_alarm_req_cb
+                0x0000000010025258       0x74 Output\obj\modules\bluetooth\tws\tws_sync.o
+                0x0000000010025258                tws_remote_alarm_req_cb
  .text.bsp_tws_set_led
-                0x000000001002524c       0x4e Output\obj\modules\bluetooth\tws\tws_sync.o
-                0x000000001002524c                bsp_tws_set_led
+                0x00000000100252cc       0x4e Output\obj\modules\bluetooth\tws\tws_sync.o
+                0x00000000100252cc                bsp_tws_set_led
  .text.tws_name_suffix_set
-                0x000000001002529a       0x90 Output\obj\modules\bluetooth\tws\tws_util.o
-                0x000000001002529a                tws_name_suffix_set
+                0x000000001002531a       0x90 Output\obj\modules\bluetooth\tws\tws_util.o
+                0x000000001002531a                tws_name_suffix_set
  .text.tws.init
-                0x000000001002532a      0x12a Output\obj\modules\bluetooth\tws\tws_util.o
-                0x000000001002532a                tws_gpiox_2_gnd_check
-                0x00000000100253ca                tws_lr_xcfg_sel
+                0x00000000100253aa      0x12a Output\obj\modules\bluetooth\tws\tws_util.o
+                0x00000000100253aa                tws_gpiox_2_gnd_check
+                0x000000001002544a                tws_lr_xcfg_sel
  .text.tws_get_lr_channel
-                0x0000000010025454       0x4a Output\obj\modules\bluetooth\tws\tws_util.o
-                0x0000000010025454                tws_get_lr_channel
+                0x00000000100254d4       0x4a Output\obj\modules\bluetooth\tws\tws_util.o
+                0x00000000100254d4                tws_get_lr_channel
  .text.charge_power_on_pre
-                0x000000001002549e       0x82 Output\obj\modules\charge\charge.o
-                0x000000001002549e                charge_power_on_pre
+                0x000000001002551e       0x82 Output\obj\modules\charge\charge.o
+                0x000000001002551e                charge_power_on_pre
  .text.charge_init
-                0x0000000010025520      0x13e Output\obj\modules\charge\charge.o
-                0x0000000010025520                charge_init
+                0x00000000100255a0      0x13e Output\obj\modules\charge\charge.o
+                0x00000000100255a0                charge_init
  .text.bsp.charge
-                0x000000001002565e       0xe6 Output\obj\modules\charge\charge_box.o
-                0x000000001002565e                charge_box_sta
-                0x0000000010025698                charge_box_outbox_stable_check
+                0x00000000100256de       0xe6 Output\obj\modules\charge\charge_box.o
+                0x00000000100256de                charge_box_sta
+                0x0000000010025718                charge_box_outbox_stable_check
  .text.charge_box_reinit
-                0x0000000010025744       0x34 Output\obj\modules\charge\charge_box.o
-                0x0000000010025744                charge_box_reinit
+                0x00000000100257c4       0x34 Output\obj\modules\charge\charge_box.o
+                0x00000000100257c4                charge_box_reinit
  .text.charge_box_bat_is_ready
-                0x0000000010025778        0x8 Output\obj\modules\charge\charge_box.o
-                0x0000000010025778                charge_box_bat_is_ready
+                0x00000000100257f8        0x8 Output\obj\modules\charge\charge_box.o
+                0x00000000100257f8                charge_box_bat_is_ready
  .text.charge_box_get_charge_box_bat_level
-                0x0000000010025780       0x3e Output\obj\modules\charge\charge_box.o
-                0x0000000010025780                charge_box_get_charge_box_bat_level
+                0x0000000010025800       0x3e Output\obj\modules\charge\charge_box.o
+                0x0000000010025800                charge_box_get_charge_box_bat_level
  .text.charge_box_channel_confirm
-                0x00000000100257be       0x32 Output\obj\modules\charge\charge_box.o
-                0x00000000100257be                charge_box_channel_confirm
+                0x000000001002583e       0x32 Output\obj\modules\charge\charge_box.o
+                0x000000001002583e                charge_box_channel_confirm
  .text.charge_box_ssw_init
-                0x00000000100257f0       0x30 Output\obj\modules\charge\charge_box.o
-                0x00000000100257f0                charge_box_ssw_init
+                0x0000000010025870       0x30 Output\obj\modules\charge\charge_box.o
+                0x0000000010025870                charge_box_ssw_init
  .text.charge_box_init
-                0x0000000010025820        0x4 Output\obj\modules\charge\charge_box.o
-                0x0000000010025820                charge_box_init
- *fill*         0x0000000010025824       0xdc 
+                0x00000000100258a0        0x4 Output\obj\modules\charge\charge_box.o
+                0x00000000100258a0                charge_box_init
+ *fill*         0x00000000100258a4       0x5c 
  .text.led_disp.set
                 0x0000000010025900       0xfa Output\obj\modules\gui\led\led.o
                 0x0000000010025900                led_set_sta_do
@@ -9491,191 +9485,197 @@ LOAD Output\obj\projects\bt8930\port\port_update.o
  .text.app_priv_ble_handle_received
                 0x0000000010027ff2      0x992 Output\obj\projects\bt8930\app_ble.o
                 0x0000000010027ff2                app_priv_ble_handle_received
- .text.lr_send  0x0000000010028984       0xce Output\obj\projects\bt8930\app_lr.o
+ .text.app_dm_is_bd_addr_zero
+                0x0000000010028984       0x20 Output\obj\projects\bt8930\app_dm.o
+                0x0000000010028984                app_dm_is_bd_addr_zero
+ .text.app_dm_get_connected_ag_num
+                0x00000000100289a4       0x30 Output\obj\projects\bt8930\app_dm.o
+                0x00000000100289a4                app_dm_get_connected_ag_num
+ .text.lr_send  0x00000000100289d4       0xce Output\obj\projects\bt8930\app_lr.o
  .text.app_lr_init
-                0x0000000010028a52        0x8 Output\obj\projects\bt8930\app_lr.o
-                0x0000000010028a52                app_lr_init
+                0x0000000010028aa2        0x8 Output\obj\projects\bt8930\app_lr.o
+                0x0000000010028aa2                app_lr_init
  .text.app_lr_tws_get_data
-                0x0000000010028a5a       0x22 Output\obj\projects\bt8930\app_lr.o
-                0x0000000010028a5a                app_lr_tws_get_data
+                0x0000000010028aaa       0x22 Output\obj\projects\bt8930\app_lr.o
+                0x0000000010028aaa                app_lr_tws_get_data
  .text.app_lr_send_notification
-                0x0000000010028a7c        0x4 Output\obj\projects\bt8930\app_lr.o
-                0x0000000010028a7c                app_lr_send_notification
+                0x0000000010028acc        0x4 Output\obj\projects\bt8930\app_lr.o
+                0x0000000010028acc                app_lr_send_notification
  .text.app_lr_parse_command
-                0x0000000010028a80       0xea Output\obj\projects\bt8930\app_lr.o
-                0x0000000010028a80                app_lr_parse_command
+                0x0000000010028ad0       0xea Output\obj\projects\bt8930\app_lr.o
+                0x0000000010028ad0                app_lr_parse_command
  .text.app_lr_tws_set_data
-                0x0000000010028b6a       0x46 Output\obj\projects\bt8930\app_lr.o
-                0x0000000010028b6a                app_lr_tws_set_data
+                0x0000000010028bba       0x46 Output\obj\projects\bt8930\app_lr.o
+                0x0000000010028bba                app_lr_tws_set_data
  .text.app_lr_send_msg
-                0x0000000010028bb0       0x22 Output\obj\projects\bt8930\app_lr.o
-                0x0000000010028bb0                app_lr_send_msg
+                0x0000000010028c00       0x22 Output\obj\projects\bt8930\app_lr.o
+                0x0000000010028c00                app_lr_send_msg
  .text.app_lr_is_idle
-                0x0000000010028bd2        0x8 Output\obj\projects\bt8930\app_lr.o
-                0x0000000010028bd2                app_lr_is_idle
+                0x0000000010028c22        0x8 Output\obj\projects\bt8930\app_lr.o
+                0x0000000010028c22                app_lr_is_idle
  .text.func.process
-                0x0000000010028bda      0x1d8 Output\obj\projects\bt8930\app_message.o
-                0x0000000010028bda                message_send
-                0x0000000010028c8c                message_search
-                0x0000000010028cc2                message_cancel_first
-                0x0000000010028d3c                message_cancel_all
-                0x0000000010028d5c                message_is_ready
-                0x0000000010028d96                message_is_empty
-                0x0000000010028da2                message_init
+                0x0000000010028c2a      0x1d8 Output\obj\projects\bt8930\app_message.o
+                0x0000000010028c2a                message_send
+                0x0000000010028cdc                message_search
+                0x0000000010028d12                message_cancel_first
+                0x0000000010028d8c                message_cancel_all
+                0x0000000010028dac                message_is_ready
+                0x0000000010028de6                message_is_empty
+                0x0000000010028df2                message_init
  .text.app_ring_buffer_init
-                0x0000000010028db2        0xe Output\obj\projects\bt8930\app_ringbuf.o
-                0x0000000010028db2                app_ring_buffer_init
+                0x0000000010028e02        0xe Output\obj\projects\bt8930\app_ringbuf.o
+                0x0000000010028e02                app_ring_buffer_init
  .text.app_ring_buffer_is_empty
-                0x0000000010028dc0        0xa Output\obj\projects\bt8930\app_ringbuf.o
-                0x0000000010028dc0                app_ring_buffer_is_empty
+                0x0000000010028e10        0xa Output\obj\projects\bt8930\app_ringbuf.o
+                0x0000000010028e10                app_ring_buffer_is_empty
  .text.app_ring_buffer_enqueue
-                0x0000000010028dca       0x6c Output\obj\projects\bt8930\app_ringbuf.o
-                0x0000000010028dca                app_ring_buffer_enqueue
+                0x0000000010028e1a       0x6c Output\obj\projects\bt8930\app_ringbuf.o
+                0x0000000010028e1a                app_ring_buffer_enqueue
  .text.app_ring_buffer_dequeue
-                0x0000000010028e36       0x7c Output\obj\projects\bt8930\app_ringbuf.o
-                0x0000000010028e36                app_ring_buffer_dequeue
+                0x0000000010028e86       0x7c Output\obj\projects\bt8930\app_ringbuf.o
+                0x0000000010028e86                app_ring_buffer_dequeue
  .text.app_role_switch_by_inbox
-                0x0000000010028eb2       0x80 Output\obj\projects\bt8930\app_role_switch.o
-                0x0000000010028eb2                app_role_switch_by_inbox
+                0x0000000010028f02       0x80 Output\obj\projects\bt8930\app_role_switch.o
+                0x0000000010028f02                app_role_switch_by_inbox
  .text.app_role_switch_by_outbox
-                0x0000000010028f32       0x80 Output\obj\projects\bt8930\app_role_switch.o
-                0x0000000010028f32                app_role_switch_by_outbox
- .text.func     0x0000000010028fb2        0x4 Output\obj\projects\bt8930\config.o
-                0x0000000010028fb2                get_funcs_total
+                0x0000000010028f82       0x80 Output\obj\projects\bt8930\app_role_switch.o
+                0x0000000010028f82                app_role_switch_by_outbox
+ .text.func     0x0000000010029002        0x4 Output\obj\projects\bt8930\config.o
+                0x0000000010029002                get_funcs_total
  .text.getcfg_vddio_sel
-                0x0000000010028fb6        0xc Output\obj\projects\bt8930\config.o
-                0x0000000010028fb6                getcfg_vddio_sel
+                0x0000000010029006        0xc Output\obj\projects\bt8930\config.o
+                0x0000000010029006                getcfg_vddio_sel
  .text.getcfg_vddbt_capless_en
-                0x0000000010028fc2        0xc Output\obj\projects\bt8930\config.o
-                0x0000000010028fc2                getcfg_vddbt_capless_en
+                0x0000000010029012        0xc Output\obj\projects\bt8930\config.o
+                0x0000000010029012                getcfg_vddbt_capless_en
  .text.getcfg_buck_mode_en
-                0x0000000010028fce       0x18 Output\obj\projects\bt8930\config.o
-                0x0000000010028fce                getcfg_buck_mode_en
+                0x000000001002901e       0x18 Output\obj\projects\bt8930\config.o
+                0x000000001002901e                getcfg_buck_mode_en
  .text.getcfg_mic_bias_method
-                0x0000000010028fe6       0x62 Output\obj\projects\bt8930\config.o
-                0x0000000010028fe6                getcfg_mic_bias_method
+                0x0000000010029036       0x62 Output\obj\projects\bt8930\config.o
+                0x0000000010029036                getcfg_mic_bias_method
  .text.getcfg_mic_power_level
-                0x0000000010029048        0xc Output\obj\projects\bt8930\config.o
-                0x0000000010029048                getcfg_mic_power_level
+                0x0000000010029098        0xc Output\obj\projects\bt8930\config.o
+                0x0000000010029098                getcfg_mic_power_level
  .text.bt_rf_get_param
-                0x0000000010029054       0x38 Output\obj\projects\bt8930\main.o
-                0x0000000010029054                bt_rf_get_param
+                0x00000000100290a4       0x38 Output\obj\projects\bt8930\main.o
+                0x00000000100290a4                bt_rf_get_param
  .text.startup.main
-                0x000000001002908c       0xe0 Output\obj\projects\bt8930\main.o
-                0x000000001002908c                main
+                0x00000000100290dc       0xe0 Output\obj\projects\bt8930\main.o
+                0x00000000100290dc                main
  .text.get_user_def_vol_msg
-                0x000000001002916c       0x62 Output\obj\projects\bt8930\message\msg_bt.o
-                0x000000001002916c                get_user_def_vol_msg
+                0x00000000100291bc       0x62 Output\obj\projects\bt8930\message\msg_bt.o
+                0x00000000100291bc                get_user_def_vol_msg
  .text.user_def_track_msg
-                0x00000000100291ce       0x1c Output\obj\projects\bt8930\message\msg_bt.o
-                0x00000000100291ce                user_def_track_msg
+                0x000000001002921e       0x1c Output\obj\projects\bt8930\message\msg_bt.o
+                0x000000001002921e                user_def_track_msg
  .text.user_def_func_is_ready
-                0x00000000100291ea       0x26 Output\obj\projects\bt8930\message\msg_bt.o
-                0x00000000100291ea                user_def_func_is_ready
+                0x000000001002923a       0x26 Output\obj\projects\bt8930\message\msg_bt.o
+                0x000000001002923a                user_def_func_is_ready
  .text.user_def_key_msg
-                0x0000000010029210      0x138 Output\obj\projects\bt8930\message\msg_bt.o
-                0x0000000010029210                user_def_key_msg
+                0x0000000010029260      0x138 Output\obj\projects\bt8930\message\msg_bt.o
+                0x0000000010029260                user_def_key_msg
  .text.user_def_lkey_tone_is_enable
-                0x0000000010029348       0x12 Output\obj\projects\bt8930\message\msg_bt.o
-                0x0000000010029348                user_def_lkey_tone_is_enable
+                0x0000000010029398       0x12 Output\obj\projects\bt8930\message\msg_bt.o
+                0x0000000010029398                user_def_lkey_tone_is_enable
  .text.bt_tws_pair_mode
-                0x000000001002935a       0x58 Output\obj\projects\bt8930\message\msg_bt.o
-                0x000000001002935a                bt_tws_pair_mode
+                0x00000000100293aa       0x58 Output\obj\projects\bt8930\message\msg_bt.o
+                0x00000000100293aa                bt_tws_pair_mode
  .text.func.bt.msg
-                0x00000000100293b2      0x3f8 Output\obj\projects\bt8930\message\msg_bt.o
-                0x00000000100293b2                func_bt_message_do
-                0x00000000100297a4                func_bt_message
+                0x0000000010029402      0x3f8 Output\obj\projects\bt8930\message\msg_bt.o
+                0x0000000010029402                func_bt_message_do
+                0x00000000100297f4                func_bt_message
  .text.func.btring.msg
-                0x00000000100297aa      0x216 Output\obj\projects\bt8930\message\msg_bt.o
-                0x00000000100297aa                sfunc_bt_ring_message_do
-                0x00000000100299ba                sfunc_bt_ring_message
+                0x00000000100297fa      0x216 Output\obj\projects\bt8930\message\msg_bt.o
+                0x00000000100297fa                sfunc_bt_ring_message_do
+                0x0000000010029a0a                sfunc_bt_ring_message
  .text.sfunc_bt_call_message_do
-                0x00000000100299c0      0x1f4 Output\obj\projects\bt8930\message\msg_bt.o
-                0x00000000100299c0                sfunc_bt_call_message_do
+                0x0000000010029a10      0x1f4 Output\obj\projects\bt8930\message\msg_bt.o
+                0x0000000010029a10                sfunc_bt_call_message_do
  .text.sfunc_bt_call_message
-                0x0000000010029bb4        0x8 Output\obj\projects\bt8930\message\msg_bt.o
-                0x0000000010029bb4                sfunc_bt_call_message
+                0x0000000010029c04        0x8 Output\obj\projects\bt8930\message\msg_bt.o
+                0x0000000010029c04                sfunc_bt_call_message
  .text.bt_sco_aec_init
-                0x0000000010029bbc      0x114 Output\obj\projects\bt8930\plugin\bt_call.o
-                0x0000000010029bbc                bt_sco_aec_init
+                0x0000000010029c0c      0x114 Output\obj\projects\bt8930\plugin\bt_call.o
+                0x0000000010029c0c                bt_sco_aec_init
  .text.bt_sco_far_nr_init
-                0x0000000010029cd0       0x5a Output\obj\projects\bt8930\plugin\bt_call.o
-                0x0000000010029cd0                bt_sco_far_nr_init
+                0x0000000010029d20       0x5a Output\obj\projects\bt8930\plugin\bt_call.o
+                0x0000000010029d20                bt_sco_far_nr_init
  .text.bt_sco_nr_exit
-                0x0000000010029d2a        0x4 Output\obj\projects\bt8930\plugin\bt_call.o
-                0x0000000010029d2a                bt_sco_nr_exit
+                0x0000000010029d7a        0x4 Output\obj\projects\bt8930\plugin\bt_call.o
+                0x0000000010029d7a                bt_sco_nr_exit
  .text.bt_sco_dnn_pro_init
-                0x0000000010029d2e       0x94 Output\obj\projects\bt8930\plugin\bt_call.o
-                0x0000000010029d2e                bt_sco_dnn_pro_init
+                0x0000000010029d7e       0x94 Output\obj\projects\bt8930\plugin\bt_call.o
+                0x0000000010029d7e                bt_sco_dnn_pro_init
  .text.bt_sco_nr_init
-                0x0000000010029dc2       0x24 Output\obj\projects\bt8930\plugin\bt_call.o
-                0x0000000010029dc2                bt_sco_nr_init
- *fill*         0x0000000010029de6        0x2 
+                0x0000000010029e12       0x24 Output\obj\projects\bt8930\plugin\bt_call.o
+                0x0000000010029e12                bt_sco_nr_init
+ *fill*         0x0000000010029e36        0x2 
  .text.sco.gain.tbl
-                0x0000000010029de8       0x82 Output\obj\projects\bt8930\plugin\bt_call.o
-                0x0000000010029de8                mic_gain_tbl
+                0x0000000010029e38       0x82 Output\obj\projects\bt8930\plugin\bt_call.o
+                0x0000000010029e38                mic_gain_tbl
  .text.multi_lang_init
-                0x0000000010029e6a        0x2 Output\obj\projects\bt8930\plugin\multi_lang.o
-                0x0000000010029e6a                multi_lang_init
+                0x0000000010029eba        0x2 Output\obj\projects\bt8930\plugin\multi_lang.o
+                0x0000000010029eba                multi_lang_init
  .text.plugin_init
-                0x0000000010029e6c       0x3a Output\obj\projects\bt8930\plugin\plugin.o
-                0x0000000010029e6c                plugin_init
+                0x0000000010029ebc       0x3a Output\obj\projects\bt8930\plugin\plugin.o
+                0x0000000010029ebc                plugin_init
  .text.plugin_var_init
-                0x0000000010029ea6      0x15c Output\obj\projects\bt8930\plugin\plugin.o
-                0x0000000010029ea6                plugin_var_init
+                0x0000000010029ef6      0x15c Output\obj\projects\bt8930\plugin\plugin.o
+                0x0000000010029ef6                plugin_var_init
  .text.sleep_wakeup_config
-                0x000000001002a002        0x2 Output\obj\projects\bt8930\plugin\plugin.o
-                0x000000001002a002                sleep_wakeup_config
+                0x000000001002a052        0x2 Output\obj\projects\bt8930\plugin\plugin.o
+                0x000000001002a052                sleep_wakeup_config
  .text.is_sleep_dac_off_enable
-                0x000000001002a004       0x22 Output\obj\projects\bt8930\plugin\plugin.o
-                0x000000001002a004                is_sleep_dac_off_enable
+                0x000000001002a054       0x22 Output\obj\projects\bt8930\plugin\plugin.o
+                0x000000001002a054                is_sleep_dac_off_enable
  .text.get_wav_res_digvol
-                0x000000001002a026       0x12 Output\obj\projects\bt8930\plugin\plugin.o
-                0x000000001002a026                get_wav_res_digvol
+                0x000000001002a076       0x12 Output\obj\projects\bt8930\plugin\plugin.o
+                0x000000001002a076                get_wav_res_digvol
  .text.get_piano_digvol
-                0x000000001002a038        0x4 Output\obj\projects\bt8930\plugin\plugin.o
-                0x000000001002a038                get_piano_digvol
+                0x000000001002a088        0x4 Output\obj\projects\bt8930\plugin\plugin.o
+                0x000000001002a088                get_piano_digvol
  .text.maxvol_tone_play
-                0x000000001002a03c        0x8 Output\obj\projects\bt8930\plugin\plugin.o
-                0x000000001002a03c                maxvol_tone_play
+                0x000000001002a08c        0x8 Output\obj\projects\bt8930\plugin\plugin.o
+                0x000000001002a08c                maxvol_tone_play
  .text.plugin_lowbat_vol_recover
-                0x000000001002a044        0x2 Output\obj\projects\bt8930\plugin\plugin.o
-                0x000000001002a044                plugin_lowbat_vol_recover
+                0x000000001002a094        0x2 Output\obj\projects\bt8930\plugin\plugin.o
+                0x000000001002a094                plugin_lowbat_vol_recover
  .text.plugin_music_eq
-                0x000000001002a046       0x1a Output\obj\projects\bt8930\plugin\plugin.o
-                0x000000001002a046                plugin_music_eq
+                0x000000001002a096       0x1a Output\obj\projects\bt8930\plugin\plugin.o
+                0x000000001002a096                plugin_music_eq
  .text.led_disp
-                0x000000001002a060       0x20 Output\obj\projects\bt8930\port\port_led.o
-                0x000000001002a060                led_power_up
-                0x000000001002a06a                led_power_down
-                0x000000001002a074                led_idle
+                0x000000001002a0b0       0x20 Output\obj\projects\bt8930\port\port_led.o
+                0x000000001002a0b0                led_power_up
+                0x000000001002a0ba                led_power_down
+                0x000000001002a0c4                led_idle
  .text.led_disp.bt
-                0x000000001002a080       0x48 Output\obj\projects\bt8930\port\port_led.o
-                0x000000001002a080                led_bt_init
-                0x000000001002a08a                led_bt_idle
-                0x000000001002a094                led_bt_reconnect
-                0x000000001002a09e                led_bt_connected
-                0x000000001002a0a8                led_bt_play
-                0x000000001002a0b2                led_bt_ring
-                0x000000001002a0bc                led_bt_call
-                0x000000001002a0c6                led_bt_scan
+                0x000000001002a0d0       0x48 Output\obj\projects\bt8930\port\port_led.o
+                0x000000001002a0d0                led_bt_init
+                0x000000001002a0da                led_bt_idle
+                0x000000001002a0e4                led_bt_reconnect
+                0x000000001002a0ee                led_bt_connected
+                0x000000001002a0f8                led_bt_play
+                0x000000001002a102                led_bt_ring
+                0x000000001002a10c                led_bt_call
+                0x000000001002a116                led_bt_scan
  .text.led_func_init
-                0x000000001002a0c8       0xb8 Output\obj\projects\bt8930\port\port_led.o
-                0x000000001002a0c8                led_func_init
+                0x000000001002a118       0xb8 Output\obj\projects\bt8930\port\port_led.o
+                0x000000001002a118                led_func_init
  .text.led_get_cfg_port
-                0x000000001002a180       0x32 Output\obj\projects\bt8930\port\port_led.o
-                0x000000001002a180                led_get_cfg_port
+                0x000000001002a1d0       0x32 Output\obj\projects\bt8930\port\port_led.o
+                0x000000001002a1d0                led_get_cfg_port
  .text.sdadc0_anlog_init
-                0x000000001002a1b2       0x98 ..\..\libs\bt8930\libplatform.a(audio.o)
+                0x000000001002a202       0x98 ..\..\libs\bt8930\libplatform.a(audio.o)
  .text.sdadc1_anlog_init
-                0x000000001002a24a       0x98 ..\..\libs\bt8930\libplatform.a(audio.o)
+                0x000000001002a29a       0x98 ..\..\libs\bt8930\libplatform.a(audio.o)
  .text.sdadc2_anlog_init
-                0x000000001002a2e2       0x98 ..\..\libs\bt8930\libplatform.a(audio.o)
+                0x000000001002a332       0x98 ..\..\libs\bt8930\libplatform.a(audio.o)
  .text.sdadc3_anlog_init
-                0x000000001002a37a       0x98 ..\..\libs\bt8930\libplatform.a(audio.o)
+                0x000000001002a3ca       0x98 ..\..\libs\bt8930\libplatform.a(audio.o)
  .text.sdadc4_anlog_init
-                0x000000001002a412       0x98 ..\..\libs\bt8930\libplatform.a(audio.o)
- *fill*         0x000000001002a4aa       0x56 
+                0x000000001002a462       0x98 ..\..\libs\bt8930\libplatform.a(audio.o)
+ *fill*         0x000000001002a4fa        0x6 
  .text.dac_clk_source_sel
                 0x000000001002a500       0xfa ..\..\libs\bt8930\libplatform.a(audio.o)
                 0x000000001002a500                dac_clk_source_sel
@@ -16141,7 +16141,7 @@ LOAD Output\obj\projects\bt8930\port\port_update.o
  .mem_heap      0x0000000000010c00     0x3000 ..\..\libs\bt8930\libplatform.a(startup.o)
                 0x0000000000010c00                mem_heap
 
-.bss            0x000000000001dc00     0x6288
+.bss            0x000000000001dc00     0x6290
                 0x000000000001dc00                __bss_start = .
  *(COMMON)
  COMMON         0x000000000001dc00        0xc Output\obj\functions\func_bt.o
@@ -16202,418 +16202,418 @@ LOAD Output\obj\projects\bt8930\port\port_update.o
  .bss           0x000000000001e25c       0x10 Output\obj\modules\charge\charge.o
  .bss           0x000000000001e26c       0x69 Output\obj\projects\bt8930\app_ble.o
  *fill*         0x000000000001e2d5        0x3 
- .bss           0x000000000001e2d8      0x132 Output\obj\projects\bt8930\app_lr.o
- *fill*         0x000000000001e40a        0x2 
- .bss           0x000000000001e40c       0x1c ..\..\libs\bt8930\libplatform.a(audio_eq.o)
- .bss           0x000000000001e428       0x54 ..\..\libs\bt8930\libplatform.a(sdadc.o)
-                0x000000000001e428                sdadc_cb
- .bss           0x000000000001e47c      0x248 ..\..\libs\bt8930\libplatform.a(cm.o)
- .bss           0x000000000001e6c4       0x34 ..\..\libs\bt8930\libplatform.a(main.o)
-                0x000000000001e6c4                sys
- .bss.irq_tbl   0x000000000001e6f8       0x84 ..\..\libs\bt8930\libplatform.a(interrupt.o)
-                0x000000000001e6f8                tbl_irq_vector
-                0x000000000001e778                irq_mask
- .bss           0x000000000001e77c       0x28 ..\..\libs\bt8930\libplatform.a(startup.o)
+ .bss           0x000000000001e2d8        0xc Output\obj\projects\bt8930\app_dm.o
+ .bss           0x000000000001e2e4      0x132 Output\obj\projects\bt8930\app_lr.o
+ *fill*         0x000000000001e416        0x2 
+ .bss           0x000000000001e418       0x1c ..\..\libs\bt8930\libplatform.a(audio_eq.o)
+ .bss           0x000000000001e434       0x54 ..\..\libs\bt8930\libplatform.a(sdadc.o)
+                0x000000000001e434                sdadc_cb
+ .bss           0x000000000001e488      0x248 ..\..\libs\bt8930\libplatform.a(cm.o)
+ .bss           0x000000000001e6d0       0x34 ..\..\libs\bt8930\libplatform.a(main.o)
+                0x000000000001e6d0                sys
+ .bss.irq_tbl   0x000000000001e704       0x84 ..\..\libs\bt8930\libplatform.a(interrupt.o)
+                0x000000000001e704                tbl_irq_vector
+                0x000000000001e784                irq_mask
+ .bss           0x000000000001e788       0x28 ..\..\libs\bt8930\libplatform.a(startup.o)
  .bss.periph.saradc
-                0x000000000001e7a4       0x28 ..\..\libs\bt8930\libplatform.a(saradc.o)
-                0x000000000001e7a4                saradc_cb
- .bss           0x000000000001e7cc        0xc ..\..\libs\bt8930\libplatform.a(tkey.o)
-                0x000000000001e7cc                tk_pnd_cb
- .bss           0x000000000001e7d8        0xa ..\..\libs\bt8930\libplatform.a(charge.o)
- *fill*         0x000000000001e7e2        0x2 
- .bss           0x000000000001e7e4       0x20 ..\..\libs\bt8930\libplatform.a(fot_update.o)
- *fill*         0x000000000001e804        0x4 
- .bss           0x000000000001e808       0x88 ..\..\libs\bt8930\libplatform.a(lock.o)
- .bss           0x000000000001e890       0x12 ..\..\libs\bt8930\libplatform.a(voltage_trim.o)
-                0x000000000001e890                sys_trim
- *fill*         0x000000000001e8a2        0x2 
- .bss           0x000000000001e8a4       0x6c ..\..\libs\bt8930\libbtstack.a(tws.o)
-                0x000000000001e8a4                tws_st
- .bss           0x000000000001e910       0x28 ..\..\libs\bt8930\libbtstack.a(hci_sco.o)
-                0x000000000001e910                sco_rx
-                0x000000000001e924                sco_tx
- .bss           0x000000000001e938       0x10 ..\..\libs\bt8930\libbtstack.a(hci.o)
- .bss           0x000000000001e948       0x19 ..\..\libs\bt8930\libbtstack.a(hid_usage.o)
- *fill*         0x000000000001e961        0x3 
- .bss           0x000000000001e964       0x50 ..\..\libs\bt8930\libbtstack.a(btstack_link_key_db.o)
- .bss           0x000000000001e9b4       0x42 ..\..\libs\bt8930\libbtstack.a(a2dp_play.o)
-                0x000000000001e9b4                a2dp_nor
-                0x000000000001e9c0                a2dp_silence
- *fill*         0x000000000001e9f6        0x2 
- .bss           0x000000000001e9f8       0x98 ..\..\libs\bt8930\libbtstack.a(a2dp_cache.o)
- .bss           0x000000000001ea90      0x6b8 ..\..\libs\bt8930\libbtstack.a(btstack_memory.o)
- .bss           0x000000000001f148       0x10 ..\..\libs\bt8930\libbtstack.a(sm.o)
- .bss           0x000000000001f158        0xc ..\..\libs\bt8930\libbtstack.a(att_server.o)
- .bss           0x000000000001f164       0x6c ..\..\libs\bt8930\libbtstack.a(btstack_api.o)
-                0x000000000001f164                btstack_st
-                0x000000000001f1c0                btstack_cb
- .bss           0x000000000001f1d0      0x1ac ..\..\libs\bt8930\libbtstack.a(bb_sche.o)
-                0x000000000001f1d0                ss_params
- .bss           0x000000000001f37c        0xc ..\..\libs\bt8930\libbtstack.a(aes.o)
-                0x000000000001f37c                aes_env
- .bss           0x000000000001f388       0x28 ..\..\libs\bt8930\libbtstack.a(hct_tl.o)
- .bss           0x000000000001f3b0       0x28 ..\..\libs\bt8930\libbtstack.a(tws_acl.o)
-                0x000000000001f3b0                snoop_afh_pdu
- .bss           0x000000000001f3d8       0xc0 ..\..\libs\bt8930\libbtstack.a(lm_sp.o)
- .bss           0x000000000001f498       0x40 ..\..\libs\bt8930\libbtstack.a(tws_con.o)
- .bss           0x000000000001f4d8       0x10 ..\..\libs\bt8930\libbtstack.a(hfp_hf_voip.o)
- .bss           0x000000000001f4e8      0x100 ..\..\libs\bt8930\libbtstack.a(ble_buf.o)
- .bss           0x000000000001f5e8       0x10 ..\..\libs\bt8930\libcodecs.a(bt_sbc.o)
-                0x000000000001f5e8                sbc_cache
- .bss           0x000000000001f5f8        0xc ..\..\libs\bt8930\libvoices.a(plc.o)
- .bss           0x000000000001f604      0x2cc ..\..\libs\bt8930\libvoices.a(npu.o)
-                0x000000000001f604                npu_st
+                0x000000000001e7b0       0x28 ..\..\libs\bt8930\libplatform.a(saradc.o)
+                0x000000000001e7b0                saradc_cb
+ .bss           0x000000000001e7d8        0xc ..\..\libs\bt8930\libplatform.a(tkey.o)
+                0x000000000001e7d8                tk_pnd_cb
+ .bss           0x000000000001e7e4        0xa ..\..\libs\bt8930\libplatform.a(charge.o)
+ *fill*         0x000000000001e7ee        0x2 
+ .bss           0x000000000001e7f0       0x20 ..\..\libs\bt8930\libplatform.a(fot_update.o)
+ .bss           0x000000000001e810       0x88 ..\..\libs\bt8930\libplatform.a(lock.o)
+ .bss           0x000000000001e898       0x12 ..\..\libs\bt8930\libplatform.a(voltage_trim.o)
+                0x000000000001e898                sys_trim
+ *fill*         0x000000000001e8aa        0x2 
+ .bss           0x000000000001e8ac       0x6c ..\..\libs\bt8930\libbtstack.a(tws.o)
+                0x000000000001e8ac                tws_st
+ .bss           0x000000000001e918       0x28 ..\..\libs\bt8930\libbtstack.a(hci_sco.o)
+                0x000000000001e918                sco_rx
+                0x000000000001e92c                sco_tx
+ .bss           0x000000000001e940       0x10 ..\..\libs\bt8930\libbtstack.a(hci.o)
+ .bss           0x000000000001e950       0x19 ..\..\libs\bt8930\libbtstack.a(hid_usage.o)
+ *fill*         0x000000000001e969        0x3 
+ .bss           0x000000000001e96c       0x50 ..\..\libs\bt8930\libbtstack.a(btstack_link_key_db.o)
+ .bss           0x000000000001e9bc       0x42 ..\..\libs\bt8930\libbtstack.a(a2dp_play.o)
+                0x000000000001e9bc                a2dp_nor
+                0x000000000001e9c8                a2dp_silence
+ *fill*         0x000000000001e9fe        0x2 
+ .bss           0x000000000001ea00       0x98 ..\..\libs\bt8930\libbtstack.a(a2dp_cache.o)
+ .bss           0x000000000001ea98      0x6b8 ..\..\libs\bt8930\libbtstack.a(btstack_memory.o)
+ .bss           0x000000000001f150       0x10 ..\..\libs\bt8930\libbtstack.a(sm.o)
+ .bss           0x000000000001f160        0xc ..\..\libs\bt8930\libbtstack.a(att_server.o)
+ .bss           0x000000000001f16c       0x6c ..\..\libs\bt8930\libbtstack.a(btstack_api.o)
+                0x000000000001f16c                btstack_st
+                0x000000000001f1c8                btstack_cb
+ .bss           0x000000000001f1d8      0x1ac ..\..\libs\bt8930\libbtstack.a(bb_sche.o)
+                0x000000000001f1d8                ss_params
+ .bss           0x000000000001f384        0xc ..\..\libs\bt8930\libbtstack.a(aes.o)
+                0x000000000001f384                aes_env
+ .bss           0x000000000001f390       0x28 ..\..\libs\bt8930\libbtstack.a(hct_tl.o)
+ .bss           0x000000000001f3b8       0x28 ..\..\libs\bt8930\libbtstack.a(tws_acl.o)
+                0x000000000001f3b8                snoop_afh_pdu
+ .bss           0x000000000001f3e0       0xc0 ..\..\libs\bt8930\libbtstack.a(lm_sp.o)
+ .bss           0x000000000001f4a0       0x40 ..\..\libs\bt8930\libbtstack.a(tws_con.o)
+ .bss           0x000000000001f4e0       0x10 ..\..\libs\bt8930\libbtstack.a(hfp_hf_voip.o)
+ .bss           0x000000000001f4f0      0x100 ..\..\libs\bt8930\libbtstack.a(ble_buf.o)
+ .bss           0x000000000001f5f0       0x10 ..\..\libs\bt8930\libcodecs.a(bt_sbc.o)
+                0x000000000001f5f0                sbc_cache
+ .bss           0x000000000001f600        0xc ..\..\libs\bt8930\libvoices.a(plc.o)
+ .bss           0x000000000001f60c      0x2cc ..\..\libs\bt8930\libvoices.a(npu.o)
+                0x000000000001f60c                npu_st
  *(.sbss*)
- .sbss          0x000000000001f8d0        0x4 Output\obj\functions\func_bt.o
- .sbss          0x000000000001f8d4        0x4 Output\obj\modules\audio\bsp_dac.o
-                0x000000000001f8d4                cfg_dac_out_spr
-                0x000000000001f8d6                cfg_pcm_out_format
- .sbss          0x000000000001f8d8        0x7 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
- *fill*         0x000000000001f8df        0x1 
- .sbss          0x000000000001f8e0        0x8 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
- .sbss          0x000000000001f8e8        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_timer.o
-                0x000000000001f8e8                g_soft_timer_running_flag
- .sbss          0x000000000001f8ec        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x000000000001f8ec                tws_sync_ota_len
-                0x000000000001f8ee                tws_sync_data_len
- .sbss          0x000000000001f8f0        0x2 Output\obj\modules\bluetooth\ble\ble.o
-                0x000000000001f8f0                cfg_ble_ctkd_en
-                0x000000000001f8f1                cfg_ble_sm_sc_en
- .sbss          0x000000000001f8f2        0xb Output\obj\modules\bluetooth\bt\bt.o
-                0x000000000001f8f2                cfg_bt_2acl_feature
-                0x000000000001f8f4                cfg_bt_hid_type
-                0x000000000001f8f5                cfg_bt_hfp_feature1
-                0x000000000001f8f6                cfg_bt_work_mode
-                0x000000000001f8f7                cfg_ble_rf_delta_gain
-                0x000000000001f8f8                cfg_ble_page_rssi_thr
-                0x000000000001f8f9                cfg_ble_page_txpwr
-                0x000000000001f8fa                cfg_bt_inq_txpwr
-                0x000000000001f8fb                cfg_bt_page_txpwr
-                0x000000000001f8fc                cfg_bt_rf_def_txpwr
- .sbss          0x000000000001f8fd        0x2 Output\obj\modules\bluetooth\tws\tws.o
-                0x000000000001f8fd                cfg_bt_tws_limit_pair_time
-                0x000000000001f8fe                cfg_bt_tws_pair_mode
- .sbss          0x000000000001f8ff        0x1 Output\obj\modules\bluetooth\tws\tws_res.o
- .sbss          0x000000000001f900        0x1 Output\obj\modules\bluetooth\tws\tws_util.o
- *fill*         0x000000000001f901        0x3 
- .sbss          0x000000000001f904        0x4 Output\obj\modules\charge\charge.o
- .sbss          0x000000000001f908        0x4 Output\obj\modules\charge\charge_box.o
- .sbss          0x000000000001f90c        0x4 Output\obj\modules\key\key_scan.o
- .sbss          0x000000000001f910        0x5 Output\obj\modules\test\qtest.o
- .sbss          0x000000000001f915        0x1 Output\obj\system\system.o
-                0x000000000001f915                cfg_pmu_vddio_lp_enable
- .sbss          0x000000000001f916        0x2 Output\obj\system\vbat.o
- .sbss          0x000000000001f918        0x2 Output\obj\projects\bt8930\app_lr.o
- .sbss          0x000000000001f91a        0x1 Output\obj\projects\bt8930\port\port_led.o
- *fill*         0x000000000001f91b        0x1 
- .sbss          0x000000000001f91c        0xa ..\..\libs\bt8930\libplatform.a(audio.o)
-                0x000000000001f922                cfg_mic_bias_pf1_sel
-                0x000000000001f924                cfg_audec_out_format
- *fill*         0x000000000001f926        0x2 
- .sbss          0x000000000001f928        0xa ..\..\libs\bt8930\libplatform.a(audio_anc.o)
-                0x000000000001f92c                anc_cb
- .sbss          0x000000000001f932        0x1 ..\..\libs\bt8930\libplatform.a(dac.o)
-                0x000000000001f932                cfg_dac_ch_switch_fade_en
- .sbss          0x000000000001f933        0x1 ..\..\libs\bt8930\libplatform.a(dac_vol.o)
-                0x000000000001f933                cfg_spk_mute_en
- .sbss          0x000000000001f934        0x1 ..\..\libs\bt8930\libplatform.a(sdadc.o)
-                0x000000000001f934                cfg_sdadc_soft_gain_en
- *fill*         0x000000000001f935        0x3 
- .sbss          0x000000000001f938        0x4 ..\..\libs\bt8930\libplatform.a(bt.o)
-                0x000000000001f938                bt_thread_res
- .sbss          0x000000000001f93c       0x10 ..\..\libs\bt8930\libplatform.a(bt_nlms_nlp_aec.o)
-                0x000000000001f93c                aec_far_detect_func
-                0x000000000001f940                p_aec
-                0x000000000001f944                temp_fifo_cnt
-                0x000000000001f948                temp_far_rptr
- .sbss          0x000000000001f94c        0x1 ..\..\libs\bt8930\libplatform.a(bt_peri_nr.o)
- *fill*         0x000000000001f94d        0x3 
- .sbss          0x000000000001f950        0x8 ..\..\libs\bt8930\libplatform.a(bt_sco.o)
-                0x000000000001f950                aec_isr_cb
-                0x000000000001f954                call_cfg
- .sbss          0x000000000001f958        0x2 ..\..\libs\bt8930\libplatform.a(bt_sco_pcm.o)
-                0x000000000001f958                smic_test_mic_en
-                0x000000000001f959                dmic_test_mic_ch
- *fill*         0x000000000001f95a        0x2 
- .sbss          0x000000000001f95c        0x5 ..\..\libs\bt8930\libplatform.a(music.o)
-                0x000000000001f95c                sbcdec_frame
-                0x000000000001f960                audec_is_busy_flag
- *fill*         0x000000000001f961        0x3 
- .sbss          0x000000000001f964        0x8 ..\..\libs\bt8930\libplatform.a(music_res.o)
-                0x000000000001f964                spiflash_ex_read
-                0x000000000001f968                res_end_offset
-                0x000000000001f96a                res_start_offset
- .sbss          0x000000000001f96c        0xc ..\..\libs\bt8930\libplatform.a(interrupt.o)
-                0x000000000001f96c                tmr5ms_cnt
-                0x000000000001f970                ms_tick
-                0x000000000001f974                tmr0_counter
- .sbss          0x000000000001f978       0x7c ..\..\libs\bt8930\libplatform.a(startup.o)
-                0x000000000001f978                user_timer_isr_en
-                0x000000000001f97c                bt_timer_isr_en
-                0x000000000001f980                pmutex_eq
-                0x000000000001f984                pmutex_rdft
-                0x000000000001f988                pmutex_link_info
-                0x000000000001f98c                pmutex_bt_sta
-                0x000000000001f990                pmutex_math
-                0x000000000001f994                pmutex_pff
-                0x000000000001f998                pmutex_dac
-                0x000000000001f99c                pmutex_clk
-                0x000000000001f9a0                pmutex_cm
-                0x000000000001f9a4                pmq_alg
-                0x000000000001f9a8                pmq_aupcm
-                0x000000000001f9ac                pmq_driver
-                0x000000000001f9b0                psem_npu
-                0x000000000001f9b4                psem_nr
-                0x000000000001f9b8                psem_rdft
-                0x000000000001f9bc                psem_stm
-                0x000000000001f9c0                psem_aubuf1
-                0x000000000001f9c4                psem_aubuf
-                0x000000000001f9c8                psem_usb
-                0x000000000001f9cc                psem_sd
-                0x000000000001f9d0                psem_plc
-                0x000000000001f9d4                psem_aec
-                0x000000000001f9d8                psem_twshw
-                0x000000000001f9dc                psem_mschw
-                0x000000000001f9e0                pmq_music
-                0x000000000001f9e4                pmq_btstack
-                0x000000000001f9e8                psem_btstack
- .sbss          0x000000000001f9f4        0xc ..\..\libs\bt8930\libplatform.a(huart.o)
- .sbss          0x000000000001fa00        0x8 ..\..\libs\bt8930\libplatform.a(charge.o)
- .sbss          0x000000000001fa08        0x1 ..\..\libs\bt8930\libplatform.a(fot_pack.o)
- *fill*         0x000000000001fa09        0x3 
- .sbss          0x000000000001fa0c        0xc ..\..\libs\bt8930\libplatform.a(fot_update.o)
- .sbss          0x000000000001fa18        0x2 ..\..\libs\bt8930\libplatform.a(key.o)
-                0x000000000001fa18                key_sleep_stat
-                0x000000000001fa19                pwr_usage_id
- *fill*         0x000000000001fa1a        0x2 
- .sbss          0x000000000001fa1c        0x4 ..\..\libs\bt8930\libplatform.a(qtest.o)
-                0x000000000001fa1c                qtest_checkcode
- .sbss          0x000000000001fa20        0x2 ..\..\libs\bt8930\libplatform.a(weak_symbol.o)
-                0x000000000001fa20                cfg_micr_phase_en
+ .sbss          0x000000000001f8d8        0x4 Output\obj\functions\func_bt.o
+ .sbss          0x000000000001f8dc        0x4 Output\obj\modules\audio\bsp_dac.o
+                0x000000000001f8dc                cfg_dac_out_spr
+                0x000000000001f8de                cfg_pcm_out_format
+ .sbss          0x000000000001f8e0        0x7 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+ *fill*         0x000000000001f8e7        0x1 
+ .sbss          0x000000000001f8e8        0x8 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
+ .sbss          0x000000000001f8f0        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_timer.o
+                0x000000000001f8f0                g_soft_timer_running_flag
+ .sbss          0x000000000001f8f4        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x000000000001f8f4                tws_sync_ota_len
+                0x000000000001f8f6                tws_sync_data_len
+ .sbss          0x000000000001f8f8        0x2 Output\obj\modules\bluetooth\ble\ble.o
+                0x000000000001f8f8                cfg_ble_ctkd_en
+                0x000000000001f8f9                cfg_ble_sm_sc_en
+ .sbss          0x000000000001f8fa        0xb Output\obj\modules\bluetooth\bt\bt.o
+                0x000000000001f8fa                cfg_bt_2acl_feature
+                0x000000000001f8fc                cfg_bt_hid_type
+                0x000000000001f8fd                cfg_bt_hfp_feature1
+                0x000000000001f8fe                cfg_bt_work_mode
+                0x000000000001f8ff                cfg_ble_rf_delta_gain
+                0x000000000001f900                cfg_ble_page_rssi_thr
+                0x000000000001f901                cfg_ble_page_txpwr
+                0x000000000001f902                cfg_bt_inq_txpwr
+                0x000000000001f903                cfg_bt_page_txpwr
+                0x000000000001f904                cfg_bt_rf_def_txpwr
+ .sbss          0x000000000001f905        0x2 Output\obj\modules\bluetooth\tws\tws.o
+                0x000000000001f905                cfg_bt_tws_limit_pair_time
+                0x000000000001f906                cfg_bt_tws_pair_mode
+ .sbss          0x000000000001f907        0x1 Output\obj\modules\bluetooth\tws\tws_res.o
+ .sbss          0x000000000001f908        0x1 Output\obj\modules\bluetooth\tws\tws_util.o
+ *fill*         0x000000000001f909        0x3 
+ .sbss          0x000000000001f90c        0x4 Output\obj\modules\charge\charge.o
+ .sbss          0x000000000001f910        0x4 Output\obj\modules\charge\charge_box.o
+ .sbss          0x000000000001f914        0x4 Output\obj\modules\key\key_scan.o
+ .sbss          0x000000000001f918        0x5 Output\obj\modules\test\qtest.o
+ .sbss          0x000000000001f91d        0x1 Output\obj\system\system.o
+                0x000000000001f91d                cfg_pmu_vddio_lp_enable
+ .sbss          0x000000000001f91e        0x2 Output\obj\system\vbat.o
+ .sbss          0x000000000001f920        0x2 Output\obj\projects\bt8930\app_lr.o
+ .sbss          0x000000000001f922        0x1 Output\obj\projects\bt8930\port\port_led.o
+ *fill*         0x000000000001f923        0x1 
+ .sbss          0x000000000001f924        0xa ..\..\libs\bt8930\libplatform.a(audio.o)
+                0x000000000001f92a                cfg_mic_bias_pf1_sel
+                0x000000000001f92c                cfg_audec_out_format
+ *fill*         0x000000000001f92e        0x2 
+ .sbss          0x000000000001f930        0xa ..\..\libs\bt8930\libplatform.a(audio_anc.o)
+                0x000000000001f934                anc_cb
+ .sbss          0x000000000001f93a        0x1 ..\..\libs\bt8930\libplatform.a(dac.o)
+                0x000000000001f93a                cfg_dac_ch_switch_fade_en
+ .sbss          0x000000000001f93b        0x1 ..\..\libs\bt8930\libplatform.a(dac_vol.o)
+                0x000000000001f93b                cfg_spk_mute_en
+ .sbss          0x000000000001f93c        0x1 ..\..\libs\bt8930\libplatform.a(sdadc.o)
+                0x000000000001f93c                cfg_sdadc_soft_gain_en
+ *fill*         0x000000000001f93d        0x3 
+ .sbss          0x000000000001f940        0x4 ..\..\libs\bt8930\libplatform.a(bt.o)
+                0x000000000001f940                bt_thread_res
+ .sbss          0x000000000001f944       0x10 ..\..\libs\bt8930\libplatform.a(bt_nlms_nlp_aec.o)
+                0x000000000001f944                aec_far_detect_func
+                0x000000000001f948                p_aec
+                0x000000000001f94c                temp_fifo_cnt
+                0x000000000001f950                temp_far_rptr
+ .sbss          0x000000000001f954        0x1 ..\..\libs\bt8930\libplatform.a(bt_peri_nr.o)
+ *fill*         0x000000000001f955        0x3 
+ .sbss          0x000000000001f958        0x8 ..\..\libs\bt8930\libplatform.a(bt_sco.o)
+                0x000000000001f958                aec_isr_cb
+                0x000000000001f95c                call_cfg
+ .sbss          0x000000000001f960        0x2 ..\..\libs\bt8930\libplatform.a(bt_sco_pcm.o)
+                0x000000000001f960                smic_test_mic_en
+                0x000000000001f961                dmic_test_mic_ch
+ *fill*         0x000000000001f962        0x2 
+ .sbss          0x000000000001f964        0x5 ..\..\libs\bt8930\libplatform.a(music.o)
+                0x000000000001f964                sbcdec_frame
+                0x000000000001f968                audec_is_busy_flag
+ *fill*         0x000000000001f969        0x3 
+ .sbss          0x000000000001f96c        0x8 ..\..\libs\bt8930\libplatform.a(music_res.o)
+                0x000000000001f96c                spiflash_ex_read
+                0x000000000001f970                res_end_offset
+                0x000000000001f972                res_start_offset
+ .sbss          0x000000000001f974        0xc ..\..\libs\bt8930\libplatform.a(interrupt.o)
+                0x000000000001f974                tmr5ms_cnt
+                0x000000000001f978                ms_tick
+                0x000000000001f97c                tmr0_counter
+ .sbss          0x000000000001f980       0x7c ..\..\libs\bt8930\libplatform.a(startup.o)
+                0x000000000001f980                user_timer_isr_en
+                0x000000000001f984                bt_timer_isr_en
+                0x000000000001f988                pmutex_eq
+                0x000000000001f98c                pmutex_rdft
+                0x000000000001f990                pmutex_link_info
+                0x000000000001f994                pmutex_bt_sta
+                0x000000000001f998                pmutex_math
+                0x000000000001f99c                pmutex_pff
+                0x000000000001f9a0                pmutex_dac
+                0x000000000001f9a4                pmutex_clk
+                0x000000000001f9a8                pmutex_cm
+                0x000000000001f9ac                pmq_alg
+                0x000000000001f9b0                pmq_aupcm
+                0x000000000001f9b4                pmq_driver
+                0x000000000001f9b8                psem_npu
+                0x000000000001f9bc                psem_nr
+                0x000000000001f9c0                psem_rdft
+                0x000000000001f9c4                psem_stm
+                0x000000000001f9c8                psem_aubuf1
+                0x000000000001f9cc                psem_aubuf
+                0x000000000001f9d0                psem_usb
+                0x000000000001f9d4                psem_sd
+                0x000000000001f9d8                psem_plc
+                0x000000000001f9dc                psem_aec
+                0x000000000001f9e0                psem_twshw
+                0x000000000001f9e4                psem_mschw
+                0x000000000001f9e8                pmq_music
+                0x000000000001f9ec                pmq_btstack
+                0x000000000001f9f0                psem_btstack
+ .sbss          0x000000000001f9fc        0xc ..\..\libs\bt8930\libplatform.a(huart.o)
+ .sbss          0x000000000001fa08        0x8 ..\..\libs\bt8930\libplatform.a(charge.o)
+ .sbss          0x000000000001fa10        0x1 ..\..\libs\bt8930\libplatform.a(fot_pack.o)
+ *fill*         0x000000000001fa11        0x3 
+ .sbss          0x000000000001fa14        0xc ..\..\libs\bt8930\libplatform.a(fot_update.o)
+ .sbss          0x000000000001fa20        0x2 ..\..\libs\bt8930\libplatform.a(key.o)
+                0x000000000001fa20                key_sleep_stat
+                0x000000000001fa21                pwr_usage_id
  *fill*         0x000000000001fa22        0x2 
- .sbss          0x000000000001fa24       0x10 ..\..\libs\bt8930\libplatform.a(aec_pcm.o)
-                0x000000000001fa24                aec_far_history
-                0x000000000001fa28                aec_output_callback
-                0x000000000001fa2c                p_aec_nr
-                0x000000000001fa30                pcm_cfg
- .sbss          0x000000000001fa34       0x24 ..\..\libs\bt8930\libplatform.a(bt_pll.o)
-                0x000000000001fa34                tick1cnt0
-                0x000000000001fa38                tick1cnt1
-                0x000000000001fa3c                tick1cnt2
-                0x000000000001fa40                aufifo_cnt
-                0x000000000001fa44                infifo_cnt
-                0x000000000001fa48                aubuf0_tickcnt
-                0x000000000001fa4c                aubuf0_digcon0
-                0x000000000001fa50                aubuf0_backup
-                0x000000000001fa54                aubuf0_fifocnt
- .sbss          0x000000000001fa58       0x18 ..\..\libs\bt8930\libplatform.a(rf_zoom.o)
-                0x000000000001fa58                q_sum
-                0x000000000001fa5c                i_sum
-                0x000000000001fa60                rftxdndly1
-                0x000000000001fa64                rftxdndly0
-                0x000000000001fa68                rfrxdndly1
-                0x000000000001fa6c                rfrxdndly0
- .sbss          0x000000000001fa70        0x1 ..\..\libs\bt8930\libbtstack.a(tws.o)
-                0x000000000001fa70                lid_sync_flag
- *fill*         0x000000000001fa71        0x3 
- .sbss          0x000000000001fa74        0x4 ..\..\libs\bt8930\libbtstack.a(bt_tws.o)
-                0x000000000001fa74                p_tws_env
- .sbss          0x000000000001fa78        0xa ..\..\libs\bt8930\libbtstack.a(ble_page.o)
- .sbss          0x000000000001fa82        0x1 ..\..\libs\bt8930\libbtstack.a(bb.o)
- *fill*         0x000000000001fa83        0x1 
- .sbss          0x000000000001fa84        0xe ..\..\libs\bt8930\libbtstack.a(extern_bt.o)
-                0x000000000001fa84                cfg_bt_hid_douyin_mode
-                0x000000000001fa85                cfg_bt_hid_android_param
-                0x000000000001fa86                cfg_bt_hci_disc_only_spp
-                0x000000000001fa87                cfg_bt_tws_not_auto_connect
- .sbss          0x000000000001fa92        0x2 ..\..\libs\bt8930\libbtstack.a(l2cap.o)
- .sbss          0x000000000001fa94        0x8 ..\..\libs\bt8930\libbtstack.a(hci_sco.o)
-                0x000000000001fa98                sco_near_ptr
- .sbss          0x000000000001fa9c        0x4 ..\..\libs\bt8930\libbtstack.a(hci.o)
- .sbss          0x000000000001faa0       0x12 ..\..\libs\bt8930\libbtstack.a(rfcomm.o)
-                0x000000000001faa8                rfcomm_channels
-                0x000000000001faac                rfcomm_multiplexers
- *fill*         0x000000000001fab2        0x2 
- .sbss          0x000000000001fab4       0x10 ..\..\libs\bt8930\libbtstack.a(hid_usage.o)
-                0x000000000001fabc                hid_douyin_wptr
-                0x000000000001fac0                ts_ctl
- .sbss          0x000000000001fac4       0x10 ..\..\libs\bt8930\libbtstack.a(hfp_hf.o)
- .sbss          0x000000000001fad4        0x2 ..\..\libs\bt8930\libbtstack.a(btstack_link_key_db.o)
- *fill*         0x000000000001fad6        0x2 
- .sbss          0x000000000001fad8       0x18 ..\..\libs\bt8930\libbtstack.a(a2dp_play.o)
- .sbss          0x000000000001faf0       0x1c ..\..\libs\bt8930\libbtstack.a(btstack_memory.o)
- .sbss          0x000000000001fb0c        0x9 ..\..\libs\bt8930\libbtstack.a(sm.o)
- *fill*         0x000000000001fb15        0x3 
- .sbss          0x000000000001fb18        0x6 ..\..\libs\bt8930\libbtstack.a(gatt_server.o)
-                0x000000000001fb18                characteristic_cb_info_table_p
-                0x000000000001fb1c                characteristic_cb_info_tb_size
- *fill*         0x000000000001fb1e        0x2 
- .sbss          0x000000000001fb20        0x8 ..\..\libs\bt8930\libbtstack.a(gatt_profile.o)
- .sbss          0x000000000001fb28       0x20 ..\..\libs\bt8930\libbtstack.a(att_server.o)
- .sbss          0x000000000001fb48        0xc ..\..\libs\bt8930\libbtstack.a(att_dispatch.o)
- .sbss          0x000000000001fb54       0x10 ..\..\libs\bt8930\libbtstack.a(att_db.o)
- .sbss          0x000000000001fb64        0x4 ..\..\libs\bt8930\libbtstack.a(hci_transport_hcic.o)
- .sbss          0x000000000001fb68        0x8 ..\..\libs\bt8930\libbtstack.a(btstack_main.o)
- .sbss          0x000000000001fb70        0x2 ..\..\libs\bt8930\libbtstack.a(btstack_api.o)
-                0x000000000001fb70                last_connect_index
-                0x000000000001fb71                last_active_index
- .sbss          0x000000000001fb72        0x1 ..\..\libs\bt8930\libbtstack.a(vs_fcc.o)
- *fill*         0x000000000001fb73        0x1 
- .sbss          0x000000000001fb74        0x8 ..\..\libs\bt8930\libbtstack.a(hct_fc.o)
- .sbss          0x000000000001fb7c        0x1 ..\..\libs\bt8930\libbtstack.a(tws_ack.o)
-                0x000000000001fb7c                tws_low_latency_opt
- *fill*         0x000000000001fb7d        0x3 
- .sbss          0x000000000001fb80        0x7 ..\..\libs\bt8930\libbtstack.a(ll_proc.o)
- *fill*         0x000000000001fb87        0x1 
- .sbss          0x000000000001fb88        0x7 ..\..\libs\bt8930\libbtstack.a(extern_tws.o)
-                0x000000000001fb88                cfg_bt_tws_slv_nor_con_en
- .sbss          0x000000000001fb8f        0x2 ..\..\libs\bt8930\libbtstack.a(extern_a2dp.o)
-                0x000000000001fb8f                cfg_bt_a2dp_id3_en
- *fill*         0x000000000001fb91        0x3 
- .sbss          0x000000000001fb94        0x8 ..\..\libs\bt8930\libbtstack.a(tws_con.o)
- .sbss          0x000000000001fb9c        0x2 ..\..\libs\bt8930\libbtstack.a(fast_pair_interface.o)
- *fill*         0x000000000001fb9e        0x2 
- .sbss          0x000000000001fba0        0x1 ..\..\libs\bt8930\libbtstack.a(mgr_proc.o)
- *fill*         0x000000000001fba1        0x3 
- .sbss          0x000000000001fba4        0x8 ..\..\libs\bt8930\libcodecs.a(sbcen_io.o)
-                0x000000000001fba4                sbcen_cb
- .sbss          0x000000000001fbac        0x8 ..\..\libs\bt8930\libcodecs.a(bt_sbc.o)
-                0x000000000001fbb0                bt_sbc_flag
- .sbss          0x000000000001fbb4        0x2 ..\..\libs\bt8930\libcodecs.a(layer3.o)
-                0x000000000001fbb4                flag_need_kick
-                0x000000000001fbb5                flag_mp3sync_start
- *fill*         0x000000000001fbb6        0x2 
- .sbss          0x000000000001fbb8        0xc ..\..\libs\bt8930\libcodecs.a(bit_pickup.o)
-                0x000000000001fbb8                bits_pickup_cb
-                0x000000000001fbc0                bits_pickup_sta
- .sbss          0x000000000001fbc4        0x3 ..\..\libs\bt8930\libcodecs.a(bt_aac.o)
-                0x000000000001fbc4                aac_frame_cb
- *fill*         0x000000000001fbc7        0x1 
- .sbss          0x000000000001fbc8        0x8 ..\..\libs\bt8930\libvoices.a(dnn_pro.o)
+ .sbss          0x000000000001fa24        0x4 ..\..\libs\bt8930\libplatform.a(qtest.o)
+                0x000000000001fa24                qtest_checkcode
+ .sbss          0x000000000001fa28        0x2 ..\..\libs\bt8930\libplatform.a(weak_symbol.o)
+                0x000000000001fa28                cfg_micr_phase_en
+ *fill*         0x000000000001fa2a        0x2 
+ .sbss          0x000000000001fa2c       0x10 ..\..\libs\bt8930\libplatform.a(aec_pcm.o)
+                0x000000000001fa2c                aec_far_history
+                0x000000000001fa30                aec_output_callback
+                0x000000000001fa34                p_aec_nr
+                0x000000000001fa38                pcm_cfg
+ .sbss          0x000000000001fa3c       0x24 ..\..\libs\bt8930\libplatform.a(bt_pll.o)
+                0x000000000001fa3c                tick1cnt0
+                0x000000000001fa40                tick1cnt1
+                0x000000000001fa44                tick1cnt2
+                0x000000000001fa48                aufifo_cnt
+                0x000000000001fa4c                infifo_cnt
+                0x000000000001fa50                aubuf0_tickcnt
+                0x000000000001fa54                aubuf0_digcon0
+                0x000000000001fa58                aubuf0_backup
+                0x000000000001fa5c                aubuf0_fifocnt
+ .sbss          0x000000000001fa60       0x18 ..\..\libs\bt8930\libplatform.a(rf_zoom.o)
+                0x000000000001fa60                q_sum
+                0x000000000001fa64                i_sum
+                0x000000000001fa68                rftxdndly1
+                0x000000000001fa6c                rftxdndly0
+                0x000000000001fa70                rfrxdndly1
+                0x000000000001fa74                rfrxdndly0
+ .sbss          0x000000000001fa78        0x1 ..\..\libs\bt8930\libbtstack.a(tws.o)
+                0x000000000001fa78                lid_sync_flag
+ *fill*         0x000000000001fa79        0x3 
+ .sbss          0x000000000001fa7c        0x4 ..\..\libs\bt8930\libbtstack.a(bt_tws.o)
+                0x000000000001fa7c                p_tws_env
+ .sbss          0x000000000001fa80        0xa ..\..\libs\bt8930\libbtstack.a(ble_page.o)
+ .sbss          0x000000000001fa8a        0x1 ..\..\libs\bt8930\libbtstack.a(bb.o)
+ *fill*         0x000000000001fa8b        0x1 
+ .sbss          0x000000000001fa8c        0xe ..\..\libs\bt8930\libbtstack.a(extern_bt.o)
+                0x000000000001fa8c                cfg_bt_hid_douyin_mode
+                0x000000000001fa8d                cfg_bt_hid_android_param
+                0x000000000001fa8e                cfg_bt_hci_disc_only_spp
+                0x000000000001fa8f                cfg_bt_tws_not_auto_connect
+ .sbss          0x000000000001fa9a        0x2 ..\..\libs\bt8930\libbtstack.a(l2cap.o)
+ .sbss          0x000000000001fa9c        0x8 ..\..\libs\bt8930\libbtstack.a(hci_sco.o)
+                0x000000000001faa0                sco_near_ptr
+ .sbss          0x000000000001faa4        0x4 ..\..\libs\bt8930\libbtstack.a(hci.o)
+ .sbss          0x000000000001faa8       0x12 ..\..\libs\bt8930\libbtstack.a(rfcomm.o)
+                0x000000000001fab0                rfcomm_channels
+                0x000000000001fab4                rfcomm_multiplexers
+ *fill*         0x000000000001faba        0x2 
+ .sbss          0x000000000001fabc       0x10 ..\..\libs\bt8930\libbtstack.a(hid_usage.o)
+                0x000000000001fac4                hid_douyin_wptr
+                0x000000000001fac8                ts_ctl
+ .sbss          0x000000000001facc       0x10 ..\..\libs\bt8930\libbtstack.a(hfp_hf.o)
+ .sbss          0x000000000001fadc        0x2 ..\..\libs\bt8930\libbtstack.a(btstack_link_key_db.o)
+ *fill*         0x000000000001fade        0x2 
+ .sbss          0x000000000001fae0       0x18 ..\..\libs\bt8930\libbtstack.a(a2dp_play.o)
+ .sbss          0x000000000001faf8       0x1c ..\..\libs\bt8930\libbtstack.a(btstack_memory.o)
+ .sbss          0x000000000001fb14        0x9 ..\..\libs\bt8930\libbtstack.a(sm.o)
+ *fill*         0x000000000001fb1d        0x3 
+ .sbss          0x000000000001fb20        0x6 ..\..\libs\bt8930\libbtstack.a(gatt_server.o)
+                0x000000000001fb20                characteristic_cb_info_table_p
+                0x000000000001fb24                characteristic_cb_info_tb_size
+ *fill*         0x000000000001fb26        0x2 
+ .sbss          0x000000000001fb28        0x8 ..\..\libs\bt8930\libbtstack.a(gatt_profile.o)
+ .sbss          0x000000000001fb30       0x20 ..\..\libs\bt8930\libbtstack.a(att_server.o)
+ .sbss          0x000000000001fb50        0xc ..\..\libs\bt8930\libbtstack.a(att_dispatch.o)
+ .sbss          0x000000000001fb5c       0x10 ..\..\libs\bt8930\libbtstack.a(att_db.o)
+ .sbss          0x000000000001fb6c        0x4 ..\..\libs\bt8930\libbtstack.a(hci_transport_hcic.o)
+ .sbss          0x000000000001fb70        0x8 ..\..\libs\bt8930\libbtstack.a(btstack_main.o)
+ .sbss          0x000000000001fb78        0x2 ..\..\libs\bt8930\libbtstack.a(btstack_api.o)
+                0x000000000001fb78                last_connect_index
+                0x000000000001fb79                last_active_index
+ .sbss          0x000000000001fb7a        0x1 ..\..\libs\bt8930\libbtstack.a(vs_fcc.o)
+ *fill*         0x000000000001fb7b        0x1 
+ .sbss          0x000000000001fb7c        0x8 ..\..\libs\bt8930\libbtstack.a(hct_fc.o)
+ .sbss          0x000000000001fb84        0x1 ..\..\libs\bt8930\libbtstack.a(tws_ack.o)
+                0x000000000001fb84                tws_low_latency_opt
+ *fill*         0x000000000001fb85        0x3 
+ .sbss          0x000000000001fb88        0x7 ..\..\libs\bt8930\libbtstack.a(ll_proc.o)
+ *fill*         0x000000000001fb8f        0x1 
+ .sbss          0x000000000001fb90        0x7 ..\..\libs\bt8930\libbtstack.a(extern_tws.o)
+                0x000000000001fb90                cfg_bt_tws_slv_nor_con_en
+ .sbss          0x000000000001fb97        0x2 ..\..\libs\bt8930\libbtstack.a(extern_a2dp.o)
+                0x000000000001fb97                cfg_bt_a2dp_id3_en
+ *fill*         0x000000000001fb99        0x3 
+ .sbss          0x000000000001fb9c        0x8 ..\..\libs\bt8930\libbtstack.a(tws_con.o)
+ .sbss          0x000000000001fba4        0x2 ..\..\libs\bt8930\libbtstack.a(fast_pair_interface.o)
+ *fill*         0x000000000001fba6        0x2 
+ .sbss          0x000000000001fba8        0x1 ..\..\libs\bt8930\libbtstack.a(mgr_proc.o)
+ *fill*         0x000000000001fba9        0x3 
+ .sbss          0x000000000001fbac        0x8 ..\..\libs\bt8930\libcodecs.a(sbcen_io.o)
+                0x000000000001fbac                sbcen_cb
+ .sbss          0x000000000001fbb4        0x8 ..\..\libs\bt8930\libcodecs.a(bt_sbc.o)
+                0x000000000001fbb8                bt_sbc_flag
+ .sbss          0x000000000001fbbc        0x2 ..\..\libs\bt8930\libcodecs.a(layer3.o)
+                0x000000000001fbbc                flag_need_kick
+                0x000000000001fbbd                flag_mp3sync_start
+ *fill*         0x000000000001fbbe        0x2 
+ .sbss          0x000000000001fbc0        0xc ..\..\libs\bt8930\libcodecs.a(bit_pickup.o)
+                0x000000000001fbc0                bits_pickup_cb
+                0x000000000001fbc8                bits_pickup_sta
+ .sbss          0x000000000001fbcc        0x3 ..\..\libs\bt8930\libcodecs.a(bt_aac.o)
+                0x000000000001fbcc                aac_frame_cb
+ *fill*         0x000000000001fbcf        0x1 
+ .sbss          0x000000000001fbd0        0x8 ..\..\libs\bt8930\libvoices.a(dnn_pro.o)
  *(.buf*)
- .buf.key.cb    0x000000000001fbd0        0xc Output\obj\bsp\bsp_saradc.o
-                0x000000000001fbd0                adc_cb
- .buf.func_cb   0x000000000001fbdc        0xc Output\obj\functions\func.o
-                0x000000000001fbdc                func_cb
+ .buf.key.cb    0x000000000001fbd8        0xc Output\obj\bsp\bsp_saradc.o
+                0x000000000001fbd8                adc_cb
+ .buf.func_cb   0x000000000001fbe4        0xc Output\obj\functions\func.o
+                0x000000000001fbe4                func_cb
  .buf.func.music
-                0x000000000001fbe8       0x18 Output\obj\functions\func_music.o
-                0x000000000001fbe8                f_msc
- .buf.led       0x000000000001fc00       0x30 Output\obj\modules\gui\led\led.o
-                0x000000000001fc00                led_cb
-                0x000000000001fc10                led_lb
-                0x000000000001fc20                led_sync
+                0x000000000001fbf0       0x18 Output\obj\functions\func_music.o
+                0x000000000001fbf0                f_msc
+ .buf.led       0x000000000001fc08       0x30 Output\obj\modules\gui\led\led.o
+                0x000000000001fc08                led_cb
+                0x000000000001fc18                led_lb
+                0x000000000001fc28                led_sync
  .buf.bsp.sys_cb
-                0x000000000001fc30       0x70 Output\obj\system\system.o
-                0x000000000001fc30                sys_cb
- .buf.led       0x000000000001fca0       0x28 Output\obj\projects\bt8930\port\port_led.o
-                0x000000000001fca0                bled_gpio
-                0x000000000001fca8                bled_func
-                0x000000000001fcb4                rled_gpio
-                0x000000000001fcbc                rled_func
- .buf.dac       0x000000000001fcc8       0x4c ..\..\libs\bt8930\libplatform.a(dac.o)
-                0x000000000001fcc8                dac_cb
+                0x000000000001fc38       0x70 Output\obj\system\system.o
+                0x000000000001fc38                sys_cb
+ .buf.led       0x000000000001fca8       0x28 Output\obj\projects\bt8930\port\port_led.o
+                0x000000000001fca8                bled_gpio
+                0x000000000001fcb0                bled_func
+                0x000000000001fcbc                rled_gpio
+                0x000000000001fcc4                rled_func
+ .buf.dac       0x000000000001fcd0       0x4c ..\..\libs\bt8930\libplatform.a(dac.o)
+                0x000000000001fcd0                dac_cb
  .buf.device.cb
-                0x000000000001fd14       0x1c ..\..\libs\bt8930\libplatform.a(device.o)
-                0x000000000001fd14                dev_cb
- .buf.music.cb  0x000000000001fd30        0x8 ..\..\libs\bt8930\libplatform.a(music.o)
-                0x000000000001fd30                music_cb
- .buf.spires    0x000000000001fd38       0x20 ..\..\libs\bt8930\libplatform.a(music_res.o)
-                0x000000000001fd38                spires_cb
-                0x000000000001fd48                spires_wav_cb
- .buf.wavres    0x000000000001fd58        0xc ..\..\libs\bt8930\libplatform.a(music_res.o)
-                0x000000000001fd58                wavres_cb
- .buf.stm       0x000000000001fd64       0x24 ..\..\libs\bt8930\libplatform.a(stream.o)
-                0x000000000001fd64                stm_cb
-                0x000000000001fd7c                stm_avio
- .buf.piano     0x000000000001fd88       0x18 ..\..\libs\bt8930\libplatform.a(piano.o)
-                0x000000000001fd88                piano_cb
- .buf.cpu_gprs  0x000000000001fda0       0x80 ..\..\libs\bt8930\libplatform.a(debug.o)
-                0x000000000001fda0                cpu_gprs
- .buf.key.cb    0x000000000001fe20       0x20 ..\..\libs\bt8930\libplatform.a(key.o)
- .buf.deccom    0x000000000001fe40       0x2c ..\..\libs\bt8930\libcodecs.a(codecs_com.o)
-                0x000000000001fe40                codec_info
-                0x000000000001fe44                qskip
+                0x000000000001fd1c       0x1c ..\..\libs\bt8930\libplatform.a(device.o)
+                0x000000000001fd1c                dev_cb
+ .buf.music.cb  0x000000000001fd38        0x8 ..\..\libs\bt8930\libplatform.a(music.o)
+                0x000000000001fd38                music_cb
+ .buf.spires    0x000000000001fd40       0x20 ..\..\libs\bt8930\libplatform.a(music_res.o)
+                0x000000000001fd40                spires_cb
+                0x000000000001fd50                spires_wav_cb
+ .buf.wavres    0x000000000001fd60        0xc ..\..\libs\bt8930\libplatform.a(music_res.o)
+                0x000000000001fd60                wavres_cb
+ .buf.stm       0x000000000001fd6c       0x24 ..\..\libs\bt8930\libplatform.a(stream.o)
+                0x000000000001fd6c                stm_cb
+                0x000000000001fd84                stm_avio
+ .buf.piano     0x000000000001fd90       0x18 ..\..\libs\bt8930\libplatform.a(piano.o)
+                0x000000000001fd90                piano_cb
+ .buf.cpu_gprs  0x000000000001fda8       0x80 ..\..\libs\bt8930\libplatform.a(debug.o)
+                0x000000000001fda8                cpu_gprs
+ .buf.key.cb    0x000000000001fe28       0x20 ..\..\libs\bt8930\libplatform.a(key.o)
+ .buf.deccom    0x000000000001fe48       0x2c ..\..\libs\bt8930\libcodecs.a(codecs_com.o)
+                0x000000000001fe48                codec_info
+                0x000000000001fe4c                qskip
  *(.btmem.stack.sdp)
  .btmem.stack.sdp
-                0x000000000001fe6c      0x190 ..\..\libs\bt8930\libbtstack.a(sdp_server.o)
+                0x000000000001fe74      0x190 ..\..\libs\bt8930\libbtstack.a(sdp_server.o)
  .btmem.stack.sdp
-                0x000000000001fffc       0xc0 ..\..\libs\bt8930\libbtstack.a(sdp_client.o)
+                0x0000000000020004       0xc0 ..\..\libs\bt8930\libbtstack.a(sdp_client.o)
  *(.btmem.stack.spp)
  .btmem.stack.spp
-                0x00000000000200bc       0x8c ..\..\libs\bt8930\libbtstack.a(spp.o)
-                0x0000000000020120                spp_connections
+                0x00000000000200c4       0x8c ..\..\libs\bt8930\libbtstack.a(spp.o)
+                0x0000000000020128                spp_connections
  *(.btmem.stack.l2cap)
  .btmem.stack.l2cap
-                0x0000000000020148       0xbc ..\..\libs\bt8930\libbtstack.a(l2cap.o)
-                0x0000000000020170                l2cap_channels
+                0x0000000000020150       0xbc ..\..\libs\bt8930\libbtstack.a(l2cap.o)
+                0x0000000000020178                l2cap_channels
  *(.btmem.stack.hid*)
  .btmem.stack.hid.usage
-                0x0000000000020204       0x12 ..\..\libs\bt8930\libbtstack.a(hid_usage.o)
-                0x0000000000020204                hrpt_cb
-                0x000000000002020c                hid_report_buf
- *fill*         0x0000000000020216        0x2 
+                0x000000000002020c       0x12 ..\..\libs\bt8930\libbtstack.a(hid_usage.o)
+                0x000000000002020c                hrpt_cb
+                0x0000000000020214                hid_report_buf
+ *fill*         0x000000000002021e        0x2 
  .btmem.stack.hid
-                0x0000000000020218       0x38 ..\..\libs\bt8930\libbtstack.a(hid_device.o)
+                0x0000000000020220       0x38 ..\..\libs\bt8930\libbtstack.a(hid_device.o)
  *(.qtest_buf)
- .qtest_buf     0x0000000000020250      0x2cc ..\..\libs\bt8930\libplatform.a(qtest.o)
-                0x0000000000020250                qtest
-                0x0000000000020270                qtest_param
-                0x000000000002029c                qtest_txmsg
-                0x00000000000202dc                qtest_rxbuf
-                0x000000000002031c                qcrc_buf
+ .qtest_buf     0x0000000000020258      0x2cc ..\..\libs\bt8930\libplatform.a(qtest.o)
+                0x0000000000020258                qtest
+                0x0000000000020278                qtest_param
+                0x00000000000202a4                qtest_txmsg
+                0x00000000000202e4                qtest_rxbuf
+                0x0000000000020324                qcrc_buf
  *(.dac_obuf*)
  .dac_obuf.src0
-                0x000000000002051c     0x1e00 ..\..\libs\bt8930\libplatform.a(dac_src.o)
-                0x000000000002051c                dac_obuf
+                0x0000000000020524     0x1e00 ..\..\libs\bt8930\libplatform.a(dac_src.o)
+                0x0000000000020524                dac_obuf
  .dac_obuf.src1
-                0x000000000002231c      0x480 ..\..\libs\bt8930\libplatform.a(dac_src.o)
-                0x000000000002231c                dac_src1_obuf
+                0x0000000000022324      0x480 ..\..\libs\bt8930\libplatform.a(dac_src.o)
+                0x0000000000022324                dac_src1_obuf
  *(.adc_buf*)
- .adc_buf.buf   0x000000000002279c      0xc00 ..\..\libs\bt8930\libplatform.a(sdadc.o)
-                0x000000000002279c                sdadc_buf
+ .adc_buf.buf   0x00000000000227a4      0xc00 ..\..\libs\bt8930\libplatform.a(sdadc.o)
+                0x00000000000227a4                sdadc_buf
  *(.tkey_buf.debug)
  *(.wav_res_buf)
- .wav_res_buf   0x000000000002339c      0x200 ..\..\libs\bt8930\libplatform.a(music_res.o)
-                0x000000000002339c                wav_res_buf
+ .wav_res_buf   0x00000000000233a4      0x200 ..\..\libs\bt8930\libplatform.a(music_res.o)
+                0x00000000000233a4                wav_res_buf
  *(.au0out_buf*)
  *(.sco_enc.obuf)
-                0x000000000002359c                __tuya_data_start = .
+                0x00000000000235a4                __tuya_data_start = .
  *(.tuya_data*)
-                0x000000000002359c                __tuya_data_end = .
+                0x00000000000235a4                __tuya_data_end = .
  *(.app.buf*)
- .app.buf.recv  0x000000000002359c       0x89 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x000000000002359c                ab_mate_cmd_recv
- *fill*         0x0000000000023625        0x3 
- .app.buf.send  0x0000000000023628       0xff Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000000023628                ab_mate_cmd_send
- *fill*         0x0000000000023727        0x1 
+ .app.buf.recv  0x00000000000235a4       0x89 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000000235a4                ab_mate_cmd_recv
+ *fill*         0x000000000002362d        0x3 
+ .app.buf.send  0x0000000000023630       0xff Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000000023630                ab_mate_cmd_send
+ *fill*         0x000000000002372f        0x1 
  .app.buf.timer
-                0x0000000000023728       0x18 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000000023728                cm_timer
-                0x000000000002372c                device_find_timer
-                0x0000000000023730                custom_cmd_tone_timer
-                0x0000000000023734                play_sta_timer
-                0x0000000000023738                vbat_timer
-                0x000000000002373c                bt_sta_timer
- .app.buf.var   0x0000000000023740       0x6c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000000023740                ab_mate_app
- .app.buf.fot   0x00000000000237ac       0x30 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x00000000000237ac                fot_var
- .app.buf.gatt  0x00000000000237dc       0x10 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
+                0x0000000000023730       0x18 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000000023730                cm_timer
+                0x0000000000023734                device_find_timer
+                0x0000000000023738                custom_cmd_tone_timer
+                0x000000000002373c                play_sta_timer
+                0x0000000000023740                vbat_timer
+                0x0000000000023744                bt_sta_timer
+ .app.buf.var   0x0000000000023748       0x6c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000000023748                ab_mate_app
+ .app.buf.fot   0x00000000000237b4       0x30 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x00000000000237b4                fot_var
+ .app.buf.gatt  0x00000000000237e4       0x10 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
  .app.buf.timer
-                0x00000000000237ec       0x78 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_timer.o
-                0x00000000000237ec                g_soft_timer
- .app.buf.fot   0x0000000000023864      0x210 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000000023864                tws_sync_ota
- .app.buf.tws   0x0000000000023a74       0x80 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000000023a74                tws_sync_data
+                0x00000000000237f4       0x78 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_timer.o
+                0x00000000000237f4                g_soft_timer
+ .app.buf.fot   0x000000000002386c      0x210 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x000000000002386c                tws_sync_ota
+ .app.buf.tws   0x0000000000023a7c       0x80 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000000023a7c                tws_sync_data
  *(.ble_cache.sm*)
- .ble_cache.sm  0x0000000000023af4      0x2d9 ..\..\libs\bt8930\libbtstack.a(sm.o)
- *fill*         0x0000000000023dcd        0x3 
+ .ble_cache.sm  0x0000000000023afc      0x2d9 ..\..\libs\bt8930\libbtstack.a(sm.o)
+ *fill*         0x0000000000023dd5        0x3 
  .ble_cache.sm.sc
-                0x0000000000023dd0       0xb8 ..\..\libs\bt8930\libbtstack.a(sm.o)
+                0x0000000000023dd8       0xb8 ..\..\libs\bt8930\libbtstack.a(sm.o)
  *(.opus_buf.input)
-                0x0000000000023e88                __bss_end = .
+                0x0000000000023e90                __bss_end = .
                 0x0000000000000000                __tuya_data_size = (__tuya_data_end - __tuya_data_start)
 
 .bram           0x0000000000024000     0xbf74
@@ -17316,7 +17316,7 @@ LOAD Output\obj\projects\bt8930\port\port_update.o
 
 .anc_tool_data
  *(.anc_tool_buf*)
-                0x0000000000006288                __bss_size = (__bss_end - __bss_start)
+                0x0000000000006290                __bss_size = (__bss_end - __bss_start)
                 0x0000000000081a00                __bank_size = SIZEOF (.flash)
                 0x0000000010000200                __comm_lma = LOADADDR (.comm)
                 0x0000000000009800                __comm_size = SIZEOF (.comm)
@@ -17435,6 +17435,7 @@ OUTPUT(Output\bin\app.rv32 elf32-littleriscv)
  .comment       0x0000000000000011       0x12 Output\obj\system\system.o
  .comment       0x0000000000000011       0x12 Output\obj\system\vbat.o
  .comment       0x0000000000000011       0x12 Output\obj\projects\bt8930\app_ble.o
+ .comment       0x0000000000000011       0x12 Output\obj\projects\bt8930\app_dm.o
  .comment       0x0000000000000011       0x12 Output\obj\projects\bt8930\app_lr.o
  .comment       0x0000000000000011       0x12 Output\obj\projects\bt8930\app_message.o
  .comment       0x0000000000000011       0x12 Output\obj\projects\bt8930\app_ringbuf.o
