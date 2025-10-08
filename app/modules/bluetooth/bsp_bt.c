@@ -256,6 +256,17 @@ void bt_emit_notice(uint evt, void *params)
         break;
 
     case BT_NOTICE_DISCONNECT:
+#if SWETZ_SET_SCAN_STATE
+        // u8 ag_num = app_dm_get_connected_ag_num();
+        // if(ag_num == 0){
+        //         bt_set_scan(0x03);
+
+        // }else{
+        //         bt_set_scan(0x02);
+        // }
+#endif
+
+
 #if QTEST_EN
         if(qtest_get_mode()) {
             qtest_exit();
@@ -277,7 +288,27 @@ void bt_emit_notice(uint evt, void *params)
         delay_5ms(5);
         break;
     case BT_NOTICE_CONNECTED:
+#if SWETZ_SET_SCAN_STATE
+        if (ab_mate_app.mult_dev.en)
+        {
+            if (app_dm_get_connected_ag_num() <= 1)
+            {
+                bt_set_scan(0x02);
+            }
+            else 
+            {
+                bt_set_scan(0x00);
+            }
+        }
+        else 
+        {
+            bt_set_scan(0x00);
+        }     
+#else
         f_bt.warning_status |= BT_WARN_CON;
+#endif
+
+        
         bt_reset_redial_number(packet[0] & 0x01);
 #if LE_WIN10_POPUP
         ble_adv0_set_ctrl(0);				//关闭LE广播

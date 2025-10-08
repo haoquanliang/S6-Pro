@@ -1615,20 +1615,66 @@ void ab_mate_mult_dev_addr_decrypt(u8 *bt_addr)
 void ab_mate_mult_dev_en_set_do(void)
 {
     u8 bt_set_sacn_val = 0;
+#if SWETZ_SET_SCAN_STATE
+    u8 scan_temp = bt_get_scan();
+#endif
+
 
     if(ab_mate_app.mult_dev.en){
         cfg_bt_max_acl_link = 2;
         bt_nor_link_ctrl_max_set(cfg_bt_max_acl_link);
+#if SWETZ_SET_SCAN_STATE
+        if (scan_temp & 0x01)
+        {
+            bt_set_sacn_val = 0x03;
+        }
+        else
+        {
+            bt_set_sacn_val = 0x02;
+        }
+#else
         bt_set_sacn_val = 0x02;  //可连接
+#endif        
+        
     }else{
         cfg_bt_max_acl_link = 1;
         bt_nor_link_ctrl_max_set(cfg_bt_max_acl_link);
+#if SWETZ_SET_SCAN_STATE
+        if (scan_temp & 0x01)
+        {
+            if (app_dm_get_connected_ag_num() == 0)
+            {
+                bt_set_sacn_val = 0x03;
+            }
+            else 
+            {
+                bt_set_sacn_val = 0;     //不可发现不可连接
+            }
+        }
+        else
+        {
+            if (app_dm_get_connected_ag_num() == 0)
+            {
+                bt_set_sacn_val = 0x02;  //可连接
+            }
+            else
+            {
+                bt_set_sacn_val = 0;     //不可发现不可连接
+            }
+        }
+#else
         bt_set_sacn_val = 0;     //不可发现不可连接
+#endif
     }
 #if SWETZ_SET_SCAN_STATE
-     bt_set_sacn_val = 0x03;
+    if (!bt_tws_is_slave())
+    {
+        bt_set_scan_force(bt_set_sacn_val);
+    }
+#else
+        bt_set_scan_force(bt_set_sacn_val);
 #endif
-    bt_set_scan_force(bt_set_sacn_val);
+   
     TRACE("mult dev set do, en:%d, max acl_link:%d\n", ab_mate_app.mult_dev.en, cfg_bt_max_acl_link);
     ab_mate_cm_write(&ab_mate_app.mult_dev.en, AB_MATE_CM_MULT_DEV_EN, 1, 2);
 }
