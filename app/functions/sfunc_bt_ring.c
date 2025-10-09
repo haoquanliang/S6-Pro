@@ -16,18 +16,18 @@
 
 #if FUNC_BT_EN
 enum {
-    RING_FLAG_RES       = BIT(0),       //±¾µØÁåÉù±êÖ¾
-    RING_FLAG_SCO       = BIT(1),       //SCOÁåÉù±êÖ¾
-    RING_FLAG_NUM       = BIT(2),       //±¨ºÅ±êÖ¾
-    RING_FLAG_SYNC      = BIT(3),       //ÊÇ·ñÍ¬²½×´Ì¬±êÖ¾
+    RING_FLAG_RES       = BIT(0),       //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾
+    RING_FLAG_SCO       = BIT(1),       //SCOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾
+    RING_FLAG_NUM       = BIT(2),       //ï¿½ï¿½ï¿½Å±ï¿½Ö¾
+    RING_FLAG_SYNC      = BIT(3),       //ï¿½Ç·ï¿½Í¬ï¿½ï¿½×´Ì¬ï¿½ï¿½Ö¾
 };
 
 enum {
     BT_RING_STA_IDLE    = 0,
-    BT_RING_STA_NEGO,                   //Ð­ÉÌ×´Ì¬
-    BT_RING_STA_SCO,                    //²¥·ÅSCOÁåÉùÍ¬²½×´Ì¬(²»Ö§³ÖÊÖ»ú»òÑ¡Ôñ²»Í¬²½£¬²¥·Å±¾µØring)
-    BT_RING_STA_RES,                    //²¥·Åring res×´Ì¬
-    BT_RING_STA_NUM,                    //²¥·ÅÀ´µç±¨ºÅ
+    BT_RING_STA_NEGO,                   //Ð­ï¿½ï¿½×´Ì¬
+    BT_RING_STA_SCO,                    //ï¿½ï¿½ï¿½ï¿½SCOï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½×´Ì¬(ï¿½ï¿½Ö§ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½ring)
+    BT_RING_STA_RES,                    //ï¿½ï¿½ï¿½ï¿½ring res×´Ì¬
+    BT_RING_STA_NUM,                    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç±¨ï¿½ï¿½
 };
 
 struct bt_ring_st {
@@ -128,8 +128,8 @@ static void ring_res_play(uint8_t res_idx)
 bool ring_mp3_msg_work(void)
 {
     bool ret = false;
-    if (bt_ring.loc_sta == BT_RING_STA_RES) {    //ÅÐ¶ÏÊÇ·ñ²¥·Å±¾µØÁåÉù
-        bt_ring.loc_sta = BT_RING_STA_IDLE;      //ÔÝÍ£±¾µØÁåÉù²¥·Å
+    if (bt_ring.loc_sta == BT_RING_STA_RES) {    //ï¿½Ð¶ï¿½ï¿½Ç·ñ²¥·Å±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        bt_ring.loc_sta = BT_RING_STA_IDLE;      //ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         ret = true;
     }
     return ret;
@@ -199,17 +199,17 @@ static void sfunc_bt_ring_res_init(void)
     bt_ring.loc_sta = BT_RING_STA_RES;
     GLOBAL_INT_RESTORE();
 
-    //²»ÒªÁ¢¿Ì±¨ºÅ£¬±ÜÃâ²»½ÓÌý×Ô¶¯¹Ò¶ÏÊ±£¬hfp×´Ì¬ÓÐÊ±ÑÓÊ±1s£¬µ¼ÖÂ¶à±¨Ò»Éùring
+    //ï¿½ï¿½Òªï¿½ï¿½ï¿½Ì±ï¿½ï¿½Å£ï¿½ï¿½ï¿½ï¿½â²»ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½Ò¶ï¿½Ê±ï¿½ï¿½hfp×´Ì¬ï¿½ï¿½Ê±ï¿½ï¿½Ê±1sï¿½ï¿½ï¿½ï¿½ï¿½Â¶à±¨Ò»ï¿½ï¿½ring
     bt_ring.tickn = TICK_ADD(TICKN_GET(), 1200);
     bt_tws_sync_ring_sta();
 }
 #endif
-//Ð­ÉÌ×´Ì¬
+//Ð­ï¿½ï¿½×´Ì¬
 AT(.text.func.btring)
 static void sfunc_bt_ring_nego(void)
 {
 #if BT_TWS_EN
-    //Ç°1sµÈ´ý¶Ô·½½øÈëring×´Ì¬
+    //Ç°1sï¿½È´ï¿½ï¿½Ô·ï¿½ï¿½ï¿½ï¿½ï¿½ring×´Ì¬
     if(bt_tws_is_connected()
        && bt_ring.rem_sta == BT_RING_STA_IDLE
        && !TICKN_IS_EXPIRE(bt_ring.nego_tickn)) {
@@ -247,12 +247,12 @@ static void sfunc_bt_ring_nego(void)
     }
 }
 
-//²¥·Å±¾µØÁåÉùÌáÊ¾Òô
+//ï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½
 AT(.text.func.btring)
 static void sfunc_bt_ring_res(void)
 {
 #if BT_HFP_RING_NUMBER_EN
-    if((bt_ring.loc_flag & RING_FLAG_NUM) == 0) {       //Î´±¨¹ýºÅÂë
+    if((bt_ring.loc_flag & RING_FLAG_NUM) == 0) {       //Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if(bt_ring.num_len != 0) {
             sfunc_bt_ring_num_init();
             return;
@@ -268,12 +268,12 @@ static void sfunc_bt_ring_res(void)
 }
 
 #if BT_HFP_INBAND_RING_EN
-//²¥·ÅÀ´µçÍ¬²½ÌáÊ¾Òô, Ã»ÓÐÍ¬²½ÁåÉùÊÖ»úÔò²¥·Å±¾µØµÄ
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½, Ã»ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ò²¥·Å±ï¿½ï¿½Øµï¿½
 AT(.text.func.btring) ALIGNED(256)
 static void sfunc_bt_ring_sco(void)
 {
 #if BT_HFP_RING_NUMBER_EN
-    if((bt_ring.loc_flag & RING_FLAG_NUM) == 0) {       //Î´±¨¹ýºÅÂë
+    if((bt_ring.loc_flag & RING_FLAG_NUM) == 0) {       //Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if(bt_ring.num_len != 0) {
             sfunc_bt_ring_num_init();
         }
@@ -292,7 +292,7 @@ static void sfunc_bt_ring_sco(void)
 #endif
 
 #if BT_HFP_RING_NUMBER_EN
-//²¥·ÅÀ´µç±¨ºÅ
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç±¨ï¿½ï¿½
 AT(.text.func.btring)
 static void sfunc_bt_ring_num(void)
 {
@@ -306,7 +306,7 @@ static void sfunc_bt_ring_num(void)
             if (res_num != 0xf) {
                 res_num = TWS_RES_NUM_0 + res_num;
                 bt_ring.tickn = TICK_ADD(TICKN_GET(), 1500);
-                ring_res_play(res_num);         //Í¬²½±¨ºÅ
+                ring_res_play(res_num);         //Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             }
 
             bt_ring.num_index++;
@@ -435,7 +435,7 @@ static void sfunc_bt_ring_process(void)
     func_bt_disp_status();
 
     if(bt_ring.loc_sta >= BT_RING_STA_RES) {
-        if(bsp_res_is_playing()) {      //µÈ´ýµ±Ç°±¨ºÅ²¥±¨Íê
+        if(bsp_res_is_playing()) {      //ï¿½È´ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Å²ï¿½ï¿½ï¿½ï¿½ï¿½
             return;
         }
     }
@@ -462,12 +462,12 @@ AT(.text.func.btring)
 static void sfunc_bt_ring_exit(void)
 {
 #if BT_HFP_INBAND_RING_EN
-    //±ÜÃâ¹Ò¶ÏÊ±ºóÐøµÈ´ý¹ý³ÌÂ©Ò»µãÒôÀÖ³öÀ´
+    //ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½Â©Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ö³ï¿½ï¿½ï¿½
     if((bt_ring.loc_flag & RING_FLAG_SCO)) {
         bt_audio_bypass();
     }
 #endif
-    //µÈ´ý¶Ô·½×´Ì¬±ä³ÉIDLE
+    //ï¿½È´ï¿½ï¿½Ô·ï¿½×´Ì¬ï¿½ï¿½ï¿½IDLE
     while(bt_tws_is_connected() && func_cb.sta == FUNC_BT) {
         if(TICKN_IS_EXPIRE(bt_ring.tickn)
            || bt_ring.rem_sta == BT_RING_STA_IDLE) {

@@ -60,9 +60,13 @@ void pwrkey_2_hw_pwroff_detect(void)
 #endif // PWRKEY_2_HW_PWRON
 
 #if USER_NTC
+
+#if !SWETZ_NTC
 AT(.com_text.ntc)
 u8 sys_ntc_check(void)
 {
+
+
     if (!xcfg_cb.ntc_en) {
         return  0;
     }
@@ -80,7 +84,20 @@ u8 sys_ntc_check(void)
         }
     }
     return 0;
+
+
 }
+
+#else
+AT(.com_text.ntc)
+u8 user_ntc_check(void)
+{
+
+
+}
+
+#endif
+
 #endif
 
 //timer tick interrupt(1ms)
@@ -176,7 +193,9 @@ void usr_tmr5ms_thread(void)
 #endif // MUSIC_SDCARD_EN
 
 #if USER_NTC
+#if !SWETZ_NTC
     sys_ntc_check();
+#endif    
 #endif
 
 #if USB_SUPPORT_EN
@@ -1078,6 +1097,10 @@ void sys_init(void)
 
     // var init
     sys_var_init();
+
+#if SWETZ_NTC
+    ntc_gpio_power_supply();
+#endif
 
 #if RES_USERBIN_EN
     extern void register_spi_read_function(void (* read_func)(void *buf, u32 addr, u32 len));

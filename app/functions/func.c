@@ -468,9 +468,9 @@ void func_message(u16 msg)
         
         //printf("ab_mate_app.con_sta:%d\r\n",ab_mate_app.con_sta);
         printf("sys_cb.sleep_delay:%d sys_cb.pwroff_delay:%d sys_cb.sleep_en:%d port_2led_is_sleep_en:%d  bt_is_allow_sleep:%d\r\n",sys_cb.sleep_delay,sys_cb.pwroff_delay,sys_cb.sleep_en,port_2led_is_sleep_en(),bt_is_allow_sleep());
-
+        printf("NTC val:%d\r\n",saradc_get_value8(ADCCH_NTC));
         break;
-
+            
 #endif
 
 #if SWETZ_EVT_1S

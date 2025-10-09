@@ -7,8 +7,8 @@
         <add key="spk_mute_io_sel" value="0" />
         <add key="high_mute" value="True" />
         <add key="loudspeaker_unmute_delay" value="6" />
-        <add key="sys_sleep_time" value="180" />
-        <add key="sys_off_time" value="1800" />
+        <add key="sys_sleep_time" value="0" />
+        <add key="sys_off_time" value="0" />
         <add key="lowpower_warning_en" value="True" />
         <add key="lpwr_warning_vbat" value="3.2V" />
         <add key="lpwr_off_vbat" value="2.9V" />
@@ -57,8 +57,8 @@
         <add key="chg_inbox_pwrdwn_en" value="False" />
         <add key="chbox_out_delay" value="15" />
         <add key="bt_name" value="BT893X-TWS" />
-        <add key="bt_addr_mode" value="固定地址" />
-        <add key="bt_addr" value="41:42:00:00:01:47" />
+        <add key="bt_addr_mode" value="单次递增" />
+        <add key="bt_addr" value="41:42:00:00:01:50" />
         <add key="bt_addr_start" value="41:42:00:00:00:00" />
         <add key="bt_addr_step" value="00:00:00:00:00:01" />
         <add key="bt_addr_end" value="41:42:FF:FF:FF:FF" />
@@ -302,9 +302,9 @@
         <add key="ude_vid_msb" value="1" />
         <add key="ude_pid_lsb" value="33" />
         <add key="ude_pid_msb" value="12" />
-        <add key="ntc_en" value="False" />
+        <add key="ntc_en" value="True" />
         <add key="ntc_user_inner_pu" value="False" />
-        <add key="ntc_thd_val" value="100" />
+        <add key="ntc_thd_val" value="80" />
         <add key="bt_sndp_smic_en" value="False" />
         <add key="bt_sndp_dnn_level" value="0" />
         <add key="mic_pwr_level" value="7" />

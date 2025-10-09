@@ -236,5 +236,22 @@ static uint8_t get_bat_level_from_volt_wo_charger(uint16_t volt);
 uint8_t app_bat_level_show_for_phone(uint8_t bat_real_level);
 uint8_t app_bat_level_show_for_app(uint8_t bat_real_level);
 #endif
+#if SWETZ_NTC
+u8 user_ntc_check(void);
+#define ntc_gpio_power_supply()     \
+    do {                            \
+        GPIOEFEN &= ~BIT(4);        \
+        GPIOEDE |= BIT(4);          \
+        GPIOEDIR &= ~BIT(4);        \
+        GPIOESET |= BIT(4);         \
+    } while (0)
+
+#define ntc_gpio_power_down()       \
+    do {                            \
+        GPIOECLR |= BIT(4);         \
+    } while (0)    
+#endif
+
+
 
 #endif // __SYSTEM_H

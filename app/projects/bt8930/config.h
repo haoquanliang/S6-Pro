@@ -28,7 +28,7 @@
 #define SWETZ_ROLE_SWITCH_BY_INBOX  1//出入仓判断是否需要切换主从
 
 #define SWETZ_DEL_TWS_CON_TONE      1//去掉tws左右通道的提示音
-#define SWETZ_SET_SCAN_STATE        1//暂时先把蓝牙状态设置0x03
+#define SWETZ_SET_SCAN_STATE        1//设置蓝牙状态
 #define SWETZ_TONE                  1 
 #define NUM_BT_RETURN_CON              10// 上电回连手机次数, 1.28s * n, 不小于5次
 #define NUM_TWS_RETURN_CON             5//设置TWS搜索次数, 1.25s * n, 不小于2次
@@ -60,7 +60,7 @@
 #define SWETZ_OUTCASE_AFTER_NOT_KEY 1//出仓5s不响应按键消息//flag_outcase_5s_kye_null
 #define SWETZ_FACTORY_RESET         1//恢复出厂
 #define SWETZ_DYN_EQ_DEBUG          0//动态EQ调试
-
+#define SWETZ_NTC                   1//ntc
 
 
 #endif
@@ -361,7 +361,7 @@
 #define BT_AEC_FF_MIC_REF_EN            0       //如果aec的ff_mic回声比talk_mic回声大，可使能这功能，用于双mic降噪
 
 //通话MIC端功能配置（上行）
-#define ENC_DBG_EN                      0       //是否打开通话产测指令（兼容单、双MIC）
+#define ENC_DBG_EN                      1       //是否打开通话产测指令（兼容单、双MIC）
 
 #define BT_SCO_DUMP_EN                  0       //是否打开上行降噪算法数据dump功能（双MIC优先用），dump:算法前主麦 + 算法前副麦 + 算法后
 #define BT_EQ_DUMP_EN                   0       //是否打开上行EQ的数据dump功能（单MIC优先用），dump:算法前主麦 + 算法后 + EQ后
@@ -713,8 +713,8 @@
 /*****************************************************************************
 * Module    : NTC预警关机功能配置
 ******************************************************************************/
-#define USER_NTC                        0
-#define ADCCH_NTC                       ADCCH_PB0
+#define USER_NTC                        1
+#define ADCCH_NTC                       ADCCH_PE7
 
 
 /*****************************************************************************
