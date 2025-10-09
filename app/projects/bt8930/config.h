@@ -28,7 +28,7 @@
 #define SWETZ_ROLE_SWITCH_BY_INBOX  1//出入仓判断是否需要切换主从
 
 #define SWETZ_DEL_TWS_CON_TONE      1//去掉tws左右通道的提示音
-#define SWETZ_SET_SCAN_STATE        1//暂时先把蓝牙状态设置0x03
+#define SWETZ_SET_SCAN_STATE        1//设置蓝牙状态
 #define SWETZ_TONE                  1 
 #define NUM_BT_RETURN_CON              10// 上电回连手机次数, 1.28s * n, 不小于5次
 #define NUM_TWS_RETURN_CON             5//设置TWS搜索次数, 1.25s * n, 不小于2次
@@ -44,7 +44,7 @@
 #define SWETZ_LOW_WARNING_TIME      1//低电提醒
 #define LOW_WARNING_TIME            (600)
 
-#define SWETZ_APP                   1
+#define SWETZ_APP                   1//APP功能
 #define SWETZ_KEY_RECON             1//单击有配对记录要耳机回连
 #define SWETZ_RING_DOUBLE           1 //修改ring下双击功能
 #define SWETZ_CALL_DOUBLE           1 //修改call下双击功能
@@ -60,7 +60,7 @@
 #define SWETZ_OUTCASE_AFTER_NOT_KEY 1//出仓5s不响应按键消息//flag_outcase_5s_kye_null
 #define SWETZ_FACTORY_RESET         1//恢复出厂
 #define SWETZ_DYN_EQ_DEBUG          0//动态EQ调试
-
+#define SWETZ_NTC                   1//ntc
 
 
 #endif
@@ -713,8 +713,8 @@
 /*****************************************************************************
 * Module    : NTC预警关机功能配置
 ******************************************************************************/
-#define USER_NTC                        0
-#define ADCCH_NTC                       ADCCH_PB0
+#define USER_NTC                        1
+#define ADCCH_NTC                       ADCCH_PE7
 
 
 /*****************************************************************************

@@ -292,6 +292,10 @@ void app_check_mute(void)
 AT(.text.func.msg)
 void func_message(u16 msg)
 {
+#if SWETZ_NTC
+    static u8 ntc_cnt;
+#endif
+
     switch (msg) {
 #if BT_TWS_EN
         case EVT_BT_UPDATE_STA:
@@ -451,6 +455,8 @@ void func_message(u16 msg)
 
 #if SWETZ_EVT_5S
         case EVT_SYS_5S:
+
+
         {
             u8 bat_level = bsp_get_bat_level();
             if(sys_cb.local_bat_level != bat_level){
@@ -468,7 +474,7 @@ void func_message(u16 msg)
         
         //printf("ab_mate_app.con_sta:%d\r\n",ab_mate_app.con_sta);
         printf("sys_cb.sleep_delay:%d sys_cb.pwroff_delay:%d sys_cb.sleep_en:%d port_2led_is_sleep_en:%d  bt_is_allow_sleep:%d\r\n",sys_cb.sleep_delay,sys_cb.pwroff_delay,sys_cb.sleep_en,port_2led_is_sleep_en(),bt_is_allow_sleep());
-
+        
         break;
 
 #endif
@@ -476,6 +482,18 @@ void func_message(u16 msg)
 #if SWETZ_EVT_1S
         case EVT_SYS_1S:
                 app_check_mute();
+#if SWETZ_NTC
+            ntc_cnt++;
+            if(ntc_cnt == 4){
+                ntc_gpio_power_supply();
+            }
+            if(ntc_cnt >= 6){
+                ntc_cnt = 0;
+                user_ntc_check();
+                ntc_gpio_power_down();
+            }
+
+#endif                
             break;
 #endif
 

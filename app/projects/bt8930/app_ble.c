@@ -550,8 +550,6 @@ static void handle_cmd_request(uint8_t *ptr, uint16_t len)
             break;
 
     }
-
-
 }
 
 void app_priv_ble_handle_received(uint8_t *ptr, uint16_t len)

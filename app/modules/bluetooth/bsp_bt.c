@@ -304,9 +304,9 @@ void bt_emit_notice(uint evt, void *params)
         {
             bt_set_scan(0x00);
         }     
-#else
+#endif        
         f_bt.warning_status |= BT_WARN_CON;
-#endif
+
 
         
         bt_reset_redial_number(packet[0] & 0x01);

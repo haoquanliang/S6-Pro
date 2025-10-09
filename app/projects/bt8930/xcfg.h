@@ -35,7 +35,7 @@ typedef struct __attribute__((packed)) _xcfg_cb_t {
     u32 uart1_sel                        : 2;   //UART1串口选择: PA7: 0, PF0: 1, VUSB: 2
     u32 uart2_en                         : 1;   //UART2调试(仓/IODM)
     u32 uart2_sel                        : 2;   //UART2串口选择: PE7: 0, PB2: 1, VUSB: 2
-    u32 ntc_en                           : 1;   //是否使能NTC
+    u32 ntc_en_bt                        : 1;   //是否使能蓝汛默认NTC
     u32 ntc_user_inner_pu                : 1;   //NTC使用内部10K上拉
     u8 ntc_thd_val;                             //NTC阈值
     u32 dac_sel                          : 4;   //DAC声道选择: VCMBUF单声道: 2, VCMBUF双声道: 3, 差分单声道: 4, 差分双声道: 5
@@ -326,6 +326,13 @@ typedef struct __attribute__((packed)) _xcfg_cb_t {
         u8 unit;
         u8 cycle;
     } led_lowbat;                               //低电闪灯控制
+    u32 ntc_en                           : 1;   //是否使能NTC
+    u8 ntc_charge_thd_risk_high;                //充电高温保护的温度
+    u8 ntc_charge_thd_normal_high;              //充电高温正常的温度
+    u8 ntc_charge_thd_normal_low;               //充电低温正常的温度
+    u8 ntc_charge_thd_risk_low;                 //充电低温保护的温度
+    u8 ntc_discharge_thd_risk_high;             //放电高温保护的温度
+    u8 ntc_discharge_thd_risk_low;              //放电低温保护的温度
     u8 xm_keep_start[0];                        //For Keep Area Start
     u8 osci_cap;                                //产测OSCI电容
     u8 osco_cap;                                //产测OSCO电容
