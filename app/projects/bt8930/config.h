@@ -361,7 +361,7 @@
 #define BT_AEC_FF_MIC_REF_EN            0       //如果aec的ff_mic回声比talk_mic回声大，可使能这功能，用于双mic降噪
 
 //通话MIC端功能配置（上行）
-#define ENC_DBG_EN                      0       //是否打开通话产测指令（兼容单、双MIC）
+#define ENC_DBG_EN                      1       //是否打开通话产测指令（兼容单、双MIC）
 
 #define BT_SCO_DUMP_EN                  0       //是否打开上行降噪算法数据dump功能（双MIC优先用），dump:算法前主麦 + 算法前副麦 + 算法后
 #define BT_EQ_DUMP_EN                   0       //是否打开上行EQ的数据dump功能（单MIC优先用），dump:算法前主麦 + 算法后 + EQ后
