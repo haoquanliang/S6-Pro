@@ -196,6 +196,7 @@ volatile u8  dc_in_filter;      //DC IN filter
     volatile u8 flag_local_in_case;
     volatile u8 flag_peer_in_case;
     u8 flag_outcase_5s_kye_null;
+    u8 ntc_discharge_out_normal_range;
 #endif
 #if SWETZ_TEST
     u8 test;

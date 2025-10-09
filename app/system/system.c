@@ -89,10 +89,69 @@ u8 sys_ntc_check(void)
 }
 
 #else
+AT(.com_text.str2) 
+const char ntc[] = "====ntc\r\n";
+
+
+enum 
+{
+    NTC_NORMAL = 0,
+    NTC_OUT_RANGE,
+};
+u8 ntc_status = NTC_NORMAL;
 AT(.com_text.ntc)
 u8 user_ntc_check(void)
 {
+    if (!xcfg_cb.ntc_en) {
+        return  0;
+    }
 
+    u8 ntc_value = saradc_get_value8(ADCCH_NTC);
+    printf("ntc:%d\n", ntc_value);
+
+        // if (func_cb.sta == FUNC_BT)
+        // {
+        //     if ((ntc_value > (xcfg_cb.ntc_discharge_thd_risk_high - 5)) || (ntc_value < (xcfg_cb.ntc_discharge_thd_risk_low + 5)))
+        //     {
+        //         sys_cb.ntc_discharge_out_normal_range = true;
+        //     }
+        //     else 
+        //     {
+        //         sys_cb.ntc_discharge_out_normal_range = false;
+        //     }  
+        //     if ((ntc_value > xcfg_cb.ntc_discharge_thd_risk_high) || (ntc_value < xcfg_cb.ntc_discharge_thd_risk_low))
+        //     {
+        //         if (ntc_status == NTC_NORMAL)
+        //         {
+        //             ntc_status = NTC_OUT_RANGE;
+        //             printf("ntc:out range\n");
+        //             sys_cb.discon_reason = 0;   //不同步关机
+        //             sys_cb.pwrdwn_tone_en = 1;
+        //             func_cb.sta = FUNC_PWROFF;  
+        //         }
+        //     }            
+        // }
+        // else 
+        // {
+        //     if ((ntc_value > xcfg_cb.ntc_charge_thd_risk_high) || (ntc_value < xcfg_cb.ntc_charge_thd_risk_low))
+        //     {
+        //         if (ntc_status == NTC_NORMAL)
+        //         {
+        //             ntc_status = NTC_OUT_RANGE;
+        //             printf("ntc:out range\n");
+        //             RTCCON8 = (RTCCON8 & ~BIT(6)) | BIT(1);     //disable charger function      
+        //         }
+        //     }
+        //     else if ((ntc_value >= xcfg_cb.ntc_charge_thd_normal_low) && (ntc_value <= xcfg_cb.ntc_charge_thd_normal_high))
+        //     {
+        //         if (ntc_status == NTC_OUT_RANGE)    
+        //         {
+        //             ntc_status = NTC_NORMAL;
+        //             printf("ntc:normal\n");
+        //             RTCCON8 = (RTCCON8 & ~BIT(1)) | BIT(6);// enable charger function
+        //         }
+        //     }            
+        // }
 
 }
 
@@ -959,7 +1018,9 @@ static void power_on_check_do(void)
     int up_cnt = 0, ticks = 0;
     u32 pwron_press_nms;
     u8 chbox_sta = 1;                               //默认offline
-
+#if SWETZ_NTC
+    static u16 ntc_cnt;
+#endif
     u32 rtccon9 = RTCCON9;                          //wakeup pending
     printf("power_on_check_do: %08x\n", rtccon9);
 
@@ -1063,6 +1124,19 @@ static void power_on_check_do(void)
                 sfunc_pwrdown(1);
             }
         }
+#if SWETZ_NTC
+        ntc_cnt++;
+        if(ntc_cnt == 980){
+            ntc_gpio_power_supply();
+        }
+        if(ntc_cnt >= 1000){
+            ntc_cnt = 0;
+            user_ntc_check();
+            ntc_gpio_power_down();
+        }
+#endif
+
+
     }
 #if CHARGE_EN
      charge_exit();

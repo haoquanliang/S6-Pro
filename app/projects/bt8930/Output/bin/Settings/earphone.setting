@@ -58,7 +58,7 @@
         <add key="chbox_out_delay" value="15" />
         <add key="bt_name" value="BT893X-TWS" />
         <add key="bt_addr_mode" value="单次递增" />
-        <add key="bt_addr" value="41:42:00:00:01:50" />
+        <add key="bt_addr" value="41:42:00:00:01:59" />
         <add key="bt_addr_start" value="41:42:00:00:00:00" />
         <add key="bt_addr_step" value="00:00:00:00:00:01" />
         <add key="bt_addr_end" value="41:42:FF:FF:FF:FF" />
@@ -335,5 +335,12 @@
         <add key="bt_ffdm_en" value="False" />
         <add key="bt_ffdm_distance" value="23" />
         <add key="led_sta_config_en" value="False" />
+        <add key="ntc_en_bt" value="False" />
+        <add key="ntc_charge_thd_risk_high" value="200" />
+        <add key="ntc_charge_thd_normal_high" value="190" />
+        <add key="ntc_charge_thd_normal_low" value="20" />
+        <add key="ntc_charge_thd_risk_low" value="10" />
+        <add key="ntc_discharge_thd_risk_high" value="200" />
+        <add key="ntc_discharge_thd_risk_low" value="10" />
     </appSettings>
 </configuration>

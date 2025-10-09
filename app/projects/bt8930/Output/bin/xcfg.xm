@@ -36,7 +36,7 @@ config(CHECK, "UART1调试(仓/IODM)", "是否使用UART1调试功能", UART1_EN
 config(LISTVAL, "UART1串口选择", "选择UART1的IO", UART1_SEL, BIT, 2, 2, 3, ("PA7", 0), ("PF0", 1), ("VUSB", 2), UART1_EN);
 config(CHECK, "UART2调试(仓/IODM)", "是否使用UART2调试功能", UART2_EN, 0);
 config(LISTVAL, "UART2串口选择", "选择UART2的IO", UART2_SEL, BIT, 2, 2, 3, ("PE7", 0), ("PB2", 1), ("VUSB", 2), UART2_EN);
-config(CHECK,  "是否使能NTC",  "是否使能NTC",  NTC_EN,  0);
+config(CHECK,  "是否使能蓝汛默认NTC",  "是否使能蓝汛默认NTC",  NTC_EN_BT,  0);
 config(CHECK, "NTC使用内部10K上拉", "NTC是否使用内部10K上拉,使能程序中的宏USER_NTC后才有效", NTC_USER_INNER_PU,0, NTC_EN);
 config(BYTE,  "NTC阈值",  "NTC阈值",  NTC_THD_VAL,  0, 255, 100,  NTC_EN);
 
@@ -347,6 +347,15 @@ config(LED, "播放", "配置播放状态下的闪灯状态", LED_PLAYING, 0x00,
 config(LED, "来电", "配置来电状态下的闪灯状态", LED_RING, 0x00, 0x02, 2, 86, 			LED_STA_CONFIG_EN);
 config(LED, "通话", "配置通话状态下的闪灯状态", LED_CALLING, 0x00, 0x02, 2, 86, 		LED_STA_CONFIG_EN);
 config(LED, "低电", "配置低电状态下的闪灯状态", LED_LOWBAT, 0xaa, 0x00, 6, 0, 			LED_STA_CONFIG_EN);
+
+
+config(CHECK,  "是否使能NTC",  "是否使能NTC",  NTC_EN,  0);
+config(BYTE,  "充电高温保护的温度",  "充电高温保护的温度",  NTC_CHARGE_THD_RISK_HIGH,  0, 255, 200,  NTC_EN);
+config(BYTE,  "充电高温正常的温度",  "充电高温正常的温度，比充电高温保护温度低5度",  NTC_CHARGE_THD_NORMAL_HIGH,  0, 255, 190,  NTC_EN);
+config(BYTE,  "充电低温正常的温度",  "充电低温正常的温度，比充电低温保护温度高5度",  NTC_CHARGE_THD_NORMAL_LOW,  0, 255, 20,  NTC_EN);
+config(BYTE,  "充电低温保护的温度",  "充电低温保护的温度",  NTC_CHARGE_THD_RISK_LOW,  0, 255, 10,  NTC_EN);
+config(BYTE,  "放电高温保护的温度",  "放电高温保护的温度",  NTC_DISCHARGE_THD_RISK_HIGH,  0, 255, 200,  NTC_EN);
+config(BYTE,  "放电低温保护的温度",  "放电低温保护的温度",  NTC_DISCHARGE_THD_RISK_LOW,  0, 255, 10,  NTC_EN);
 
 config(LEVEL, 0x0E);
 config(SUB, "产测参数", "产测校准的一些参数，不要改动！");
