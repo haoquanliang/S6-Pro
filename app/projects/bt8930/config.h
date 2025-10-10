@@ -44,7 +44,7 @@
 #define SWETZ_LOW_WARNING_TIME      1//低电提醒
 #define LOW_WARNING_TIME            (600)
 
-#define SWETZ_APP                   1//APP功能
+#define SWETZ_APP                   0//APP功能
 #define SWETZ_KEY_RECON             1//单击有配对记录要耳机回连
 #define SWETZ_RING_DOUBLE           1 //修改ring下双击功能
 #define SWETZ_CALL_DOUBLE           1 //修改call下双击功能
