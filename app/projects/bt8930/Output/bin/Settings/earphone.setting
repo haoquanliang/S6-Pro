@@ -10,8 +10,8 @@
         <add key="sys_sleep_time" value="0" />
         <add key="sys_off_time" value="0" />
         <add key="lowpower_warning_en" value="True" />
-        <add key="lpwr_warning_vbat" value="3.2V" />
-        <add key="lpwr_off_vbat" value="2.9V" />
+        <add key="lpwr_warning_vbat" value="3.4V" />
+        <add key="lpwr_off_vbat" value="3.2V" />
         <add key="lpwr_warning_period" value="240" />
         <add key="osc_both_cap" value="0PF" />
         <add key="uosci_cap" value="45" />
@@ -48,7 +48,7 @@
         <add key="charge_constant_curr" value="90mA" />
         <add key="charge_trickle_curr" value="20mA" />
         <add key="charge_full_bled" value="0" />
-        <add key="ch_full_auto_pwrdwn_en" value="True" />
+        <add key="ch_full_auto_pwrdwn_en" value="False" />
         <add key="chbox_en" value="True" />
         <add key="ch_box_type_sel" value="3" />
         <add key="ch_inbox_sel" value="0" />
@@ -58,7 +58,7 @@
         <add key="chbox_out_delay" value="15" />
         <add key="bt_name" value="BT893X-TWS" />
         <add key="bt_addr_mode" value="单次递增" />
-        <add key="bt_addr" value="41:42:00:00:01:67" />
+        <add key="bt_addr" value="41:42:00:00:01:75" />
         <add key="bt_addr_start" value="41:42:00:00:00:00" />
         <add key="bt_addr_step" value="00:00:00:00:00:01" />
         <add key="bt_addr_end" value="41:42:FF:FF:FF:FF" />

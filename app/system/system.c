@@ -107,8 +107,8 @@ u8 user_ntc_check(void)
     }
 
     u8 ntc_value = saradc_get_value8(ADCCH_NTC);
-    printf("ntc:%d\n", ntc_value);
-
+    printf("ntc:%d vbat:%d\n", ntc_value,sys_cb.vbat);
+    
         // if (func_cb.sta == FUNC_BT)
         // {
         //     if ((ntc_value > (xcfg_cb.ntc_discharge_thd_risk_high - 5)) || (ntc_value < (xcfg_cb.ntc_discharge_thd_risk_low + 5)))

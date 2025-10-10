@@ -7,27 +7,27 @@
 #include "vbat.h"
 
 #if SWETZ_VBAT_TO_PHONE
-#define VOLT_BAT_LEVEL_100 (4227)//
-#define VOLT_BAT_LEVEL_95  (4170)//
-#define VOLT_BAT_LEVEL_90  (4113)//
-#define VOLT_BAT_LEVEL_85  (4053)//
-#define VOLT_BAT_LEVEL_80  (3999)//
-#define VOLT_BAT_LEVEL_75  (3943)//
-#define VOLT_BAT_LEVEL_70  (3904)//
-#define VOLT_BAT_LEVEL_65  (3871)//
-#define VOLT_BAT_LEVEL_60  (3835)//
-#define VOLT_BAT_LEVEL_55  (3800)//
-#define VOLT_BAT_LEVEL_50  (3782)//
-#define VOLT_BAT_LEVEL_45  (3755)//
+#define VOLT_BAT_LEVEL_100 (4260)//
+#define VOLT_BAT_LEVEL_95  (4194)
+#define VOLT_BAT_LEVEL_90  (4138)
+#define VOLT_BAT_LEVEL_85  (4085)
+#define VOLT_BAT_LEVEL_80  (4033)
+#define VOLT_BAT_LEVEL_75  (3985)
+#define VOLT_BAT_LEVEL_70  (3934)
+#define VOLT_BAT_LEVEL_65  (3896)
+#define VOLT_BAT_LEVEL_60  (3860)
+#define VOLT_BAT_LEVEL_55  (3834)
+#define VOLT_BAT_LEVEL_50  (3810)
+#define VOLT_BAT_LEVEL_45  (3788)
 
-#define VOLT_BAT_LEVEL_40  (3737)//
-#define VOLT_BAT_LEVEL_35  (3707)//
-#define VOLT_BAT_LEVEL_30  (3680)//
-#define VOLT_BAT_LEVEL_25  (3663)//
-#define VOLT_BAT_LEVEL_20  (3632)//
-#define VOLT_BAT_LEVEL_15  (3568)//
-#define VOLT_BAT_LEVEL_10  (3300)//
-#define VOLT_BAT_LEVEL_5   (3200)//
+#define VOLT_BAT_LEVEL_40  (3769)
+#define VOLT_BAT_LEVEL_35  (3753)
+#define VOLT_BAT_LEVEL_30  (3738)
+#define VOLT_BAT_LEVEL_25  (3723)
+#define VOLT_BAT_LEVEL_20  (3703)
+#define VOLT_BAT_LEVEL_15  (3677)
+#define VOLT_BAT_LEVEL_10  (3650)
+#define VOLT_BAT_LEVEL_5   (3605)
 
 #endif
 

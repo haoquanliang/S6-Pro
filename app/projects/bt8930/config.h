@@ -690,7 +690,7 @@
 //充电截止电流
 #define CHARGE_STOP_CURR                xcfg_cb.charge_stop_curr
 //充电截止电压：0:4.2v 1:4.35v 2:4.4v 3:4.45v
-#define CHARGE_STOP_VOLT                0
+#define CHARGE_STOP_VOLT                1
 //恒流充电（电池电压大于2.9v）电流
 #define CHARGE_CONSTANT_CURR            xcfg_cb.charge_constant_curr
 //涓流截止电压：0:2.9v; 1:3v
