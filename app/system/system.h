@@ -7,7 +7,7 @@
 #include "vbat.h"
 
 #if SWETZ_VBAT_TO_PHONE
-#define VOLT_BAT_LEVEL_100 (4260)//
+#define VOLT_BAT_LEVEL_100 (4250)//
 #define VOLT_BAT_LEVEL_95  (4194)
 #define VOLT_BAT_LEVEL_90  (4138)
 #define VOLT_BAT_LEVEL_85  (4085)
