@@ -246,7 +246,7 @@ void func_bt_warning(void)
 
 void func_bt_disp_status_do(void)
 {
-#if SWETZ_TEST
+#if SWETZ
     if(!bt_nor_is_connected()) {
 #else 
     if(!bt_is_connected()) {

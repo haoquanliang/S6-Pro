@@ -19,7 +19,7 @@
 
 
 #define STR_PRI                     1//中断打印
-#define  SWETZ_TEST                       0
+#define  SWETZ_TEST                       1
 
 #define SWETZ                       1
 #if SWETZ
@@ -61,7 +61,7 @@
 #define SWETZ_FACTORY_RESET         1//恢复出厂
 #define SWETZ_DYN_EQ_DEBUG          0//动态EQ调试
 #define SWETZ_NTC                   1//ntc
-
+#define SWETZ_SAVE_AG_ADDR          1//记录连接AG地址
 
 #endif
 

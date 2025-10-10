@@ -20,7 +20,7 @@ enum {
     VHOUSE_CMD_SUCCESS,                 //成功响应
     VHOUSE_CMD_CLOSE_WINDOW,            //关盖
     VHOUSE_CMD_OPEN_WINDOW,             //开盖
-
+    
     VHOUSE_CMD_CLOSE_WIN_GET_VBAT,      //关盖获取电量包
 
 

@@ -256,6 +256,9 @@ void bt_emit_notice(uint evt, void *params)
         break;
 
     case BT_NOTICE_DISCONNECT:
+#if SWETZ_SAVE_AG_ADDR
+        app_dm_handle_ag_disconnect((bt_bd_addr_t*)&packet[2]);
+#endif    
 #if SWETZ_SET_SCAN_STATE
             ag_num = app_dm_get_connected_ag_num();
         if(ag_num == 0){
@@ -288,6 +291,10 @@ void bt_emit_notice(uint evt, void *params)
         delay_5ms(5);
         break;
     case BT_NOTICE_CONNECTED:
+#if SWETZ_SAVE_AG_ADDR
+        app_dm_handle_ag_connect((bt_bd_addr_t*)&packet[2]);
+#endif
+
 #if SWETZ_SET_SCAN_STATE
         if (ab_mate_app.mult_dev.en)
         {

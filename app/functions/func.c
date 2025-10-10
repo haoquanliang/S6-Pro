@@ -455,7 +455,7 @@ void func_message(u16 msg)
 
 #if SWETZ_EVT_5S
         case EVT_SYS_5S:
-
+            print_bd_addr_sw();
 
         {
             u8 bat_level = bsp_get_bat_level();
@@ -487,7 +487,7 @@ void func_message(u16 msg)
             if(ntc_cnt == 4){
                 ntc_gpio_power_supply();
             }
-            if(ntc_cnt >= 6){
+            if(ntc_cnt >= 7){
                 ntc_cnt = 0;
                 user_ntc_check();
                 ntc_gpio_power_down();

@@ -18,7 +18,9 @@ bt_bd_addr_t *app_dm_get_ag_addr_by_index(uint8_t index);
 bool app_dm_is_addr_connected(bt_bd_addr_t * addr);
 bt_bd_addr_t *app_dm_get_next_ag_addr(bt_bd_addr_t * addr);
 bool app_dm_is_bd_addr_zero(bt_bd_addr_t *addr);
-
 u16 app_dm_get_software_version(void);
+void print_bd_addr(const uint8_t addr[6]);
+void print_bd_addr_sw(void);
+
 
 #endif

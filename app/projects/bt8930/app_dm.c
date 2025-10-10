@@ -4,6 +4,8 @@
 
 #include "app_dm.h"
 
+#define DEBUG_DM    1
+
 #if DEBUG_DM
 #define DM_DEBUG(...)              printf(__VA_ARGS__)
 #else
@@ -59,6 +61,23 @@ bt_bd_addr_t *app_dm_get_ag_addr_by_index(uint8_t index)//根据指定的索引�
     }
     return NULL;
 }
+
+//------printf addr
+void print_bd_addr(const uint8_t addr[6]) {
+    printf("%02X:%02X:%02X:%02X:%02X:%02X", 
+           addr[0], addr[1], addr[2], addr[3], addr[4], addr[5]);
+}
+
+void print_bd_addr_sw(void)
+{
+    printf("ag0_addr:");
+    print_bd_addr(dm.ag_addr[0]);
+    printf("        ");
+    printf("ag1_addr:");
+    print_bd_addr(dm.ag_addr[1]);
+     printf("\r\n");
+}
+
 
 
 //检查给定的蓝牙地址 addr 是否存在于已连接的音频网关设备列表中
