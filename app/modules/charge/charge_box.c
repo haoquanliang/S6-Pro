@@ -621,6 +621,7 @@ static void charge_box_clr_tws_link_info(void)
     bt_tws_delete_link_info_with_tag(BT_INFO_TAG_CHARGE_BOX, (uint32_t)__builtin_return_address(0));
 }
 
+#if !SWETZ_FACTORY_RESET
 AT(.text.iodm)
 static void charge_box_clr_bt_all_link_info(void)
 {
@@ -628,6 +629,19 @@ static void charge_box_clr_bt_all_link_info(void)
     bt_nor_delete_link_info();
     bt_tws_delete_link_info_with_tag(BT_INFO_TAG_CHARGE_BOX, (uint32_t)__builtin_return_address(0));
 }
+
+#else 
+
+AT(.text.iodm)
+static void charge_box_factory_reset(void)
+{
+    ab_mate_device_reset();
+}
+
+#endif
+
+
+
 
 AT(.text.charge_box)
 static void charge_box_get_tws_btaddr_ack(vh_packet_t *packet)
@@ -744,8 +758,15 @@ static void charge_box_analysis_packet(vh_packet_t *packet)
             break;
 
         case  VHOUSE_CMD_CLEAR_PAIR:
+#if !SWETZ_FACTORY_RESET        
             TRACE("VHOUSE_CMD_CLEAR_PAIR\n");
             charge_box_clr_bt_all_link_info();                         //删除所有配对信息
+#else
+            TRACE("VHOUSE_CMD_FACTORY_RESET\n");
+            charge_box_factory_reset();
+#endif
+
+
             break;
 
         case  VHOUSE_CMD_PWROFF:

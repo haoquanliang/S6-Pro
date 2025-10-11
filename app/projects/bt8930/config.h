@@ -31,7 +31,7 @@
 #define SWETZ_SET_SCAN_STATE        1//设置蓝牙状态
 #define SWETZ_TONE                  1 
 #define NUM_BT_RETURN_CON              10// 上电回连手机次数, 1.28s * n, 不小于5次
-#define NUM_TWS_RETURN_CON             5//设置TWS搜索次数, 1.25s * n, 不小于2次
+#define NUM_TWS_RETURN_CON             100//设置TWS搜索次数, 1.25s * n, 不小于2次
 #define SWETZ_CHECK_INBOX           1//出入仓检测
 #define SWETZ_L_THREE_P             1//修改三击功能
 #define SWETZ_KEY_TONE              1//增加按键声key tone
@@ -67,6 +67,8 @@
 #define SWETZ_SAVE_AG_ADDR          1//记录连接AG地址
 #define SWETZ_RECONNECT_BT_STATE    1//回连状态关掉可见性，回连失败打开可见性
 #define SWETZ_RECON_TONE            1//单击回连失败不能播放进配对提示音
+#define SWETZ_RESET_NOT_WDT_RST     1//恢复出厂去掉看门狗复位
+
 #endif
 
 

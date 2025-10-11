@@ -354,6 +354,7 @@ bool bt_get_master_addr(u8 *addr)
 //删除所有配对信息
 void bt_clr_all_link_info(void)
 {
+     printf("bt_clr_all_link_info\r\n");
     bt_clr_master_addr();
     bt_nor_delete_link_info();
     bt_tws_delete_link_info();
@@ -362,6 +363,7 @@ void bt_clr_all_link_info(void)
 //删除TWS配对信息
 void bt_tws_clr_link_info(void)
 {
+    printf("bt_tws_clr_link_info\r\n");
     bt_clr_master_addr();
     bt_tws_delete_link_info();
 }

@@ -2736,10 +2736,10 @@ void ab_mate_device_reset_do(void)
 #if AB_MATE_CTKD_EN
     ble_delete_bonding_all();//删除ble配对记录
 #endif
-
+#if SWETZ_RESET_NOT_WDT_RST
     delay_5ms(6);
-
     WDT_RST();
+#endif    
 }
 
 void ab_mate_var_init(void)

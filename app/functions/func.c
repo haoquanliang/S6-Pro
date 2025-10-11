@@ -481,8 +481,12 @@ void func_message(u16 msg)
         printf("in_case:%d  peer_in_case:%d  mult_dev.en:%d \r\n",sys_cb.flag_local_in_case,sys_cb.flag_peer_in_case,ab_mate_app.mult_dev.en);
         
         //printf("ab_mate_app.con_sta:%d\r\n",ab_mate_app.con_sta);
-        printf("sys_cb.sleep_delay:%d sys_cb.pwroff_delay:%d sys_cb.sleep_en:%d port_2led_is_sleep_en:%d  bt_is_allow_sleep:%d\r\n",sys_cb.sleep_delay,sys_cb.pwroff_delay,sys_cb.sleep_en,port_2led_is_sleep_en(),bt_is_allow_sleep());
-        
+       // printf("sys_cb.sleep_delay:%d sys_cb.pwroff_delay:%d sys_cb.sleep_en:%d port_2led_is_sleep_en:%d  bt_is_allow_sleep:%d\r\n",sys_cb.sleep_delay,sys_cb.pwroff_delay,sys_cb.sleep_en,port_2led_is_sleep_en(),bt_is_allow_sleep());
+         u8 bt_tws_addr[6];
+        printf("get_link:%d\r\n",bt_tws_get_link_info(bt_tws_addr));
+        printf("bt_tws_addr: %02X:%02X:%02X:%02X:%02X:%02X\n",
+    bt_tws_addr[0], bt_tws_addr[1], bt_tws_addr[2],
+    bt_tws_addr[3], bt_tws_addr[4], bt_tws_addr[5]);
         break;
 
 #endif
