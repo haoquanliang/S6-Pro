@@ -332,16 +332,24 @@ void bt_emit_notice(uint evt, void *params)
 #endif
         break;
     case BT_NOTICE_CONNECT_START:
+    printf("BT_NOTICE_CONNECT_START\r\n");
 #if BT_RF_POWER_BALANCE_EN
         bt_power_balance_reconnect(1);
 #endif
+#if SWETZ_RECONNECT_BT_STATE
+        bt_set_scan(0x02);
+#endif
+
+
         break;
 
     case BT_NOTICE_CONNECT_FAIL:
     DEBUG_SW("BT_NOTICE_CONNECT_FAIL\r\n");
-#if SWETZ_TONE
-        f_bt.warning_status |= BT_WARN_PAIRING;
+
+#if SWETZ_RECONNECT_BT_STATE
+        bt_set_scan(0x03);
 #endif
+
 
 #if BT_RF_POWER_BALANCE_EN
         bt_power_balance_reconnect(0);

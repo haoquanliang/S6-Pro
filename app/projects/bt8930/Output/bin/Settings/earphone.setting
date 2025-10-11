@@ -58,7 +58,7 @@
         <add key="chbox_out_delay" value="15" />
         <add key="bt_name" value="BT893X-TWS" />
         <add key="bt_addr_mode" value="单次递增" />
-        <add key="bt_addr" value="41:42:00:00:01:77" />
+        <add key="bt_addr" value="41:42:00:00:01:83" />
         <add key="bt_addr_start" value="41:42:00:00:00:00" />
         <add key="bt_addr_step" value="00:00:00:00:00:01" />
         <add key="bt_addr_end" value="41:42:FF:FF:FF:FF" />
@@ -66,7 +66,7 @@
         <add key="warning_bt_pair" value="True" />
         <add key="bt_2acl_en" value="True" />
         <add key="bt_a2dp_en" value="True" />
-        <add key="bt_a2dp_vol_ctrl_en" value="False" />
+        <add key="bt_a2dp_vol_ctrl_en" value="True" />
         <add key="bt_sco_en" value="True" />
         <add key="bt_hfp_private_en" value="True" />
         <add key="bt_hfp_ring_number_en" value="True" />

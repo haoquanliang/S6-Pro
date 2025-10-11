@@ -2,7 +2,7 @@
 #define _PORT_TKEY_H
 
 //touch key参数
-#define CDPR            50                 //Touch key charge and discharge period (0 ~ 1024), 每个通道可以独立配置。
+#define CDPR            65                 //Touch key charge and discharge period (0 ~ 1024), 每个通道可以独立配置。
 #define FIL_LOW         4                   //Touch key state low state filter length(FIL_LOW + 1)
 #define FIL_HIGH        4                   //Touch key state high state filter length(FIL_HIGH + 1)    //越大检测稳定时间越长，灵敏度越低
 #define FIL_EXCEPT      10                  //Touch key state exception filter length(FIL_EXCEPT + 1)

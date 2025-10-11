@@ -18,8 +18,13 @@ void lowpower_warning_do(void)
         }
 
         sys_cb.lowbat_flag = 1;
+#if SWETZ_WARNING_TONE
+        wav_res_play(RES_BUF_ZH_BAT_LOW_WAV, RES_LEN_ZH_BAT_LOW_WAV);
+#else 
 //            bsp_res_play(TWS_RES_LOW_BATTERY);
         bsp_piano_warning_play(WARNING_TONE, TONE_LOW_BATTERY);
+#endif
+
         plugin_lowbat_vol_reduce();         //低电降低音乐音量
 
         #if 0
