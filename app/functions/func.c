@@ -425,6 +425,9 @@ void func_message(u16 msg)
             {
                 printf("reconn ag\n");
                 bt_connect();
+#if SWETZ_RECON_TONE                
+                sys_cb.recon_tone = 1;
+#endif
             }
         }
             break;

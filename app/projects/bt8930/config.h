@@ -42,10 +42,13 @@
 #define BT_PAIR_SLEEP_EN            (1)//不连接手机也可以进入sleep
 
 #define SWETZ_LOW_WARNING_TIME      1//低电提醒
-#define LOW_WARNING_TIME            (20)//提醒间隔(s)
+#define LOW_WARNING_TIME            (600)//提醒间隔(s)
 #define SWETZ_WARNING_TONE          1//低电提示音
 #define SWETZ_APP                   0//APP功能
+
 #define SWETZ_KEY_RECON             1//单击有配对记录要耳机回连
+#define KEY_RECON_CNT               2//按键回连重试次数, 5.12s * n
+
 #define SWETZ_RING_DOUBLE           1 //修改ring下双击功能
 #define SWETZ_CALL_DOUBLE           1 //修改call下双击功能
 #define SWETZ_RING_TONE             1
@@ -63,6 +66,7 @@
 #define SWETZ_NTC                   1//ntc
 #define SWETZ_SAVE_AG_ADDR          1//记录连接AG地址
 #define SWETZ_RECONNECT_BT_STATE    1//回连状态关掉可见性，回连失败打开可见性
+#define SWETZ_RECON_TONE            1//单击回连失败不能播放进配对提示音
 #endif
 
 

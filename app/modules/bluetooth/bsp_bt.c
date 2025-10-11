@@ -295,6 +295,12 @@ void bt_emit_notice(uint evt, void *params)
         app_dm_handle_ag_connect((bt_bd_addr_t*)&packet[2]);
 #endif
 
+#if SWETZ_RECON_TONE
+        if(sys_cb.recon_tone){
+            sys_cb.recon_tone = 0;
+        }
+#endif
+
 #if SWETZ_SET_SCAN_STATE
         if (ab_mate_app.mult_dev.en)
         {
@@ -349,7 +355,13 @@ void bt_emit_notice(uint evt, void *params)
 #if SWETZ_RECONNECT_BT_STATE
         bt_set_scan(0x03);
 #endif
-
+#if SWETZ_RECON_TONE
+        if(sys_cb.recon_tone){
+            sys_cb.recon_tone = 0;
+        }else{
+            f_bt.warning_status |= BT_WARN_TWS_MCON;
+        }
+#endif
 
 #if BT_RF_POWER_BALANCE_EN
         bt_power_balance_reconnect(0);

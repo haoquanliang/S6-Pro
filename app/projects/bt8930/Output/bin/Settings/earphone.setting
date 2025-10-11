@@ -7,7 +7,7 @@
         <add key="spk_mute_io_sel" value="0" />
         <add key="high_mute" value="True" />
         <add key="loudspeaker_unmute_delay" value="6" />
-        <add key="sys_sleep_time" value="0" />
+        <add key="sys_sleep_time" value="300" />
         <add key="sys_off_time" value="0" />
         <add key="lowpower_warning_en" value="True" />
         <add key="lpwr_warning_vbat" value="3.4V" />
@@ -58,7 +58,7 @@
         <add key="chbox_out_delay" value="15" />
         <add key="bt_name" value="BT893X-TWS" />
         <add key="bt_addr_mode" value="单次递增" />
-        <add key="bt_addr" value="41:42:00:00:01:83" />
+        <add key="bt_addr" value="41:42:00:00:01:92" />
         <add key="bt_addr_start" value="41:42:00:00:00:00" />
         <add key="bt_addr_step" value="00:00:00:00:00:01" />
         <add key="bt_addr_end" value="41:42:FF:FF:FF:FF" />
@@ -143,7 +143,7 @@
         <add key="user_def_kt_sel" value="13" />
         <add key="user_def_kfour_sel" value="0" />
         <add key="user_def_kfive_sel" value="0" />
-        <add key="user_def_kl_tone_en" value="True" />
+        <add key="user_def_kl_tone_en" value="False" />
         <add key="user_def_kd_lang_en" value="False" />
         <add key="user_def_lr_en" value="True" />
         <add key="key_multi_config_en" value="False" />

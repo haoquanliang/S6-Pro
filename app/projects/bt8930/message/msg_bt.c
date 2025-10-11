@@ -55,11 +55,16 @@ bool user_def_func_is_ready(u8 func_sel)
 bool user_def_key_msg(u8 func_sel)
 {
     u16 msg = NO_MSG;
-
+    printf("func_sel:%d\r\n",func_sel);
     if (!user_def_func_is_ready(func_sel)) {
         return false;
     }
 
+#if SWETZ_KEY_TONE
+    if(func_sel == UDK_PLAY_PAUSE || func_sel == UDK_PREV || func_sel == UDK_NEXT){
+            msg_enqueue(EVT_KEY_PRESS);
+    }   
+#endif
     if (func_sel == UDK_REDIALING) {
         if(bsp_res_play(TWS_RES_REDIALING) == RES_ERR_INVALID) {
             bt_call_redial_last_number();               //回拨电话

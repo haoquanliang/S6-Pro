@@ -191,7 +191,7 @@ u8 bsp_key_scan(void)
 
     key_val = bsp_key_scan_do();
 
-#ifdef SWETZ_KEY_TONE
+#if !SWETZ_KEY_TONE
     static key_temp = 0;
 
     if(key_temp != key_val){
