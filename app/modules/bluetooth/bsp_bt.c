@@ -259,11 +259,12 @@ void bt_emit_notice(uint evt, void *params)
 #if SWETZ_SAVE_AG_ADDR
         app_dm_handle_ag_disconnect((bt_bd_addr_t*)&packet[2]);
 #endif    
+
 #if SWETZ_SET_SCAN_STATE
             ag_num = app_dm_get_connected_ag_num();
         if(ag_num == 0){
                 bt_set_scan(0x03);
-
+                f_bt.warning_status |= BT_WARN_PAIRING;   
         }else{
                 bt_set_scan(0x02);
         }
@@ -549,6 +550,9 @@ void bt_emit_notice(uint evt, void *params)
         printf("BT_NOTICE_NETWORK_CALL\n");
         break;
     case BT_NOTICE_PHONE_CALL:
+#if SWETZ_TEST
+
+#endif
         printf("BT_NOTICE_PHONE_CALL\n");
         break;
 

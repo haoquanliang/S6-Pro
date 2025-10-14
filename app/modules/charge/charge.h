@@ -20,4 +20,8 @@ u8 charge_charge_on_process(void);
 void charge_process(void);
 bool charge_power_on_pre(u32 rtccon9);
 
+#if SWETZ_NTC
+void charge_0p2c_init(void);
+#endif
+
 #endif

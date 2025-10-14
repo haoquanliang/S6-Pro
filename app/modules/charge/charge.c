@@ -284,4 +284,51 @@ void charge_init(void)
     vusb4s_reset_en();
 }
 
+
+#if SWETZ_NTC
+void charge_0p2c_init(void)
+{
+    charge_cfg_t *p = &charge_cfg;
+    memset(p, 0, sizeof(charge_cfg_t));
+
+    p->trick_curr_en    = CHARGE_TRICK_EN;
+    p->const_curr       = xcfg_cb.ntc_0p2c_constant_curr;
+    if (p->const_curr > 15) {
+        p->const_curr = (p->const_curr - 15) * 2 + 15;
+    }
+    p->const_curr       = p->const_curr & 0x3f;
+    p->trick_curr       = xcfg_cb.ntc_0p2c_charge_trickle_curr & 0xf;
+    p->stop_curr        = xcfg_cb.ntc_0p2c_charge_stop_curr & 0x0f;
+    p->stop_volt        = CHARGE_STOP_VOLT & 0x03;
+    p->leakage          = xcfg_cb.ch_leakage_sel;
+    p->inbox_voltage    = xcfg_cb.ch_inbox_sel;
+    p->dcin_reset       = 0x01;
+    p->trick_stop_volt  = CHARGE_TRICK_STOP_VOLT;
+    p->stop_time        = 18000;               //默认30分钟
+    p->bled_on_pr       = ch_bled_timeout_tbl[BLED_CHARGE_FULL];
+    p->charge_sta_func  = charge_status;
+    p->ldo_en           = 1;                              //默认普通充电使用LDO mode，
+    p->volt_follow_en   = xcfg_cb.ntc_0p2c_charge_voltage_follow;
+    p->volt_follow_diff        = CHARGE_VOLT_FOLLOW_DIFF & 0x03;
+    if (xcfg_cb.ntc_0p2c_charge_voltage_follow) {
+        p->ldo_en       = 0;                              //开启电压跟随模式，强制不能开LD0 充电mode
+    }
+
+    if (RTCCON3 & BIT(12)) {
+        sys_cb.inbox_wken_flag = 1;                     //修正触摸唤醒拿出不能开机问题
+    }
+    RTCCON3 &= ~BIT(12);                                //RTCCON3[12], INBOX Wakeup disable
+    RTCCON11 &= ~BIT(6);                                //VUSB pull out filter
+    charge_init_do(p);
+
+#if CHARGE_BOX_EN
+    charge_box_init();
+#endif
+
+    vusb4s_reset_en();
+}
+
+
+#endif
+
 #endif // CHARGE_EN

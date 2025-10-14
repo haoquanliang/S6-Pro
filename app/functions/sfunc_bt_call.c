@@ -312,11 +312,13 @@ static void sfunc_bt_call_process(void)
 
 static void sfunc_bt_call_enter(void)
 {
+
     sco_set_incall_flag(INCALL_FLAG_CALL);
     if(sys_cb.incall_flag == INCALL_FLAG_FADE) {
         bsp_change_volume(bsp_bt_get_hfp_vol(sys_cb.hfp_vol));
         dac_fade_in();
     }
+   
 }
 
 static void sfunc_bt_call_exit(void)

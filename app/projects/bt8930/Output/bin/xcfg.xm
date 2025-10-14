@@ -357,6 +357,14 @@ config(BYTE,  "充电低温保护的温度",  "充电低温保护的温度",  NT
 config(BYTE,  "放电高温保护的温度",  "放电高温保护的温度",  NTC_DISCHARGE_THD_RISK_HIGH,  0, 255, 200,  NTC_EN);
 config(BYTE,  "放电低温保护的温度",  "放电低温保护的温度",  NTC_DISCHARGE_THD_RISK_LOW,  0, 255, 10,  NTC_EN);
 
+config(CHECK,  "是否使能NTC的0.2C充电模式",  "是否使能NTC的0.2C充电模式",  NTC_0P2C_EN,  0);
+config(BYTE,  "进入0.2C充电的温度",  "进入0.2C充电的温度",  NTC_0P2C_ENTER,  0, 255, 40,  NTC_0P2C_EN);
+config(BYTE,  "退出0.2C充电的温度",  "退出0.2C充电的温度，需要高于进入的温度",  NTC_0P2C_EXIT,  0, 255, 50,  NTC_0P2C_EN);
+config(LIST, "0.2C恒流充电电流", "0.2C恒流充电电流", NTC_0P2C_CONSTANT_CURR, 24, "5mA", "10mA", "15mA", "20mA", "25mA", "30mA", "35mA", "40mA", "45mA", "50mA", "55mA", "60mA", "65mA", "70mA", "85mA", "90mA", "105mA", "110mA", "125mA", "130mA", "145mA", "150mA", "165mA", "170mA", 2, NTC_0P2C_EN);
+config(CHECK, "0.2C充电电压跟随模式", "0.2C是否打开充电电压跟随模式", NTC_0P2C_CHARGE_VOLTAGE_FOLLOW, 0, NTC_0P2C_EN);
+config(LIST, "0.2C充电截止电流", "0.2C选择充电截止电流", NTC_0P2C_CHARGE_STOP_CURR, 8, "2.5mA", "5mA", "7.5mA", "10mA", "15mA", "20mA", "25mA", "30mA", 1, NTC_0P2C_EN);
+config(LIST, "0.2C涓流充电电流", "0.2C涓流充电（电池电压小于2.9v）电流", NTC_0P2C_CHARGE_TRICKLE_CURR, 8, "5mA", "10mA", "15mA", "20mA", "25mA", "30mA", "35mA", "40mA", 0, NTC_0P2C_EN);
+
 config(LEVEL, 0x0E);
 config(SUB, "产测参数", "产测校准的一些参数，不要改动！");
 config(KEEP);

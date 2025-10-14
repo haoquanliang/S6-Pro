@@ -651,6 +651,11 @@ void func_bt_enter(void)
 #endif // WARNING_BT_PAIR
     }
 #endif
+
+#if SWETZ_TONE
+    f_bt.warning_status |= BT_WARN_PAIRING;
+#endif
+
 #if BT_2ACL_AUTO_SWITCH
     bt_play_data_init();
 #endif
