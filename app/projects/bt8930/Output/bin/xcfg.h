@@ -333,13 +333,13 @@ typedef struct __attribute__((packed)) _xcfg_cb_t {
     u8 ntc_charge_thd_risk_low;                 //充电低温保护的温度
     u8 ntc_discharge_thd_risk_high;             //放电高温保护的温度
     u8 ntc_discharge_thd_risk_low;              //放电低温保护的温度
-    u32 ntc_0p2c_en                      : 1;   //是否使能NTC的0.2C充电模式
-    u8 ntc_0p2c_enter;                          //进入0.2C充电的温度
-    u8 ntc_0p2c_exit;                           //退出0.2C充电的温度
-    u8 ntc_0p2c_constant_curr;                  //0.2C恒流充电电流: 0:5mA, 1:10mA, 2:15mA, 3:20mA, 4:25mA, 5:30mA, 6:35mA, 7:40mA, 8:45mA, 9:50mA, 10:55mA, 11:60mA, 12:65mA, 13:70mA, 14:85mA, 15:90mA, 16:105mA, 17:110mA, 18:125mA, 19:130mA, 20:145mA, 21:150mA, 22:165mA, 23:170mA
-    u32 ntc_0p2c_charge_voltage_follow   : 1;   //0.2C充电电压跟随模式
-    u8 ntc_0p2c_charge_stop_curr;               //0.2C充电截止电流: 0:2.5mA, 1:5mA, 2:7.5mA, 3:10mA, 4:15mA, 5:20mA, 6:25mA, 7:30mA
-    u8 ntc_0p2c_charge_trickle_curr;            //0.2C涓流充电电流: 0:5mA, 1:10mA, 2:15mA, 3:20mA, 4:25mA, 5:30mA, 6:35mA, 7:40mA
+    u32 ntc_0p3c_en                      : 1;   //是否使能NTC的0.3C充电模式
+    u8 ntc_0p3c_enter;                          //进入0.3C充电的温度
+    u8 ntc_0p3c_exit;                           //退出0.3C充电的温度
+    u8 ntc_0p3c_constant_curr;                  //0.3C恒流充电电流: 0:5mA, 1:10mA, 2:15mA, 3:20mA, 4:25mA, 5:30mA, 6:35mA, 7:40mA, 8:45mA, 9:50mA, 10:55mA, 11:60mA, 12:65mA, 13:70mA, 14:85mA, 15:90mA, 16:105mA, 17:110mA, 18:125mA, 19:130mA, 20:145mA, 21:150mA, 22:165mA, 23:170mA
+    u32 ntc_0p3c_charge_voltage_follow   : 1;   //0.3C充电电压跟随模式
+    u8 ntc_0p3c_charge_stop_curr;               //0.3C充电截止电流: 0:2.5mA, 1:5mA, 2:7.5mA, 3:10mA, 4:15mA, 5:20mA, 6:25mA, 7:30mA
+    u8 ntc_0p3c_charge_trickle_curr;            //0.3C涓流充电电流: 0:5mA, 1:10mA, 2:15mA, 3:20mA, 4:25mA, 5:30mA, 6:35mA, 7:40mA
     u8 xm_keep_start[0];                        //For Keep Area Start
     u8 osci_cap;                                //产测OSCI电容
     u8 osco_cap;                                //产测OSCO电容

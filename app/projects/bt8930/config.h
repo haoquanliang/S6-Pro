@@ -38,7 +38,7 @@
 #define SWETZ_VBAT_TO_PHONE         1//电量表，手机端电量显示
 
 #define SWETZ_SET_VBAT_LOW_WARNING  1//低电报警电量设置
-#define VBAT_LOW_WARNING_VAL                (10)
+#define VBAT_LOW_WARNING_VAL                (1)
 #define BT_PAIR_SLEEP_EN            (1)//不连接手机也可以进入sleep
 
 #define SWETZ_LOW_WARNING_TIME      1//低电提醒
@@ -704,7 +704,7 @@
 //涓流充电（电池电压小于2.9v）电流
 #define CHARGE_TRICKLE_CURR             xcfg_cb.charge_trickle_curr
 //恒压差充电差值选择：0:187.5mV  1:250mV  2:312mV  3:375mV
-#define CHARGE_VOLT_FOLLOW_DIFF         3
+#define CHARGE_VOLT_FOLLOW_DIFF         0
 
 /*****************************************************************************
  * Module    :  充电仓功能选择

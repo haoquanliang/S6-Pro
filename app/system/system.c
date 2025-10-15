@@ -100,32 +100,32 @@ const char ntc[] = "====ntc\r\n";
 
 
 //温度越高，ADC的值越小
-static bool ntc_charge_0p2c_enable;
+static bool ntc_charge_0p3c_enable;
 //进入0.2C充电模式
-static void ntc_charge_enter_0p2c(void)
+static void ntc_charge_enter_0p3c(void)
 {
-    if (xcfg_cb.ntc_0p2c_en)
+    if (xcfg_cb.ntc_0p3c_en)
     {
-        if (!ntc_charge_0p2c_enable)
+        if (!ntc_charge_0p3c_enable)
         {
-            printf("ntc_charge_enter_0p2c\n");
+            printf("ntc_charge_enter_0p3c\n");
             charge_stop(0);
-            charge_0p2c_init();
-            ntc_charge_0p2c_enable = true;
+            charge_0p3c_init();
+            ntc_charge_0p3c_enable = true;
         }
     }
 }
 
-static void ntc_charge_exit_0p2c(void)
+static void ntc_charge_exit_0p3c(void)
 {
-    if (xcfg_cb.ntc_0p2c_en)
+    if (xcfg_cb.ntc_0p3c_en)
     {
-        if (ntc_charge_0p2c_enable)
+        if (ntc_charge_0p3c_enable)
         {
-            printf("ntc_charge_exit_0p2c\n");
+            printf("ntc_charge_exit_0p3c\n");
             charge_stop(0);
             charge_init();
-            ntc_charge_0p2c_enable = false;
+            ntc_charge_0p3c_enable = false;
         }
     }
 }
@@ -142,75 +142,75 @@ u8 ntc_status = NTC_NORMAL;
 AT(.com_text.ntc)
 u8 user_ntc_check(void)
 {
-    if (!xcfg_cb.ntc_en) {
-        return  0;
-    }
+    // if (!xcfg_cb.ntc_en) {
+    //     return  0;
+    // }
 
     u8 ntc_value = saradc_get_value8(ADCCH_NTC);
     printf("ntc:%d vbat:%d\n", ntc_value,sys_cb.vbat);
     
-         if (func_cb.sta == FUNC_BT)
-         {
-            if ((ntc_value > (xcfg_cb.ntc_discharge_thd_risk_high - 5)) || (ntc_value < (xcfg_cb.ntc_discharge_thd_risk_low + 5)))
-            {
-                sys_cb.ntc_discharge_out_normal_range = true;
-            }
-            else 
-            {
-                sys_cb.ntc_discharge_out_normal_range = false;
-            }
+        //  if (func_cb.sta == FUNC_BT)
+        //  {
+        //     if ((ntc_value > (xcfg_cb.ntc_discharge_thd_risk_high - 5)) || (ntc_value < (xcfg_cb.ntc_discharge_thd_risk_low + 5)))
+        //     {
+        //         sys_cb.ntc_discharge_out_normal_range = true;
+        //     }
+        //     else 
+        //     {
+        //         sys_cb.ntc_discharge_out_normal_range = false;
+        //     }
 
-            if ((ntc_value > xcfg_cb.ntc_discharge_thd_risk_high) || (ntc_value < xcfg_cb.ntc_discharge_thd_risk_low))
-            {
-                if (ntc_status == NTC_NORMAL){
-                    ntc_status = NTC_OUT_RANGE;
-                    printf("ntc:out range\n");
-                    sys_cb.discon_reason = 0;   //不同步关机
-                    sys_cb.pwrdwn_tone_en = 1;
-                    func_cb.sta = FUNC_PWROFF; 
-                }
+        //     if ((ntc_value > xcfg_cb.ntc_discharge_thd_risk_high) || (ntc_value < xcfg_cb.ntc_discharge_thd_risk_low))
+        //     {
+        //         if (ntc_status == NTC_NORMAL){
+        //             ntc_status = NTC_OUT_RANGE;
+        //             printf("ntc:out range\n");
+        //             sys_cb.discon_reason = 0;   //不同步关机
+        //             sys_cb.pwrdwn_tone_en = 1;
+        //             func_cb.sta = FUNC_PWROFF; 
+        //         }
 
-            }
+        //     }
 
-         }
-         else //充电模式
-         {
-            if ((ntc_value > xcfg_cb.ntc_charge_thd_risk_high) || (ntc_value < xcfg_cb.ntc_charge_thd_risk_low))
-            {
-                if (ntc_status == NTC_NORMAL){
-                        ntc_status = NTC_OUT_RANGE;
-                        printf("ntc:charge out range\n");
-                        RTCCON8 = (RTCCON8 & ~BIT(6)) | BIT(1);     //disable charger function  
-                }
+        //  }
+        //  else //充电模式
+        //  {
+        //     if ((ntc_value > xcfg_cb.ntc_charge_thd_risk_high) || (ntc_value < xcfg_cb.ntc_charge_thd_risk_low))
+        //     {
+        //         if (ntc_status == NTC_NORMAL){
+        //                 ntc_status = NTC_OUT_RANGE;
+        //                 printf("ntc:charge out range\n");
+        //                 RTCCON8 = (RTCCON8 & ~BIT(6)) | BIT(1);     //disable charger function  
+        //         }
 
-            }
-            else if((ntc_value >= xcfg_cb.ntc_charge_thd_normal_low) && (ntc_value <= xcfg_cb.ntc_charge_thd_normal_high))
-            {
-                        if(ntc_status == NTC_OUT_RANGE){
-                                ntc_status = NTC_NORMAL;
-                                printf("ntc:charge normal\n");
-                                RTCCON8 = (RTCCON8 & ~BIT(1)) | BIT(6);// enable charger function
-                        }
+        //     }
+        //     else if((ntc_value >= xcfg_cb.ntc_charge_thd_normal_low) && (ntc_value <= xcfg_cb.ntc_charge_thd_normal_high))
+        //     {
+        //                 if(ntc_status == NTC_OUT_RANGE){
+        //                         ntc_status = NTC_NORMAL;
+        //                         printf("ntc:charge normal\n");
+        //                         RTCCON8 = (RTCCON8 & ~BIT(1)) | BIT(6);// enable charger function
+        //                 }
 
 
-            }
-            if (xcfg_cb.ntc_0p2c_en)
-            {
-                if ((ntc_value < xcfg_cb.ntc_charge_thd_risk_high) && (ntc_value > xcfg_cb.ntc_charge_thd_risk_low))
-                {
-                    //在正常温度范围内
-                    if (ntc_value > xcfg_cb.ntc_0p2c_enter)
-                    {
-                        ntc_charge_enter_0p2c();
-                    }
-                    if (ntc_value < xcfg_cb.ntc_0p2c_exit)
-                    {
-                        ntc_charge_exit_0p2c();
-                    }
-                }
-            } 
+        //     }
+        //     if (xcfg_cb.ntc_0p3c_en)
+        //     {
+        //         if ((ntc_value < xcfg_cb.ntc_charge_thd_risk_high) && (ntc_value > xcfg_cb.ntc_charge_thd_risk_low))
+        //         {
+        //             //在正常温度范围内
+        //             if (ntc_value > xcfg_cb.ntc_0p3c_enter)
+        //             {
+        //                 ntc_charge_enter_0p3c();
+        //             }
+        //             if (ntc_value < xcfg_cb.ntc_0p3c_exit)
+        //             {
+        //                 ntc_charge_exit_0p3c();
+        //             }
+        //         }
+        //     } 
 
-         }
+        //  }
 
 
   

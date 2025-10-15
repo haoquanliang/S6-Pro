@@ -21,7 +21,7 @@ void charge_process(void);
 bool charge_power_on_pre(u32 rtccon9);
 
 #if SWETZ_NTC
-void charge_0p2c_init(void);
+void charge_0p3c_init(void);
 #endif
 
 #endif

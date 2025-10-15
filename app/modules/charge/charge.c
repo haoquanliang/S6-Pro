@@ -286,19 +286,19 @@ void charge_init(void)
 
 
 #if SWETZ_NTC
-void charge_0p2c_init(void)
+void charge_0p3c_init(void)
 {
     charge_cfg_t *p = &charge_cfg;
     memset(p, 0, sizeof(charge_cfg_t));
 
     p->trick_curr_en    = CHARGE_TRICK_EN;
-    p->const_curr       = xcfg_cb.ntc_0p2c_constant_curr;
+    p->const_curr       = xcfg_cb.ntc_0p3c_constant_curr;
     if (p->const_curr > 15) {
         p->const_curr = (p->const_curr - 15) * 2 + 15;
     }
     p->const_curr       = p->const_curr & 0x3f;
-    p->trick_curr       = xcfg_cb.ntc_0p2c_charge_trickle_curr & 0xf;
-    p->stop_curr        = xcfg_cb.ntc_0p2c_charge_stop_curr & 0x0f;
+    p->trick_curr       = xcfg_cb.ntc_0p3c_charge_trickle_curr & 0xf;
+    p->stop_curr        = xcfg_cb.ntc_0p3c_charge_stop_curr & 0x0f;
     p->stop_volt        = CHARGE_STOP_VOLT & 0x03;
     p->leakage          = xcfg_cb.ch_leakage_sel;
     p->inbox_voltage    = xcfg_cb.ch_inbox_sel;
@@ -308,9 +308,9 @@ void charge_0p2c_init(void)
     p->bled_on_pr       = ch_bled_timeout_tbl[BLED_CHARGE_FULL];
     p->charge_sta_func  = charge_status;
     p->ldo_en           = 1;                              //默认普通充电使用LDO mode，
-    p->volt_follow_en   = xcfg_cb.ntc_0p2c_charge_voltage_follow;
+    p->volt_follow_en   = xcfg_cb.ntc_0p3c_charge_voltage_follow;
     p->volt_follow_diff        = CHARGE_VOLT_FOLLOW_DIFF & 0x03;
-    if (xcfg_cb.ntc_0p2c_charge_voltage_follow) {
+    if (xcfg_cb.ntc_0p3c_charge_voltage_follow) {
         p->ldo_en       = 0;                              //开启电压跟随模式，强制不能开LD0 充电mode
     }
 
