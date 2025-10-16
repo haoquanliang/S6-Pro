@@ -608,7 +608,7 @@
 #define USER_TKEY_LOWPWR_WAKEUP_DIS     0           //是否电池低电时关掉触摸唤醒, 无保护板的电池需要打开。
 #define USER_TKEY_INEAR                 0           //是否使用TouchKey的入耳检测功能
 #define USER_TKEY_TEMP_EN               0           //是否使用TouchKey的温度检测功能
-#define USER_TKEY_DEBUG_EN              1           //仅调试使用，用于确认TKEY的参数
+#define USER_TKEY_DEBUG_EN              0           //仅调试使用，用于确认TKEY的参数
 #define TKEY_IS_PRESS()			        (tkey_is_pressed() && USER_TKEY_SOFT_PWR_EN)
 
 #define USER_TKEY_SLIDE                 0           //是否使用TouchKey的滑动检测功能

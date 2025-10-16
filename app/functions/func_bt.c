@@ -664,7 +664,7 @@ void func_bt_enter(void)
 #endif
 
 #if SWETZ_CHECK_INBOX
-    charge_set_leakage(1, 0);//这样CHARGE_INBOX()才能检测到是否在仓中
+   // charge_set_leakage(1, 0);//这样CHARGE_INBOX()才能检测到是否在仓中,仓检测漏电流需要关掉
 #endif
 
 }

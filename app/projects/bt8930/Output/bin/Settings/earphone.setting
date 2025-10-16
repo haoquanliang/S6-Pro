@@ -58,7 +58,7 @@
         <add key="chbox_out_delay" value="15" />
         <add key="bt_name" value="BT893X-TWS" />
         <add key="bt_addr_mode" value="单次递增" />
-        <add key="bt_addr" value="41:42:00:00:01:E1" />
+        <add key="bt_addr" value="41:42:00:00:01:FB" />
         <add key="bt_addr_start" value="41:42:00:00:00:00" />
         <add key="bt_addr_step" value="00:00:00:00:00:01" />
         <add key="bt_addr_end" value="41:42:FF:FF:FF:FF" />
@@ -336,12 +336,12 @@
         <add key="bt_ffdm_distance" value="23" />
         <add key="led_sta_config_en" value="False" />
         <add key="ntc_en_bt" value="False" />
-        <add key="ntc_charge_thd_risk_high" value="200" />
-        <add key="ntc_charge_thd_normal_high" value="190" />
-        <add key="ntc_charge_thd_normal_low" value="20" />
-        <add key="ntc_charge_thd_risk_low" value="10" />
-        <add key="ntc_discharge_thd_risk_high" value="200" />
-        <add key="ntc_discharge_thd_risk_low" value="10" />
+        <add key="ntc_charge_thd_risk_high" value="72" />
+        <add key="ntc_charge_thd_normal_high" value="86" />
+        <add key="ntc_charge_thd_normal_low" value="191" />
+        <add key="ntc_charge_thd_risk_low" value="198" />
+        <add key="ntc_discharge_thd_risk_high" value="63" />
+        <add key="ntc_discharge_thd_risk_low" value="235" />
         <add key="ntc_0p2c_en" value="True" />
         <add key="ntc_0p2c_enter" value="40" />
         <add key="ntc_0p2c_exit" value="50" />
@@ -350,10 +350,10 @@
         <add key="ntc_0p2c_charge_stop_curr" value="5mA" />
         <add key="ntc_0p2c_charge_trickle_curr" value="5mA" />
         <add key="ntc_0p3c_en" value="False" />
-        <add key="ntc_0p3c_enter" value="40" />
-        <add key="ntc_0p3c_exit" value="50" />
-        <add key="ntc_0p3c_constant_curr" value="15mA" />
-        <add key="ntc_0p3c_charge_voltage_follow" value="False" />
+        <add key="ntc_0p3c_enter" value="156" />
+        <add key="ntc_0p3c_exit" value="166" />
+        <add key="ntc_0p3c_constant_curr" value="20mA" />
+        <add key="ntc_0p3c_charge_voltage_follow" value="True" />
         <add key="ntc_0p3c_charge_stop_curr" value="5mA" />
         <add key="ntc_0p3c_charge_trickle_curr" value="5mA" />
     </appSettings>

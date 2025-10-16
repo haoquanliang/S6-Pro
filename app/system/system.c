@@ -151,16 +151,16 @@ u8 user_ntc_check(void)
     
         //  if (func_cb.sta == FUNC_BT)
         //  {
-        //     if ((ntc_value > (xcfg_cb.ntc_discharge_thd_risk_high - 5)) || (ntc_value < (xcfg_cb.ntc_discharge_thd_risk_low + 5)))
-        //     {
-        //         sys_cb.ntc_discharge_out_normal_range = true;
-        //     }
-        //     else 
-        //     {
-        //         sys_cb.ntc_discharge_out_normal_range = false;
-        //     }
+            // if ((ntc_value > (xcfg_cb.ntc_discharge_thd_risk_high - 5)) || (ntc_value < (xcfg_cb.ntc_discharge_thd_risk_low + 5)))
+            // {
+            //     sys_cb.ntc_discharge_out_normal_range = true;
+            // }
+            // else 
+            // {
+            //     sys_cb.ntc_discharge_out_normal_range = false;
+            // }
 
-        //     if ((ntc_value > xcfg_cb.ntc_discharge_thd_risk_high) || (ntc_value < xcfg_cb.ntc_discharge_thd_risk_low))
+        //     if ((ntc_value < xcfg_cb.ntc_discharge_thd_risk_high) || (ntc_value > xcfg_cb.ntc_discharge_thd_risk_low))
         //     {
         //         if (ntc_status == NTC_NORMAL){
         //             ntc_status = NTC_OUT_RANGE;
@@ -175,7 +175,7 @@ u8 user_ntc_check(void)
         //  }
         //  else //充电模式
         //  {
-        //     if ((ntc_value > xcfg_cb.ntc_charge_thd_risk_high) || (ntc_value < xcfg_cb.ntc_charge_thd_risk_low))
+        //     if ((ntc_value < xcfg_cb.ntc_charge_thd_risk_high) || (ntc_value > xcfg_cb.ntc_charge_thd_risk_low))
         //     {
         //         if (ntc_status == NTC_NORMAL){
         //                 ntc_status = NTC_OUT_RANGE;
@@ -184,7 +184,7 @@ u8 user_ntc_check(void)
         //         }
 
         //     }
-        //     else if((ntc_value >= xcfg_cb.ntc_charge_thd_normal_low) && (ntc_value <= xcfg_cb.ntc_charge_thd_normal_high))
+        //     else if((ntc_value <= xcfg_cb.ntc_charge_thd_normal_low) && (ntc_value >= xcfg_cb.ntc_charge_thd_normal_high))
         //     {
         //                 if(ntc_status == NTC_OUT_RANGE){
         //                         ntc_status = NTC_NORMAL;

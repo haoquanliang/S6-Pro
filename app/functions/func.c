@@ -488,6 +488,9 @@ void func_message(u16 msg)
         // printf("bt_tws_addr: %02X:%02X:%02X:%02X:%02X:%02X\n",
         // bt_tws_addr[0], bt_tws_addr[1], bt_tws_addr[2],
         // bt_tws_addr[3], bt_tws_addr[4], bt_tws_addr[5]);
+        // char spp_tx_buffer[80];
+        // sprintf(spp_tx_buffer, "+ntc:%d", saradc_get_value8(ADCCH_NTC));
+        // bt_spp_tx(SPP_SERVICE_CH0, (uint8_t *)spp_tx_buffer, strlen(spp_tx_buffer));
         break;
 
 #endif
