@@ -3,7 +3,7 @@
 
 #if IODM_TEST_EN
 
-#define TRACE_EN                0
+#define TRACE_EN                1
 
 #if TRACE_EN
 #define TRACE(...)              printf(__VA_ARGS__)
@@ -482,6 +482,13 @@ void iodm_reveice_data_deal(void)
         }
             break;
 
+#if SWETZ_FACTORY_RESET
+        case VHOUSE_CMD_CUSTOM_RESET_TO_FACTORY:
+        printf("VHOUSE_CMD_CUSTOM_RESET_TO_FACTORY\r\n");
+            charge_box_factory_reset();
+            break;
+#endif
+        
         case VHOUSE_CMD_CUSTOM_GET_FIXED_BT_ADDR:
                 cmd_rsp_param_len = 6;
                 bt_get_fixed_bd_addr(&tx_buf[0]);

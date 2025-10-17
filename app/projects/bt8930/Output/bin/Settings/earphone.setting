@@ -56,9 +56,9 @@
         <add key="ch_leakage_sel" value="2" />
         <add key="chg_inbox_pwrdwn_en" value="False" />
         <add key="chbox_out_delay" value="15" />
-        <add key="bt_name" value="BT893X-TWS" />
+        <add key="bt_name" value="BT893X-TWS-1" />
         <add key="bt_addr_mode" value="单次递增" />
-        <add key="bt_addr" value="41:42:00:00:01:FB" />
+        <add key="bt_addr" value="41:42:00:00:02:0A" />
         <add key="bt_addr_start" value="41:42:00:00:00:00" />
         <add key="bt_addr_step" value="00:00:00:00:00:01" />
         <add key="bt_addr_end" value="41:42:FF:FF:FF:FF" />
@@ -349,9 +349,9 @@
         <add key="ntc_0p2c_charge_voltage_follow" value="False" />
         <add key="ntc_0p2c_charge_stop_curr" value="5mA" />
         <add key="ntc_0p2c_charge_trickle_curr" value="5mA" />
-        <add key="ntc_0p3c_en" value="False" />
+        <add key="ntc_0p3c_en" value="True" />
         <add key="ntc_0p3c_enter" value="156" />
-        <add key="ntc_0p3c_exit" value="166" />
+        <add key="ntc_0p3c_exit" value="150" />
         <add key="ntc_0p3c_constant_curr" value="20mA" />
         <add key="ntc_0p3c_charge_voltage_follow" value="True" />
         <add key="ntc_0p3c_charge_stop_curr" value="5mA" />

@@ -123,4 +123,8 @@ void tws_update_local_addr(uint8_t *address);
 
 void param_vuart_popup_flag_write(u8 data);
 void param_vuart_popup_flag_read(void);
+#if SWETZ_FACTORY_RESET
+void charge_box_factory_reset(void);
+#endif
+
 #endif

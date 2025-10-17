@@ -633,7 +633,7 @@ static void charge_box_clr_bt_all_link_info(void)
 #else 
 
 AT(.text.iodm)
-static void charge_box_factory_reset(void)
+void charge_box_factory_reset(void)
 {
     ab_mate_device_reset();
 }
