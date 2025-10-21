@@ -23,7 +23,9 @@ enum {
     TWS_RES_CONNECTED,          //STA
     TWS_RES_DISCONNECT,         //STA
     TWS_RES_PAIRING,            //STA
-
+#if SWETZ_UGRING
+    TWS_RES_UGRING,
+#endif
     //副耳也可以请求的提示音
     TWS_RES_LOW_BATTERY,        //STA
     TWS_RES_MAX_VOL,            //STA

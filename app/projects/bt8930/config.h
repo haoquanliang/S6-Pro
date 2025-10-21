@@ -29,7 +29,7 @@
 
 #define SWETZ_DEL_TWS_CON_TONE      1//去掉tws左右通道的提示音
 #define SWETZ_SET_SCAN_STATE        1//设置蓝牙状态
-#define SWETZ_TONE                  1 
+#define SWETZ_UGRING                  1 //播放本地来电ring
 #define NUM_BT_RETURN_CON              10// 上电回连手机次数, 1.28s * n, 不小于5次
 #define NUM_TWS_RETURN_CON             100//设置TWS搜索次数, 1.25s * n, 不小于2次
 #define SWETZ_CHECK_INBOX           1//出入仓检测
@@ -67,7 +67,7 @@
 #define SWETZ_SAVE_AG_ADDR          1//记录连接AG地址
 #define SWETZ_RECONNECT_BT_STATE    1//回连状态关掉可见性，回连失败打开可见性
 #define SWETZ_RECON_TONE            1//单击回连失败不能播放进配对提示音
-
+#define SWETZ_TONE                  1 //
 
 #endif
 
@@ -196,7 +196,7 @@
 #define BT_HFP_CALL_PRIVATE_FORCE_EN    0   //是否强制使用私密接听（仅在手机接听，不通过蓝牙外放）
 #define BT_HFP_RECORD_DEVICE_VOL_EN     0   //是否支持分别记录不同连接设备的通话音量
 #define BT_HFP_RING_NUMBER_EN           0   //是否支持来电报号
-#define BT_HFP_INBAND_RING_EN           1   //是否支持手机来电铃声（部分android不支持，默认用本地RING提示音）
+#define BT_HFP_INBAND_RING_EN           0   //是否支持手机来电铃声（部分android不支持，默认用本地RING提示音）
 #define BT_HFP_BAT_REPORT_EN            1   //是否支持电量显示
 #define BT_HFP_MSBC_EN                  1   //是否打开宽带语音功能
 #define BT_A2DP_AAC_AUDIO_EN            1   //是否支持蓝牙AAC音频格式
