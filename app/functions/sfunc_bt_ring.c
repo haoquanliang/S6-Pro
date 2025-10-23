@@ -472,6 +472,10 @@ static void sfunc_bt_ring_exit(void)
         bt_audio_bypass();
     }
 #endif
+#if SWETZ_TEST
+     bt_audio_bypass();
+#endif
+
     //�ȴ��Է�״̬���IDLE
     while(bt_tws_is_connected() && func_cb.sta == FUNC_BT) {
         if(TICKN_IS_EXPIRE(bt_ring.tickn)
