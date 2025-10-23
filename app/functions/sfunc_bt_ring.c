@@ -189,7 +189,7 @@ static void sfunc_bt_ring_num_exit(void)
 #endif
 
 AT(.text.func.btring) ALIGNED(128) NO_INLINE
-#if !SWETZ_RING_TONE
+
 
 static void sfunc_bt_ring_res_init(void)
 {
@@ -203,7 +203,7 @@ static void sfunc_bt_ring_res_init(void)
     bt_ring.tickn = TICK_ADD(TICKN_GET(), 1200);
     bt_tws_sync_ring_sta();
 }
-#endif
+
 //Э��״̬
 AT(.text.func.btring)
 static void sfunc_bt_ring_nego(void)
@@ -263,7 +263,12 @@ static void sfunc_bt_ring_res(void)
     if(TICKN_IS_EXPIRE(bt_ring.tickn) && bsp_res_is_empty()) {
     bt_ring.tickn = TICK_ADD(TICKN_GET(), 1500);
     printf("ring_res_play\r\n");
-    ring_res_play(TWS_RES_RING);
+#if SWETZ_UGRING
+        ring_res_play(TWS_RES_UGRING);
+#else 
+        ring_res_play(TWS_RES_RING);
+#endif
+    
     }
 }
 
@@ -279,12 +284,12 @@ static void sfunc_bt_ring_sco(void)
         }
     } else
 #endif
-#if !SWETZ_RING_TONE
+
     if((bt_ring.loc_flag & RING_FLAG_SCO) && !sco_is_connected()) {
         bt_audio_bypass();
         sfunc_bt_ring_res_init();
     }
-#endif
+
 }
 
 
@@ -467,6 +472,10 @@ static void sfunc_bt_ring_exit(void)
         bt_audio_bypass();
     }
 #endif
+#if SWETZ_TEST
+     bt_audio_bypass();
+#endif
+
     //�ȴ��Է�״̬���IDLE
     while(bt_tws_is_connected() && func_cb.sta == FUNC_BT) {
         if(TICKN_IS_EXPIRE(bt_ring.tickn)
