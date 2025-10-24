@@ -37,7 +37,12 @@ void user_alarm_cb(uint16_t params)
 #if SWETZ_ARM_PRINTF
     printf(str,params);
 #endif    
-    msg_enqueue(EVT_USER_SYNC_EVT);
+    if(params == 1){
+        msg_enqueue(EVT_USER_SYNC_EVT);
+    }
+    if(params == 2){
+        msg_enqueue(EVT_USER_RING_EXIT);
+    }
 }
 #endif
 

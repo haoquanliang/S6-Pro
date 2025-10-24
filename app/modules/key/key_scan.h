@@ -548,6 +548,7 @@
 #define EVT_BOX_CMD_AG_PAIR     0x709
 #define EVT_PAIRING             0x70a
 #define EVT_SYS_1S              0x70b
+#define EVT_USER_RING_EXIT       0x70c
 #endif
 
 

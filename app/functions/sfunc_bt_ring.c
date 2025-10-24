@@ -411,6 +411,8 @@ static void sfunc_bt_ring_slave(void)
 AT(.text.func.btring)
 static void sfunc_bt_ring_enter(void)
 {
+
+
     bt_ring.loc_flag        = 0;
     bt_ring.loc_sta         = BT_RING_STA_NEGO;
 #if BT_HFP_INBAND_RING_EN || BT_HFP_RING_NUMBER_EN
@@ -422,7 +424,11 @@ static void sfunc_bt_ring_enter(void)
     bt_tws_sync_ring_sta();
 
     dac_set_anl_offset(0);
+ 
     bt_audio_bypass();
+   
+
+
 }
 
 AT(.text.func.btring)
@@ -436,8 +442,12 @@ static void sfunc_bt_ring_process(void)
     }
 #endif
 
+
+
     func_process();
     func_bt_disp_status();
+
+
 
     if(bt_ring.loc_sta >= BT_RING_STA_RES) {
         if(bsp_res_is_playing()) {      //�ȴ���ǰ���Ų�����
@@ -472,9 +482,7 @@ static void sfunc_bt_ring_exit(void)
         bt_audio_bypass();
     }
 #endif
-#if SWETZ_TEST
-     bt_audio_bypass();
-#endif
+
 
     //�ȴ��Է�״̬���IDLE
     while(bt_tws_is_connected() && func_cb.sta == FUNC_BT) {
@@ -485,7 +493,9 @@ static void sfunc_bt_ring_exit(void)
         bt_thread_check_trigger();
         delay_5ms(1);
     }
-    bt_audio_enable();
+
+
+        bt_audio_enable();
 
     bt_ring.rem_sta         = BT_RING_STA_IDLE;
     bt_ring.rem_flag        = 0;

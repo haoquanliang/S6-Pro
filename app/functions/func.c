@@ -825,6 +825,7 @@ void func_message(u16 msg)
             break;
 #endif
 
+
 #if ASR_EN
         case EVT_ASR_START:
             if (sys_cb.asr_enable) {

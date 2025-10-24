@@ -14,7 +14,7 @@
 #define TWS_SYNC_BUF_SIZE               (35)
 #define SWETZ_SPP_CMD       1       //SPP指令
 #define SWETZ_UART_CMD      1       //串口指令
-#define SWETZ_SYNC_EVT      0        //事件左右同步执行
+#define SWETZ_SYNC_EVT      1        //事件左右同步执行
 #define APP_MESSAGE_RUN     1       
 
 
@@ -196,7 +196,7 @@
 #define BT_HFP_CALL_PRIVATE_FORCE_EN    0   //是否强制使用私密接听（仅在手机接听，不通过蓝牙外放）
 #define BT_HFP_RECORD_DEVICE_VOL_EN     0   //是否支持分别记录不同连接设备的通话音量
 #define BT_HFP_RING_NUMBER_EN           0   //是否支持来电报号
-#define BT_HFP_INBAND_RING_EN           0   //是否支持手机来电铃声（部分android不支持，默认用本地RING提示音）
+#define BT_HFP_INBAND_RING_EN           1   //是否支持手机来电铃声（部分android不支持，默认用本地RING提示音）
 #define BT_HFP_BAT_REPORT_EN            1   //是否支持电量显示
 #define BT_HFP_MSBC_EN                  1   //是否打开宽带语音功能
 #define BT_A2DP_AAC_AUDIO_EN            1   //是否支持蓝牙AAC音频格式

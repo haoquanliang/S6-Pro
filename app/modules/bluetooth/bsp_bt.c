@@ -550,9 +550,7 @@ void bt_emit_notice(uint evt, void *params)
         printf("BT_NOTICE_NETWORK_CALL\n");
         break;
     case BT_NOTICE_PHONE_CALL:
-#if SWETZ_TEST
 
-#endif
         printf("BT_NOTICE_PHONE_CALL\n");
         break;
 

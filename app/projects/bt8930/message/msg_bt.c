@@ -195,7 +195,7 @@ void func_bt_message_do(u16 msg)
     case KU_PLAY_PWR_USER_DEF:
         printf("33KU_PLAY_PWR_USER_DEF\r\n");
 #if SWETZ_SYNC_EVT
-    bt_tws_req_alarm_user(1);//双耳同步执行
+    //bt_tws_req_alarm_user(1);//双耳同步执行
 #endif
 #if SWETZ_TEST
     // message_send(MSG_ID_TIMEOUT_3S_AFTER_POWER_ON, 0, 5000);//单边触发事件延时执行
@@ -392,8 +392,9 @@ void func_bt_message_do(u16 msg)
         if (!sbc_is_bypass() && !bsp_res_is_playing()) {
             dac_fade_out();
         }
+        printf("EVT_A2DP_MUSIC\r\n");
         break;
-
+            
     case EVT_KEY_2_UNMUTE:
         bsp_clr_mute_sta();
         break;
