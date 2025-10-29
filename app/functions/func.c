@@ -501,6 +501,7 @@ void func_message(u16 msg)
         // char spp_tx_buffer[80];
         // sprintf(spp_tx_buffer, "+ntc:%d", saradc_get_value8(ADCCH_NTC));
         // bt_spp_tx(SPP_SERVICE_CH0, (uint8_t *)spp_tx_buffer, strlen(spp_tx_buffer));
+        printf("ab_mate_app.box_vbat:%d\r\n",ab_mate_app.box_vbat);
         break;
 
 #endif

@@ -66,7 +66,21 @@ uint hfp_get_bat_level(void)
         return 0;
     }
 #if SWETZ_VBAT_TO_PHONE
-    uint bat_level = bsp_get_bat_level();
+    u8 bat_level = bsp_get_bat_level();
+         {
+            if(sys_cb.local_bat_level != bat_level){
+                    sys_cb.local_bat_level = bat_level;
+                    app_lr_send_notification(LR_NOTIFY_BATTERY_LEVEL, 1, &sys_cb.local_bat_level);
+                    
+            }
+        }
+        if(sys_cb.local_bat_level > sys_cb.peer_bat_level){
+                bat_level = sys_cb.peer_bat_level;
+        }else {
+                bat_level = sys_cb.local_bat_level;
+        }
+        
+
     return app_bat_level_show_for_phone(bat_level);
 #else 
     uint bat_level = (sys_cb.vbat - bat_off) / ((4200 - bat_off) / 10);

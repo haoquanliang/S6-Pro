@@ -24,7 +24,7 @@ static u8 *p_adv_data = NULL;
 static u8 adv_data_len = 0;
 #define TRACE(...)              printf(__VA_ARGS__)
 #define TRACE_R(...)            print_r(__VA_ARGS__)
-
+#if !SWETZ
 static const uint8_t adv_data_const[] = {
     // Flags general discoverable, BR/EDR not supported
     0x02, 0x01, 0x02,
@@ -33,7 +33,18 @@ static const uint8_t adv_data_const[] = {
 
     0x03, 0x03, 0xB3, 0xFD,
 };
+#else
+static const uint8_t adv_data_const[] = {
+    // Flags general discoverable, BR/EDR not supported
+    0x02, 0x01, 0x18,
+                //CID      VID   PID        MAC                            FMASK  BID
+    0x10, 0xff, 0x42,0x06, 0x02, 0x01,0x00, 0x00,0x00,0x00,0x00,0x00,0x00, 0x00,  0x00,0x04,0x00,
 
+    0x03, 0x03, 0xB3, 0xFD,
+};
+
+
+#endif
 static const uint8_t scan_data_const[] = {
     //Name
     0x04, 0x09, 'B','L','E',

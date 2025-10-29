@@ -25,7 +25,7 @@
 #if SWETZ
 #define SWETZ_EVT_5S                1
 #define SWETZ_ROLE_SWITCH_BY_BAT    1//根据电量切换主从
-#define LR_VBAT_DIFF_VAL            (5)
+#define LR_VBAT_DIFF_VAL            (5)//电量差值
 #define SWETZ_ROLE_SWITCH_BY_INBOX  1//出入仓判断是否需要切换主从
 
 #define SWETZ_DEL_TWS_CON_TONE      1//去掉tws左右通道的提示音
@@ -37,6 +37,7 @@
 #define SWETZ_L_THREE_P             1//修改三击功能
 #define SWETZ_KEY_TONE              1//增加按键声key tone
 #define SWETZ_VBAT_TO_PHONE         1//电量表，手机端电量显示
+#define SWETZ_VBAT_DISCHARGE        1//放电电量只能往下降
 
 #define SWETZ_SET_VBAT_LOW_WARNING  1//低电报警电量设置
 #define VBAT_LOW_WARNING_VAL                (1)
@@ -70,6 +71,10 @@
 #define SWETZ_RECON_TONE            1//单击回连失败不能播放进配对提示音
 #define SWETZ_TONE                  1 //
 #define SWETZ_FADE_HANGDLE          1//声音飘的处理
+
+//APP
+
+
 #endif
 
 

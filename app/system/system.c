@@ -625,13 +625,32 @@ uint bsp_get_bat_level(void)
     if (bat_off > sys_cb.vbat) {
         return 0;
     }
+#if SWETZ_VBAT_DISCHARGE
+    static uint old_vbat = 0xff;
+    
+#endif
 
 #if SWETZ_VBAT_TO_PHONE
      uint bat_level = get_bat_level_from_volt_wo_charger(sys_cb.vbat);
 #else
+
     uint bat_level = (sys_cb.vbat - bat_off) / ((4200 - bat_off) / 100);
     //printf("bat level: %d %d\n", sys_cb.vbat, bat_level);
 #endif
+#if SWETZ_VBAT_DISCHARGE
+    if(old_vbat == 0xff){
+        old_vbat = bat_level;
+    }else {
+        if(old_vbat > bat_level){  
+            old_vbat = bat_level;
+        }else {
+            bat_level = old_vbat;
+        }
+
+    }
+
+#endif
+
     if (bat_level > 100) {
         bat_level = 100;
     }

@@ -56,7 +56,7 @@
         <add key="ch_leakage_sel" value="2" />
         <add key="chg_inbox_pwrdwn_en" value="False" />
         <add key="chbox_out_delay" value="15" />
-        <add key="bt_name" value="BT893X-UG" />
+        <add key="bt_name" value="UGREEN HiTune S6 Magic" />
         <add key="bt_addr_mode" value="固定地址" />
         <add key="bt_addr" value="41:42:00:00:02:2F" />
         <add key="bt_addr_start" value="41:42:00:00:00:00" />
@@ -75,7 +75,7 @@
         <add key="bt_hid_manu_en" value="False" />
         <add key="bt_hid_discon_default_en" value="False" />
         <add key="ble_en" value="True" />
-        <add key="le_name" value="BT893X-BLE" />
+        <add key="le_name" value="UGREEN HiTune S6 Magic" />
         <add key="qtest_en" value="False" />
         <add key="qtest_pickup_status" value="不操作" />
         <add key="bt_tws_en" value="True" />
