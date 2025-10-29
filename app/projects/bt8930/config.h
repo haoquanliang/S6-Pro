@@ -24,7 +24,8 @@
 #define SWETZ                       1
 #if SWETZ
 #define SWETZ_EVT_5S                1
-#define SWETZ_ROLE_SWITCH_BY_BAT    0//根据电量切换主从
+#define SWETZ_ROLE_SWITCH_BY_BAT    1//根据电量切换主从
+#define LR_VBAT_DIFF_VAL            (5)
 #define SWETZ_ROLE_SWITCH_BY_INBOX  1//出入仓判断是否需要切换主从
 
 #define SWETZ_DEL_TWS_CON_TONE      1//去掉tws左右通道的提示音

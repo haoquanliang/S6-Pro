@@ -472,7 +472,9 @@ void func_message(u16 msg)
 #if SWETZ_EVT_5S
         case EVT_SYS_5S:
             print_bd_addr_sw();
-
+#if SWETZ_ROLE_SWITCH_BY_BAT
+            app_role_switch_by_bat();
+#endif
         {
             u8 bat_level = bsp_get_bat_level();
             if(sys_cb.local_bat_level != bat_level){

@@ -2572,7 +2572,7 @@ Discarded input sections
  .data          0x0000000000000000        0x0 Output\obj\projects\bt8930\app_role_switch.o
  .bss           0x0000000000000000        0x0 Output\obj\projects\bt8930\app_role_switch.o
  .text.app_role_switch_by_bat
-                0x0000000000000000        0x2 Output\obj\projects\bt8930\app_role_switch.o
+                0x0000000000000000       0xf4 Output\obj\projects\bt8930\app_role_switch.o
  .text.app_role_switch_get_user_data
                 0x0000000000000000        0x2 Output\obj\projects\bt8930\app_role_switch.o
  .text.app_role_switch_set_user_data
@@ -14895,6 +14895,8 @@ LOAD Output\obj\projects\bt8930\port\port_update.o
  .rela.text.app_lr_is_idle
                 0x0000000010091868        0x0 Output\obj\bsp\bsp_huart.o
  .rela.com_text.message
+                0x0000000010091868        0x0 Output\obj\bsp\bsp_huart.o
+ .rela.text.app_role_switch_by_bat
                 0x0000000010091868        0x0 Output\obj\bsp\bsp_huart.o
  .rela.text.app_role_switch_by_inbox
                 0x0000000010091868        0x0 Output\obj\bsp\bsp_huart.o
