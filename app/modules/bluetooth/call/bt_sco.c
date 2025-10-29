@@ -3,6 +3,9 @@
 
 
 u8 cfg_bt_near_frame = 128;
+static u8 ring_fade_flag AT(.sco_cache);
+static uint32_t call_setup_tick AT(.sco_cache);
+
 static s16 agc_sco_buf[240] AT(.agc_buf.cb);
 
 bool bt_sco_is_msbc(void);
@@ -81,6 +84,50 @@ void bt_sco_dump_cb(uint type, void *ptr, uint size)
 #else
     #define bt_sco_dump(a, b, c)
 #endif
+
+#define RING_FADE_IN                40
+#define RING_FADE_IDLE              (RING_FADE_IN + 1)
+#define RING_FADE_DISCARD           (RING_FADE_IN + 50)
+#define RING_FADE_OUT               1           //不可修改
+#define RING_FADE_KEEP_SILENCE      2           //不可修改
+#define RING_FADE_STOP              0XFF        //不可修改
+#define RING_FADE_STA_CLEAR         0           //不可修改
+#define RING_FADE_SOFT_EN           0           //是否使用软件淡出，否时直接淡出dac
+AT(.bt_voice.sco)
+void sco_fade_process(bool fade_out)
+{
+    if (bt_is_calling() && ring_fade_flag == RING_FADE_STA_CLEAR) {
+        if (!tick_check_expire(call_setup_tick, 1500)) {
+            ring_fade_flag = RING_FADE_IDLE;
+        } else {
+            ring_fade_flag = RING_FADE_OUT;                     //从铃声切到通话，开始淡出消除铃声结束po音
+        }
+    } else if(!bt_is_calling()){                                //铃声阶段，清空标志
+        ring_fade_flag = RING_FADE_STA_CLEAR;
+        if (!call_setup_tick) {
+            call_setup_tick = tick_get();
+        }
+    }
+    if (fade_out || ring_fade_flag == RING_FADE_OUT) {
+        if(!fade_out)ring_fade_flag = RING_FADE_KEEP_SILENCE;   //为true不切换状态一直淡出等待sco结束
+        dac_fade_out();
+    } else if (ring_fade_flag < RING_FADE_IN && ring_fade_flag >= RING_FADE_KEEP_SILENCE) {
+        ring_fade_flag++;                                       //铃声淡出完成后，剩余的铃声数据清空
+        if(dac_is_fade_in()) {
+            dac_fade_out();
+        }
+    } else if (ring_fade_flag >= RING_FADE_IN && ring_fade_flag != 0xff) {      //淡入通话声音
+        if (ring_fade_flag >= RING_FADE_IDLE && ring_fade_flag < RING_FADE_DISCARD) {
+            ring_fade_flag++;                                   //sco直接进入通话阶段，没有经历铃声阶段
+            if(dac_is_fade_in()) {
+                dac_fade_out();
+            }
+        } else {
+            dac_fade_in();
+        }
+    }
+}
+
 
 //TODO:增加淡出流程，修复来电接听、挂断导致的po音
 //AT(.bt_voice.sco)
@@ -300,6 +347,9 @@ void bt_call_init(call_cfg_t *p)
 #endif
 
     bt_sco_pcm_buf_init();
+    ring_fade_flag = 0;
+    call_setup_tick = 0;
+
 }
 
 void bt_call_exit(void)

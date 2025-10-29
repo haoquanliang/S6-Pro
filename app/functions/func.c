@@ -408,8 +408,16 @@ void func_message(u16 msg)
 
 #ifdef SWETZ_KEY_TONE
         case EVT_KEY_PRESS:
+                
+              //  wav_res_play(RES_BUF_KEY_TONE_WAV, RES_LEN_KEY_TONE_WAV);
+              //mp3_res_play(RES_BUF_EVEN_TONE_MP3,RES_LEN_EVEN_TONE_MP3);
+              if(bt_tws_is_slave()){//主机收到直接执行，从机收到发送主机执行
+                app_lr_send_msg(EVT_KEY_PRESS);    
+              }else {
                 printf("EVT_KEY_PRESS\r\n");
-                wav_res_play(RES_BUF_KEY_TONE_WAV, RES_LEN_KEY_TONE_WAV);
+                bsp_res_play(TWS_RES_EVEN);
+              }
+               
             break;
 #endif
 

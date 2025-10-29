@@ -37,8 +37,9 @@ static const u8 tws_res_type_tbl[TWS_RES_MAX] =
     [TWS_RES_NR_DISABLE]    = RES_TYPE_WAV,
     [TWS_RES_ANC]           = RES_TYPE_WAV,
     [TWS_RES_TRANSPARENCY]  = RES_TYPE_WAV,
-#if SWETZ_UGRING
+#if SWETZ
     [TWS_RES_UGRING]        = RES_TYPE_WAV,
+    [TWS_RES_EVEN]          = RES_TYPE_MP3,
 #endif
 #if ASR_EN
     [TWS_RES_ASR_ON]        = TWS_RES_TYPE,
@@ -137,6 +138,11 @@ void tws_res_get_addr(u32 index, u32 *addr, u32 *len)
         *len = RES_LEN_DISCONNECT;
         break;
 
+    case TWS_RES_EVEN:
+        *addr = RES_BUF_EVEN_TONE_MP3;
+        *len  = RES_LEN_EVEN_TONE_MP3;
+        break;
+        
     case TWS_RES_PAIRING:
         *addr = RES_BUF_PAIRING;
         *len = RES_LEN_PAIRING;
