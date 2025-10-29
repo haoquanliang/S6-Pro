@@ -473,7 +473,7 @@ void func_message(u16 msg)
                     
             }
         }
-        printf("vbat:%d sys_cb.local_bat_level:%d  sys_cb.peer_bat_level:%d\r\n",sys_cb.vbat,sys_cb.local_bat_level,sys_cb.peer_bat_level);
+        printf("vbat:%d adc_cb.vbat_val:%d sys_cb.local_bat_level:%d  sys_cb.peer_bat_level:%d\r\n",sys_cb.vbat,adc_cb.vbat_val,sys_cb.local_bat_level,sys_cb.peer_bat_level);
 
       // printf("sys_cb.SWETZ_tick:%d\r\n",sys_cb.SWETZ_tick);
         printf("disp status %d,tws conn %d,tws slave %d, nor conn %d, scan %d, sys_cb.vol:%d  sys_cb.hfp_vol:%d sys_cb.lang_id:%d low_latency:%d\n\r",

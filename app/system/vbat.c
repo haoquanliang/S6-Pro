@@ -30,7 +30,12 @@ uint16_t vbat_get_voltage(void)
     } else {
         vbat = vbat_bak - adc_cb.vbat_val;
     }
+#if SWETZ
+    if (vbat >= 1) {   //偏差大于一定值则更新
+#else
     if (vbat >= 30) {   //偏差大于一定值则更新
+#endif
+    
         vbat_bak = adc_cb.vbat_val;
 //        printf(bat_str, adc_cb.vbat_val/1000, adc_cb.vbat_val%1000);
     }

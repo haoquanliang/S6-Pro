@@ -312,21 +312,23 @@ static void sfunc_bt_call_process(void)
 
 static void sfunc_bt_call_enter(void)
 {
-
+#if !SWETZ_FADE_HANGDLE
     sco_set_incall_flag(INCALL_FLAG_CALL);
     if(sys_cb.incall_flag == INCALL_FLAG_FADE) {
         bsp_change_volume(bsp_bt_get_hfp_vol(sys_cb.hfp_vol));
         dac_fade_in();
     }
-   
+#endif
 }
 
 static void sfunc_bt_call_exit(void)
 {
+#if !SWETZ_FADE_HANGDLE
     bool vol_change = sco_clr_incall_flag(INCALL_FLAG_CALL);
     if(vol_change) {
         bsp_change_volume(sys_cb.vol);
     }
+#endif
 }
 
 AT(.text.func.bt)

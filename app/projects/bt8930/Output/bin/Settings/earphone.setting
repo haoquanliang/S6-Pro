@@ -8,7 +8,7 @@
         <add key="high_mute" value="True" />
         <add key="loudspeaker_unmute_delay" value="6" />
         <add key="sys_sleep_time" value="0" />
-        <add key="sys_off_time" value="0" />
+        <add key="sys_off_time" value="1200" />
         <add key="lowpower_warning_en" value="True" />
         <add key="lpwr_warning_vbat" value="3.4V" />
         <add key="lpwr_off_vbat" value="3.2V" />
@@ -43,9 +43,9 @@
         <add key="charge_trick_en" value="True" />
         <add key="charge_dc_reset" value="True" />
         <add key="charge_dc_not_pwron" value="True" />
-        <add key="charge_voltage_follow" value="True" />
+        <add key="charge_voltage_follow" value="False" />
         <add key="charge_stop_curr" value="2.5mA" />
-        <add key="charge_constant_curr" value="90mA" />
+        <add key="charge_constant_curr" value="45mA" />
         <add key="charge_trickle_curr" value="20mA" />
         <add key="charge_full_bled" value="0" />
         <add key="ch_full_auto_pwrdwn_en" value="False" />
@@ -57,8 +57,8 @@
         <add key="chg_inbox_pwrdwn_en" value="False" />
         <add key="chbox_out_delay" value="15" />
         <add key="bt_name" value="BT893X-UG-1" />
-        <add key="bt_addr_mode" value="固定地址" />
-        <add key="bt_addr" value="41:42:00:00:02:23" />
+        <add key="bt_addr_mode" value="单次递增" />
+        <add key="bt_addr" value="41:42:00:00:02:26" />
         <add key="bt_addr_start" value="41:42:00:00:00:00" />
         <add key="bt_addr_step" value="00:00:00:00:00:01" />
         <add key="bt_addr_end" value="41:42:FF:FF:FF:FF" />
@@ -353,8 +353,8 @@
         <add key="ntc_0p3c_enter" value="156" />
         <add key="ntc_0p3c_exit" value="150" />
         <add key="ntc_0p3c_constant_curr" value="20mA" />
-        <add key="ntc_0p3c_charge_voltage_follow" value="True" />
-        <add key="ntc_0p3c_charge_stop_curr" value="5mA" />
+        <add key="ntc_0p3c_charge_voltage_follow" value="False" />
+        <add key="ntc_0p3c_charge_stop_curr" value="2.5mA" />
         <add key="ntc_0p3c_charge_trickle_curr" value="5mA" />
     </appSettings>
 </configuration>

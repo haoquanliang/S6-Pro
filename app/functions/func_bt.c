@@ -324,7 +324,14 @@ void func_bt_disp_status_do(void)
         f_bt.need_pairing = 1;
         sys_cb.dac_sta_bck = 1;
         func_bt_set_dac(1);
+#if SWETZ_FADE_HANGDLE
+    if(f_bt.disp_status < BT_STA_INCOMING){
         dac_fade_in();
+    }
+#else 
+    dac_fade_in();
+#endif
+        
     } else {
         sys_cb.dac_sta_bck = 0;
         func_bt_set_dac(0);

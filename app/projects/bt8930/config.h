@@ -68,7 +68,7 @@
 #define SWETZ_RECONNECT_BT_STATE    1//回连状态关掉可见性，回连失败打开可见性
 #define SWETZ_RECON_TONE            1//单击回连失败不能播放进配对提示音
 #define SWETZ_TONE                  1 //
-
+#define SWETZ_FADE_HANGDLE          1//声音飘的处理
 #endif
 
 

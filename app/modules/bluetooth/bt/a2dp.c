@@ -93,6 +93,11 @@ AT(.com_text.a2dp)
 void a2dp_tws_sync_close(void)
 {
     if (!sbc_is_bypass() && !bsp_res_is_playing()) {
+#if SWETZ_FADE_HANGDLE
+        dac_fade_out();
+#else 
         msg_enqueue(EVT_A2DP_SYNC_CLOSE);
+#endif
+        
     }
 }
