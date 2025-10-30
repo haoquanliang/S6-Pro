@@ -1360,6 +1360,15 @@ void ab_mate_power_off_set(u8 *payload, u8 payload_len)
 
 void ab_mate_device_reset(void)
 {
+#if SWETZ_FACTORY_RESET
+        sys_cb.vol = 8;
+        param_sys_vol_write();
+        cm_sync();
+        delay_5ms(100);
+#endif
+
+
+
     ab_mate_app.do_flag |= FLAG_DEVICE_RESET;
 #if BT_TWS_EN
     ab_mate_tws_device_reset_sync();

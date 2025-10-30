@@ -762,7 +762,7 @@ static void charge_box_analysis_packet(vh_packet_t *packet)
             TRACE("VHOUSE_CMD_CLEAR_PAIR\n");
             charge_box_clr_bt_all_link_info();                         //删除所有配对信息
 #else
-            TRACE("VHOUSE_CMD_FACTORY_RESET\n");
+            TRACE("VHOUSE_CMD_FACTORY_RESET\n"); 
             charge_box_factory_reset();
 #endif
 

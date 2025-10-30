@@ -477,11 +477,11 @@ void func_message(u16 msg)
 #endif
         {
             u8 bat_level = bsp_get_bat_level();
-            if(sys_cb.local_bat_level != bat_level){
+          //  if(sys_cb.local_bat_level != bat_level){
                     sys_cb.local_bat_level = bat_level;
                     app_lr_send_notification(LR_NOTIFY_BATTERY_LEVEL, 1, &sys_cb.local_bat_level);
                     
-            }
+         //   }
         }
         printf("vbat:%d adc_cb.vbat_val:%d sys_cb.local_bat_level:%d  sys_cb.peer_bat_level:%d\r\n",sys_cb.vbat,adc_cb.vbat_val,sys_cb.local_bat_level,sys_cb.peer_bat_level);
 

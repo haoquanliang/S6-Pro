@@ -422,8 +422,10 @@ void iodm_reveice_data_deal(void)
             break;
 
         case IODM_CMD_CLEAR_PAIR:
+#if !SWETZ_FACTORY_RESET        
             TRACE("IODM CMD CLEAR PAIR\n");
             iodm_clr_bt_all_link_info();
+#endif
             break;
 
         case IODM_CMD_BT_SET_SCAN:

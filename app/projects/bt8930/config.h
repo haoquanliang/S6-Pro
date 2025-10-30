@@ -212,7 +212,7 @@
 #define BT_A2DP_LDAC_AUDIO_EN           0   //是否支持蓝牙LDAC音频格式（需要加密狗授权，否则播放一小段时间后无声）
 #define BT_A2DP_VOL_CTRL_EN             1   //是否支持音量与手机同步，（默认使用AVRCP协议，打开BT_HID_VOL_CTRL_EN后使用HID协议）
 #define BT_A2DP_RECORD_DEVICE_VOL_EN    1   //是否支持分别记录不同连接设备的音量，使用设备时恢复当前设备音量
-#define BT_A2DP_VOL_REST_EN             0   //是否支持连接不支持同步音量手机时复位音量
+#define BT_A2DP_VOL_REST_EN             1   //是否支持连接不支持同步音量手机时复位音量
 
 #define BT_A2DP_AVRCP_PLAY_STATUS_EN    0   //是否支持手机播放状态同步，可加快播放暂停响应速度
 #define BT_A2DP_RECON_EN                0   //是否支持A2DP控制键（播放/暂停、上下曲键）回连
