@@ -73,6 +73,8 @@
 #define SWETZ_FADE_HANGDLE          1//声音飘的处理
 
 //APP
+#define AB_FIND_EAR                 1//查找耳机
+#define AB_PULL_EAR_VBAT            1//传aap的耳机电量
 
 
 #endif

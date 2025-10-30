@@ -383,6 +383,10 @@ void ab_mate_vbat_check_proc(soft_timer_p timer)
             tlv_data[3] = local_bat;    //R
             tlv_data[4] = box_bat;
         }
+#if AB_PULL_EAR_VBAT
+            tlv_data[2] = app_bat_level_show_for_app(tlv_data[2]);
+            tlv_data[3] = app_bat_level_show_for_app(tlv_data[3]);
+#endif
 
         ab_mate_device_info_notify(tlv_data,sizeof(tlv_data));
         TRACE("vbat_report:L %d, R %d, Box %d\n",tlv_data[2],tlv_data[3],tlv_data[4]);
@@ -557,14 +561,26 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
 #endif
 				#if BT_TWS_EN
                 if(sys_cb.tws_left_channel){
+#if AB_PULL_EAR_VBAT
+                    buf[write_offset++] = app_bat_level_show_for_app(ab_mate_app.local_vbat);
+                    buf[write_offset++] = app_bat_level_show_for_app(ab_mate_app.remote_vbat);
+#else
                     buf[write_offset++] = ab_mate_app.local_vbat;
                     buf[write_offset++] = ab_mate_app.remote_vbat;
+#endif
+
                     buf[write_offset++] = ab_mate_app.box_vbat;
                 }else
 				#endif
 				{
+#if AB_PULL_EAR_VBAT
+                    buf[write_offset++] = app_bat_level_show_for_app(ab_mate_app.remote_vbat);
+                    buf[write_offset++] = app_bat_level_show_for_app(ab_mate_app.local_vbat);
+#else
                     buf[write_offset++] = ab_mate_app.remote_vbat;
                     buf[write_offset++] = ab_mate_app.local_vbat;
+#endif
+
                     buf[write_offset++] = ab_mate_app.box_vbat;
                 }
             break;
