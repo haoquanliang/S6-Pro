@@ -258,20 +258,46 @@ void ab_mate_device_info_notify(u8* payload,u8 len)
 #if AB_MATE_DEVICE_FIND_EN
 void ab_mate_device_find_do(soft_timer_p timer)
 {
+
     if(ab_mate_app.device_find){
         reset_sleep_delay();
         if (ab_mate_app.find_type <= DEVICE_FIND_START) {
             maxvol_tone_play();
+            printf("1111ab_mate_app.find_type:%d\r\n",ab_mate_app.find_type);
         } else {
+#if AB_FIND_EAR            
+             printf("22222ab_mate_app.find_type:%d\r\n",ab_mate_app.find_type);
+
+             
+            if(sys_cb.find_ear_count == 0){ 
+                    sys_cb.find_ear_count = 1;
+                   wav_res_play(RES_BUF_FIND_1_1_WAV,RES_LEN_FIND_1_1_WAV);
+
+            }else if(sys_cb.find_ear_count == 1){
+                    sys_cb.find_ear_count = 2;
+                    wav_res_play(RES_BUF_FIND_1_2_WAV,RES_LEN_FIND_1_2_WAV);
+            }else if(sys_cb.find_ear_count == 2){
+                    sys_cb.find_ear_count = 3;
+                    wav_res_play(RES_BUF_FIND_1_3_WAV,RES_LEN_FIND_1_3_WAV);
+            }else if(sys_cb.find_ear_count == 3){
+                    wav_res_play(RES_BUF_FIND2_WAV,RES_LEN_FIND2_WAV);
+
+            }
+            
+             
+#else            
+            
             bsp_set_volume(VOL_MAX);
-            bsp_piano_warning_play(WARNING_TONE, TONE_MAX_VOL);
+            bsp_piano_warning_play(WARNING_TONE, TONE_MAX_VOL);             
+#endif             
+
         }
     }
 }
 
 void ab_mate_device_find_timer_creat(void)
 {
-    soft_timer_create(&device_find_timer, 2000, TIMER_REPEATED, ab_mate_device_find_do);
+    soft_timer_create(&device_find_timer, 1300, TIMER_REPEATED, ab_mate_device_find_do);
 }
 #endif
 
@@ -1331,6 +1357,9 @@ void ab_mate_device_find_side(void)
         } else {
             if (ab_mate_app.device_find) {
                 ab_mate_app.device_find = 0;
+#if AB_FIND_EAR
+                sys_cb.find_ear_count = 0;
+#endif
                 soft_timer_stop(device_find_timer);
                 bsp_set_volume(vol_bkp);
                 bsp_bt_vol_change();

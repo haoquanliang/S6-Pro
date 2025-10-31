@@ -74,7 +74,7 @@ uint hfp_get_bat_level(void)
                     
             }
         }
-        if(sys_cb.local_bat_level > sys_cb.peer_bat_level){
+        if(sys_cb.local_bat_level > sys_cb.peer_bat_level && (bt_tws_is_connected())){
                 bat_level = sys_cb.peer_bat_level;
         }else {
                 bat_level = sys_cb.local_bat_level;

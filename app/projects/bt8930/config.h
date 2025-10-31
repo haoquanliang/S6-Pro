@@ -26,6 +26,7 @@
 #define SWETZ_EVT_5S                1
 #define SWETZ_ROLE_SWITCH_BY_BAT    1//根据电量切换主从
 #define LR_VBAT_DIFF_VAL            (5)//电量差值
+
 #define SWETZ_ROLE_SWITCH_BY_INBOX  1//出入仓判断是否需要切换主从
 
 #define SWETZ_DEL_TWS_CON_TONE      1//去掉tws左右通道的提示音
@@ -74,7 +75,9 @@
 
 //APP
 #define AB_FIND_EAR                 1//查找耳机
-#define AB_PULL_EAR_VBAT            1//传aap的耳机电量
+#define AB_PULL_EAR_VBAT            1//传aap的耳机电量精度10%
+
+
 
 
 #endif
@@ -820,7 +823,7 @@
 #define WARNING_WSBC_EN                 0            //是否支持wsbc提示音（可以和音乐、通话叠加播放）
 #define WARNING_PIANO_EN                1            //是否支持tone提示音（可以和音乐、通话叠加播放）
 #define WARNING_BREAK_EN                0            //是否支持提示音打断功能（主要是打断开机提示音和TWS副耳断开提示音）
-#define WARNING_FIXED_VOLUME            0            //提示音是否固定音量，不跟随系统音量调节
+#define WARNING_FIXED_VOLUME            1            //提示音是否固定音量，不跟随系统音量调节
 #define WARING_MAXVOL_TYPE              RES_TYPE_TONE            //最大音量提示音类型
 #define WARNING_VOLUME                  xcfg_cb.warning_volume   //播放提示音的音量级数
 #define LANG_SELECT                     LANG_EN_ZH   //提示音语言选择

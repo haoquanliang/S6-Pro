@@ -302,7 +302,7 @@
         <add key="ude_vid_msb" value="1" />
         <add key="ude_pid_lsb" value="33" />
         <add key="ude_pid_msb" value="12" />
-        <add key="ntc_en" value="True" />
+        <add key="ntc_en" value="False" />
         <add key="ntc_user_inner_pu" value="False" />
         <add key="ntc_thd_val" value="80" />
         <add key="bt_sndp_smic_en" value="False" />
@@ -349,7 +349,7 @@
         <add key="ntc_0p2c_charge_voltage_follow" value="False" />
         <add key="ntc_0p2c_charge_stop_curr" value="5mA" />
         <add key="ntc_0p2c_charge_trickle_curr" value="5mA" />
-        <add key="ntc_0p3c_en" value="True" />
+        <add key="ntc_0p3c_en" value="False" />
         <add key="ntc_0p3c_enter" value="156" />
         <add key="ntc_0p3c_exit" value="150" />
         <add key="ntc_0p3c_constant_curr" value="20mA" />
