@@ -76,6 +76,8 @@
 //APP
 #define AB_FIND_EAR                 1//查找耳机
 #define AB_PULL_EAR_VBAT            1//传aap的耳机电量精度10%
+#define AB_V3D_AUDIO                1//3d音效
+
 
 
 
@@ -331,7 +333,7 @@
 /*****************************************************************************
  * Module    : 蓝牙音乐算法配置
  *****************************************************************************/
-#define BT_MUSIC_EFFECT_EN              0                   //蓝牙音乐音效算法处理使能
+#define BT_MUSIC_EFFECT_EN              1                   //蓝牙音乐音效算法处理使能
 #define BT_MUSIC_EFFECT_DBG_EN          0                   //蓝牙音乐音效在线调试使能
 #define BT_MUSIC_EFFECT_ABT_EN          0                   //是否使用abt文件获取音效参数，abt文件由在线调试工具生成，需要自行替换abt文件或在setting中选择对应算法的资源文件
 #define BT_MUSIC_PAUSE_CLK_BACK_EN      0                   //蓝牙音乐暂停播放是否把音乐音效的主频调回去
@@ -340,7 +342,7 @@
 #define BT_MUSIC_EFFECT_DBB_BAND_CNT    1                   //动态低音音效的EQ段数
 #define BT_MUSIC_EFFECT_DBB_DEF_LEVEL   10                  //动态低音音效默认的等级
 //空间音效
-#define BT_MUSIC_EFFECT_SPATIAL_AU_EN   0                   //空间音效使能
+#define BT_MUSIC_EFFECT_SPATIAL_AU_EN   1                   //空间音效使能
 #define BT_MUSIC_EFFECT_SPATIAL_AUEQ_EN 1                   //空间音效下固定使用spatial_audio.eq
 #define BT_MUSIC_EFFECT_SPATIAL_AU_L1   0
 #define BT_MUSIC_EFFECT_SPATIAL_AU_DLEN 0                   //空间音效左右声道delay使能

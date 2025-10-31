@@ -258,17 +258,15 @@ void ab_mate_device_info_notify(u8* payload,u8 len)
 #if AB_MATE_DEVICE_FIND_EN
 void ab_mate_device_find_do(soft_timer_p timer)
 {
+    printf("find_type:%d\r\n",ab_mate_app.find_type);
 
     if(ab_mate_app.device_find){
         reset_sleep_delay();
         if (ab_mate_app.find_type <= DEVICE_FIND_START) {
             maxvol_tone_play();
-            printf("1111ab_mate_app.find_type:%d\r\n",ab_mate_app.find_type);
+            
         } else {
 #if AB_FIND_EAR            
-             printf("22222ab_mate_app.find_type:%d\r\n",ab_mate_app.find_type);
-
-             
             if(sys_cb.find_ear_count == 0){ 
                     sys_cb.find_ear_count = 1;
                    wav_res_play(RES_BUF_FIND_1_1_WAV,RES_LEN_FIND_1_1_WAV);
