@@ -47,7 +47,7 @@
 #define AB_MATE_PP_EN           1                       //播放暂停控制
 #define AB_MATE_DEVICE_FIND_EN  1                       //设备查找
 #define AB_MATE_OTA_EN          (FOT_EN && 1)           //OTA升级功能
-#define AB_MATE_V3D_AUDIO_EN    BT_MUSIC_AUDIO_EN       //3D音效开关设置
+#define AB_MATE_V3D_AUDIO_EN    1//BT_MUSIC_AUDIO_EN       //3D音效开关设置
 #define AB_MATE_CTKD_EN         LE_SM_SC_EN             //连接BLE后自动连接经典蓝牙功能
 #define AB_MATE_CALL_EN         0                       //通话功能设置
 #define AB_MATE_MIC_EN          0                       //MIC开关设置

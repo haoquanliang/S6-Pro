@@ -239,6 +239,19 @@ static void message_process(message_item_t *message)
              printf("flag_outcase_5s_kye_null = false\r\n");  
             break;
 #endif
+        case MSG_ID_2ND_RINGTONE:
+        {
+            uint call_0 = btstack_get_call_indicate_for_index(0);
+            uint call_1 = btstack_get_call_indicate_for_index(1);
+
+            if ((call_0 == BT_CALL_INCOMING)
+                || (call_1 == BT_CALL_INCOMING)
+                )
+            {        
+                msg_enqueue(EVT_2ND_RINGTONE);
+            }            
+        }
+        break;
 
         default:
         break;

@@ -988,8 +988,12 @@ bool power_off_check(void)
             #if WARNING_WSBC_EN
             wsbc_res_play(RES_BUF_POWERON, RES_LEN_POWERON);
             #else
-            mp3_res_play(RES_BUF_POWERON, RES_LEN_POWERON);
-            DEBUG_SW("RES_BUF_POWERON\r\n");
+#if SWETZ_POWER_ON_TONE
+           
+                mp3_res_play(RES_BUF_POWERON, RES_LEN_POWERON);
+                DEBUG_SW("RES_BUF_POWERON\r\n");
+#endif
+
             #endif
 #endif // WARNING_POWER_ON
 
@@ -1279,6 +1283,12 @@ void sys_init(void)
 #if APP_MESSAGE_RUN
     message_init();
 #endif
+
+#if SWETZ
+    sys_cb.local_bat_level = 0xff;
+    sys_cb.peer_bat_level = 0xff;
+#endif
+
 #if TWS_LR
     app_lr_init();
 #endif
@@ -1396,8 +1406,11 @@ void sys_init(void)
         #if WARNING_WSBC_EN
         wsbc_res_play(RES_BUF_POWERON, RES_LEN_POWERON);
         #else
+    if(!CHARGE_INBOX()){
         mp3_res_play(RES_BUF_POWERON, RES_LEN_POWERON);
         DEBUG_SW("RES_BUF_POWERON\r\n");
+    }        
+
         #endif
     }
     sys_cb.outbox_pwron_flag = 0;

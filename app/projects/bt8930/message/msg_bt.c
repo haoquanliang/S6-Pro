@@ -207,7 +207,7 @@ void func_bt_message_do(u16 msg)
                 printf("112215\r\n");
                 msg_enqueue(EVT_RECONN_AG);//-触发蓝牙重连逻辑     
         }
-
+        user_def_key_msg(xcfg_cb.user_def_ks_sel);
 #else 
         if (!bt_nor_is_connected()) {
             bt_tws_pair_mode(3);           //单击PLAY按键手动配对
@@ -532,6 +532,44 @@ void sfunc_bt_ring_message(u16 msg)
     }
 }
 
+void app_2nd_ringtone_check(void)
+{
+#if SWETZ_RING_TEST
+    if ((!bt_tws_is_slave())
+        && (ab_mate_app.mult_dev.en)
+        )
+    {
+        uint call_0 = btstack_get_call_indicate_for_index(0);
+        uint call_1 = btstack_get_call_indicate_for_index(1);
+
+        printf("call: %d, %d\n", call_0, call_1);
+
+        if ((call_0 == BT_CALL_INCOMING)
+            || (call_1 == BT_CALL_INCOMING)
+            )
+        {
+            if (!sys_cb.flag_2nd_ringtone_ongoing)
+            {
+                sys_cb.flag_2nd_ringtone_ongoing = true;
+                msg_enqueue(EVT_2ND_RINGTONE);               
+            }           
+        }
+        if ((call_0 != BT_CALL_INCOMING)
+            && (call_1 != BT_CALL_INCOMING)
+            )
+        {
+            if (sys_cb.flag_2nd_ringtone_ongoing)
+            {
+                sys_cb.flag_2nd_ringtone_ongoing = false;
+                message_cancel_all(MSG_ID_2ND_RINGTONE);
+            }            
+        }
+    }   
+#endif    
+}
+
+
+
 void sfunc_bt_call_message_do(u16 msg)
 {
     u8 call_status;
@@ -539,10 +577,28 @@ void sfunc_bt_call_message_do(u16 msg)
 #if SWETZ_OUTCASE_AFTER_NOT_KEY
      if(sys_cb.flag_outcase_5s_kye_null == true && (msg != EVT_SYS_1S && msg != EVT_SYS_5S)){
         return;
-     }   
+     }       
 #endif
 
+#if SWETZ_RING_TEST
+     if(msg == EVT_SYS_1S){
+           // printf("sfunc_bt_call_message_do\r\n");
+            app_2nd_ringtone_check();
+     }
+
+#endif
+
+
     switch (msg) {
+
+    case EVT_2ND_RINGTONE:
+        if (sys_cb.flag_2nd_ringtone_ongoing)    
+            {
+                message_send(MSG_ID_2ND_RINGTONE, 0, 5000);
+                bsp_res_play(TWS_RES_UGRING); 
+            }
+        break;
+
     case KU_HOME:
     case KL_HOME:
         if (bt_get_siri_status()) {

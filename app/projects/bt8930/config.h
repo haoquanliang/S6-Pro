@@ -54,7 +54,7 @@
 
 #define SWETZ_RING_DOUBLE           1 //修改ring下双击功能
 #define SWETZ_CALL_DOUBLE           1 //修改call下双击功能
-#define SWETZ_RING_TONE             1
+#define SWETZ_RING_TONE             1//替换本地ring声
 #define SWETZ_DEL_RING_SHORT_FUC    1//去掉ring下单击功能
 #define SWETZ_DEL_CALL_SHORT_FUC    1//去掉call下单击功能
 #define SWETZ_MULT_DEL_TONE         1//双连B手机连接和断开不播提示音
@@ -72,11 +72,16 @@
 #define SWETZ_RECON_TONE            1//单击回连失败不能播放进配对提示音
 #define SWETZ_TONE                  1 //
 #define SWETZ_FADE_HANGDLE          1//声音飘的处理
+#define SWETZ_POWER_ON_TONE         1//开机提示音处理
+#define SWETZ_RING_SWITCH_A2DP      0//1拖2的时候来电切换A2dp的连接--切不动先关闭
+#define SWETZ_RING_TEST             1//第二路ring测试
+
 
 //APP
 #define AB_FIND_EAR                 1//查找耳机
 #define AB_PULL_EAR_VBAT            1//传aap的耳机电量精度10%
 #define AB_V3D_AUDIO                1//3d音效
+#define AB_USER_KEY                 1//user_key
 
 
 

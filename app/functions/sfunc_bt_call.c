@@ -329,6 +329,14 @@ static void sfunc_bt_call_exit(void)
         bsp_change_volume(sys_cb.vol);
     }
 #endif
+#if SWETZ_RING_TEST
+        if (sys_cb.flag_2nd_ringtone_ongoing)
+    {
+        sys_cb.flag_2nd_ringtone_ongoing = false;
+        message_cancel_all(MSG_ID_2ND_RINGTONE);
+    }
+#endif
+
 }
 
 AT(.text.func.bt)

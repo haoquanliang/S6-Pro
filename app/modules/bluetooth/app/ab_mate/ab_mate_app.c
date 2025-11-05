@@ -1496,6 +1496,24 @@ void ab_mate_v3d_audio_notify(void)
 
 void ab_mate_v3d_audio_set_do(void)
 {
+
+#if AB_V3D_AUDIO    
+    if(ab_mate_app.v3d_audio_en){
+        if(!music_effect_get_state(MUSIC_EFFECT_SPATIAL_AUDIO)){
+                music_spatial_audio_start();
+                printf("v3d_audio open\r\n");
+        }
+
+    }else{
+        if(music_effect_get_state(MUSIC_EFFECT_SPATIAL_AUDIO)){
+                music_spatial_audio_stop();
+                printf("v3d_audio close\r\n");
+        }
+
+    }
+    ab_mate_cm_write(&ab_mate_app.v3d_audio_en, AB_MATE_CM_V3D_AUDIO, 1, 2);
+
+#else
     static u8 clk;
     if(ab_mate_app.v3d_audio_en){
         clk = sys_clk_get_cur();
@@ -1508,6 +1526,11 @@ void ab_mate_v3d_audio_set_do(void)
         sys_clk_set(clk);
     }
     ab_mate_cm_write(&ab_mate_app.v3d_audio_en, AB_MATE_CM_V3D_AUDIO, 1, 2);
+
+#endif
+
+
+
 }
 
 void ab_mate_v3d_audio_set(u8 *payload, u8 payload_len)
@@ -2909,6 +2932,7 @@ void ab_mate_device_info_update(void)
 #endif
 
 #if AB_MATE_V3D_AUDIO_EN
+#if !AB_V3D_AUDIO
     u8 v3d_audio_en = (bt_music_audio_get_state() == MUSIC_AUDIO_NONE) ? 0 : 1;
     if(ab_mate_app.v3d_audio_en != v3d_audio_en){
         if(!(ab_mate_app.do_flag & FLAG_V3D_AUDIO_SET)){
@@ -2916,6 +2940,7 @@ void ab_mate_device_info_update(void)
             ab_mate_v3d_audio_notify();
         }
     }
+#endif
 #endif
 
 #if AB_MATE_DYNAMIC_BASS_EN

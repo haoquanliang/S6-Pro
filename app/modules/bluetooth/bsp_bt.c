@@ -550,6 +550,19 @@ void bt_emit_notice(uint evt, void *params)
         printf("BT_NOTICE_NETWORK_CALL\n");
         break;
     case BT_NOTICE_PHONE_CALL:
+#if SWETZ_RING_SWITCH_A2DP
+
+        if(ab_mate_app.mult_dev.en && (bt_get_connected_num() == 2)){
+                    u8 a2dp_index = bt_get_cur_a2dp_media_index();
+                    u8 hfp_index = bt_call_get_ring_index();
+                    if(a2dp_index != hfp_index){
+                        bt_music_play_switch();
+                        printf("bt_music_play_switch\r\n");
+        }
+
+        }
+
+#endif
 
         printf("BT_NOTICE_PHONE_CALL\n");
         break;

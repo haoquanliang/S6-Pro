@@ -201,6 +201,7 @@ volatile u8  dc_in_filter;      //DC IN filter
     u8 ntc_discharge_out_normal_range;
     u8  recon_tone;
     u16 find_ear_count;
+    u8 flag_2nd_ringtone_ongoing;
 #endif
 #if SWETZ_TEST
     u8 test;

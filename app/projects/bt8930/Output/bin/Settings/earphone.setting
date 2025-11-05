@@ -85,9 +85,9 @@
         <add key="tws_sel_left_gpio_sel" value="10" />
         <add key="bt_tws_name_suffix_en" value="False" />
         <add key="bt_tswi_en" value="True" />
-        <add key="bt_tswi_kpwr_en" value="True" />
+        <add key="bt_tswi_kpwr_en" value="False" />
         <add key="bt_tswi_msc_en" value="True" />
-        <add key="bt_tswi_sco_en" value="True" />
+        <add key="bt_tswi_sco_en" value="False" />
         <add key="bt_tswi_charge_rst_en" value="True" />
         <add key="bt_outbox_voice_pwron_en" value="False" />
         <add key="bt_rf_pwrdec" value="0" />

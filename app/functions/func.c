@@ -502,6 +502,7 @@ void func_message(u16 msg)
         // sprintf(spp_tx_buffer, "+ntc:%d", saradc_get_value8(ADCCH_NTC));
         // bt_spp_tx(SPP_SERVICE_CH0, (uint8_t *)spp_tx_buffer, strlen(spp_tx_buffer));
         printf("ab_mate_app.box_vbat:%d\r\n",ab_mate_app.box_vbat);
+        printf("a2dp_index:%d ring_index:%d",bt_get_cur_a2dp_media_index(),bt_call_get_ring_index());
         break;
 
 #endif

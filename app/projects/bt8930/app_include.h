@@ -14,6 +14,6 @@
 #if SWETZ_BT_TO_PAIR
 extern volatile uint8_t hfp_index;
 #endif
-
+extern uint btstack_get_call_indicate_for_index(uint8_t index);
 
 #endif

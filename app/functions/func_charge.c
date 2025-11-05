@@ -80,10 +80,12 @@ static void func_charge_exit(void)
     }
     dac_fade_in();
 #endif
-
+#if SWETZ_POWER_ON_TONE
     if (xcfg_cb.bt_outbox_voice_pwron_en) {
         mp3_res_play(RES_BUF_POWERON, RES_LEN_POWERON);
     }
+#endif
+
 }
 
 AT(.text.func.charge)
