@@ -7,8 +7,8 @@
         <add key="spk_mute_io_sel" value="0" />
         <add key="high_mute" value="True" />
         <add key="loudspeaker_unmute_delay" value="6" />
-        <add key="sys_sleep_time" value="0" />
-        <add key="sys_off_time" value="1200" />
+        <add key="sys_sleep_time" value="600" />
+        <add key="sys_off_time" value="0" />
         <add key="lowpower_warning_en" value="True" />
         <add key="lpwr_warning_vbat" value="3.4V" />
         <add key="lpwr_off_vbat" value="3.2V" />
@@ -45,7 +45,7 @@
         <add key="charge_dc_not_pwron" value="True" />
         <add key="charge_voltage_follow" value="False" />
         <add key="charge_stop_curr" value="2.5mA" />
-        <add key="charge_constant_curr" value="45mA" />
+        <add key="charge_constant_curr" value="90mA" />
         <add key="charge_trickle_curr" value="20mA" />
         <add key="charge_full_bled" value="0" />
         <add key="ch_full_auto_pwrdwn_en" value="False" />
