@@ -84,7 +84,7 @@
 #define AB_MATE_LATENCY_USE_CM          0   //0：上电默认普通模式  1：上电使用上次保存的模式
 
 //按键设置，只支持针对KEY_PLAY_USER_DEF和KEY_PLAY_PWR_USER_DEF进行设置
-#define AB_MATE_KEY_USER_DEF_EN         0 //使用ab mate定义的按键，0为使用配置文件定义的按键
+#define AB_MATE_KEY_USER_DEF_EN         APP_KEY_FUNTION //使用ab mate定义的按键，0为使用配置文件定义的按键
 
 #define AB_MATE_KEY_SHORT       xcfg_cb.user_def_ks_sel
 #define AB_MATE_KEY_DOUBLE      xcfg_cb.user_def_kd_sel
@@ -93,14 +93,14 @@
 
 #if AB_MATE_KEY_USER_DEF_EN
 //按键默认功能，需要根据实际UI定义进行修改,固件将会使用这里设置的功能而不是配置文件里面的按键功能
-#define KEY_SHORT_LEFT_DEF      APP_KEY_PLAY_PAUSE
-#define KEY_SHORT_RIGHT_DEF     APP_KEY_PLAY_PAUSE
-#define KEY_DOUBLE_LEFT_DEF     APP_KEY_REDIALING
-#define KEY_DOUBLE_RIGHT_DEF    APP_KEY_REDIALING
-#define KEY_THREE_LEFT_DEF      APP_KEY_NONE
-#define KEY_THREE_RIGHT_DEF     APP_KEY_NONE
-#define KEY_LONG_LEFT_DEF       APP_KEY_SIRI
-#define KEY_LONG_RIGHT_DEF      APP_KEY_SIRI
+#define KEY_SHORT_LEFT_DEF      APP_KEY_NONE
+#define KEY_SHORT_RIGHT_DEF     APP_KEY_NONE
+#define KEY_DOUBLE_LEFT_DEF     APP_KEY_PLAY_PAUSE
+#define KEY_DOUBLE_RIGHT_DEF    APP_KEY_PLAY_PAUSE
+#define KEY_THREE_LEFT_DEF      APP_KEY_SIRI
+#define KEY_THREE_RIGHT_DEF     APP_KEY_LOW_LATENCY
+#define KEY_LONG_LEFT_DEF       APP_KEY_PREV
+#define KEY_LONG_RIGHT_DEF      APP_KEY_NEXT
 #endif
 
 //动态低音设置

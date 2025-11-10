@@ -35,7 +35,7 @@
 #define NUM_BT_RETURN_CON              10// 上电回连手机次数, 1.28s * n, 不小于5次
 #define NUM_TWS_RETURN_CON             100//设置TWS搜索次数, 1.25s * n, 不小于2次
 #define SWETZ_CHECK_INBOX           1//出入仓检测
-#define SWETZ_L_THREE_P             1//修改三击功能
+#define SWETZ_L_THREE_P             0//修改三击功能
 #define SWETZ_KEY_TONE              1//增加按键声key tone
 #define SWETZ_VBAT_TO_PHONE         1//电量表，手机端电量显示
 #define SWETZ_VBAT_DISCHARGE        1//放电电量只能往下降
@@ -82,7 +82,7 @@
 #define AB_PULL_EAR_VBAT            1//传aap的耳机电量精度10%
 #define AB_V3D_AUDIO                1//3d音效
 #define AB_USER_KEY                 1//user_key
-
+#define APP_KEY_FUNTION             1//1:使用ab_mate的按键功能，0：使用配置的按键功能
 
 
 

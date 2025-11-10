@@ -80,7 +80,7 @@
         <add key="qtest_pickup_status" value="不操作" />
         <add key="bt_tws_en" value="True" />
         <add key="bt_tws_pair_bonding_en" value="True" />
-        <add key="bt_tws_pair_mode" value="1" />
+        <add key="bt_tws_pair_mode" value="0" />
         <add key="bt_tws_lr_mode" value="9" />
         <add key="tws_sel_left_gpio_sel" value="10" />
         <add key="bt_tws_name_suffix_en" value="False" />
@@ -138,14 +138,14 @@
         <add key="user_key_multi_press_en" value="True" />
         <add key="double_key_time" value="5" />
         <add key="user_def_ks_sel" value="0" />
-        <add key="user_def_kl_sel" value="3" />
+        <add key="user_def_kl_sel" value="4" />
         <add key="user_def_kd_sel" value="11" />
         <add key="user_def_kt_sel" value="13" />
         <add key="user_def_kfour_sel" value="0" />
         <add key="user_def_kfive_sel" value="0" />
         <add key="user_def_kl_tone_en" value="False" />
         <add key="user_def_kd_lang_en" value="False" />
-        <add key="user_def_lr_en" value="True" />
+        <add key="user_def_lr_en" value="False" />
         <add key="key_multi_config_en" value="False" />
         <add key="dblkey_num0" value="20" />
         <add key="dblkey_num1" value="21" />
