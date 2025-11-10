@@ -329,7 +329,9 @@ static void sfunc_bt_call_exit(void)
         bsp_change_volume(sys_cb.vol);
     }
 #endif
-#if SWETZ_RING_TEST
+#if SWETZ_RING_SEC_ROUTE
+
+    printf("sys_cb.flag_2nd_ringtone_ongoing:%d\r\n",sys_cb.flag_2nd_ringtone_ongoing);
         if (sys_cb.flag_2nd_ringtone_ongoing)
     {
         sys_cb.flag_2nd_ringtone_ongoing = false;

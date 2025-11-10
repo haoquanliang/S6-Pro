@@ -47,7 +47,10 @@
 #define SWETZ_LOW_WARNING_TIME      1//低电提醒
 #define LOW_WARNING_TIME            (600)//提醒间隔(s)
 #define SWETZ_WARNING_TONE          1//低电提示音
+
+
 #define SWETZ_APP                   0//APP功能
+
 
 #define SWETZ_KEY_RECON             1//单击有配对记录要耳机回连
 #define KEY_RECON_CNT               2//按键回连重试次数, 5.12s * n
@@ -74,16 +77,17 @@
 #define SWETZ_FADE_HANGDLE          1//声音飘的处理
 #define SWETZ_POWER_ON_TONE         1//开机提示音处理
 #define SWETZ_RING_SWITCH_A2DP      0//1拖2的时候来电切换A2dp的连接--切不动先关闭
-#define SWETZ_RING_TEST             1//第二路ring测试
+#define SWETZ_RING_SEC_ROUTE        1//第二路来电ring
 
 
 //APP
+#define APP_BLE_RADIO               0//广播ble修改
 #define AB_FIND_EAR                 1//查找耳机
 #define AB_PULL_EAR_VBAT            1//传aap的耳机电量精度10%
 #define AB_V3D_AUDIO                1//3d音效
 #define AB_USER_KEY                 1//user_key
-#define APP_KEY_FUNTION             1//1:使用ab_mate的按键功能，0：使用配置的按键功能
-
+#define APP_KEY_FUNTION_SELECT      1//1:使用ab_mate的按键功能，0：使用配置的按键功能
+#define APP_EQ_SET                  1//EQ设置
 
 
 

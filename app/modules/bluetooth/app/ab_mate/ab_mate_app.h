@@ -68,7 +68,12 @@
 #define AB_MATE_EQ_CUSTOM_INDEX 0x20    //自定义EQ对应的模式号
 #define AB_MATE_EQ_USE_DEVICE   1       //0：各模式的EQ增益使用APP端默认定义的  1：使用设备端定义的增益值
 #define AB_MATE_EQ_USE_RES      1       //非自定义EQ模式的EQ效果是否直接使用EQ资源文件里面的配置
+#if APP_EQ_SET
+#define AB_MATE_EQ_RES_CNT      8       //非自定义的EQ模式总数,AB_MATE_EQ_USE_RES设置为1才有效
+#else
 #define AB_MATE_EQ_RES_CNT      6       //非自定义的EQ模式总数,AB_MATE_EQ_USE_RES设置为1才有效
+#endif
+
 #define AB_MATE_EQ_FOR_IDX_EN   EQ_APP_EN //是否使能10条EQ独立调节(包括高低音)
 
 //ANC 设置
@@ -84,7 +89,7 @@
 #define AB_MATE_LATENCY_USE_CM          0   //0：上电默认普通模式  1：上电使用上次保存的模式
 
 //按键设置，只支持针对KEY_PLAY_USER_DEF和KEY_PLAY_PWR_USER_DEF进行设置
-#define AB_MATE_KEY_USER_DEF_EN         APP_KEY_FUNTION //使用ab mate定义的按键，0为使用配置文件定义的按键
+#define AB_MATE_KEY_USER_DEF_EN         APP_KEY_FUNTION_SELECT //使用ab mate定义的按键，0为使用配置文件定义的按键
 
 #define AB_MATE_KEY_SHORT       xcfg_cb.user_def_ks_sel
 #define AB_MATE_KEY_DOUBLE      xcfg_cb.user_def_kd_sel

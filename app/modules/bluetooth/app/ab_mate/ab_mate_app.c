@@ -487,6 +487,7 @@ void ab_mate_eq_custom_save(void)
 
 void ab_mate_eq_set(u8 *payload,u8 payload_len)
 {
+    printf("payload[0]:%x\r\n",payload[0]);
 #if AB_MATE_EQ_EN
     ab_mate_app.eq_info.band_cnt = payload[0];
     ab_mate_app.eq_info.mode = payload[1];
@@ -2524,6 +2525,7 @@ u8 ab_mate_eq_set_do(void)
             delay_5ms(1);
         }
         sys_cb.eq_app_total_gain_en = 0;
+        printf("ab_mate_app.eq_info.mode:%d\r\n",ab_mate_app.eq_info.mode);
         music_set_eq_by_num(ab_mate_app.eq_info.mode);
         ab_mate_app.tick = tick_get();
         return 1;

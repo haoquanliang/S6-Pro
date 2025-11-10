@@ -24,7 +24,7 @@ static u8 *p_adv_data = NULL;
 static u8 adv_data_len = 0;
 #define TRACE(...)              printf(__VA_ARGS__)
 #define TRACE_R(...)            print_r(__VA_ARGS__)
-#if !SWETZ
+#if !APP_BLE_RADIO
 static const uint8_t adv_data_const[] = {
     // Flags general discoverable, BR/EDR not supported
     0x02, 0x01, 0x02,

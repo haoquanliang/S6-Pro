@@ -58,7 +58,7 @@
         <add key="chbox_out_delay" value="15" />
         <add key="bt_name" value="UGREEN HiTune S6 Magic" />
         <add key="bt_addr_mode" value="固定地址" />
-        <add key="bt_addr" value="41:42:00:00:02:2F" />
+        <add key="bt_addr" value="41:42:00:00:02:1C" />
         <add key="bt_addr_start" value="41:42:00:00:00:00" />
         <add key="bt_addr_step" value="00:00:00:00:00:01" />
         <add key="bt_addr_end" value="41:42:FF:FF:FF:FF" />
@@ -80,7 +80,7 @@
         <add key="qtest_pickup_status" value="不操作" />
         <add key="bt_tws_en" value="True" />
         <add key="bt_tws_pair_bonding_en" value="True" />
-        <add key="bt_tws_pair_mode" value="0" />
+        <add key="bt_tws_pair_mode" value="1" />
         <add key="bt_tws_lr_mode" value="9" />
         <add key="tws_sel_left_gpio_sel" value="10" />
         <add key="bt_tws_name_suffix_en" value="False" />

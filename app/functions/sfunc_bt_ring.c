@@ -187,7 +187,7 @@ static void sfunc_bt_ring_num_exit(void)
 #endif
 }
 #endif
-#if !SWETZ_RING_TEST
+#if !SWETZ_RING_SEC_ROUTE
 AT(.text.func.btring) ALIGNED(128) NO_INLINE
 static void sfunc_bt_ring_res_init(void)
 {
@@ -259,7 +259,7 @@ static void sfunc_bt_ring_res(void)
 #endif
     printf("ring_res_play22\r\n");
     if(TICKN_IS_EXPIRE(bt_ring.tickn) && bsp_res_is_empty()) {
-#if !SWETZ_RING_TEST        
+#if !SWETZ_RING_SEC_ROUTE        
     bt_ring.tickn = TICK_ADD(TICKN_GET(), 1500);
 #else
         bt_ring.tickn = TICK_ADD(TICKN_GET(), 4000);
@@ -286,7 +286,7 @@ static void sfunc_bt_ring_sco(void)
         }
     } else
 #endif
-#if !SWETZ_RING_TEST
+#if !SWETZ_RING_SEC_ROUTE
     if((bt_ring.loc_flag & RING_FLAG_SCO) && !sco_is_connected()) {
         bt_audio_bypass();
         sfunc_bt_ring_res_init();

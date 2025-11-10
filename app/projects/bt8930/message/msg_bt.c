@@ -534,7 +534,7 @@ void sfunc_bt_ring_message(u16 msg)
 
 void app_2nd_ringtone_check(void)
 {
-#if SWETZ_RING_TEST
+#if SWETZ_RING_SEC_ROUTE
     if ((!bt_tws_is_slave())
         && (ab_mate_app.mult_dev.en)
         )
@@ -580,7 +580,7 @@ void sfunc_bt_call_message_do(u16 msg)
      }       
 #endif
 
-#if SWETZ_RING_TEST
+#if SWETZ_RING_SEC_ROUTE
      if(msg == EVT_SYS_1S){
            // printf("sfunc_bt_call_message_do\r\n");
             app_2nd_ringtone_check();
