@@ -10,7 +10,7 @@
 extern u8 eq_rx_buf[EQ_BUFFER_LEN];
 
 #if EQ_MODE_EN
-#define MUSIC_EQ_TBL_LEN                        6
+#define MUSIC_EQ_TBL_LEN                        8
 #else
 #define MUSIC_EQ_TBL_LEN                        1
 #endif // EQ_MODE_EN

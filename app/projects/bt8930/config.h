@@ -81,7 +81,7 @@
 
 
 //APP
-#define APP_BLE_RADIO               0//广播ble修改
+#define APP_BLE_RADIO               1//广播ble修改
 #define AB_FIND_EAR                 1//查找耳机
 #define AB_PULL_EAR_VBAT            1//传aap的耳机电量精度10%
 #define AB_V3D_AUDIO                1//3d音效

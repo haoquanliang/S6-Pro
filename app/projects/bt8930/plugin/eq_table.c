@@ -9,6 +9,8 @@ const eq_param music_eq_tbl[MUSIC_EQ_TBL_LEN] = {
     {&RES_BUF_EQ_JAZZ_EQ,       &RES_LEN_EQ_JAZZ_EQ},   //jazz
     {&RES_BUF_EQ_CLASSIC_EQ,    &RES_LEN_EQ_CLASSIC_EQ},//classic
     {&RES_BUF_EQ_COUNTRY_EQ,    &RES_LEN_EQ_COUNTRY_EQ},//country
+    {&RES_BUF_EQ_BASS_EQ,       &RES_LEN_EQ_BASS_EQ},//bass
+    {&RES_BUF_EQ_TREBLE_EQ,     &RES_LEN_EQ_TREBLE_EQ},//treble
 };
 
 #else

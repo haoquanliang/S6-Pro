@@ -488,6 +488,30 @@ void ab_mate_eq_custom_save(void)
 void ab_mate_eq_set(u8 *payload,u8 payload_len)
 {
     printf("payload[0]:%x\r\n",payload[0]);
+
+#if APP_EQ_SET
+    if(payload_len == 1 && payload[0] < AB_MATE_EQ_RES_CNT){
+        if (ab_mate_app.eq_info.mode != payload[0]){
+                ab_mate_app.eq_info.mode = payload[0];
+
+#if AB_MATE_EQ_USE_DEVICE
+        if(ab_mate_app.eq_info.mode >= AB_MATE_EQ_CUSTOM_INDEX){
+            ab_mate_eq_custom_save();
+        }
+#endif                
+            #if BT_TWS_EN
+                ab_mate_tws_eq_info_sync();
+            #endif   
+            ab_mate_app.do_flag |= FLAG_EQ_SET;            
+            ab_mate_cm_write(&ab_mate_app.eq_info.mode, AB_MATE_CM_EQ_DATA, 1+AB_MATE_EQ_BAND_CNT, 2);
+        }
+            ab_mate_request_common_response(AB_MATE_SUCCESS);
+    }else{
+             ab_mate_request_common_response(AB_MATE_FAIL);
+    }
+
+
+#else
 #if AB_MATE_EQ_EN
     ab_mate_app.eq_info.band_cnt = payload[0];
     ab_mate_app.eq_info.mode = payload[1];
@@ -511,6 +535,10 @@ void ab_mate_eq_set(u8 *payload,u8 payload_len)
 #else
     ab_mate_request_common_response(AB_MATE_FAIL);
 #endif
+
+#endif
+
+
 }
 
 void ab_mate_music_set(u8 *payload,u8 payload_len)
