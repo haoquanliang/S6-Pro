@@ -88,9 +88,10 @@
 #define AB_USER_KEY                 1//user_key
 #define APP_KEY_FUNTION_SELECT      1//1:使用ab_mate的按键功能，0：使用配置的按键功能
 #define APP_EQ_SET                  1//EQ设置
-
-
-
+#define APP_EQ_TONE                 1//增加eq切换tong声
+#define APP_MP3_BYPASS_EQ           1//播放mp3提示音bypass EQ播完再恢复
+#define APP_EQ_CMD_REPLY            1//修改EQ命令回复
+#define APP_DEV_EN                  (0)//1to2 默认开关
 #endif
 
 

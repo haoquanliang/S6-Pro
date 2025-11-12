@@ -12,6 +12,12 @@
 #define BT_WARN_TWS_CON         BIT(8)
 
 
+#if SWETZ
+#define BT_WARN_EQ              BIT(9)
+
+
+#endif
+
 #define INCALL_FLAG_SCO         BIT(0)
 #define INCALL_FLAG_CALL        BIT(1)
 #define INCALL_FLAG_FADE        (INCALL_FLAG_SCO|INCALL_FLAG_CALL)

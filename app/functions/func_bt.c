@@ -141,6 +141,16 @@ void func_bt_warning_do(void)
             return;
         }
     }
+#if APP_EQ_TONE
+        if (func_bt_chkclr_warning(BT_WARN_EQ))
+        {
+            bsp_res_play(TWS_RES_EQ_TONE);
+            return;
+        }
+
+#endif
+
+
 
 #if BT_TWS_EN
     if(xcfg_cb.bt_tws_en) {

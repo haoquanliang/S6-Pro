@@ -26,6 +26,7 @@ enum {
 #if SWETZ
     TWS_RES_UGRING,
     TWS_RES_EVEN,
+    TWS_RES_EQ_TONE,
 #endif
     //副耳也可以请求的提示音
     TWS_RES_LOW_BATTERY,        //STA

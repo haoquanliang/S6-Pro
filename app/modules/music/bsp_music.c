@@ -130,6 +130,31 @@ void bsp_music_breakpoint_save(void)
 #endif // MUSIC_BREAKPOINT_EN
 #endif // FUNC_MUSIC_EN
 
+
+#if APP_MP3_BYPASS_EQ
+void ab_mate_bypass_eq(void)
+{  
+    for(u8 i=0; i< ab_mate_app.eq_info.band_cnt; i++){
+        WDT_CLR();
+        music_set_eq_for_index(i,0);
+    }
+    music_set_eq_overall_gain(0);
+
+    while (!tick_check_expire(ab_mate_app.tick, 30)) {     //连续两次EQ设置相隔30ms，连续短时间设置容易失败
+        delay_5ms(1);
+    }
+    
+#if EQ_APP_EN
+    eq_msc_index_init(0);
+#endif
+      
+    music_set_eq_by_res(RES_BUF_EQ_FLAT_EQ, RES_LEN_EQ_FLAT_EQ);
+    ab_mate_app.tick = tick_get();   
+    printf("bypass eq\n");
+}
+#endif
+
+
 #if WARNING_MP3_EN
 void mp3_res_play(u32 addr, u32 len)
 {
@@ -181,6 +206,12 @@ void mp3_res_play(u32 addr, u32 len)
     music_effect_alg_suspend(MUSIC_EFFECT_SUSPEND_FOR_RES);
 #endif // BT_MUSIC_EFFECT_EN
     bsp_change_volume(WARNING_VOLUME);
+#if APP_MP3_BYPASS_EQ
+    //音乐的EQ会影响mp3格式的语音提示，在播放前关掉，播完后恢复正常
+    //注意：各种音效也会调整EQ 
+    ab_mate_bypass_eq();
+#endif
+
 
     mp3_res_play_kick(addr, len, true);
 
@@ -224,6 +255,17 @@ void mp3_res_play(u32 addr, u32 len)
 #endif
     }
     music_control(MUSIC_MSG_STOP);
+#if APP_MP3_BYPASS_EQ
+    if(sys_cb.incall_flag)
+    {
+        //MP3播完后，SCO算法初始化的时候会设置EQ
+    }
+    else
+    {
+        app_eq_set(); 
+    } 
+#endif
+
 #if BT_MUSIC_EFFECT_EN
     music_effect_alg_reinit();
     music_effect_alg_restart();

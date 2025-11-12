@@ -253,6 +253,11 @@ static void tws_res_play_init(void)
 #if BT_MUSIC_EFFECT_EN
         music_effect_alg_suspend(MUSIC_EFFECT_SUSPEND_FOR_RES);
 #endif // BT_MUSIC_EFFECT_EN
+#if APP_MP3_BYPASS_EQ
+         ab_mate_bypass_eq();
+#endif
+
+
         bsp_change_volume(WARNING_VOLUME);
 
         mp3_res_play_kick(addr, len, tws_res.kick_flag);
@@ -319,6 +324,16 @@ static void tws_res_play_exit(void)
     if(res_type == RES_TYPE_MP3) {
         music_control(MUSIC_MSG_STOP);
         mp3_res_play_exit();
+#if APP_MP3_BYPASS_EQ
+        if(sys_cb.incall_flag)
+        {
+            //MP3播完后，SCO算法初始化的时候会设置EQ
+        }
+        else
+        {
+            app_eq_set(); 
+        }       
+#endif          
 #if BT_MUSIC_EFFECT_EN
         music_effect_alg_reinit();
         music_effect_alg_restart();
@@ -622,9 +637,20 @@ void tws_res_process_do(void)
             } else if(next_res_type != RES_TYPE_MP3 && tws_res.res_type == RES_TYPE_MP3) { //下一个是wav
                 bt_audio_enable();
             }
+#if APP_MP3_BYPASS_EQ
+            if(next_res_type == RES_TYPE_MP3)
+            {
+                //音乐的EQ会影响mp3格式的语音提示，在播放前关掉，播完后恢复正常
+                //注意：各种音效也会调整EQ
+                ab_mate_bypass_eq();
+            }
+#endif
+
             tws_res_alarm_start(&item, role);
             tws_res.tickn = TICK_ADD(tws_time_tickn_get(), 500);
             tws_res.state = RES_STA_NEXT_WAIT_ALARM;
+
+
         } else {
             tws_res.state = RES_STA_RES_EXIT;
         }

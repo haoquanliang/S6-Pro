@@ -71,6 +71,7 @@ bool user_def_key_msg(u8 func_sel)
         }
     } else if (func_sel == UDK_SIRI) {                  //SIRI
         bt_hfp_siri_switch();
+        printf("bt_hfp_siri_switch\r\n");
     } else if (func_sel == UDK_NR) {                    //NR
         bt_ctl_nr_sta_change();                         //发消息通知手机
     } else if (func_sel == UDK_PREV) {                  //PREV
