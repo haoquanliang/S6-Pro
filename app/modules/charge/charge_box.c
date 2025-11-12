@@ -877,7 +877,9 @@ u32 charge_box_ssw_process(u32 charge_sta)
             loc_bat=99;
         }
         if((sys_cb.loc_bat & 0x7f) != loc_bat) {
+
             sys_cb.loc_bat = (sys_cb.loc_bat & 0x80) | loc_bat;
+           
             vhouse_cb.update_ear_flag = true;
         }
         vhouse_cb.loc_ticks = tick_get();

@@ -318,6 +318,13 @@ enum{
     CUSTOM_CMD_PHONE_CALL,      //拨号
 };
 
+
+enum 
+{
+    SWET_LANG_SET_TYPE = 1,
+    SWET_AB_VOL,
+};
+
 enum{
     TONE_CTRL_COUNTDWON_PLAY = 0,
     TONE_CTRL_COUNTDWON_STOP,

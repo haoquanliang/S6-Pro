@@ -92,6 +92,8 @@
 #define APP_MP3_BYPASS_EQ           1//播放mp3提示音bypass EQ播完再恢复
 #define APP_EQ_CMD_REPLY            1//修改EQ命令回复
 #define APP_DEV_EN                  (0)//1to2 默认开关
+#define APP_LANG_TYPE_SET           1//提示音类型
+#define APP_VBAT_CANCEL_BIT7        1//电量最高位置0：0不在仓，1在仓
 #endif
 
 

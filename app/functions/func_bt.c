@@ -69,6 +69,9 @@ void func_bt_switch_voice_lang(void)
 #endif
 }
 
+
+
+
 #if BT_TWS_EN
 static void func_bt_tws_set_channel(void)
 {

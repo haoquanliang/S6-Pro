@@ -376,7 +376,12 @@ void ab_mate_vbat_check_proc(soft_timer_p timer)
 #endif
 
     if((local_bat != ab_mate_app.local_vbat) || (box_bat != ab_mate_app.box_vbat)){
+#if APP_VBAT_CANCEL_BIT7
+        local_bat = ab_mate_app.local_vbat & 0x7f;
+#else
         local_bat = ab_mate_app.local_vbat;
+#endif
+        
         box_bat = ab_mate_app.box_vbat;
 #if BT_TWS_EN
         if(sync){
@@ -388,7 +393,11 @@ void ab_mate_vbat_check_proc(soft_timer_p timer)
 
 #if BT_TWS_EN
     if(remote_bat != ab_mate_app.remote_vbat){
+#if APP_VBAT_CANCEL_BIT7        
+        remote_bat = ab_mate_app.remote_vbat & 0x7f;
+#else
         remote_bat = ab_mate_app.remote_vbat;
+#endif
         update = 1;
     }
 #endif
@@ -616,6 +625,7 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
 #else
                 ab_mate_app.local_vbat = bsp_get_bat_level();
 #endif
+                printf("ab_mate_app.local_vbat:%d\r\n",ab_mate_app.local_vbat);
 				#if BT_TWS_EN
                 if(sys_cb.tws_left_channel){
 #if AB_PULL_EAR_VBAT
@@ -751,8 +761,15 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
                 val_len = payload[read_offset + 1];
 #if AB_MATE_LANG_EN
                 buf[write_offset++] = INFO_LANGUAGE;
+#if APP_LANG_TYPE_SET
+                buf[write_offset++] = 2;
+                buf[write_offset++] = sys_cb.lang_id;
+                buf[write_offset++] = 10;//ab_mate_app.vp_vol;暂时随便回复个数据--提示音音量
+#else
                 buf[write_offset++] = 1;
                 buf[write_offset++] = lang_app_table[sys_cb.lang_id];
+#endif
+
 #endif
                 break;
 
@@ -1294,6 +1311,46 @@ void ab_mate_key_set(u8 *payload ,u8 payload_len)
 
 void ab_mate_language_set(u8 *payload, u8 payload_len)
 {
+
+#if APP_LANG_TYPE_SET
+    u8 read_offset = 0;
+    u8 write_offset = 0;
+    u8 *buf = ab_mate_cmd_send.payload;
+    u8 val_len = 0;
+
+    while(read_offset < payload_len)
+    {
+        switch(payload[read_offset])//根据cmd类型执行设置类型还是音量
+        {
+            case SWET_LANG_SET_TYPE:
+                 val_len = payload[read_offset+1];
+                 buf[write_offset++] = SWET_LANG_SET_TYPE;
+                 buf[write_offset++] = 1;
+                 if(payload[read_offset+2] <= 2){
+                        buf[write_offset++] = AB_MATE_SUCCESS;
+                        if(sys_cb.lang_id != payload[read_offset+2]){
+                                sys_cb.lang_id = payload[read_offset+2];
+                                param_lang_id_write();
+                                bt_tws_sync_setting();
+                        }      
+                 }else{
+                        buf[write_offset++] = AB_MATE_FAIL;    
+                 }
+                break;
+
+            case SWET_AB_VOL:
+
+                break;
+            default:
+            val_len = payload[read_offset + 1];
+            break;
+        }
+        read_offset += (2 + val_len);
+
+    }
+    ab_mate_cmd_send.cmd_head.payload_len = write_offset;
+    ab_mate_data_send((u8*)&ab_mate_cmd_send, AB_MATE_HEADER_LEN + ab_mate_cmd_send.cmd_head.payload_len);
+#else
 #if AB_MATE_LANG_EN
     ab_mate_result_t result = AB_MATE_SUCCESS;
     u8 lang = payload[0];
@@ -1305,6 +1362,9 @@ void ab_mate_language_set(u8 *payload, u8 payload_len)
 #else
     ab_mate_request_common_response(AB_MATE_FAIL);
 #endif
+
+#endif
+
 }
 
 void ab_mate_mode_set(u8 *payload, u8 payload_len)

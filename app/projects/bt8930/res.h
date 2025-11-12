@@ -320,100 +320,127 @@
 #define RES_BUF_EN_WAIT4CONN_MP3                    (*(u32 *)0x11000d58)
 #define RES_LEN_EN_WAIT4CONN_MP3                    (*(u32 *)0x11000d5c)
 
-#define RES_BUF_ZH_AUX_MODE_MP3                     (*(u32 *)0x11000d78)
-#define RES_LEN_ZH_AUX_MODE_MP3                     (*(u32 *)0x11000d7c)
+#define RES_BUF_TN_ANC_3MODE_MP3                    (*(u32 *)0x11000d78)
+#define RES_LEN_TN_ANC_3MODE_MP3                    (*(u32 *)0x11000d7c)
 
-#define RES_BUF_ZH_BAT_LOW_WAV                      (*(u32 *)0x11000d98)
-#define RES_LEN_ZH_BAT_LOW_WAV                      (*(u32 *)0x11000d9c)
+#define RES_BUF_TN_BAT_LOW_WAV                      (*(u32 *)0x11000d98)
+#define RES_LEN_TN_BAT_LOW_WAV                      (*(u32 *)0x11000d9c)
 
-#define RES_BUF_ZH_BT_MODE_MP3                      (*(u32 *)0x11000db8)
-#define RES_LEN_ZH_BT_MODE_MP3                      (*(u32 *)0x11000dbc)
+#define RES_BUF_TN_CONN_MP3                         (*(u32 *)0x11000db8)
+#define RES_LEN_TN_CONN_MP3                         (*(u32 *)0x11000dbc)
 
-#define RES_BUF_ZH_CALL_HANGUP_MP3                  (*(u32 *)0x11000dd8)
-#define RES_LEN_ZH_CALL_HANGUP_MP3                  (*(u32 *)0x11000ddc)
+#define RES_BUF_TN_DISC_MP3                         (*(u32 *)0x11000dd8)
+#define RES_LEN_TN_DISC_MP3                         (*(u32 *)0x11000ddc)
 
-#define RES_BUF_ZH_CALL_REJECT_MP3                  (*(u32 *)0x11000df8)
-#define RES_LEN_ZH_CALL_REJECT_MP3                  (*(u32 *)0x11000dfc)
+#define RES_BUF_TN_GAMING_MODE_MP3                  (*(u32 *)0x11000df8)
+#define RES_LEN_TN_GAMING_MODE_MP3                  (*(u32 *)0x11000dfc)
 
-#define RES_BUF_ZH_CAMERA_MODE_MP3                  (*(u32 *)0x11000e18)
-#define RES_LEN_ZH_CAMERA_MODE_MP3                  (*(u32 *)0x11000e1c)
+#define RES_BUF_TN_MUSIC_MODE_MP3                   (*(u32 *)0x11000e18)
+#define RES_LEN_TN_MUSIC_MODE_MP3                   (*(u32 *)0x11000e1c)
 
-#define RES_BUF_ZH_CAMERA_OFF_MP3                   (*(u32 *)0x11000e38)
-#define RES_LEN_ZH_CAMERA_OFF_MP3                   (*(u32 *)0x11000e3c)
+#define RES_BUF_TN_PAIRING_MP3                      (*(u32 *)0x11000e38)
+#define RES_LEN_TN_PAIRING_MP3                      (*(u32 *)0x11000e3c)
 
-#define RES_BUF_ZH_CAMERA_ON_MP3                    (*(u32 *)0x11000e58)
-#define RES_LEN_ZH_CAMERA_ON_MP3                    (*(u32 *)0x11000e5c)
+#define RES_BUF_TN_POWEROFF_MP3                     (*(u32 *)0x11000e58)
+#define RES_LEN_TN_POWEROFF_MP3                     (*(u32 *)0x11000e5c)
 
-#define RES_BUF_ZH_CONNECTED_MP3                    (*(u32 *)0x11000e78)
-#define RES_LEN_ZH_CONNECTED_MP3                    (*(u32 *)0x11000e7c)
+#define RES_BUF_TN_POWERON_MP3                      (*(u32 *)0x11000e78)
+#define RES_LEN_TN_POWERON_MP3                      (*(u32 *)0x11000e7c)
 
-#define RES_BUF_ZH_DISCONNECT_MP3                   (*(u32 *)0x11000e98)
-#define RES_LEN_ZH_DISCONNECT_MP3                   (*(u32 *)0x11000e9c)
+#define RES_BUF_ZH_AUX_MODE_MP3                     (*(u32 *)0x11000e98)
+#define RES_LEN_ZH_AUX_MODE_MP3                     (*(u32 *)0x11000e9c)
 
-#define RES_BUF_ZH_GAME_MODE_MP3                    (*(u32 *)0x11000eb8)
-#define RES_LEN_ZH_GAME_MODE_MP3                    (*(u32 *)0x11000ebc)
+#define RES_BUF_ZH_BAT_LOW_WAV                      (*(u32 *)0x11000eb8)
+#define RES_LEN_ZH_BAT_LOW_WAV                      (*(u32 *)0x11000ebc)
 
-#define RES_BUF_ZH_LANGUAGE_MP3                     (*(u32 *)0x11000ed8)
-#define RES_LEN_ZH_LANGUAGE_MP3                     (*(u32 *)0x11000edc)
+#define RES_BUF_ZH_BT_MODE_MP3                      (*(u32 *)0x11000ed8)
+#define RES_LEN_ZH_BT_MODE_MP3                      (*(u32 *)0x11000edc)
 
-#define RES_BUF_ZH_LEFT_CH_MP3                      (*(u32 *)0x11000ef8)
-#define RES_LEN_ZH_LEFT_CH_MP3                      (*(u32 *)0x11000efc)
+#define RES_BUF_ZH_CALL_HANGUP_MP3                  (*(u32 *)0x11000ef8)
+#define RES_LEN_ZH_CALL_HANGUP_MP3                  (*(u32 *)0x11000efc)
 
-#define RES_BUF_ZH_LOW_BATTERY_MP3                  (*(u32 *)0x11000f18)
-#define RES_LEN_ZH_LOW_BATTERY_MP3                  (*(u32 *)0x11000f1c)
+#define RES_BUF_ZH_CALL_REJECT_MP3                  (*(u32 *)0x11000f18)
+#define RES_LEN_ZH_CALL_REJECT_MP3                  (*(u32 *)0x11000f1c)
 
-#define RES_BUF_ZH_MAX_VOL_MP3                      (*(u32 *)0x11000f38)
-#define RES_LEN_ZH_MAX_VOL_MP3                      (*(u32 *)0x11000f3c)
+#define RES_BUF_ZH_CAMERA_MODE_MP3                  (*(u32 *)0x11000f38)
+#define RES_LEN_ZH_CAMERA_MODE_MP3                  (*(u32 *)0x11000f3c)
 
-#define RES_BUF_ZH_MUSIC_MODE_MP3                   (*(u32 *)0x11000f58)
-#define RES_LEN_ZH_MUSIC_MODE_MP3                   (*(u32 *)0x11000f5c)
+#define RES_BUF_ZH_CAMERA_OFF_MP3                   (*(u32 *)0x11000f58)
+#define RES_LEN_ZH_CAMERA_OFF_MP3                   (*(u32 *)0x11000f5c)
 
-#define RES_BUF_ZH_NUM_0_MP3                        (*(u32 *)0x11000f78)
-#define RES_LEN_ZH_NUM_0_MP3                        (*(u32 *)0x11000f7c)
+#define RES_BUF_ZH_CAMERA_ON_MP3                    (*(u32 *)0x11000f78)
+#define RES_LEN_ZH_CAMERA_ON_MP3                    (*(u32 *)0x11000f7c)
 
-#define RES_BUF_ZH_NUM_1_MP3                        (*(u32 *)0x11000f98)
-#define RES_LEN_ZH_NUM_1_MP3                        (*(u32 *)0x11000f9c)
+#define RES_BUF_ZH_CONNECTED_MP3                    (*(u32 *)0x11000f98)
+#define RES_LEN_ZH_CONNECTED_MP3                    (*(u32 *)0x11000f9c)
 
-#define RES_BUF_ZH_NUM_2_MP3                        (*(u32 *)0x11000fb8)
-#define RES_LEN_ZH_NUM_2_MP3                        (*(u32 *)0x11000fbc)
+#define RES_BUF_ZH_DISCONNECT_MP3                   (*(u32 *)0x11000fb8)
+#define RES_LEN_ZH_DISCONNECT_MP3                   (*(u32 *)0x11000fbc)
 
-#define RES_BUF_ZH_NUM_3_MP3                        (*(u32 *)0x11000fd8)
-#define RES_LEN_ZH_NUM_3_MP3                        (*(u32 *)0x11000fdc)
+#define RES_BUF_ZH_GAME_MODE_MP3                    (*(u32 *)0x11000fd8)
+#define RES_LEN_ZH_GAME_MODE_MP3                    (*(u32 *)0x11000fdc)
 
-#define RES_BUF_ZH_NUM_4_MP3                        (*(u32 *)0x11000ff8)
-#define RES_LEN_ZH_NUM_4_MP3                        (*(u32 *)0x11000ffc)
+#define RES_BUF_ZH_LANGUAGE_MP3                     (*(u32 *)0x11000ff8)
+#define RES_LEN_ZH_LANGUAGE_MP3                     (*(u32 *)0x11000ffc)
 
-#define RES_BUF_ZH_NUM_5_MP3                        (*(u32 *)0x11001018)
-#define RES_LEN_ZH_NUM_5_MP3                        (*(u32 *)0x1100101c)
+#define RES_BUF_ZH_LEFT_CH_MP3                      (*(u32 *)0x11001018)
+#define RES_LEN_ZH_LEFT_CH_MP3                      (*(u32 *)0x1100101c)
 
-#define RES_BUF_ZH_NUM_6_MP3                        (*(u32 *)0x11001038)
-#define RES_LEN_ZH_NUM_6_MP3                        (*(u32 *)0x1100103c)
+#define RES_BUF_ZH_LOW_BATTERY_MP3                  (*(u32 *)0x11001038)
+#define RES_LEN_ZH_LOW_BATTERY_MP3                  (*(u32 *)0x1100103c)
 
-#define RES_BUF_ZH_NUM_7_MP3                        (*(u32 *)0x11001058)
-#define RES_LEN_ZH_NUM_7_MP3                        (*(u32 *)0x1100105c)
+#define RES_BUF_ZH_MAX_VOL_MP3                      (*(u32 *)0x11001058)
+#define RES_LEN_ZH_MAX_VOL_MP3                      (*(u32 *)0x1100105c)
 
-#define RES_BUF_ZH_NUM_8_MP3                        (*(u32 *)0x11001078)
-#define RES_LEN_ZH_NUM_8_MP3                        (*(u32 *)0x1100107c)
+#define RES_BUF_ZH_MUSIC_MODE_MP3                   (*(u32 *)0x11001078)
+#define RES_LEN_ZH_MUSIC_MODE_MP3                   (*(u32 *)0x1100107c)
 
-#define RES_BUF_ZH_NUM_9_MP3                        (*(u32 *)0x11001098)
-#define RES_LEN_ZH_NUM_9_MP3                        (*(u32 *)0x1100109c)
+#define RES_BUF_ZH_NUM_0_MP3                        (*(u32 *)0x11001098)
+#define RES_LEN_ZH_NUM_0_MP3                        (*(u32 *)0x1100109c)
 
-#define RES_BUF_ZH_PAIRING_MP3                      (*(u32 *)0x110010b8)
-#define RES_LEN_ZH_PAIRING_MP3                      (*(u32 *)0x110010bc)
+#define RES_BUF_ZH_NUM_1_MP3                        (*(u32 *)0x110010b8)
+#define RES_LEN_ZH_NUM_1_MP3                        (*(u32 *)0x110010bc)
 
-#define RES_BUF_ZH_POWEROFF_MP3                     (*(u32 *)0x110010d8)
-#define RES_LEN_ZH_POWEROFF_MP3                     (*(u32 *)0x110010dc)
+#define RES_BUF_ZH_NUM_2_MP3                        (*(u32 *)0x110010d8)
+#define RES_LEN_ZH_NUM_2_MP3                        (*(u32 *)0x110010dc)
 
-#define RES_BUF_ZH_POWERON_MP3                      (*(u32 *)0x110010f8)
-#define RES_LEN_ZH_POWERON_MP3                      (*(u32 *)0x110010fc)
+#define RES_BUF_ZH_NUM_3_MP3                        (*(u32 *)0x110010f8)
+#define RES_LEN_ZH_NUM_3_MP3                        (*(u32 *)0x110010fc)
 
-#define RES_BUF_ZH_REDIALING_MP3                    (*(u32 *)0x11001118)
-#define RES_LEN_ZH_REDIALING_MP3                    (*(u32 *)0x1100111c)
+#define RES_BUF_ZH_NUM_4_MP3                        (*(u32 *)0x11001118)
+#define RES_LEN_ZH_NUM_4_MP3                        (*(u32 *)0x1100111c)
 
-#define RES_BUF_ZH_RIGHT_CH_MP3                     (*(u32 *)0x11001138)
-#define RES_LEN_ZH_RIGHT_CH_MP3                     (*(u32 *)0x1100113c)
+#define RES_BUF_ZH_NUM_5_MP3                        (*(u32 *)0x11001138)
+#define RES_LEN_ZH_NUM_5_MP3                        (*(u32 *)0x1100113c)
 
-#define RES_BUF_ZH_WAIT4CONN_MP3                    (*(u32 *)0x11001158)
-#define RES_LEN_ZH_WAIT4CONN_MP3                    (*(u32 *)0x1100115c)
+#define RES_BUF_ZH_NUM_6_MP3                        (*(u32 *)0x11001158)
+#define RES_LEN_ZH_NUM_6_MP3                        (*(u32 *)0x1100115c)
+
+#define RES_BUF_ZH_NUM_7_MP3                        (*(u32 *)0x11001178)
+#define RES_LEN_ZH_NUM_7_MP3                        (*(u32 *)0x1100117c)
+
+#define RES_BUF_ZH_NUM_8_MP3                        (*(u32 *)0x11001198)
+#define RES_LEN_ZH_NUM_8_MP3                        (*(u32 *)0x1100119c)
+
+#define RES_BUF_ZH_NUM_9_MP3                        (*(u32 *)0x110011b8)
+#define RES_LEN_ZH_NUM_9_MP3                        (*(u32 *)0x110011bc)
+
+#define RES_BUF_ZH_PAIRING_MP3                      (*(u32 *)0x110011d8)
+#define RES_LEN_ZH_PAIRING_MP3                      (*(u32 *)0x110011dc)
+
+#define RES_BUF_ZH_POWEROFF_MP3                     (*(u32 *)0x110011f8)
+#define RES_LEN_ZH_POWEROFF_MP3                     (*(u32 *)0x110011fc)
+
+#define RES_BUF_ZH_POWERON_MP3                      (*(u32 *)0x11001218)
+#define RES_LEN_ZH_POWERON_MP3                      (*(u32 *)0x1100121c)
+
+#define RES_BUF_ZH_REDIALING_MP3                    (*(u32 *)0x11001238)
+#define RES_LEN_ZH_REDIALING_MP3                    (*(u32 *)0x1100123c)
+
+#define RES_BUF_ZH_RIGHT_CH_MP3                     (*(u32 *)0x11001258)
+#define RES_LEN_ZH_RIGHT_CH_MP3                     (*(u32 *)0x1100125c)
+
+#define RES_BUF_ZH_WAIT4CONN_MP3                    (*(u32 *)0x11001278)
+#define RES_LEN_ZH_WAIT4CONN_MP3                    (*(u32 *)0x1100127c)
 
 #endif

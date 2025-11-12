@@ -352,6 +352,9 @@ void ab_mate_tws_info_bat_proc(uint8_t *data_ptr, u16 size)
     sys_cb.rem_bat = ab_mate_app.remote_vbat;
     sys_cb.rem_house_bat = data_ptr[offset++];
 #endif
+
+
+    printf("sys_cb.rem_bat:%d\r\n",sys_cb.rem_bat);
 }
 
 void ab_mate_tws_info_key_proc(uint8_t *data_ptr, u16 size)
@@ -696,6 +699,7 @@ void ab_mate_tws_info_dynamic_bass_info_proc(uint8_t *data_ptr, u16 size)
 void ab_mate_tws_recv_proc(uint8_t *data_ptr, u16 size)
 {
     u8 info_id = data_ptr[0];
+
     u8 *p_data = &data_ptr[1];
     u16 data_len = size - 1;
 
