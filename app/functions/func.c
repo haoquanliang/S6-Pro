@@ -372,11 +372,15 @@ void func_message(u16 msg)
                 printf("EVT_IN_CASE\r\n");
                     
                  app_lr_send_notification(LR_NOTIFY_IN_CASE_STATUS, 1, &sys_cb.flag_local_in_case);
-                
+
+
 #if SWETZ_ROLE_SWITCH_BY_INBOX
                  msg_enqueue(EVT_INBOX_CHANGED);
 #endif
-
+#if APP_USER_NOTIFY
+            printf("local_incase:%d flag_peer_in_case:%d\r\n",sys_cb.flag_local_in_case,sys_cb.flag_peer_in_case);
+            msg_enqueue(EVT_UPDATE_INCASE_STA);
+#endif
 
             break;
 
@@ -385,6 +389,9 @@ void func_message(u16 msg)
         case EVT_OUT_CASE:
                 printf("EVT_OUT_CASE\r\n");
                 app_lr_send_notification(LR_NOTIFY_IN_CASE_STATUS, 1, &sys_cb.flag_local_in_case);
+#if APP_USER_NOTIFY
+            msg_enqueue(EVT_UPDATE_INCASE_STA);
+#endif
 #if SWETZ_OUTCASE_AFTER_NOT_KEY
              sys_cb.flag_outcase_5s_kye_null = true;
              message_cancel_all(MSG_ID_TIMEOUT_5S_AFTER_OUT_BOX);
@@ -393,7 +400,19 @@ void func_message(u16 msg)
 #if SWETZ_ROLE_SWITCH_BY_INBOX
                  msg_enqueue(EVT_OUTBOX_CHANGED);
 #endif
+
             break;
+#endif
+
+#if APP_USER_NOTIFY
+            case EVT_UPDATE_INCASE_STA:
+                    if(!bt_tws_is_slave()){
+                        printf("EVT_UPDATE_INCASE_STA\r\n");
+                            ab_mate_user_incase_sta_notify();
+                    }else {
+                            app_lr_send_msg(EVT_UPDATE_INCASE_STA);
+                    }
+                break;
 #endif
 
 #if SWETZ_ROLE_SWITCH_BY_INBOX
@@ -489,8 +508,10 @@ void func_message(u16 msg)
         printf("disp status %d,tws conn %d,tws slave %d, nor conn %d, scan %d, sys_cb.vol:%d  sys_cb.hfp_vol:%d sys_cb.lang_id:%d low_latency:%d sys_cb.eq_mode:%d dev.en:%d\n\r",
         f_bt.disp_status,bt_tws_is_connected(),bt_tws_is_slave(),bt_nor_is_connected(), bt_get_scan(),
         sys_cb.vol,sys_cb.hfp_vol,sys_cb.lang_id,bt_is_low_latency(),sys_cb.eq_mode,ab_mate_app.mult_dev.en);
-      //  printf("in_case:%d  peer_in_case:%d  mult_dev.en:%d \r\n",sys_cb.flag_local_in_case,sys_cb.flag_peer_in_case,ab_mate_app.mult_dev.en);
+       printf("in_case:%d  peer_in_case:%d  mult_dev.en:%d \r\n",sys_cb.flag_local_in_case,sys_cb.flag_peer_in_case,ab_mate_app.mult_dev.en);
         
+            printf("local_in_case:%d peer_in_case:%d\r\n",sys_cb.flag_local_in_case,sys_cb.flag_peer_in_case);
+           //  app_lr_send_notification(LR_NOTIFY_IN_CASE_STATUS, 1, &sys_cb.flag_local_in_case);
         //printf("ab_mate_app.con_sta:%d\r\n",ab_mate_app.con_sta);
         //  printf("sys_cb.sleep_delay:%d sys_cb.pwroff_delay:%d sys_cb.sleep_en:%d port_2led_is_sleep_en:%d  bt_is_allow_sleep:%d\r\n",sys_cb.sleep_delay,sys_cb.pwroff_delay,sys_cb.sleep_en,port_2led_is_sleep_en(),bt_is_allow_sleep());
         //  u8 bt_tws_addr[6];
@@ -502,8 +523,8 @@ void func_message(u16 msg)
         // sprintf(spp_tx_buffer, "+ntc:%d", saradc_get_value8(ADCCH_NTC));
         // bt_spp_tx(SPP_SERVICE_CH0, (uint8_t *)spp_tx_buffer, strlen(spp_tx_buffer));
         printf("ab_mate_app.box_vbat:%d\r\n",ab_mate_app.box_vbat);
-        printf("a2dp_index:%d ring_index:%d",bt_get_cur_a2dp_media_index(),bt_call_get_ring_index());
-        printf("local_vbat:%d remote_vbat:%d\r\n",ab_mate_app.local_vbat,ab_mate_app.remote_vbat);
+        // printf("a2dp_index:%d ring_index:%d",bt_get_cur_a2dp_media_index(),bt_call_get_ring_index());
+        // printf("local_vbat:%d remote_vbat:%d\r\n",ab_mate_app.local_vbat,ab_mate_app.remote_vbat);
         break;
             
 #endif

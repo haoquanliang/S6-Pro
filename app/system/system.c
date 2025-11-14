@@ -248,11 +248,12 @@ AT(.com_text.timer)
 void check_ear_inbox()
 {
             bool inbox = vhouse_cb.inbox_sta;
-            
+          
             if (sys_cb.flag_local_in_case)
             {
                 if (!inbox)
                 {
+                    sys_cb.flag_local_in_case = inbox;
                     msg_enqueue(EVT_OUT_CASE);
                 }
             }
@@ -263,10 +264,11 @@ void check_ear_inbox()
 #if SWETZ_OUTCASE_AFTER_NOT_KEY
                     sys_cb.flag_outcase_5s_kye_null = false;//入仓关掉出仓5s防误触
 #endif
+                    sys_cb.flag_local_in_case = inbox;
                     msg_enqueue(EVT_IN_CASE);
                 }
             }
-            sys_cb.flag_local_in_case = inbox;
+            
 }
 #endif
 

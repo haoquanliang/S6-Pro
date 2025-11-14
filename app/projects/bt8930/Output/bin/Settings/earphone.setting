@@ -57,8 +57,8 @@
         <add key="chg_inbox_pwrdwn_en" value="False" />
         <add key="chbox_out_delay" value="15" />
         <add key="bt_name" value="UGREEN HiTune S6 Magic" />
-        <add key="bt_addr_mode" value="固定地址" />
-        <add key="bt_addr" value="41:42:00:00:02:1C" />
+        <add key="bt_addr_mode" value="单次递增" />
+        <add key="bt_addr" value="41:42:00:00:02:3E" />
         <add key="bt_addr_start" value="41:42:00:00:00:00" />
         <add key="bt_addr_step" value="00:00:00:00:00:01" />
         <add key="bt_addr_end" value="41:42:FF:FF:FF:FF" />

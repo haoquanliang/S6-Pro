@@ -550,6 +550,7 @@
 #define EVT_SYS_1S              0x70b
 #define EVT_USER_RING_EXIT      0x70c
 #define EVT_2ND_RINGTONE        0x70d
+#define EVT_UPDATE_INCASE_STA   0x70e
 #endif
 
 

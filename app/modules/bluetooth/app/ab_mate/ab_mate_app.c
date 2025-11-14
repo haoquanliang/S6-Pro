@@ -442,6 +442,19 @@ void ab_mate_vol_notify(void)
 }
 #endif
 
+#if APP_USER_NOTIFY
+void ab_mate_user_incase_sta_notify(void)
+{
+    if(ab_mate_app.con_sta){
+        u8 tlv_data[3] = {INFO_NI_CASE_STATE, 1, 0x00};
+        tlv_data[2] = user_check_incase_sta_pull();
+    
+    ab_mate_device_info_notify(tlv_data, sizeof(tlv_data));
+    }
+}
+#endif
+
+
 #if AB_MATE_ANC_EN
 void ab_mate_anc_mode_notify(void)
 {
@@ -605,6 +618,34 @@ void ab_mate_music_set(u8 *payload,u8 payload_len)
     ab_mate_data_send((u8*)&ab_mate_cmd_send, AB_MATE_HEADER_LEN + ab_mate_cmd_send.cmd_head.payload_len);
 }
 
+
+
+u8 incase_sta = 0;
+#if APP_INCASE_STA
+uint8_t user_check_incase_sta_pull(void)
+{
+    
+    if(sys_cb.flag_local_in_case == 0 && sys_cb.flag_peer_in_case == 0){
+                                incase_sta = 0;
+        }else if(sys_cb.flag_local_in_case == 1 && sys_cb.flag_peer_in_case == 1){
+                                 incase_sta = 3;
+                        
+     }else if(sys_cb.tws_left_channel){
+                if(sys_cb.flag_local_in_case == 1){
+                                incase_sta = 1;
+                        }
+    }else{
+                if(sys_cb.flag_local_in_case == 1){
+                                incase_sta = 2;
+                        }
+
+}
+
+        return incase_sta;
+}
+#endif
+
+
 void ab_mate_device_info_query(u8 *payload,u8 payload_len)
 {
     u8 read_offset = 0;
@@ -649,6 +690,8 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
 #endif
 
                     buf[write_offset++] = ab_mate_app.box_vbat;
+
+                  
                 }
             break;
 
@@ -727,6 +770,16 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
                 buf[write_offset++] = (sys_cb.vol * 100) / VOL_MAX;
 #endif
                 break;
+
+#if APP_INCASE_STA
+            case INFO_NI_CASE_STATE:
+                 val_len = payload[read_offset + 1];
+                 buf[write_offset++] = INFO_NI_CASE_STATE;
+                 buf[write_offset++] = 1;
+                 user_check_incase_sta_pull();
+                 buf[write_offset++] = incase_sta;
+                break;
+#endif
 
             case INFO_PLAY_STA:
                 TRACE("INFO_PLAY_STA\n");

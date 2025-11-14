@@ -284,6 +284,13 @@ enum{
 
     INFO_BT_STA = 0x23,
     INFO_PID,
+
+#if SWETZ
+    INFO_NI_CASE_STATE = 0x94,
+
+#endif
+
+
     INFO_DEV_CAP = 0xFE,
     INFO_MTU = 0xFF,
 };
@@ -533,5 +540,9 @@ void ab_mate_mult_dev_en_set(u8 en, u8 sync);
 void ab_mate_mult_dev_addr_decrypt(u8 *bt_addr);
 void ab_mate_music_info_notify(u8 type, u16 data_offset, u8* payload, u8 len);
 void ab_mate_time_info_notify(u8 type);
+#if APP_USER_NOTIFY
+void ab_mate_user_incase_sta_notify(void);
+uint8_t user_check_incase_sta_pull(void);
+#endif
 #endif
 #endif

@@ -94,6 +94,8 @@
 #define APP_DEV_EN                  (0)//1to2 默认开关
 #define APP_LANG_TYPE_SET           1//提示音类型
 #define APP_VBAT_CANCEL_BIT7        1//电量最高位置0：0不在仓，1在仓
+#define APP_INCASE_STA              1//在仓状态置位
+#define APP_USER_NOTIFY             0//主动上报
 #endif
 
 
@@ -388,7 +390,7 @@
 #define BT_ECHO_LEVEL                   xcfg_cb.bt_echo_level       //回声消除级别（级别越高，回声衰减越明显，但通话效果越差）(0~15)
 #define BT_AEC_DUMP_EN                  0                           //是否打开AEC数据dump功能，dump:算法前 + 下行ref信号
 
-#define BT_AEC_EN                       1       //是否打开硬件AEC算法
+#define BT_AEC_EN                       0       //是否打开硬件AEC算法
 #define BT_AEC_FF_MIC_REF_EN            0       //如果aec的ff_mic回声比talk_mic回声大，可使能这功能，用于双mic降噪
 
 //通话MIC端功能配置（上行）
@@ -878,7 +880,7 @@
 
 #define UG_VERSION       002
 #define SW_VERSION		 2		        //只能使用数字(u16)，例如版本号V1.0.2，ab_mate用102表示，ab_fot用0x102表示
-#define HW_VERSION		"V0.0.1"		//只能使用数字0-9,ota需要转码
+#define HW_VERSION		"V0.0.7"		//只能使用数字0-9,ota需要转码
 #include "config_extra.h"
 
 #endif // USER_CONFIG_H
