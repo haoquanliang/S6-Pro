@@ -70,6 +70,7 @@ void func_exspifalsh_music(void);
 void func_bt_warning(void);
 #if SWETZ_INCASE_MUTE
 void app_check_mute(void);
+void lr_notify_in_case_info(void);
 #endif
 
 

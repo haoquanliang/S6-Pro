@@ -624,24 +624,34 @@ u8 incase_sta = 0;
 #if APP_INCASE_STA
 uint8_t user_check_incase_sta_pull(void)
 {
-    
+   // printf("--------local_in_case:%d flag_peer_in_case:%d---------\r\n",sys_cb.flag_local_in_case,sys_cb.flag_peer_in_case);
+
     if(sys_cb.flag_local_in_case == 0 && sys_cb.flag_peer_in_case == 0){
-                                incase_sta = 0;
-        }else if(sys_cb.flag_local_in_case == 1 && sys_cb.flag_peer_in_case == 1){
-                                 incase_sta = 3;
-                        
-     }else if(sys_cb.tws_left_channel){
-                if(sys_cb.flag_local_in_case == 1){
-                                incase_sta = 1;
-                        }
-    }else{
-                if(sys_cb.flag_local_in_case == 1){
-                                incase_sta = 2;
+                        incase_sta = 0;
+    }else if(sys_cb.flag_local_in_case == 1 && sys_cb.flag_peer_in_case == 1){
+                        incase_sta = 3;
+    }else if((sys_cb.flag_local_in_case == 1 && sys_cb.flag_peer_in_case == 0) || sys_cb.flag_local_in_case == 0 && sys_cb.flag_peer_in_case == 1){
+             if(sys_cb.tws_left_channel){
+                        if(sys_cb.flag_local_in_case == 1){
+                                    incase_sta = 1;
+                        }else{
+                                    incase_sta = 2;
+
                         }
 
-}
+             }else {
+                        if(sys_cb.flag_local_in_case == 1){
+                                    incase_sta = 2;
+                        }else{
+                                    incase_sta = 1;
 
+                        }
+
+             }
+    }
+        printf("---incase_sta:%d---\r\n",incase_sta);
         return incase_sta;
+
 }
 #endif
 

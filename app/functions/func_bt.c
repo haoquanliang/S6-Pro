@@ -687,6 +687,10 @@ void func_bt_enter(void)
    // charge_set_leakage(1, 0);//这样CHARGE_INBOX()才能检测到是否在仓中,仓检测漏电流需要关掉
 #endif
 
+#if SWETZ_POWERON_AFTER_2S_CHECK_INCSE_STA
+     message_send(MSG_ID_UPDATE_INCASE_STA, 0, 2000);
+#endif
+
 }
 
 AT(.text.func.bt)

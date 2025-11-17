@@ -247,7 +247,7 @@ void usr_tmr1ms_isr(void)
 AT(.com_text.timer)
 void check_ear_inbox()
 {
-            bool inbox = vhouse_cb.inbox_sta;
+            bool inbox = vhouse_cb.inbox_sta;//CHARGE_INBOX();//
           
             if (sys_cb.flag_local_in_case)
             {
@@ -383,15 +383,16 @@ void usr_tmr5ms_thread(void)
             }
         }
         dac_fifo_detect();
-
-
-    }
-
-#if SWETZ_CHECK_INBOX
-    if ((tmr5ms_cnt % 40) == 0) {//200ms
+    #if SWETZ_CHECK_INBOX
             check_ear_inbox();
+    #endif 
     }
-#endif
+
+
+    // if ((tmr5ms_cnt % 40) == 0) {//200ms
+          
+    // }
+
 
     //500ms timer process
     if ((tmr5ms_cnt % 100) == 0) {

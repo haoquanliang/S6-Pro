@@ -237,6 +237,7 @@ static void message_process(message_item_t *message)
         case MSG_ID_TIMEOUT_5S_AFTER_OUT_BOX:
              sys_cb.flag_outcase_5s_kye_null = false; 
              printf("flag_outcase_5s_kye_null = false\r\n");  
+             
             break;
 #endif
         case MSG_ID_2ND_RINGTONE:
@@ -252,6 +253,12 @@ static void message_process(message_item_t *message)
             }            
         }
         break;
+
+
+        case MSG_ID_UPDATE_INCASE_STA:
+            printf("MSG_ID_UPDATE_INCASE_STA\r\n");
+            lr_notify_in_case_info();  
+            break;
 
         default:
         break;
