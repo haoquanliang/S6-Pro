@@ -260,6 +260,26 @@ static void message_process(message_item_t *message)
             lr_notify_in_case_info();  
             break;
 
+#if APP_TEST
+        case MSG_ID_FIND_ME_LEFT:
+            if(sys_cb.find_ear_count == 0){ 
+                    sys_cb.find_ear_count = 1;
+                   wav_res_play(RES_BUF_FIND_1_1_WAV,RES_LEN_FIND_1_1_WAV);
+
+            }else if(sys_cb.find_ear_count == 1){
+                    sys_cb.find_ear_count = 2;
+                    wav_res_play(RES_BUF_FIND_1_2_WAV,RES_LEN_FIND_1_2_WAV);
+            }else if(sys_cb.find_ear_count == 2){
+                    sys_cb.find_ear_count = 3;
+                    wav_res_play(RES_BUF_FIND_1_3_WAV,RES_LEN_FIND_1_3_WAV);
+            }else if(sys_cb.find_ear_count == 3){
+                    wav_res_play(RES_BUF_FIND2_WAV,RES_LEN_FIND2_WAV);
+
+            }
+            break;
+
+#endif
+
         default:
         break;
     }

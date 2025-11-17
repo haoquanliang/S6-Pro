@@ -226,11 +226,13 @@ static void iodm_send_data(u8 *buf,u8 len)
 AT(.com_text.iodm)
 void iodm_packet_huart_recv(u8 *rx_buf)
 {
+
     if (!memcmp(rx_buf,packet_header,3)) {
         if(rx_buf[4] < VH_DATA_LEN){
             if (((rx_buf[3] >= IODM_CMD_DEV_RST) && (rx_buf[3] < IODM_CMD_MAX))
 #if  SWETZ_UART_CMD  
             ||(rx_buf[3] == IODM_CMD_CLEAR_PAIR) 
+
             || (rx_buf[3] > VHOUSE_CMD_CUSTOM_RESV1) && (rx_buf[3] < VHOUSE_CMD_CUSTOM_RESV_END)) {
 #else
 

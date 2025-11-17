@@ -44,7 +44,7 @@ enum {
     VHOUSE_CMD_CUSTOM_CLEAR_AG_ADDR,
     VHOUSE_CMD_CUSTOM_CHIP_MODE,
     VHOUSE_CMD_CUSTOM_CLEAR_ALL,
-    VHOUSE_CMD_AG_PAIR,
+    //VHOUSE_CMD_AG_PAIR,
 #endif
 
 
@@ -53,7 +53,7 @@ enum {
     VHOUSE_CMD_CUSTOM_RESV_END=0xFE,//SWETZ--加大范围
 
     VHOUSE_CMD_SYS_RST=0xFF,             //系统复位指令
-
+    VHOUSE_CMD_AG_PAIR = 0x20,
 };
 
 

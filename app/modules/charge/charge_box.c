@@ -803,6 +803,7 @@ static void charge_box_analysis_packet(vh_packet_t *packet)
             break;
 #if SWETZ_BT_TO_PAIR
         case VHOUSE_CMD_AG_PAIR:
+            printf("VHOUSE_CMD_AG_PAIR\r\n");
             msg_enqueue(EVT_BOX_CMD_AG_PAIR);
             break;
 #endif

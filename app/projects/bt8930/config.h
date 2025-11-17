@@ -78,7 +78,7 @@
 #define SWETZ_POWER_ON_TONE         1//开机提示音处理
 #define SWETZ_RING_SWITCH_A2DP      0//1拖2的时候来电切换A2dp的连接--切不动先关闭
 #define SWETZ_RING_SEC_ROUTE        1//第二路来电ring
-#define SWETZ_POWERON_AFTER_2S_CHECK_INCSE_STA  1//开机2s后交换一次
+#define SWETZ_POWERON_AFTER_2S_CHECK_INCSE_STA  1//开机2s后交换一次在仓状态
 
 //APP
 #define APP_BLE_RADIO               1//广播ble修改
@@ -96,6 +96,8 @@
 #define APP_VBAT_CANCEL_BIT7        1//电量最高位置0：0不在仓，1在仓
 #define APP_INCASE_STA              1//在仓状态置位
 #define APP_USER_NOTIFY             1//主动上报在仓状态
+
+#define APP_TEST                    1
 #endif
 
 

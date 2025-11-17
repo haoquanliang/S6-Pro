@@ -551,6 +551,8 @@
 #define EVT_USER_RING_EXIT      0x70c
 #define EVT_2ND_RINGTONE        0x70d
 #define EVT_UPDATE_INCASE_STA   0x70e
+
+#define EVT_FIND_ME_LEFT_START  0x70f
 #endif
 
 

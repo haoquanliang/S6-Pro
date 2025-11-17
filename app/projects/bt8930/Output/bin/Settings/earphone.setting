@@ -29,7 +29,7 @@
         <add key="dac_vcm_less_en" value="False" />
         <add key="dacvdd_bypass_en" value="False" />
         <add key="dac_off_for_conn" value="False" />
-        <add key="dac_max_gain" value="-3DB" />
+        <add key="dac_max_gain" value="-6DB" />
         <add key="bt_call_max_gain" value="-3DB" />
         <add key="vol_max" value="16级音量" />
         <add key="sys_init_vol" value="8" />

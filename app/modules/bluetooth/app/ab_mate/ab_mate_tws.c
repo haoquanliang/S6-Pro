@@ -661,8 +661,10 @@ void ab_mate_tws_info_mult_dev_proc(uint8_t *data_ptr, u16 size)
 #if AB_MATE_DEVICE_FIND_EN
 void ab_mate_tws_info_device_find_proc(uint8_t *data_ptr, u16 size)
 {
-    ab_mate_app.find_type = data_ptr[0];
+    ab_mate_app.find_type = data_ptr[0];  
+    printf("222333\r\n"); 
     ab_mate_device_find_side();
+
 }
 #endif
 
@@ -814,6 +816,7 @@ void ab_mate_tws_recv_proc(uint8_t *data_ptr, u16 size)
 
 #if AB_MATE_DEVICE_FIND_EN
         case TWS_INFO_DEVICE_FIND:
+            printf("AB_MATE_DEVICE_FIND_EN\r\n");
             ab_mate_tws_info_device_find_proc(p_data, data_len);
             break;
 #endif

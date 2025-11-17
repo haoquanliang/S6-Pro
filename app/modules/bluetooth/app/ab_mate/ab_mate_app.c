@@ -1453,6 +1453,23 @@ void ab_mate_mode_set(u8 *payload, u8 payload_len)
 
 void ab_mate_device_find(u8 *payload, u8 payload_len)
 {
+#if APP_TEST
+    if((payload_len == 1) && (payload[0] >= DEVICE_FIND_START_L) && (payload[0] <= DEVICE_FIND_STOP_R)){
+            ab_mate_result_t result = AB_MATE_SUCCESS;
+
+            if(payload[0] == DEVICE_FIND_START_L){
+                     if (bt_tws_is_connected() || (sys_cb.tws_left_channel)){
+                            msg_enqueue(EVT_FIND_ME_LEFT_START);
+
+                     }
+
+            }
+
+    }
+
+#endif
+
+
 #if AB_MATE_DEVICE_FIND_EN
     ab_mate_result_t result = AB_MATE_SUCCESS;
     ab_mate_app.find_type = payload[0];
@@ -1465,6 +1482,7 @@ void ab_mate_device_find(u8 *payload, u8 payload_len)
         break;
 
     case DEVICE_FIND_START:
+        printf("DEVICE_FIND_START\r\n");
         ab_mate_app.device_find = 1;
         soft_timer_start(device_find_timer);
     TRACE("find start\n");
@@ -1474,10 +1492,11 @@ void ab_mate_device_find(u8 *payload, u8 payload_len)
     case DEVICE_FIND_STOP_L:
     case DEVICE_FIND_START_R:
     case DEVICE_FIND_STOP_R:
-        TRACE("find side\n");
+        
         #if AB_MATE_DEVICE_FIND_EN && BT_TWS_EN
         ab_mate_tws_device_find_sync();
         #endif
+        TRACE("23243find side\n");
         ab_mate_device_find_side();
         break;
 
@@ -1489,6 +1508,9 @@ void ab_mate_device_find(u8 *payload, u8 payload_len)
 #else
     ab_mate_request_common_response(AB_MATE_FAIL);
 #endif
+
+
+
 }
 
 void ab_mate_device_find_side(void)
@@ -1502,10 +1524,18 @@ void ab_mate_device_find_side(void)
 #else
     u8 tws_left_channel = 0;
 #endif
+
+    printf("--------------type:%d\r\n",type);
+
+#if !APP_TEST
+ 
+#else
     start = (type == DEVICE_FIND_START_L || type == DEVICE_FIND_START_R);   //开始/停止
     execute = (tws_left_channel && (type == DEVICE_FIND_START_L || type == DEVICE_FIND_STOP_L)) || \
                 (!tws_left_channel && (type == DEVICE_FIND_START_R || type == DEVICE_FIND_STOP_R));  //是否查找本机
+#endif
 
+    printf("execute:%d start:%d\r\n",execute,start);
     if (execute) {
         if (start) {
             if (!ab_mate_app.device_find) {
@@ -1527,6 +1557,7 @@ void ab_mate_device_find_side(void)
             }
         }
     }
+
 #endif
 }
 
@@ -3449,7 +3480,9 @@ uint16_t role_switch_get_user_data(uint8_t *data_ptr)
         data_ptr[offset++] = ab_mate_app.con_sta;
         data_ptr[offset++] = ab_mate_cmd_recv.next_header_seq;
         data_ptr[offset++] = ab_mate_cmd_send.cmd_head.seq;
+       
 		data_ptr[offset++] = ab_mate_app.device_find;
+       
 		memcpy(&data_ptr[offset], &ab_mate_app.local_key, sizeof(ab_mate_key_info_t));
 		offset += sizeof(ab_mate_key_info_t);
 
@@ -3473,14 +3506,17 @@ uint16_t role_switch_set_user_data(uint8_t *data_ptr, uint16_t len)
         ab_mate_app.can_send_now = 1;
         ab_mate_cmd_recv.next_header_seq = data_ptr[offset++];
         ab_mate_cmd_send.cmd_head.seq = data_ptr[offset++];
-		ab_mate_app.device_find = data_ptr[offset++];
+
+		ab_mate_app.device_find = data_ptr[offset++];    
 		memcpy(&ab_mate_app.remote_key, &data_ptr[offset], sizeof(ab_mate_key_info_t));
 		offset += sizeof(ab_mate_key_info_t);
-
+#if SWETZ        
+#if AB_MATE_DEVICE_FIND_EN
         if(ab_mate_app.device_find){
             soft_timer_start(device_find_timer);
         }
-
+#endif
+#endif
         TRACE_R(data_ptr,offset);
     }
 

@@ -388,7 +388,16 @@ void func_message(u16 msg)
 
             break;
 
+#if APP_TEST    
+        case EVT_FIND_ME_LEFT_START:
+                if(sys_cb.tws_left_channel){
+                     message_send(MSG_ID_FIND_ME_LEFT, 0, 1000);
+                }else if(bt_tws_is_connected()){
+                    app_lr_send_msg(EVT_FIND_ME_LEFT_START);
+                }
+            break;
 
+#endif
 
         case EVT_OUT_CASE:
                 printf("EVT_OUT_CASE\r\n");
@@ -531,6 +540,7 @@ void func_message(u16 msg)
         printf("ab_mate_app.box_vbat:%d\r\n",ab_mate_app.box_vbat);
         // printf("a2dp_index:%d ring_index:%d",bt_get_cur_a2dp_media_index(),bt_call_get_ring_index());
         // printf("local_vbat:%d remote_vbat:%d\r\n",ab_mate_app.local_vbat,ab_mate_app.remote_vbat);
+        printf("ab_mate_app.device_find:%d\r\n",ab_mate_app.device_find);
         break;
             
 #endif
