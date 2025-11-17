@@ -390,12 +390,62 @@ void func_message(u16 msg)
 
 #if APP_TEST    
         case EVT_FIND_ME_LEFT_START:
+                
                 if(sys_cb.tws_left_channel){
-                     message_send(MSG_ID_FIND_ME_LEFT, 0, 1000);
+                    printf("EVT_FIND_ME_LEFT_START\r\n");
+                    
+                    // sys_cb.find_left_ear_stop = false;
+                     sys_cb.find_ear_count = 0;
+                     message_send(MSG_ID_FIND_ME_LEFT, 0, 0);
                 }else if(bt_tws_is_connected()){
+                    
                     app_lr_send_msg(EVT_FIND_ME_LEFT_START);
                 }
+               sys_cb.find_left_ear_going = true;
             break;
+
+         case EVT_FIND_ME_LEFT_STOP:
+                    printf("sys_cb.tws_left_channel:%d\r\n",sys_cb.tws_left_channel);
+                    if(sys_cb.tws_left_channel){
+                        printf("EVT_FIND_ME_LEFT_STOP\r\n");
+                        
+                        message_cancel_all(MSG_ID_FIND_ME_LEFT);
+                       // sys_cb.find_left_ear_stop = false;
+                    }else if(bt_tws_is_connected()){
+
+                        app_lr_send_msg(EVT_FIND_ME_LEFT_STOP);
+                    }
+                    sys_cb.find_left_ear_going = false;
+                break;
+
+        case EVT_FIND_ME_RIGHT_START:
+                if(!sys_cb.tws_left_channel){
+                    printf("EVT_FIND_ME_RIGHT_START\r\n");
+                    
+                    // sys_cb.find_left_ear_stop = false;
+                     sys_cb.find_ear_count = 0;
+                     message_send(MSG_ID_FIND_ME_RIGHT, 0, 0);
+                }else if(bt_tws_is_connected()){
+                    
+                    app_lr_send_msg(EVT_FIND_ME_RIGHT_START);
+                }
+                sys_cb.find_right_ear_going = true;
+                    break;
+
+         case EVT_FIND_ME_RIGHT_STOP:
+                    
+                    if(!sys_cb.tws_left_channel){
+                        printf("EVT_FIND_ME_RIGHT_STOP\r\n");
+                        
+                        message_cancel_all(MSG_ID_FIND_ME_RIGHT);
+                       // sys_cb.find_left_ear_stop = false;
+                    }else if(bt_tws_is_connected()){
+
+                        app_lr_send_msg(EVT_FIND_ME_RIGHT_STOP);
+                    }
+                    sys_cb.find_right_ear_going = false;
+                break;
+
 
 #endif
 

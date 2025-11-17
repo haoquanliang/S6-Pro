@@ -202,6 +202,10 @@ volatile u8  dc_in_filter;      //DC IN filter
     u8  recon_tone;
     u16 find_ear_count;
     u8 flag_2nd_ringtone_ongoing;
+    u8 find_left_ear_going;
+    u8 find_right_ear_going;
+    u8 find_left_ear_stop;
+    u8 find_right_ear_stop;
 #endif
 #if SWETZ_TEST
     u8 test;

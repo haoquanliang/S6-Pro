@@ -1459,11 +1459,43 @@ void ab_mate_device_find(u8 *payload, u8 payload_len)
 
             if(payload[0] == DEVICE_FIND_START_L){
                      if (bt_tws_is_connected() || (sys_cb.tws_left_channel)){
-                            msg_enqueue(EVT_FIND_ME_LEFT_START);
+                             printf("sys_cb.find_left_ear_going:%d\r\n",sys_cb.find_left_ear_going);
+                           if(!sys_cb.find_left_ear_going){
+                                msg_enqueue(EVT_FIND_ME_LEFT_START);
+                           }
+                            
 
                      }
 
             }
+            else if(payload[0] == DEVICE_FIND_STOP_L){
+                    if (bt_tws_is_connected() || (sys_cb.tws_left_channel)){
+                            printf("sys_cb.find_left_ear_going:%d\r\n",sys_cb.find_left_ear_going);
+                            if(sys_cb.find_left_ear_going){
+                                    msg_enqueue(EVT_FIND_ME_LEFT_STOP);
+                            }
+                    }
+            } 
+            else if(payload[0] == DEVICE_FIND_START_R){
+                     if (bt_tws_is_connected() || (!sys_cb.tws_left_channel)){
+                            printf("sys_cb.find_right_ear_going:%d\r\n",sys_cb.find_right_ear_going);
+                           if(!sys_cb.find_right_ear_going){
+                                msg_enqueue(EVT_FIND_ME_RIGHT_START);
+                           }
+                            
+
+                     }
+
+            }
+            else if(payload[0] == DEVICE_FIND_STOP_R){
+                    if (bt_tws_is_connected() || (!sys_cb.tws_left_channel)){
+                            printf("sys_cb.find_right_ear_going:%d\r\n",sys_cb.find_right_ear_going);
+                            if(sys_cb.find_right_ear_going){
+                                    msg_enqueue(EVT_FIND_ME_RIGHT_STOP);
+                            }
+                    }
+            } 
+
 
     }
 
