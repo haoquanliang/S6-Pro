@@ -111,6 +111,23 @@ u16 bsp_volume_convert(u8 vol)
     }
     return vol_set;
 }
+#if SWETZ
+AT(.text.vol.convert)
+u16 user_bsp_volume_convert(u8 vol)
+{
+    u16 vol_set = 0;
+    u8 level = 0;
+    if (vol <= VOL_MAX) {
+       level = dac_dvol_table[vol];
+        if (level > 60) {
+            level = 60;
+        }
+        vol_set = dac_dvol_tbl_db[level];
+    }
+    return vol_set;
+}
+#endif
+
 
 AT(.com_text.dac_volume)
 void bsp_change_volume(u8 vol)

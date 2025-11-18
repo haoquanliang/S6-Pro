@@ -82,7 +82,7 @@
 
 //APP
 #define APP_BLE_RADIO               1//广播ble修改
-#define AB_FIND_EAR                 1//查找耳机
+#define AB_FIND_EAR                 0//查找耳机--下面重写了-功能关闭
 #define AB_PULL_EAR_VBAT            1//传aap的耳机电量精度10%
 #define AB_V3D_AUDIO                1//3d音效
 #define AB_USER_KEY                 1//user_key
@@ -96,8 +96,10 @@
 #define APP_VBAT_CANCEL_BIT7        1//电量最高位置0：0不在仓，1在仓
 #define APP_INCASE_STA              1//在仓状态置位
 #define APP_USER_NOTIFY             1//主动上报在仓状态
+#define APP_USER_FIND_EAR           1//增加查找耳机功能
+#define APP_FIND_TONE_MAX           1//播放查找提示音max
+#define APP_LANG_ID_SYNC            1//语音类型同步
 
-#define APP_TEST                    1
 #endif
 
 

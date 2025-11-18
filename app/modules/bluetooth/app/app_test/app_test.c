@@ -1,6 +1,6 @@
 /*
  *  app_test.c
- *  APP_TEST服务或者SPP在线调试、测试相关
+ *  APP_USER_FIND_EAR服务或者SPP在线调试、测试相关
  */
 #include "include.h"
 

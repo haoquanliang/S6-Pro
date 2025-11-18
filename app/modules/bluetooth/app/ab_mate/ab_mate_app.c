@@ -1395,6 +1395,7 @@ void ab_mate_language_set(u8 *payload, u8 payload_len)
                                 sys_cb.lang_id = payload[read_offset+2];
                                 param_lang_id_write();
                                 bt_tws_sync_setting();
+                                printf("sys_cb.lang_id charge\r\n");
                         }      
                  }else{
                         buf[write_offset++] = AB_MATE_FAIL;    
@@ -1453,7 +1454,7 @@ void ab_mate_mode_set(u8 *payload, u8 payload_len)
 
 void ab_mate_device_find(u8 *payload, u8 payload_len)
 {
-#if APP_TEST
+#if APP_USER_FIND_EAR
     if((payload_len == 1) && (payload[0] >= DEVICE_FIND_START_L) && (payload[0] <= DEVICE_FIND_STOP_R)){
             ab_mate_result_t result = AB_MATE_SUCCESS;
 
@@ -1559,7 +1560,7 @@ void ab_mate_device_find_side(void)
 
     printf("--------------type:%d\r\n",type);
 
-#if !APP_TEST
+#if !APP_USER_FIND_EAR
  
 #else
     start = (type == DEVICE_FIND_START_L || type == DEVICE_FIND_START_R);   //开始/停止

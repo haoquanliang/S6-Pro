@@ -120,5 +120,7 @@ void bsp_set_dac_dvol_tbl(u8* buf);
 
 void bsp_set_auphy_spr(u8 auphy, u8 spr);
 void bsp_auphy_adc_mode(u8 auphy, u8 mode);
-
+#if SWETZ
+u16 user_bsp_volume_convert(u8 vol);
+#endif
 #endif // _BSP_DAC_H

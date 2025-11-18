@@ -27,6 +27,8 @@ typedef enum
     LR_NOTIFY_FIND_ME_RIGHT_STOP,
     LR_NOTIFY_IN_CASE_STATUS,
     LR_NOTIFY_SYNC_ACTIVE_ADDR,
+    LR_NOTIFY_SYNC_L_FIND_STA,
+    LR_NOTIFY_SYNC_R_FIND_STA,    
 }LR_CMD_T;
 
 void app_lr_init(void);

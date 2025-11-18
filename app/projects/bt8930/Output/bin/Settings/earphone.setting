@@ -34,7 +34,7 @@
         <add key="vol_max" value="16级音量" />
         <add key="sys_init_vol" value="8" />
         <add key="sys_recover_initvol" value="8" />
-        <add key="warning_volume" value="10" />
+        <add key="warning_volume" value="8" />
         <add key="buck_mode_en" value="True" />
         <add key="vddba_buck_en" value="True" />
         <add key="vddbt_capless_en" value="False" />

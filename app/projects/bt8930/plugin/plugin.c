@@ -282,7 +282,44 @@ u32 get_piano_digvol(void)
 //设置WAV RES提示音播放的数字音量 (0 ~ 0x7fff)
 u32 get_wav_res_digvol(void)
 {
-    return bsp_volume_convert(WARNING_VOLUME);
+#if APP_FIND_TONE_MAX
+    if (sys_cb.flag_playing_find_ear)
+    {
+        u8 vol_level;
+        sys_cb.find_me_count++;
+
+        if (sys_cb.find_me_count <= 4)
+        {
+            vol_level = 6;
+        }
+        else if (sys_cb.find_me_count <= 8)
+        {
+            vol_level = 13;
+        }
+        else 
+        {
+            vol_level = VOL_MAX;
+        }
+        if (sys_cb.find_me_count >= 9)
+        {
+            sys_cb.find_me_count = 9;
+        }
+      
+        printf("warning vol_level:%d  %d\r\n",vol_level,user_bsp_volume_convert(vol_level));
+        return user_bsp_volume_convert(vol_level);
+
+    }
+    
+    // else 
+    // {
+    //     return bsp_volume_convert(ab_mate_get_vp_vol());
+    // }
+
+#else
+
+ return bsp_volume_convert(WARNING_VOLUME);
+
+#endif
 }
 
 #if WARNING_WSBC_EN

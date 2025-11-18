@@ -335,7 +335,12 @@ void wav_res_play(u32 addr, u32 len)
 #endif // ABP_PLAY_DIS_WAV_EN
     }
 #endif // ABP_EN
-
+#if APP_FIND_TONE_MAX 
+    if (addr == RES_BUF_FIND_EAR_WAV)
+    {
+        sys_cb.flag_playing_find_ear = true;
+    }
+#endif 
     u8 dac_sta = dac_get_pwr_sta();
     func_bt_set_dac(1);
 
@@ -380,7 +385,12 @@ void wav_res_play(u32 addr, u32 len)
 #endif
 
     func_bt_set_dac(dac_sta);
-
+#if APP_FIND_TONE_MAX 
+    if (addr == RES_BUF_FIND_EAR_WAV)
+    {
+        sys_cb.flag_playing_find_ear = false;
+    }
+#endif
 #if TINY_TRANSPARENCY_EN
     if (sys_cb.ttp_sta) {
         bsp_ttp_start();

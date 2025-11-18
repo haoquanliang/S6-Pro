@@ -388,20 +388,20 @@ void func_message(u16 msg)
 
             break;
 
-#if APP_TEST    
+#if APP_USER_FIND_EAR    
         case EVT_FIND_ME_LEFT_START:
                 
                 if(sys_cb.tws_left_channel){
                     printf("EVT_FIND_ME_LEFT_START\r\n");
-                    
-                    // sys_cb.find_left_ear_stop = false;
-                     sys_cb.find_ear_count = 0;
+                     
+                     sys_cb.find_me_count = 0;
                      message_send(MSG_ID_FIND_ME_LEFT, 0, 0);
                 }else if(bt_tws_is_connected()){
                     
                     app_lr_send_msg(EVT_FIND_ME_LEFT_START);
                 }
                sys_cb.find_left_ear_going = true;
+               app_lr_send_notification(LR_NOTIFY_SYNC_L_FIND_STA, 1, &sys_cb.find_left_ear_going);
             break;
 
          case EVT_FIND_ME_LEFT_STOP:
@@ -410,19 +410,19 @@ void func_message(u16 msg)
                         printf("EVT_FIND_ME_LEFT_STOP\r\n");
                         
                         message_cancel_all(MSG_ID_FIND_ME_LEFT);
-                       // sys_cb.find_left_ear_stop = false;
                     }else if(bt_tws_is_connected()){
 
                         app_lr_send_msg(EVT_FIND_ME_LEFT_STOP);
                     }
                     sys_cb.find_left_ear_going = false;
+                    app_lr_send_notification(LR_NOTIFY_SYNC_L_FIND_STA, 1, &sys_cb.find_left_ear_going);
                 break;
 
         case EVT_FIND_ME_RIGHT_START:
                 if(!sys_cb.tws_left_channel){
                     printf("EVT_FIND_ME_RIGHT_START\r\n");
+                    sys_cb.find_me_count = 0;
                     
-                    // sys_cb.find_left_ear_stop = false;
                      sys_cb.find_ear_count = 0;
                      message_send(MSG_ID_FIND_ME_RIGHT, 0, 0);
                 }else if(bt_tws_is_connected()){
@@ -430,20 +430,22 @@ void func_message(u16 msg)
                     app_lr_send_msg(EVT_FIND_ME_RIGHT_START);
                 }
                 sys_cb.find_right_ear_going = true;
+                app_lr_send_notification(LR_NOTIFY_SYNC_R_FIND_STA, 1, &sys_cb.find_right_ear_going);
                     break;
 
          case EVT_FIND_ME_RIGHT_STOP:
                     
                     if(!sys_cb.tws_left_channel){
                         printf("EVT_FIND_ME_RIGHT_STOP\r\n");
-                        
+                        sys_cb.find_ear_count = 0;
                         message_cancel_all(MSG_ID_FIND_ME_RIGHT);
-                       // sys_cb.find_left_ear_stop = false;
+                       
                     }else if(bt_tws_is_connected()){
 
                         app_lr_send_msg(EVT_FIND_ME_RIGHT_STOP);
                     }
                     sys_cb.find_right_ear_going = false;
+                    app_lr_send_notification(LR_NOTIFY_SYNC_R_FIND_STA, 1, &sys_cb.find_right_ear_going);
                 break;
 
 
@@ -590,7 +592,7 @@ void func_message(u16 msg)
         printf("ab_mate_app.box_vbat:%d\r\n",ab_mate_app.box_vbat);
         // printf("a2dp_index:%d ring_index:%d",bt_get_cur_a2dp_media_index(),bt_call_get_ring_index());
         // printf("local_vbat:%d remote_vbat:%d\r\n",ab_mate_app.local_vbat,ab_mate_app.remote_vbat);
-        printf("ab_mate_app.device_find:%d\r\n",ab_mate_app.device_find);
+        printf("find_leftgoing:%d find_rightgoing:%d\r\n",sys_cb.find_left_ear_going,sys_cb.find_right_ear_going);
         break;
             
 #endif

@@ -112,6 +112,27 @@ static void lr_parse_notification(void)
         }
         break;
 
+        case LR_NOTIFY_SYNC_L_FIND_STA:
+        {
+            if (payload_size == 1)
+            {
+                sys_cb.find_left_ear_going = tws_rx_buf[PAYLOAD_INDEX];
+
+            }
+        }
+        break;
+
+        case LR_NOTIFY_SYNC_R_FIND_STA:
+        {
+            if (payload_size == 1)
+            {
+                sys_cb.find_right_ear_going = tws_rx_buf[PAYLOAD_INDEX];
+
+            }
+        }
+        break;        
+
+
         case LR_NOTIFY_MSG:
         if (payload_size == 2)
         {

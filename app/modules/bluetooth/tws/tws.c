@@ -212,13 +212,23 @@ bool bt_tws_get_info(uint8_t *param)
 
 void bt_tws_set_info(uint8_t *param)
 {
+    
     uint8_t flag = 0,tmp = 0, offset = 0;
 #if LANG_SELECT == LANG_EN_ZH
+#if APP_LANG_ID_SYNC
     tmp = (param[offset] & 0x0f);
+    if ((tmp <= 2) && tmp != sys_cb.lang_id)
+    {
+        sys_cb.lang_id = tmp;
+        msg_enqueue(EVT_BT_SET_LANG_ID);        
+    }    
+#else    
     if(xcfg_cb.lang_id >= 2 && tmp < 2 && tmp != sys_cb.lang_id) {  //bit0~3
         sys_cb.lang_id = tmp;
+        printf("EVT_BT_SET_LANG_ID\r\n");
         msg_enqueue(EVT_BT_SET_LANG_ID);
     }
+#endif    
 #endif
 #if EQ_MODE_EN
     tmp = (param[offset] & 0xf0)>>4;
