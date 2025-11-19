@@ -100,6 +100,11 @@
 #define APP_FIND_TONE_MAX           1//播放查找提示音max
 #define APP_LANG_ID_SYNC            1//语音类型同步
 
+#define APP_BLE_ADDR_CHANGE         0//修改ble地址
+#define APP_SWITCH_TONE_TYPE        1//
+
+#define SWETZ_CLOSE                 1//先关掉V3D
+#define APP_MUSIC_AUDIO_TEST        1//音效调试
 #endif
 
 
@@ -352,11 +357,11 @@
  * Module    : 蓝牙音乐算法配置
  *****************************************************************************/
 #define BT_MUSIC_EFFECT_EN              1                   //蓝牙音乐音效算法处理使能
-#define BT_MUSIC_EFFECT_DBG_EN          0                   //蓝牙音乐音效在线调试使能
-#define BT_MUSIC_EFFECT_ABT_EN          0                   //是否使用abt文件获取音效参数，abt文件由在线调试工具生成，需要自行替换abt文件或在setting中选择对应算法的资源文件
+#define BT_MUSIC_EFFECT_DBG_EN          1                   //蓝牙音乐音效在线调试使能
+#define BT_MUSIC_EFFECT_ABT_EN          1                   //是否使用abt文件获取音效参数，abt文件由在线调试工具生成，需要自行替换abt文件或在setting中选择对应算法的资源文件
 #define BT_MUSIC_PAUSE_CLK_BACK_EN      0                   //蓝牙音乐暂停播放是否把音乐音效的主频调回去
 //动态低音
-#define BT_MUSIC_EFFECT_DBB_EN          0                   //动态低音音效使能
+#define BT_MUSIC_EFFECT_DBB_EN          1                   //动态低音音效使能
 #define BT_MUSIC_EFFECT_DBB_BAND_CNT    1                   //动态低音音效的EQ段数
 #define BT_MUSIC_EFFECT_DBB_DEF_LEVEL   10                  //动态低音音效默认的等级
 //空间音效
@@ -367,8 +372,8 @@
 //虚拟低音
 #define BT_MUSIC_EFFECT_VBASS_EN        0                   //虚拟低音使能
 //动态EQ
-#define BT_MUSIC_EFFECT_DYEQ_EN         0                   //动态EQ使能
-#define BT_MUSIC_EFFECT_DYEQ_VBASS_EN   0                   //动态EQ和VBASS配合使用，不需要打开 BT_MUSIC_EFFECT_VBASS_EN
+#define BT_MUSIC_EFFECT_DYEQ_EN         1                   //动态EQ使能
+#define BT_MUSIC_EFFECT_DYEQ_VBASS_EN   1                   //动态EQ和VBASS配合使用，不需要打开 BT_MUSIC_EFFECT_VBASS_EN
 //2段DRC
 #define BT_MUSIC_EFFECT_XDRC_EN         0                   //2段DRC使能
 #define BT_MUSIC_EFFECT_XDRC_EQ_EN      0                   //2段DRC软件EQ使能

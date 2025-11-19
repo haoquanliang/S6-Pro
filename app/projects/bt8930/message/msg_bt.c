@@ -127,9 +127,18 @@ bool user_def_key_msg(u8 func_sel)
 #else 
         bool low_latency = bt_is_low_latency();
         if (low_latency) {
+#if APP_SWITCH_TONE_TYPE
+            user_music_mode_tone_play();
+#else
             bsp_res_play(TWS_RES_MUSIC_MODE);
+#endif
         } else {
+#if APP_SWITCH_TONE_TYPE
+            user_game_mode_tone_play();
+#else
             bsp_res_play(TWS_RES_GAME_MODE);
+#endif            
+            
         }
 
 #endif

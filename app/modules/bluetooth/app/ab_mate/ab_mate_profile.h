@@ -2,11 +2,9 @@
 #define __AB_MATE_PROFILE_H
 
 #define AB_MATE_VID     2           //广播包协议版本号
-#if SWETZ
-#define AB_MATE_BID     0x000400    //代理商和客户ID，0表示原厂bluetrum
-#else
+
 #define AB_MATE_BID     0x000000    //代理商和客户ID，0表示原厂bluetrum
-#endif
+
 
 
 //B6632277-0642-458B-A7A0-23FB1DC92C93

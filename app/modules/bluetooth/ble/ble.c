@@ -21,6 +21,20 @@ void ble_get_local_bd_addr(u8 *addr)
 }
 #endif
 
+#if APP_BLE_ADDR_CHANGE
+const u8 static_ble_addr[6] = {0x40, 0x41, 0x42, 0x43, 0x44, 0x45};
+void ble_get_local_bd_addr(u8 *addr)
+{
+    bt_get_local_bd_addr(addr);
+#if !LE_SM_SC_EN
+    addr[2] = addr[2] + 40;
+#endif     
+    // memcpy(addr, static_ble_addr, 6);
+    //bt_get_local_bd_addr(addr);
+}
+
+#endif
+
 #if LE_PAIR_EN
 //可重定义该函数选择数字比较配对的结果
 u8 ble_sm_numeric_comparison_confirm(uint32_t passkey)

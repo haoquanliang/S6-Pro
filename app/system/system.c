@@ -909,6 +909,92 @@ void port_int_example(void)     //sys_set_tmr_enable(1, 1); 前调用 测试OK
 }
 #endif
 
+#if APP_SWITCH_TONE_TYPE
+void user_poweron_tone_play(void)
+{
+    if(sys_cb.lang_id == 1){
+         mp3_res_play(RES_BUF_POWERON, RES_LEN_POWERON);
+    }else if(sys_cb.lang_id == 2){
+         mp3_res_play(RES_BUF_TN_POWERON_MP3, RES_LEN_TN_POWERON_MP3);
+
+    }
+
+}
+
+void user_poweroff_tone_play(void)
+{
+    if(sys_cb.lang_id == 1){
+         mp3_res_play(RES_BUF_POWEROFF, RES_LEN_POWEROFF);
+    }else if(sys_cb.lang_id == 2){
+         mp3_res_play(RES_BUF_TN_POWEROFF_MP3, RES_LEN_TN_POWEROFF_MP3);
+
+    }
+
+}
+
+void user_pairing_tone_play(void)
+{
+    if(sys_cb.lang_id == 1){
+        bsp_res_play(TWS_RES_PAIRING);
+    }else if(sys_cb.lang_id == 2){
+         bsp_res_play(TWS_RES_TN_PAIRING);
+    }
+
+}
+
+void user_music_mode_tone_play(void)
+{
+    if(sys_cb.lang_id == 1){
+        bsp_res_play(TWS_RES_MUSIC_MODE);
+    }else if(sys_cb.lang_id == 2){
+         bsp_res_play(TWS_RES_TN_MUSIC_MODE);
+    }
+
+}
+
+void user_game_mode_tone_play(void)
+{
+    if(sys_cb.lang_id == 1){
+        bsp_res_play(TWS_RES_GAME_MODE);
+    }else if(sys_cb.lang_id == 2){
+         bsp_res_play(TWS_RES_TN_GAME_MODE);
+    }
+
+}
+
+void user_disc_tone_play(void)
+{
+    if(sys_cb.lang_id == 1){
+        bsp_res_play(TWS_RES_DISCONNECT);
+    }else if(sys_cb.lang_id == 2){
+         bsp_res_play(TWS_RES_TN_DISC);
+    }
+
+}
+
+void user_connect_tone_play(void)
+{
+    if(sys_cb.lang_id == 1){
+        bsp_res_play(TWS_RES_CONNECTED);
+    }else if(sys_cb.lang_id == 2){
+         bsp_res_play(TWS_RES_TN_CONNECT);
+    }
+
+}
+
+void user_low_bat_tone_play(void)
+{
+    if(sys_cb.lang_id == 1){
+        wav_res_play(RES_BUF_ZH_BAT_LOW_WAV, RES_LEN_ZH_BAT_LOW_WAV);
+    }else if(sys_cb.lang_id == 2){
+        wav_res_play(RES_BUF_TN_BAT_LOW_WAV, RES_LEN_TN_BAT_LOW_WAV);
+    }
+
+}
+
+#endif
+
+
 AT(.text.bsp.power)
 bool power_off_check(void)
 {
@@ -992,11 +1078,15 @@ bool power_off_check(void)
             wsbc_res_play(RES_BUF_POWERON, RES_LEN_POWERON);
             #else
 #if SWETZ_POWER_ON_TONE
-           
-                mp3_res_play(RES_BUF_POWERON, RES_LEN_POWERON);
-                DEBUG_SW("RES_BUF_POWERON\r\n");
+#if APP_SWITCH_TONE_TYPE
+            user_poweron_tone_play();
+#else
+            mp3_res_play(RES_BUF_POWERON, RES_LEN_POWERON);
 #endif
-
+                
+                
+#endif
+            DEBUG_SW("RES_BUF_POWERON\r\n");
             #endif
 #endif // WARNING_POWER_ON
 
@@ -1410,7 +1500,11 @@ void sys_init(void)
         wsbc_res_play(RES_BUF_POWERON, RES_LEN_POWERON);
         #else
     if(!CHARGE_INBOX()){
+#if APP_SWITCH_TONE_TYPE
+            user_poweron_tone_play();
+#else        
         mp3_res_play(RES_BUF_POWERON, RES_LEN_POWERON);
+#endif        
         DEBUG_SW("RES_BUF_POWERON\r\n");
     }        
 

@@ -27,6 +27,11 @@ enum {
     TWS_RES_UGRING,
     TWS_RES_EVEN,
     TWS_RES_EQ_TONE,
+    TWS_RES_TN_PAIRING,
+    TWS_RES_TN_MUSIC_MODE,
+    TWS_RES_TN_GAME_MODE,
+    TWS_RES_TN_DISC,
+    TWS_RES_TN_CONNECT,
 #endif
     //副耳也可以请求的提示音
     TWS_RES_LOW_BATTERY,        //STA

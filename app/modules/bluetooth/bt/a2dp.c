@@ -13,11 +13,18 @@
 
 //下列是可重定义库中的变量
 const uint8_t cfg_bt_a2dp_media_discard = 20;            //播放音乐过程中，唤出语音助手后恢复音乐时，部分手机有一点杂音，需要丢几帧音乐数据
+#if SWETZ
+const uint8_t cfg_a2dp_sbc_max_bitpool = 39;            //设置SBC格式最大码率，默认值为53，可选值24~53（建议不低于39）
+const uint32_t cfg_a2dp_aac_max_bitrate = 192000;       //设置AAC格式最大码率，默认值为0（不限制），可选值128000, 192000, 256000,
+uint16_t cfg_bt_music_normal_latency   = 180;           //设置蓝牙普通模式延迟，默认值280ms，可选值100~450
+uint16_t cfg_bt_music_low_latency      = 70;            //设置蓝牙游戏模式延迟，默认值60ms，可选值60~100
+#else
+const uint8_t cfg_a2dp_sbc_max_bitpool = 39;            //设置SBC格式最大码率，默认值为53，可选值24~53（建议不低于39）
+const uint32_t cfg_a2dp_aac_max_bitrate = 128000;       //设置AAC格式最大码率，默认值为0（不限制），可选值128000, 192000, 256000,
+uint16_t cfg_bt_music_normal_latency   = 280;           //设置蓝牙普通模式延迟，默认值280ms，可选值100~450
+uint16_t cfg_bt_music_low_latency      = 60;            //设置蓝牙游戏模式延迟，默认值60ms，可选值60~100
+#endif
 
-//const uint8_t cfg_a2dp_sbc_max_bitpool = 39;            //设置SBC格式最大码率，默认值为53，可选值24~53（建议不低于39）
-//const uint32_t cfg_a2dp_aac_max_bitrate = 128000;       //设置AAC格式最大码率，默认值为0（不限制），可选值128000, 192000, 256000,
-//uint16_t cfg_bt_music_normal_latency   = 280;           //设置蓝牙普通模式延迟，默认值280ms，可选值100~450
-//uint16_t cfg_bt_music_low_latency      = 60;            //设置蓝牙游戏模式延迟，默认值60ms，可选值60~100
 
 #if BT_A2DP_LHDC_AUDIO_EN || BT_A2DP_LDAC_AUDIO_EN
 const u32 sbc_inbuf_size                = 0x10000;

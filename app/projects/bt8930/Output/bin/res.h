@@ -311,29 +311,29 @@
 #define RES_BUF_EN_WAIT4CONN_MP3                    (*(u32 *)0x11000cf8)
 #define RES_LEN_EN_WAIT4CONN_MP3                    (*(u32 *)0x11000cfc)
 
-#define RES_BUF_TN_GAMEMODE_MP3                     (*(u32 *)0x11000d18)
-#define RES_LEN_TN_GAMEMODE_MP3                     (*(u32 *)0x11000d1c)
+#define RES_BUF_TN_BAT_LOW_WAV                      (*(u32 *)0x11000d18)
+#define RES_LEN_TN_BAT_LOW_WAV                      (*(u32 *)0x11000d1c)
 
-#define RES_BUF_TN_MUSICMODE_MP3                    (*(u32 *)0x11000d38)
-#define RES_LEN_TN_MUSICMODE_MP3                    (*(u32 *)0x11000d3c)
+#define RES_BUF_TN_CONN_MP3                         (*(u32 *)0x11000d38)
+#define RES_LEN_TN_CONN_MP3                         (*(u32 *)0x11000d3c)
 
-#define RES_BUF_TN_TN_BAT_LOW_WAV                   (*(u32 *)0x11000d58)
-#define RES_LEN_TN_TN_BAT_LOW_WAV                   (*(u32 *)0x11000d5c)
+#define RES_BUF_TN_DISC_MP3                         (*(u32 *)0x11000d58)
+#define RES_LEN_TN_DISC_MP3                         (*(u32 *)0x11000d5c)
 
-#define RES_BUF_TN_TN_CONN_MP3                      (*(u32 *)0x11000d78)
-#define RES_LEN_TN_TN_CONN_MP3                      (*(u32 *)0x11000d7c)
+#define RES_BUF_TN_GAMEMODE_MP3                     (*(u32 *)0x11000d78)
+#define RES_LEN_TN_GAMEMODE_MP3                     (*(u32 *)0x11000d7c)
 
-#define RES_BUF_TN_TN_DISC_MP3                      (*(u32 *)0x11000d98)
-#define RES_LEN_TN_TN_DISC_MP3                      (*(u32 *)0x11000d9c)
+#define RES_BUF_TN_MUSICMODE_MP3                    (*(u32 *)0x11000d98)
+#define RES_LEN_TN_MUSICMODE_MP3                    (*(u32 *)0x11000d9c)
 
-#define RES_BUF_TN_TN_PAIRING_MP3                   (*(u32 *)0x11000db8)
-#define RES_LEN_TN_TN_PAIRING_MP3                   (*(u32 *)0x11000dbc)
+#define RES_BUF_TN_PAIRING_MP3                      (*(u32 *)0x11000db8)
+#define RES_LEN_TN_PAIRING_MP3                      (*(u32 *)0x11000dbc)
 
-#define RES_BUF_TN_TN_POWEROFF_MP3                  (*(u32 *)0x11000dd8)
-#define RES_LEN_TN_TN_POWEROFF_MP3                  (*(u32 *)0x11000ddc)
+#define RES_BUF_TN_POWEROFF_MP3                     (*(u32 *)0x11000dd8)
+#define RES_LEN_TN_POWEROFF_MP3                     (*(u32 *)0x11000ddc)
 
-#define RES_BUF_TN_TN_POWERON_MP3                   (*(u32 *)0x11000df8)
-#define RES_LEN_TN_TN_POWERON_MP3                   (*(u32 *)0x11000dfc)
+#define RES_BUF_TN_POWERON_MP3                      (*(u32 *)0x11000df8)
+#define RES_LEN_TN_POWERON_MP3                      (*(u32 *)0x11000dfc)
 
 #define RES_BUF_ZH_AUX_MODE_MP3                     (*(u32 *)0x11000e18)
 #define RES_LEN_ZH_AUX_MODE_MP3                     (*(u32 *)0x11000e1c)

@@ -249,6 +249,19 @@ static uint8_t get_bat_level_from_volt_wo_charger(uint16_t volt);
 uint8_t app_bat_level_show_for_phone(uint8_t bat_real_level);
 uint8_t app_bat_level_show_for_app(uint8_t bat_real_level);
 #endif
+#if APP_SWITCH_TONE_TYPE
+void user_poweron_tone_play(void);
+void user_poweroff_tone_play(void);
+void user_pairing_tone_play(void);
+void user_music_mode_tone_play(void);
+void user_game_mode_tone_play(void);
+void user_disc_tone_play(void);
+void user_connect_tone_play(void);
+void user_low_bat_tone_play(void);
+#endif
+
+
+
 #if SWETZ_NTC
 u8 user_ntc_check(void);
 #define ntc_gpio_power_supply()     \

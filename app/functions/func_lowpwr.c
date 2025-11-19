@@ -734,7 +734,12 @@ void func_pwroff(int pwroff_tone_en)
             #if WARNING_WSBC_EN
             wsbc_res_play(RES_BUF_POWEROFF, RES_LEN_POWEROFF);
             #else
+#if APP_SWITCH_TONE_TYPE
+            user_poweroff_tone_play();
+#else
+
             mp3_res_play(RES_BUF_POWEROFF, RES_LEN_POWEROFF);
+#endif            
             #endif
         } else if (pwroff_tone_en == 2) {
 #if WARNING_FUNC_AUX

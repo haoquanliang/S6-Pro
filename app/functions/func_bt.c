@@ -53,20 +53,21 @@ void func_bt_mp3_res_play(u32 addr, u32 len)
 //切换提示音语言
 void func_bt_switch_voice_lang(void)
 {
-#if (LANG_SELECT == LANG_EN_ZH)
-    if (xcfg_cb.lang_id >= LANG_EN_ZH) {
-        sys_cb.lang_id = (sys_cb.lang_id) ? 0 : 1;
-        multi_lang_init(sys_cb.lang_id);
-        param_lang_id_write();
-        param_sync();
-        if (xcfg_cb.bt_tws_en) {
-            bt_tws_sync_setting();                                              //同步语言
-            bsp_res_play(TWS_RES_LANGUAGE_EN + sys_cb.lang_id);                 //同步播放语言提示音
-        } else {
-            func_bt_mp3_res_play(RES_BUF_LANGUAGE, RES_LEN_LANGUAGE);
-        }
-    }
-#endif
+    printf("========================\r\n");
+// #if (LANG_SELECT == LANG_EN_ZH)
+//     if (xcfg_cb.lang_id >= LANG_EN_ZH) {
+//         sys_cb.lang_id = (sys_cb.lang_id) ? 0 : 1;
+//         multi_lang_init(sys_cb.lang_id);
+//         param_lang_id_write();
+//         param_sync();
+//         if (xcfg_cb.bt_tws_en) {
+//             bt_tws_sync_setting();                                              //同步语言
+//             bsp_res_play(TWS_RES_LANGUAGE_EN + sys_cb.lang_id);                 //同步播放语言提示音
+//         } else {
+//             func_bt_mp3_res_play(RES_BUF_LANGUAGE, RES_LEN_LANGUAGE);
+//         }
+//     }
+// #endif
 }
 
 
@@ -124,7 +125,11 @@ void func_bt_warning_do(void)
 #if SWETZ_MULT_DEL_TONE
  if(bt_get_connected_num() == 0){
         if(!bt_tws_is_slave()) {
+#if APP_SWITCH_TONE_TYPE
+            user_disc_tone_play();
+#else
             bsp_res_play(TWS_RES_DISCONNECT);
+#endif
             return;
         }  
  }
@@ -139,7 +144,12 @@ void func_bt_warning_do(void)
 
     if(func_bt_chkclr_warning(BT_WARN_PAIRING)) {
         if(!bt_tws_is_slave()) {
+#if APP_SWITCH_TONE_TYPE
+            user_pairing_tone_play();
+#else
+
             bsp_res_play(TWS_RES_PAIRING);
+#endif            
             DEBUG_SW("TWS_RES_PAIRING\r\n");
             return;
         }
@@ -196,7 +206,12 @@ void func_bt_warning_do(void)
 #endif                
             } else {
                 if (tws_warning & BT_WARN_TWS_MCON) {
+#if APP_SWITCH_TONE_TYPE
+                    user_connect_tone_play();
+#else
+
                     bsp_res_play(TWS_RES_CONNECTED);
+#endif                    
                     return;
                 }
             }
@@ -209,7 +224,12 @@ void func_bt_warning_do(void)
         if(!bt_tws_is_slave()) {
 #if SWETZ_MULT_DEL_TONE
             if(bt_get_connected_num() <= 1){
-                bsp_res_play(TWS_RES_CONNECTED);
+#if APP_SWITCH_TONE_TYPE
+                    user_connect_tone_play();
+#else
+
+                    bsp_res_play(TWS_RES_CONNECTED);
+#endif
                 DEBUG_SW("TWS_RES_CONNECTED\r\n");
             }
 #else 

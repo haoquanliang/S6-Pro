@@ -19,7 +19,12 @@ void lowpower_warning_do(void)
 
         sys_cb.lowbat_flag = 1;
 #if SWETZ_WARNING_TONE
+#if APP_SWITCH_TONE_TYPE
+        user_low_bat_tone_play();
+#else
+
         wav_res_play(RES_BUF_ZH_BAT_LOW_WAV, RES_LEN_ZH_BAT_LOW_WAV);
+#endif        
 #else 
 //            bsp_res_play(TWS_RES_LOW_BATTERY);
         bsp_piano_warning_play(WARNING_TONE, TONE_LOW_BATTERY);

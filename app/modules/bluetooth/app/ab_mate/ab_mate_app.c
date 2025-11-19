@@ -1394,6 +1394,7 @@ void ab_mate_language_set(u8 *payload, u8 payload_len)
                         if(sys_cb.lang_id != payload[read_offset+2]){
                                 sys_cb.lang_id = payload[read_offset+2];
                                 param_lang_id_write();
+                                param_sync();
                                 bt_tws_sync_setting();
                                 printf("sys_cb.lang_id charge\r\n");
                         }      
@@ -1439,9 +1440,19 @@ void ab_mate_mode_set(u8 *payload, u8 payload_len)
 
     if(ab_mate_app.latency_mode != mode){
         if(mode == DEVICE_MODE_NORMAL){
+#if APP_SWITCH_TONE_TYPE
+            user_music_mode_tone_play();
+#else
             bsp_res_play(TWS_RES_MUSIC_MODE);
+#endif
+          
         }else if(mode == DEVICE_MODE_GAME){
-            bsp_res_play(TWS_RES_GAME_MODE);
+#if APP_SWITCH_TONE_TYPE
+            user_game_mode_tone_play();
+#else
+           bsp_res_play(TWS_RES_GAME_MODE);
+#endif            
+            
         }else{
             result = AB_MATE_FAIL;
         }
@@ -1722,7 +1733,7 @@ void ab_mate_v3d_audio_notify(void)
 
 void ab_mate_v3d_audio_set_do(void)
 {
-
+#if SWETZ_CLOSE
 #if AB_V3D_AUDIO    
     if(ab_mate_app.v3d_audio_en){
         if(!music_effect_get_state(MUSIC_EFFECT_SPATIAL_AUDIO)){
@@ -1755,7 +1766,7 @@ void ab_mate_v3d_audio_set_do(void)
 
 #endif
 
-
+#endif
 
 }
 
@@ -2945,6 +2956,7 @@ void ab_mate_lang_init(void)
 #if AB_MATE_LANG_EN
     if(ab_mate_app.cm_flag == AB_MATE_CM_TAG){
         param_lang_id_read();
+        printf("sys_cb.lang_id:%d\r\n",sys_cb.lang_id);
     }else{
         if (xcfg_cb.lang_id == 2) {
             sys_cb.lang_id = 0;             //出厂默认英文

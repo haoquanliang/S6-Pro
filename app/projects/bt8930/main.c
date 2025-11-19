@@ -54,8 +54,9 @@ int main(void)
     }
 
     sys_init();
-#if SWETZ_EQ_TEST
+#if APP_MUSIC_AUDIO_TEST
     music_dyeq_audio_start();
+  // music_vbass_audio_start();
 #endif
     func_run();
     return 0;

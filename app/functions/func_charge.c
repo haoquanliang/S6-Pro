@@ -82,7 +82,11 @@ static void func_charge_exit(void)
 #endif
 #if SWETZ_POWER_ON_TONE
     if (xcfg_cb.bt_outbox_voice_pwron_en) {
+#if APP_SWITCH_TONE_TYPE
+            user_poweron_tone_play();
+#else        
         mp3_res_play(RES_BUF_POWERON, RES_LEN_POWERON);
+#endif        
     }
 #endif
 

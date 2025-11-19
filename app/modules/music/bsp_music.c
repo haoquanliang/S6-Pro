@@ -512,6 +512,15 @@ void wsbc_res_play(u32 addr, u32 len)
 void bsp_res_play_exit_cb(uint8_t res_idx)
 {
 #if BT_LOW_LATENCY_EN
+#if APP_SWITCH_TONE_TYPE
+    if (TWS_RES_MUSIC_MODE == res_idx || TWS_RES_TN_MUSIC_MODE == res_idx) {
+        printf("music mode\n");
+        bt_low_latency_disable();
+    } else if (TWS_RES_GAME_MODE == res_idx || TWS_RES_TN_GAME_MODE == res_idx) {
+        printf("game mode\n");
+        bt_low_latency_enable();
+    }
+#else
     if (TWS_RES_MUSIC_MODE == res_idx) {
         printf("music mode\n");
         bt_low_latency_disable();
@@ -519,6 +528,9 @@ void bsp_res_play_exit_cb(uint8_t res_idx)
         printf("game mode\n");
         bt_low_latency_enable();
     }
+
+#endif
+
 #endif
 
 #if ANC_EN
