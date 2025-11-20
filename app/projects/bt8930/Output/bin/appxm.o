@@ -4,7 +4,7 @@ setspace(0x5000);
 setunpack(unpack.bin);
 setpkgarea(0x12C000, 0xC3000);
 setkey(0xe0938553);
-addkey(0);
+addkey(0xf3c19711);
 addkey(0);
 setver(2);
 make(dcf_buf, header.bin, app.bin, res.bin, xcfg.bin, updater.bin);

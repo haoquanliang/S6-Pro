@@ -10,7 +10,7 @@
 
 #if BT_MUSIC_EFFECT_EN
 
-#define TRACE_EN                0
+#define TRACE_EN                1
 #define DUMP_EN                 0
 
 #if TRACE_EN

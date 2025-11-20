@@ -22,15 +22,10 @@ void ble_get_local_bd_addr(u8 *addr)
 #endif
 
 #if APP_BLE_ADDR_CHANGE
-const u8 static_ble_addr[6] = {0x40, 0x41, 0x42, 0x43, 0x44, 0x45};
+// const u8 static_ble_addr[6] = {0x40, 0x41, 0x42, 0x43, 0x44, 0x45};
 void ble_get_local_bd_addr(u8 *addr)
 {
-    bt_get_local_bd_addr(addr);
-#if !LE_SM_SC_EN
-    addr[2] = addr[2] + 40;
-#endif     
-    // memcpy(addr, static_ble_addr, 6);
-    //bt_get_local_bd_addr(addr);
+    bt_get_local_bd_addr(addr);     
 }
 
 #endif

@@ -37,12 +37,12 @@ void user_alarm_cb(uint16_t params)
 #if SWETZ_ARM_PRINTF
     printf(str,params);
 #endif    
-    if(params == 1){
-        msg_enqueue(EVT_USER_SYNC_EVT);
-    }
-    if(params == 2){
-        msg_enqueue(EVT_USER_RING_EXIT);
-    }
+    // if(params == 1){
+    //     msg_enqueue(EVT_USER_SYNC_EVT);
+    // }
+    // if(params == 2){
+    //     msg_enqueue(EVT_USER_RING_EXIT);
+    // }
 }
 #endif
 
@@ -77,10 +77,23 @@ void tws_time_alarm_cb(uint32_t params, uint32_t alarm_tickn)
 #if SWETZ_SYNC_EVT
     else if (cmd == ALARM_USER)
     {
-        user_alarm_cb(params);
+            //user_alarm_cb(params);
+        if (params == USER_SYNC_EVT_DBB_ON)
+        {
+                msg_enqueue(EVT_USER_SYNC_DBB_ON);
+        }
+        else if (params == USER_SYNC_EVT_DBB_OFF)
+        {
+                msg_enqueue(EVT_USER_SYNC_DBB_OFF);
+        } 
+        else if(params == 1){
+                msg_enqueue(EVT_USER_SYNC_EVT);
+        }
+        else if(params == 2){
+                msg_enqueue(EVT_USER_RING_EXIT);
+        }              
     }
-    
-
+ 
 #endif
 
     TRACE(str_alarm, cmd, params);

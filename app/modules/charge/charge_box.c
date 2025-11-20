@@ -307,7 +307,12 @@ static void charge_box_update_bat_adv(void)
         bool new_sta = vhouse_cb.inbox_sta;
         if(old_sta != new_sta) {
             if(new_sta) {
-                sys_cb.loc_bat |= BIT(7);
+#if SWETZ_INBOX_STA                
+            sys_cb.loc_bat &= ~BIT(7);
+#else
+                 
+            sys_cb.loc_bat |= BIT(7);
+#endif                
             } else {
                 sys_cb.loc_bat &= ~BIT(7);
             }

@@ -556,6 +556,10 @@
 #define EVT_FIND_ME_LEFT_STOP   0x710
 #define EVT_FIND_ME_RIGHT_START  0x711
 #define EVT_FIND_ME_RIGHT_STOP   0x712
+
+
+#define EVT_USER_SYNC_DBB_ON    0x713
+#define EVT_USER_SYNC_DBB_OFF   0x714
 #endif
 
 

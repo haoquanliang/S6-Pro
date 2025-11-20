@@ -254,12 +254,31 @@ static void message_process(message_item_t *message)
         }
         break;
 
-
+#if BT_MUSIC_EFFECT_DBB_EN
+        case MSG_ID_DBB_SWITCH:
+        if (message->param)
+        {
+            if (!music_effect_get_state(MUSIC_EFFECT_DBB))
+            {
+                bt_tws_req_alarm_user(USER_SYNC_EVT_DBB_ON);
+            }            
+        }
+        else 
+        {
+            if (music_effect_get_state(MUSIC_EFFECT_DBB))
+            {
+                bt_tws_req_alarm_user(USER_SYNC_EVT_DBB_OFF);
+            }               
+        }
+        break;
+#endif 
         case MSG_ID_UPDATE_INCASE_STA:
             printf("MSG_ID_UPDATE_INCASE_STA\r\n");
             lr_notify_in_case_info();  
             break;
 
+
+            
 #if APP_USER_FIND_EAR
         case MSG_ID_FIND_ME_LEFT:
 

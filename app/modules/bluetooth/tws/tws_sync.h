@@ -9,6 +9,19 @@
 
 #include "tws_res.h"
 
+#if SWETZ 
+enum 
+{
+    USER_SYNC_EVT_SPATIAL_AUDIO_ON = 1,
+    USER_SYNC_EVT_SPATIAL_AUDIO_OFF,
+    USER_SYNC_EVT_LOW_LATENCY_OFF,
+    USER_SYNC_EVT_DBB_ON,
+    USER_SYNC_EVT_DBB_OFF,
+    USER_SYNC_EVT_ANC_OFF,
+    USER_SYNC_EVT_ANC_RESUME,
+};
+#endif 
+
 #if BT_TWS_EN
 
 void bsp_tws_set_led(const void *cfg);      //设置同步LED显示

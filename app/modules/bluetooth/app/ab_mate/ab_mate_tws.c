@@ -721,6 +721,7 @@ void ab_mate_tws_recv_proc(uint8_t *data_ptr, u16 size)
 #endif
 
         case TWS_INFO_VBAT:
+            
             TRACE("TWS_INFO_VBAT:%d\n",data_ptr[1]);
             ab_mate_tws_info_bat_proc(p_data, data_len);
             break;

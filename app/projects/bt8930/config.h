@@ -79,7 +79,7 @@
 #define SWETZ_RING_SWITCH_A2DP      0//1拖2的时候来电切换A2dp的连接--切不动先关闭
 #define SWETZ_RING_SEC_ROUTE        1//第二路来电ring
 #define SWETZ_POWERON_AFTER_2S_CHECK_INCSE_STA  1//开机2s后交换一次在仓状态
-
+#define SWETZ_INBOX_STA             1//电量最高位清零,防止app显示错误电量
 //APP
 #define APP_BLE_RADIO               1//广播ble修改
 #define AB_FIND_EAR                 0//查找耳机--下面重写了-功能关闭
@@ -93,17 +93,17 @@
 #define APP_EQ_CMD_REPLY            1//修改EQ命令回复
 #define APP_DEV_EN                  (0)//1to2 默认开关
 #define APP_LANG_TYPE_SET           1//提示音类型
-#define APP_VBAT_CANCEL_BIT7        1//电量最高位置0：0不在仓，1在仓
+#define APP_VBAT_CANCEL_BIT7        0//电量最高位置0：0不在仓，1在仓--SWETZ_INBOX_STA这个已解决
 #define APP_INCASE_STA              1//在仓状态置位
 #define APP_USER_NOTIFY             1//主动上报在仓状态
 #define APP_USER_FIND_EAR           1//增加查找耳机功能
 #define APP_FIND_TONE_MAX           1//播放查找提示音max
 #define APP_LANG_ID_SYNC            1//语音类型同步
 
-#define APP_BLE_ADDR_CHANGE         0//修改ble地址
-#define APP_SWITCH_TONE_TYPE        1//
+#define APP_BLE_ADDR_CHANGE         1//修改ble地址
+#define APP_SWITCH_TONE_TYPE        1//提示音类型
 
-#define SWETZ_CLOSE                 1//先关掉V3D
+#define SWETZ_CLOSE                 1//0:关掉V3D
 #define APP_MUSIC_AUDIO_TEST        1//音效调试
 #endif
 
@@ -357,13 +357,13 @@
  * Module    : 蓝牙音乐算法配置
  *****************************************************************************/
 #define BT_MUSIC_EFFECT_EN              1                   //蓝牙音乐音效算法处理使能
-#define BT_MUSIC_EFFECT_DBG_EN          1                   //蓝牙音乐音效在线调试使能
-#define BT_MUSIC_EFFECT_ABT_EN          1                   //是否使用abt文件获取音效参数，abt文件由在线调试工具生成，需要自行替换abt文件或在setting中选择对应算法的资源文件
+#define BT_MUSIC_EFFECT_DBG_EN          0                   //蓝牙音乐音效在线调试使能
+#define BT_MUSIC_EFFECT_ABT_EN          0                   //是否使用abt文件获取音效参数，abt文件由在线调试工具生成，需要自行替换abt文件或在setting中选择对应算法的资源文件
 #define BT_MUSIC_PAUSE_CLK_BACK_EN      0                   //蓝牙音乐暂停播放是否把音乐音效的主频调回去
 //动态低音
 #define BT_MUSIC_EFFECT_DBB_EN          1                   //动态低音音效使能
 #define BT_MUSIC_EFFECT_DBB_BAND_CNT    1                   //动态低音音效的EQ段数
-#define BT_MUSIC_EFFECT_DBB_DEF_LEVEL   10                  //动态低音音效默认的等级
+#define BT_MUSIC_EFFECT_DBB_DEF_LEVEL   11                  //动态低音音效默认的等级
 //空间音效
 #define BT_MUSIC_EFFECT_SPATIAL_AU_EN   1                   //空间音效使能
 #define BT_MUSIC_EFFECT_SPATIAL_AUEQ_EN 1                   //空间音效下固定使用spatial_audio.eq
@@ -372,8 +372,8 @@
 //虚拟低音
 #define BT_MUSIC_EFFECT_VBASS_EN        0                   //虚拟低音使能
 //动态EQ
-#define BT_MUSIC_EFFECT_DYEQ_EN         1                   //动态EQ使能
-#define BT_MUSIC_EFFECT_DYEQ_VBASS_EN   1                   //动态EQ和VBASS配合使用，不需要打开 BT_MUSIC_EFFECT_VBASS_EN
+#define BT_MUSIC_EFFECT_DYEQ_EN         0                   //动态EQ使能
+#define BT_MUSIC_EFFECT_DYEQ_VBASS_EN   0                   //动态EQ和VBASS配合使用，不需要打开 BT_MUSIC_EFFECT_VBASS_EN
 //2段DRC
 #define BT_MUSIC_EFFECT_XDRC_EN         0                   //2段DRC使能
 #define BT_MUSIC_EFFECT_XDRC_EQ_EN      0                   //2段DRC软件EQ使能
@@ -425,7 +425,7 @@
 
 #define BT_SCO_SMIC_AI_PLUS_EN          0                           //是否打开自研单麦AI PLUS降噪算法
 
-#define BT_SCO_SMIC_AI_PRO_EN           1                           //是否打开自研单MIC大模型AI降噪算法
+#define BT_SCO_SMIC_AI_PRO_EN           0                           //是否打开自研单MIC大模型AI降噪算法
 #define BT_SCO_SMIC_AI_PRO_LEVEL		xcfg_cb.bt_dnn_level        //降噪量：0~40级（建议范围，默认0级）
 
 #define BT_SCO_AIAEC_DNN_EN             0                           //是否打开自研单麦 + AIAEC降噪算法
@@ -445,7 +445,7 @@
 
 #define BT_SCO_LDMIC_AI_EN              0                           //是否打开自研长麦距双麦AI降噪算法
 
-#define BT_SNDP_SMIC_AI_EN              0                           //是否打开声加单麦AI降噪算法
+#define BT_SNDP_SMIC_AI_EN              1                           //是否打开声加单麦AI降噪算法
 
 #define BT_SNDP_FBDM_EN                 0                           //是否打开声加双mic（1+1）降噪算法
 

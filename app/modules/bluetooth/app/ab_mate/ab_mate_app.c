@@ -671,11 +671,13 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
                 buf[write_offset++] = INFO_POWER;
                 buf[write_offset++] = 3;
 #if (CHARGE_BOX_TYPE == CBOX_SSW)
+              
                 ab_mate_app.box_vbat = charge_box_get_charge_box_bat_level();
                 ab_mate_app.local_vbat = sys_cb.loc_bat;
 #else
                 ab_mate_app.local_vbat = bsp_get_bat_level();
 #endif
+
                 printf("ab_mate_app.local_vbat:%d\r\n",ab_mate_app.local_vbat);
 				#if BT_TWS_EN
                 if(sys_cb.tws_left_channel){

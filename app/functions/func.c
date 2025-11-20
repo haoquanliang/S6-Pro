@@ -265,6 +265,36 @@ static void spp_at_cmd_process(void)
 		bt_spp_tx(SPP_SERVICE_CH0, (uint8_t *)spp_tx_buffer, strlen(spp_tx_buffer));
     }
 
+#if BT_MUSIC_EFFECT_DBB_EN
+    else if (memcmp((char *)ptr, "dbb_on", strlen("dbb_on")) == 0)
+    {
+        if (bt_tws_is_connected())
+        {
+            sprintf(spp_tx_buffer, "+dbb_on:ok");    
+            message_send(MSG_ID_DBB_SWITCH, 1, 0);
+        }
+        else 
+        {
+            sprintf(spp_tx_buffer, "+dbb_on:err"); 
+        }
+
+        bt_spp_tx(SPP_SERVICE_CH0, (uint8_t *)spp_tx_buffer, strlen(spp_tx_buffer));        
+    }
+    else if (memcmp((char *)ptr, "dbb_off", strlen("dbb_off")) == 0)
+    {
+        if (bt_tws_is_connected())
+        {
+            sprintf(spp_tx_buffer, "+dbb_off:ok");   
+            message_send(MSG_ID_DBB_SWITCH, 0, 0);
+        }
+        else 
+        {
+            sprintf(spp_tx_buffer, "+dbb_off:err"); 
+        }
+        bt_spp_tx(SPP_SERVICE_CH0, (uint8_t *)spp_tx_buffer, strlen(spp_tx_buffer));        
+    } 
+#endif 
+
 }
 #endif
 
@@ -393,6 +423,16 @@ void func_message(u16 msg)
 
             break;
 
+#if BT_MUSIC_EFFECT_DBB_EN
+        case EVT_USER_SYNC_DBB_ON:
+        music_dbb_audio_start();
+        break;
+
+        case EVT_USER_SYNC_DBB_OFF:
+        music_dbb_audio_stop();    
+        break;
+#endif 
+            
 #if APP_USER_FIND_EAR    
         case EVT_FIND_ME_LEFT_START:
                 
@@ -574,7 +614,7 @@ void func_message(u16 msg)
                     
          //   }
         }
-        printf("vbat:%d adc_cb.vbat_val:%d sys_cb.local_bat_level:%d  sys_cb.peer_bat_level:%d\r\n",sys_cb.vbat,adc_cb.vbat_val,sys_cb.local_bat_level,sys_cb.peer_bat_level);
+        printf("vbat:%d adc_cb.vbat_val:%d sys_cb.local_bat_level:%d  sys_cb.peer_bat_level:%d  box_vbat:%d\r\n",sys_cb.vbat,adc_cb.vbat_val,sys_cb.local_bat_level,sys_cb.peer_bat_level,charge_box_get_charge_box_bat_level());
 
       // printf("sys_cb.SWETZ_tick:%d\r\n",sys_cb.SWETZ_tick);
         printf("disp status %d,tws conn %d,tws slave %d, nor conn %d, scan %d, sys_cb.vol:%d  sys_cb.hfp_vol:%d sys_cb.lang_id:%d low_latency:%d sys_cb.eq_mode:%d dev.en:%d\n\r",
@@ -582,7 +622,7 @@ void func_message(u16 msg)
         sys_cb.vol,sys_cb.hfp_vol,sys_cb.lang_id,bt_is_low_latency(),sys_cb.eq_mode,ab_mate_app.mult_dev.en);
        printf("in_case:%d  peer_in_case:%d  mult_dev.en:%d \r\n",sys_cb.flag_local_in_case,sys_cb.flag_peer_in_case,ab_mate_app.mult_dev.en);
         
-            printf("local_in_case:%d peer_in_case:%d\r\n",sys_cb.flag_local_in_case,sys_cb.flag_peer_in_case);
+             printf("local_in_case:%d peer_in_case:%d\r\n",sys_cb.flag_local_in_case,sys_cb.flag_peer_in_case);
            //  app_lr_send_notification(LR_NOTIFY_IN_CASE_STATUS, 1, &sys_cb.flag_local_in_case);
         //printf("ab_mate_app.con_sta:%d\r\n",ab_mate_app.con_sta);
         //  printf("sys_cb.sleep_delay:%d sys_cb.pwroff_delay:%d sys_cb.sleep_en:%d port_2led_is_sleep_en:%d  bt_is_allow_sleep:%d\r\n",sys_cb.sleep_delay,sys_cb.pwroff_delay,sys_cb.sleep_en,port_2led_is_sleep_en(),bt_is_allow_sleep());
@@ -594,10 +634,11 @@ void func_message(u16 msg)
         // char spp_tx_buffer[80];
         // sprintf(spp_tx_buffer, "+ntc:%d", saradc_get_value8(ADCCH_NTC));
         // bt_spp_tx(SPP_SERVICE_CH0, (uint8_t *)spp_tx_buffer, strlen(spp_tx_buffer));
-        printf("ab_mate_app.box_vbat:%d\r\n",ab_mate_app.box_vbat);
+       // printf("ab_mate_app.box_vbat:%d\r\n",ab_mate_app.box_vbat);
         // printf("a2dp_index:%d ring_index:%d",bt_get_cur_a2dp_media_index(),bt_call_get_ring_index());
-        // printf("local_vbat:%d remote_vbat:%d\r\n",ab_mate_app.local_vbat,ab_mate_app.remote_vbat);
-        printf("find_leftgoing:%d find_rightgoing:%d\r\n",sys_cb.find_left_ear_going,sys_cb.find_right_ear_going);
+         //printf("local_vbat:%d remote_vbat:%d\r\n",ab_mate_app.local_vbat,ab_mate_app.remote_vbat);
+     //   printf("find_leftgoing:%d find_rightgoing:%d\r\n",sys_cb.find_left_ear_going,sys_cb.find_right_ear_going);
+   printf("music_effect_get_state:%d %d\r\n",music_effect_get_state(MUSIC_EFFECT_DBB),music_effect_get_state_real(MUSIC_EFFECT_DBB));  
         break;
             
 #endif
