@@ -37,6 +37,7 @@ void cm_factory(void *buff, uint page)
             sys_cb.lang_id = 0;             //出厂默认英文
         } else if (xcfg_cb.lang_id == 3) {
             sys_cb.lang_id = 1;             //出厂默认中文
+            printf("44444444444444444444444444444444444444\r\n");
         } else {
             sys_cb.lang_id = xcfg_cb.lang_id;
         }

@@ -67,6 +67,19 @@ void spp_connect_callback(uint8_t *bd_addr, uint8_t ch)
 void spp_disconnect_callback(uint8_t *bd_addr, uint8_t ch)
 {
     printf("--->spp_disconnect_callback ch:%d\n",ch);
+#if SPP_BLE_CALLBACK
+ 
+  //  if(ab_mate_app.con_sta == AB_MATE_CON_NONE){
+            if(sys_cb.find_left_ear_going == true){
+                    msg_enqueue(EVT_FIND_ME_LEFT_STOP);
+            }
+            if(sys_cb.find_right_ear_going == true){
+                    msg_enqueue(EVT_FIND_ME_RIGHT_STOP);
+            }    
+   // }
+
+#endif
+
     app_spp_disconnect_callback(ch);
 
 #if ANC_TOOL_EN

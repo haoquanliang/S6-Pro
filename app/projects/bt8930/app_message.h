@@ -48,6 +48,8 @@ typedef enum {
     MSG_ID_ENABLE_PRIV_BLE_AFTER_POWER_ON,
     MSG_ID_UPDATE_BLE_ADV_NORMAL,
     MSG_ID_UPDATE_INCASE_STA,
+    MSG_ID_UPDATE_1S_AFTER_INCASE_STA,
+  
 } msg_id_t;
 
 extern message_mgr_t message_mgr;

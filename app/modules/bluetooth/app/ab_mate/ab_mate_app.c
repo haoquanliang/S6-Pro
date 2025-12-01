@@ -444,8 +444,22 @@ void ab_mate_vbat_check_proc(soft_timer_p timer)
             tlv_data[4] = box_bat;
         }
 #if AB_PULL_EAR_VBAT
+
             tlv_data[2] = app_bat_level_show_for_app(tlv_data[2]);
             tlv_data[3] = app_bat_level_show_for_app(tlv_data[3]);
+            if(!bt_tws_is_connected()){
+                if(sys_cb.tws_left_channel){
+                        tlv_data[3] = 0;
+                        if(sys_cb.flag_local_in_case == 0){
+                            tlv_data[4] = 0;
+                        }
+                }else { 
+                        tlv_data[2] = 0;
+                        if(sys_cb.flag_local_in_case == 0){
+                            tlv_data[4] = 0;
+                        }                        
+                }
+            }
 #endif
 #if SWETZ_VBAT_UPDATE
     if(sys_cb.flag_local_in_case == 0 && sys_cb.flag_peer_in_case == 0){
@@ -694,7 +708,7 @@ u8 incase_sta = 0;
 #if APP_INCASE_STA
 uint8_t user_check_incase_sta_pull(void)
 {
-   // printf("--------local_in_case:%d flag_peer_in_case:%d---------\r\n",sys_cb.flag_local_in_case,sys_cb.flag_peer_in_case);
+    printf("--------local_in_case:%d flag_peer_in_case:%d---------\r\n",sys_cb.flag_local_in_case,sys_cb.flag_peer_in_case);
 
     if(sys_cb.flag_local_in_case == 0 && sys_cb.flag_peer_in_case == 0){
                         incase_sta = 0;
@@ -772,12 +786,23 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
                 ab_mate_app.local_vbat = bsp_get_bat_level();
 #endif
 
-                printf("ab_mate_app.local_vbat:%d\r\n",ab_mate_app.local_vbat);
+    
 				#if BT_TWS_EN
                 if(sys_cb.tws_left_channel){
 #if AB_PULL_EAR_VBAT
+#if SWETZ_VBAT_UPDATE
+                    if(!bt_tws_is_connected()){
+                            buf[write_offset++] = app_bat_level_show_for_app(ab_mate_app.local_vbat);
+                            buf[write_offset++] = 0;
+                    }else {
+                            buf[write_offset++] = app_bat_level_show_for_app(ab_mate_app.local_vbat);
+                            buf[write_offset++] = app_bat_level_show_for_app(ab_mate_app.remote_vbat);
+                    }
+
+#else
                     buf[write_offset++] = app_bat_level_show_for_app(ab_mate_app.local_vbat);
                     buf[write_offset++] = app_bat_level_show_for_app(ab_mate_app.remote_vbat);
+#endif                    
 #else
                     buf[write_offset++] = ab_mate_app.local_vbat;
                     buf[write_offset++] = ab_mate_app.remote_vbat;
@@ -792,15 +817,36 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
     }
 
 #else
+#if SWETZ_VBAT_UPDATE
+                    if(sys_cb.flag_local_in_case == 0 && sys_cb.flag_peer_in_case == 0){       
+                            buf[write_offset++] = 0;
+                    }else if(sys_cb.flag_local_in_case == 0 && sys_cb.flag_peer_in_case == 1 && (!bt_tws_is_connected()))
+                            buf[write_offset++] = 0;
+                    else{
+                            buf[write_offset++] = ab_mate_app.box_vbat;
+                    }
+#else 
                     buf[write_offset++] = ab_mate_app.box_vbat;
+#endif                    
 
 #endif
                 }else
 				#endif
 				{
 #if AB_PULL_EAR_VBAT
+
+#if SWETZ_VBAT_UPDATE
+                    if(!bt_tws_is_connected()){
+                            buf[write_offset++] = 0;
+                            buf[write_offset++] = app_bat_level_show_for_app(ab_mate_app.local_vbat);
+                    }else {
+                            buf[write_offset++] = app_bat_level_show_for_app(ab_mate_app.remote_vbat);
+                            buf[write_offset++] = app_bat_level_show_for_app(ab_mate_app.local_vbat);
+                    }
+#else
                     buf[write_offset++] = app_bat_level_show_for_app(ab_mate_app.remote_vbat);
                     buf[write_offset++] = app_bat_level_show_for_app(ab_mate_app.local_vbat);
+#endif
 #else
                     buf[write_offset++] = ab_mate_app.remote_vbat;
                     buf[write_offset++] = ab_mate_app.local_vbat;
@@ -814,11 +860,21 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
                     buf[write_offset++] = ab_mate_app.box_vbat;
     }
 #else
+#if SWETZ_VBAT_UPDATE
+                    if(sys_cb.flag_local_in_case == 0 && sys_cb.flag_peer_in_case == 0){       
+                            buf[write_offset++] = 0;
+                    }else {
+                            buf[write_offset++] = ab_mate_app.box_vbat;
+                    }
+#else 
                     buf[write_offset++] = ab_mate_app.box_vbat;
+#endif                    
 #endif
 
 
                 }
+
+    
             break;
 
             case INFO_VERSION:
@@ -1529,7 +1585,9 @@ void ab_mate_language_set(u8 *payload, u8 payload_len)
                                 param_lang_id_write();
                                 param_sync();
                                 bt_tws_sync_setting();
-                                printf("sys_cb.lang_id charge\r\n");
+                                printf("sys_cb.lang_id charge:%d\r\n",sys_cb.lang_id);
+                                // param_lang_id_read();
+                                // printf("read sys_cb.lang_id:%d\r\n",sys_cb.lang_id);
                         }
                  }else{
                         buf[write_offset++] = AB_MATE_FAIL;
@@ -3150,14 +3208,16 @@ void ab_mate_lang_init(void)
 #if AB_MATE_LANG_EN
     if(ab_mate_app.cm_flag == AB_MATE_CM_TAG){
         param_lang_id_read();
-        printf("sys_cb.lang_id:%d\r\n",sys_cb.lang_id);
+        printf("----init sys_cb.lang_id:%d\r\n",sys_cb.lang_id);
     }else{
         if (xcfg_cb.lang_id == 2) {
             sys_cb.lang_id = 0;             //出厂默认英文
         } else if (xcfg_cb.lang_id == 3) {
             sys_cb.lang_id = 1;             //出厂默认中文
+            printf("11111111111111111111111111111111111111111111\r\n");
         } else {
             sys_cb.lang_id = xcfg_cb.lang_id;
+            printf("2222222222222222222222222222222222222222222\r\n");
         }
         param_lang_id_write();
     }
@@ -3249,7 +3309,7 @@ void ab_mate_device_reset_do(void)
     bt_tws_req_alarm_user(USER_SYNC_EVT_RESET);
 #else
       //  WDT_RST();
-#endif    
+#endif
 
 
 }

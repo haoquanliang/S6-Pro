@@ -90,7 +90,7 @@ void param_init(bool reset)
     if (sys_cb.hfp_vol > 15) {
         sys_cb.hfp_vol = 15;
     }
-
+#if !SWETZ
     if (xcfg_cb.lang_id >= LANG_EN_ZH) {
         param_lang_id_read();
         if (sys_cb.lang_id >= LANG_EN_ZH) {
@@ -98,15 +98,18 @@ void param_init(bool reset)
                 sys_cb.lang_id = 0;             //出厂默认英文
             } else if (xcfg_cb.lang_id == 3) {
                 sys_cb.lang_id = 1;             //出厂默认中文
+                printf("555555555555555555555555555555555555555\r\n");
             } else {
                 sys_cb.lang_id = xcfg_cb.lang_id;
+                printf("666666666666666666666666666666666\r\n");
             }
             param_lang_id_write();
         }
     } else {
         sys_cb.lang_id = xcfg_cb.lang_id;
+        printf("777777777777777777777777777\r\n");
     }
-
+#endif
     sys_cb.sw_rst_flag = sw_reset_source_get();
 
 #if (CHARGE_BOX_TYPE == CBOX_SSW)

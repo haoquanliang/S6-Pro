@@ -14,6 +14,14 @@ void app_ble_disconnect_callback(void)
 #if LE_AB_FOT_EN
     fot_ble_disconnect_callback();
 #endif
+#if SPP_BLE_CALLBACK
+            if(sys_cb.find_left_ear_going == true){
+                    msg_enqueue(EVT_FIND_ME_LEFT_STOP);
+            }
+            if(sys_cb.find_right_ear_going == true){
+                    msg_enqueue(EVT_FIND_ME_RIGHT_STOP);
+            }   
+#endif
     app_ctrl_ble_disconnect_callback();
 }
 

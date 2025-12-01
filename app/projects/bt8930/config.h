@@ -66,7 +66,7 @@
 #define SWETZ_INCASE_MUTE           1//入仓mute
 #define SWETZ_EVT_1S                1//1s事件
 #define SWETZ_LOWVBAT_OUT_SYNC_OFF  1//sys_cb.discon_reason 0不同步 1同步//低电不同步关机
-#define SWETZ_OUTCASE_AFTER_NOT_KEY 1//出仓5s不响应按键消息//flag_outcase_5s_kye_null
+#define SWETZ_OUTCASE_AFTER_NOT_KEY 0//出仓5s不响应按键消息//flag_outcase_5s_kye_null
 #define SWETZ_FACTORY_RESET         1//恢复出厂
 #define SWETZ_DYN_EQ_DEBUG          0//动态EQ调试
 #define SWETZ_NTC                   1//ntc
@@ -80,6 +80,10 @@
 #define SWETZ_RING_SEC_ROUTE        1//第二路来电ring
 #define SWETZ_POWERON_AFTER_2S_CHECK_INCSE_STA  1//开机2s后交换一次在仓状态
 #define SWETZ_INBOX_STA             1//电量最高位清零,防止app显示错误电量
+#define SWETZ_SHIP_MODE             1//船运模式
+
+
+
 //APP
 #define APP_BLE_RADIO               1//广播ble修改
 #define AB_FIND_EAR                 0//查找耳机--下面重写了-功能关闭
@@ -88,8 +92,8 @@
 #define AB_USER_KEY                 1//user_key
 #define APP_KEY_FUNTION_SELECT      1//1:使用ab_mate的按键功能，0：使用配置的按键功能
 #define APP_EQ_SET                  1//EQ设置
-#define APP_EQ_TONE                 0//增加eq切换tong声
-#define APP_MP3_BYPASS_EQ           0//播放mp3提示音bypass EQ播完再恢复
+#define APP_EQ_TONE                 1//增加eq切换tong声
+#define APP_MP3_BYPASS_EQ           1//播放mp3提示音bypass EQ播完再恢复
 #define APP_EQ_CMD_REPLY            1//修改EQ命令回复
 #define APP_DEV_EN                  (0)//1to2 默认开关
 #define APP_LANG_TYPE_SET           1//提示音类型
@@ -105,12 +109,17 @@
 #define APP_VBAT_SET_0              0//上传app仓电量置0
 #define SWETZ_VBAT_UPDATE           1//双耳不在仓，不显示仓电量
 #define APP_CASE_VBAT_BIT7          1//仓电量最高位用于表示仓是否充电
-#define APP_TWS_TONE_IS_PLAY        1//如果相同的提示音在播就不在加入队列                    1//
+#define APP_TWS_TONE_IS_PLAY        1//如果相同的提示音在播就不在加入队列                    
 #define APP_SPATIAL_AUDIO_TONE      1//增加一个切空间音频的提示音,退出提示音的时候判断是否和EQ冲突
 #define APP_REST_FACTORY               1//恢复出厂用同步事件软复位代替看门狗复位
+#define APP_FACTORY_REST_NO_POWER_TONE  1//恢复出厂不播开机提示音
+#define SPP_BLE_CALLBACK                1//spp ble断开回调处理:1.断开停止查找耳机
+#define APP_INBOX_STA_1S_AFTER_UPDATE   1//APP有毛病，连续发太快接收不了，做500ms延时发送
+
+
 #define SWETZ_CLOSE                 0//0:关掉V3D
 #define APP_MUSIC_AUDIO_TEST        1//音效调试
-#define APP_FACTORY_REST_NO_POWER_TONE  1//恢复出厂不播开机提示音
+
 #endif
 
 

@@ -903,14 +903,14 @@ u32 charge_box_ssw_process(u32 charge_sta)
     if(vhouse_cb.rx_flag) {
         if(packet->checksum == crc8_maxim((u8 *)packet, 5 + packet->length)) {
             TRACE("cmd [%d], %d\n", packet->cmd, charge_sta);
-          //  print_r(packet,20);
+            print_r(packet,20);
             if (charge_sta) {
                 charge_box_analysis_packet_for_charge(packet);
             } else {
                 reset_sleep_delay();                    //耳机在仓内不进休眠, 需要接收电量心跳包数据
                 charge_box_analysis_packet(packet);
                 charge_box_update_bat_adv();
-            }
+             }
         }
         vhouse_cb.rx_flag=0;
     }

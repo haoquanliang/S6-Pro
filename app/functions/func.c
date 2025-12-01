@@ -303,7 +303,7 @@ static void spp_at_cmd_process(void)
 AT(.text.func.msg)
 void app_check_mute(void)
 {
-    bool current_state = CHARGE_INBOX();
+    bool current_state = vhouse_cb.inbox_sta;////CHARGE_INBOX();
     if (current_state)
     {   
         if (!sys_cb.mute)
@@ -412,7 +412,12 @@ void func_message(u16 msg)
                 printf("EVT_IN_CASE\r\n");
                   lr_notify_in_case_info();  
 #if APP_USER_NOTIFY
-                msg_enqueue(EVT_UPDATE_INCASE_STA);
+#if APP_INBOX_STA_1S_AFTER_UPDATE
+                    message_cancel_all(MSG_ID_UPDATE_1S_AFTER_INCASE_STA);
+                    message_send(MSG_ID_UPDATE_1S_AFTER_INCASE_STA, 0, 500);
+#else
+                     msg_enqueue(EVT_UPDATE_INCASE_STA);
+#endif
 #endif
 
 
@@ -504,7 +509,14 @@ void func_message(u16 msg)
                  
                
 #if APP_USER_NOTIFY
-                msg_enqueue(EVT_UPDATE_INCASE_STA);
+               
+#if APP_INBOX_STA_1S_AFTER_UPDATE
+
+                    message_send(MSG_ID_UPDATE_1S_AFTER_INCASE_STA, 0, 500);
+#else
+                     msg_enqueue(EVT_UPDATE_INCASE_STA);
+#endif
+                
 #endif
 #if SWETZ_OUTCASE_AFTER_NOT_KEY
              sys_cb.flag_outcase_5s_kye_null = true;
@@ -642,8 +654,10 @@ void func_message(u16 msg)
      //   printf("find_leftgoing:%d find_rightgoing:%d\r\n",sys_cb.find_left_ear_going,sys_cb.find_right_ear_going);
    //printf("music_effect_get_state:%d %d\r\n",music_effect_get_state(MUSIC_EFFECT_DBB),music_effect_get_state_real(MUSIC_EFFECT_DBB));  
    //printf("ab_mate_app.v3d_audio_en:%d\r\n",ab_mate_app.v3d_audio_en);
-   printf("find_left:%d find_right:%d",sys_cb.find_left_ear_going,sys_cb.find_right_ear_going);
-            printf("sys_cb.sw_rst_flag:%d\r\n",sys_cb.sw_rst_flag);
+//    printf("find_left:%d find_right:%d",sys_cb.find_left_ear_going,sys_cb.find_right_ear_going);
+//             printf("sys_cb.sw_rst_flag:%d\r\n",sys_cb.sw_rst_flag);
+                param_lang_id_read();
+                printf("read land:%d\r\n",sys_cb.lang_id);
         break;
             
 #endif
@@ -760,8 +774,10 @@ void func_message(u16 msg)
                         TRACE_R(bt_addr,6);
                         memcpy(ab_mate_app.mult_dev.discon_addr, bt_addr, 6);//copy需要断开的设备地址到ab_mate_app.mult_dev.discon_addr
                         bt_disconnect_address();//蓝牙设备断开地址
-
+                         bt_set_scan(0x03);
+                        f_bt.warning_status |= BT_WARN_PAIRING;
                         }else {
+                                    f_bt.warning_status |= BT_WARN_PAIRING;
                                     bt_set_scan(0x03); //没连接或者连接一个设备就进可发现可连接
                             }
                     }else {

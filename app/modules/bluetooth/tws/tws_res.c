@@ -254,7 +254,7 @@ static void tws_res_play_init(void)
         music_effect_alg_suspend(MUSIC_EFFECT_SUSPEND_FOR_RES);
 #endif // BT_MUSIC_EFFECT_EN
 #if APP_MP3_BYPASS_EQ
-       
+        printf("1122\r\n");
          ab_mate_bypass_eq();
 #endif
 
@@ -328,20 +328,23 @@ static void tws_res_play_exit(void)
         music_control(MUSIC_MSG_STOP);
         mp3_res_play_exit();
 #if APP_MP3_BYPASS_EQ
-        if(sys_cb.incall_flag)
-        {
-            //MP3播完后，SCO算法初始化的时候会设置EQ
-        }
-        else
-        {
-            app_eq_set(); 
-        }       
+        // if(sys_cb.incall_flag)
+        // {
+        //     //MP3播完后，SCO算法初始化的时候会设置EQ
+        // }
+        // else
+        // {
+        //     app_eq_set(); 
+        // }       
 #endif          
 #if BT_MUSIC_EFFECT_EN
         music_effect_alg_reinit();
         music_effect_alg_restart();
 #endif // BT_MUSIC_EFFECT_EN
         bsp_change_volume(sys_cb.vol);
+#if SWETZ//目前看dbb算法重新初始化之后再设EQ才有效果
+        app_eq_set(); 
+#endif
 
 
 #if WARNING_WSBC_EN
@@ -647,6 +650,7 @@ void tws_res_process_do(void)
             {
                 //音乐的EQ会影响mp3格式的语音提示，在播放前关掉，播完后恢复正常
                 //注意：各种音效也会调整EQ
+                printf("33366\r\n");
                 ab_mate_bypass_eq();
             }
 #endif

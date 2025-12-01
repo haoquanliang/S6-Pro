@@ -29,7 +29,7 @@
         <add key="dac_vcm_less_en" value="False" />
         <add key="dacvdd_bypass_en" value="False" />
         <add key="dac_off_for_conn" value="False" />
-        <add key="dac_max_gain" value="-9DB" />
+        <add key="dac_max_gain" value="-3DB" />
         <add key="bt_call_max_gain" value="-3DB" />
         <add key="vol_max" value="16级音量" />
         <add key="sys_init_vol" value="8" />
@@ -266,7 +266,7 @@
         <add key="music_udisk_en" value="True" />
         <add key="sddet_iosel" value="21" />
         <add key="sd1det_iosel" value="0" />
-        <add key="dac_spr_sel" value="0" />
+        <add key="dac_spr_sel" value="1" />
         <add key="mic0_en" value="False" />
         <add key="mic0_bias_method" value="1" />
         <add key="mic0_anl_gain" value="8" />

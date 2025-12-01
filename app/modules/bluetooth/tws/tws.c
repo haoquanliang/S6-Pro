@@ -220,6 +220,7 @@ void bt_tws_set_info(uint8_t *param)
     if ((tmp <= 2) && tmp != sys_cb.lang_id)
     {
         sys_cb.lang_id = tmp;
+        printf("33333333333333333333333333333333333333333\r\n");
         msg_enqueue(EVT_BT_SET_LANG_ID);        
     }    
 #else    

@@ -277,7 +277,11 @@ static void message_process(message_item_t *message)
             lr_notify_in_case_info();  
             break;
 
-
+#if APP_INBOX_STA_1S_AFTER_UPDATE
+        case MSG_ID_UPDATE_1S_AFTER_INCASE_STA:
+                msg_enqueue(EVT_UPDATE_INCASE_STA);
+            break;
+#endif
             
 #if APP_USER_FIND_EAR
         case MSG_ID_FIND_ME_LEFT:
@@ -297,12 +301,12 @@ static void message_process(message_item_t *message)
 
             // }
             // printf("sys_cb.find_ear_count:%d\r\n",sys_cb.find_ear_count);
-            wav_res_play(RES_BUF_FIND_EAR_WAV, RES_LEN_FIND_EAR_WAV); 
+            // wav_res_play(RES_BUF_FIND_EAR_WAV, RES_LEN_FIND_EAR_WAV); 
+            // wav_res_play(RES_BUF_FIND_EAR_WAV, RES_LEN_FIND_EAR_WAV);
             wav_res_play(RES_BUF_FIND_EAR_WAV, RES_LEN_FIND_EAR_WAV);
             wav_res_play(RES_BUF_FIND_EAR_WAV, RES_LEN_FIND_EAR_WAV);
-            wav_res_play(RES_BUF_FIND_EAR_WAV, RES_LEN_FIND_EAR_WAV);
-            message_send(MSG_ID_FIND_ME_LEFT, 0, 200);
-           // message_send(MSG_ID_FIND_ME_LEFT, 0, 800);
+            message_send(MSG_ID_FIND_ME_LEFT, 0, 1000);
+           // message_send(MSG_ID_FIND_ME_LEFT, 0, 200);
             break;
 
 
@@ -321,12 +325,12 @@ static void message_process(message_item_t *message)
             //         wav_res_play(RES_BUF_FIND2_WAV,RES_LEN_FIND2_WAV);
 
             // }
-            wav_res_play(RES_BUF_FIND_EAR_WAV, RES_LEN_FIND_EAR_WAV); 
+            // wav_res_play(RES_BUF_FIND_EAR_WAV, RES_LEN_FIND_EAR_WAV); 
+            // wav_res_play(RES_BUF_FIND_EAR_WAV, RES_LEN_FIND_EAR_WAV);
             wav_res_play(RES_BUF_FIND_EAR_WAV, RES_LEN_FIND_EAR_WAV);
             wav_res_play(RES_BUF_FIND_EAR_WAV, RES_LEN_FIND_EAR_WAV);
-            wav_res_play(RES_BUF_FIND_EAR_WAV, RES_LEN_FIND_EAR_WAV);
-            message_send(MSG_ID_FIND_ME_RIGHT, 0, 200);            
-           // message_send(MSG_ID_FIND_ME_RIGHT, 0, 1000);
+            message_send(MSG_ID_FIND_ME_RIGHT, 0, 1000);            
+           // message_send(MSG_ID_FIND_ME_RIGHT, 0, 200);
             break;
 
 
