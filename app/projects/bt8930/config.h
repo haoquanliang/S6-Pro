@@ -80,7 +80,7 @@
 #define SWETZ_RING_SEC_ROUTE        1//第二路来电ring
 #define SWETZ_POWERON_AFTER_2S_CHECK_INCSE_STA  1//开机2s后交换一次在仓状态
 #define SWETZ_INBOX_STA             1//电量最高位清零,防止app显示错误电量
-#define SWETZ_SHIP_MODE             1//船运模式
+#define SWETZ_SHIP_MODE             1//耳机进船运模式
 
 
 

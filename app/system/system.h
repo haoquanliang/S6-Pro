@@ -259,7 +259,9 @@ void user_disc_tone_play(void);
 void user_connect_tone_play(void);
 void user_low_bat_tone_play(void);
 #endif
-
+#if SWETZ_SHIP_MODE
+void swetz_ship_mode(bool mode);
+#endif
 
 
 #if SWETZ_NTC

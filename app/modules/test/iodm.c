@@ -492,7 +492,14 @@ void iodm_reveice_data_deal(void)
             charge_box_factory_reset();
             break;
 #endif
-        
+
+
+        case VHOUSE_CMD_CUSTOM_CHIP_MODE:
+            printf("VHOUSE_CMD_CUSTOM_CHIP_MODE\r\n");
+            swetz_ship_mode(1);
+            break;
+
+
         case VHOUSE_CMD_CUSTOM_GET_FIXED_BT_ADDR:
                 cmd_rsp_param_len = 6;
                 bt_get_fixed_bd_addr(&tx_buf[0]);

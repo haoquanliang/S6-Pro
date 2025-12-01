@@ -1339,6 +1339,24 @@ void power_on_check(void)
 }
 
 
+#if SWETZ_SHIP_MODE
+void swetz_ship_mode(bool mode)
+{
+        GPIOBFEN &= ~BIT(2);        
+        GPIOBDE |= BIT(2);          
+        GPIOBDIR &= ~BIT(2); 
+    if(mode == 1){
+         GPIOBSET |= BIT(2);
+
+    }else{
+         GPIOBCLR |= BIT(2); 
+    }           
+             
+}
+
+
+#endif
+
 
 AT(.text.bsp.sys.init)
 void sys_init(void)
@@ -1352,7 +1370,9 @@ void sys_init(void)
 
     // io init
     sys_io_init();
-
+#if SWETZ_SHIP_MODE
+    swetz_ship_mode(0);
+#endif
     // var init
     sys_var_init();
 
