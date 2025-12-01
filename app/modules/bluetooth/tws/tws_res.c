@@ -254,12 +254,15 @@ static void tws_res_play_init(void)
         music_effect_alg_suspend(MUSIC_EFFECT_SUSPEND_FOR_RES);
 #endif // BT_MUSIC_EFFECT_EN
 #if APP_MP3_BYPASS_EQ
+       
          ab_mate_bypass_eq();
 #endif
 
-
+#if APP_LANG_TYPE_SET
+         bsp_change_volume(ab_mate_app.vp_vol);
+#else
         bsp_change_volume(WARNING_VOLUME);
-
+#endif
         mp3_res_play_kick(addr, len, tws_res.kick_flag);
         tws_res.play_kick_cb = music_sync_kick;
 #endif
@@ -339,6 +342,8 @@ static void tws_res_play_exit(void)
         music_effect_alg_restart();
 #endif // BT_MUSIC_EFFECT_EN
         bsp_change_volume(sys_cb.vol);
+
+
 #if WARNING_WSBC_EN
     } else if(res_type == RES_TYPE_WSBC) {
         warning_play_exit();
@@ -694,6 +699,18 @@ void tws_res_cleanup(void)
     }
 }
 
+
+#if APP_TWS_TONE_IS_PLAY
+bool tws_res_is_playing_idx(uint8_t which)
+{
+    if (tws_res_is_busy() && (tws_res.res_idx == which))
+    {
+        return true;
+    }
+    return false;
+}
+#endif 
+
 bool tws_res_search(uint8_t res_idx)
 {
     if(tws_res_is_busy() && tws_res.res_idx == res_idx) {
@@ -737,6 +754,25 @@ uint8_t tws_res_add(uint8_t res_idx, uint8_t flag)
             return RES_ERR_NO_ERR;
         }
     }
+
+#if APP_TWS_TONE_IS_PLAY
+    if(
+           res_idx == TWS_RES_EQ_TONE
+        || res_idx == TWS_RES_GAME_MODE
+        || res_idx == TWS_RES_MUSIC_MODE
+        || res_idx == TWS_RES_TN_MUSIC_MODE
+        || res_idx == TWS_RES_TN_GAME_MODE
+    ){
+        //如果和正在播放的相同的话，就不播放
+        if (tws_res_is_playing_idx(res_idx))
+        {
+            return RES_ERR_NO_ERR;
+        }
+    }
+
+
+#endif
+
 
     if(res_list_is_full() || (res_list.add_len >= ITEM_MAX_NB)) {
         TRACE("res_full: %d(%d) ####\n", res_idx);

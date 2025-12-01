@@ -134,6 +134,9 @@
 #define AB_MATE_CM_DYNAMIC_BASS_INFO        (AB_MATE_CM_MULT_DEV_EN + 1)                                //2byte(EN,LEVEL)
 #define AB_MATE_CM_ANC_FADE                 (AB_MATE_CM_DYNAMIC_BASS_INFO + 2)                          //1byte
 
+#define AB_MATE_CM_SWET_KEY_TONE_MODE       (150)                                                       //1byte，从地址150开始
+#define AB_MATE_CM_SWET_TONE_VOL              (AB_MATE_CM_SWET_KEY_TONE_MODE + 1)  
+
 
 typedef enum{
     AB_MATE_SUCCESS = 0,
@@ -286,8 +289,10 @@ enum{
     INFO_PID,
 
 #if SWETZ
+    INFO_SWET_FIND_ME_LEFT = 0x92,
+    INFO_SWET_FIND_ME_RIGHT = 0x93,
     INFO_NI_CASE_STATE = 0x94,
-
+    
 #endif
 
 
@@ -489,6 +494,10 @@ typedef struct{
 #if AB_MATE_RECORD_EN
     u8 record_en;
 #endif
+#if SWETZ
+    u8 vp_vol;
+#endif
+
 }ab_mate_app_var_t;
 
 
@@ -543,6 +552,8 @@ void ab_mate_time_info_notify(u8 type);
 #if APP_USER_NOTIFY
 void ab_mate_user_incase_sta_notify(void);
 uint8_t user_check_incase_sta_pull(void);
+void ab_mate_notify_eq(void);
+void ab_mate_notify_audio(void);
 #endif
 #endif
 #endif

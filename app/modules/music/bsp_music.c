@@ -205,7 +205,12 @@ void mp3_res_play(u32 addr, u32 len)
 #if BT_MUSIC_EFFECT_EN
     music_effect_alg_suspend(MUSIC_EFFECT_SUSPEND_FOR_RES);
 #endif // BT_MUSIC_EFFECT_EN
+#if APP_LANG_TYPE_SET 
+    bsp_change_volume(ab_mate_app.vp_vol);
+#else
     bsp_change_volume(WARNING_VOLUME);
+#endif
+    
 #if APP_MP3_BYPASS_EQ
     //音乐的EQ会影响mp3格式的语音提示，在播放前关掉，播完后恢复正常
     //注意：各种音效也会调整EQ 
@@ -531,8 +536,27 @@ void bsp_res_play_exit_cb(uint8_t res_idx)
 
 #endif
 
-#endif
 
+#endif
+#if APP_SPATIAL_AUDIO_TONE
+    if(res_idx == TWS_RES_SPATIAL_AUDIO){
+            if(ab_mate_app.v3d_audio_en){
+                    msg_enqueue(EVT_EQ_PARA_DEFAULT);
+            }
+    }
+
+    if(res_idx == TWS_RES_EQ_TONE){
+            if(music_effect_get_state(MUSIC_EFFECT_SPATIAL_AUDIO)){
+                    music_spatial_audio_stop();
+                    ab_mate_app.v3d_audio_en = false;
+                    ab_mate_cm_write(&ab_mate_app.v3d_audio_en, AB_MATE_CM_V3D_AUDIO, 1, 2);
+                    msg_enqueue(EVT_SP_AUDIO_DEFAULT);
+
+            }
+
+    }
+
+#endif
 #if ANC_EN
     uint8_t anc_mode = 0;
     if (TWS_RES_NR_DISABLE == res_idx) {

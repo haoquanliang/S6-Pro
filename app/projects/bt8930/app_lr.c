@@ -133,6 +133,16 @@ static void lr_parse_notification(void)
         break;        
 
 
+        case LR_NOTIFY_SYNC_AB_VOL:
+        {
+            if (payload_size == 1)
+            {
+                printf("tws_rx_buf[PAYLOAD_INDEX]:%d\r\n",tws_rx_buf[PAYLOAD_INDEX]);
+                ab_mate_app.vp_vol = tws_rx_buf[PAYLOAD_INDEX];
+                ab_mate_cm_write(&ab_mate_app.vp_vol, AB_MATE_CM_SWET_TONE_VOL, 1, 2);
+            }
+        }
+            break;
         case LR_NOTIFY_MSG:
         if (payload_size == 2)
         {

@@ -19,6 +19,7 @@ enum
     USER_SYNC_EVT_DBB_OFF,
     USER_SYNC_EVT_ANC_OFF,
     USER_SYNC_EVT_ANC_RESUME,
+    USER_SYNC_EVT_RESET,//同步执行软复位
 };
 #endif 
 

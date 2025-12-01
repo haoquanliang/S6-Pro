@@ -45,7 +45,9 @@ static const u8 tws_res_type_tbl[TWS_RES_MAX] =
     [TWS_RES_TN_MUSIC_MODE]       = RES_TYPE_MP3,    
     [TWS_RES_TN_GAME_MODE]       = RES_TYPE_MP3,      
     [TWS_RES_TN_DISC]       = RES_TYPE_MP3,    
-    [TWS_RES_TN_CONNECT]       = RES_TYPE_MP3,        
+    [TWS_RES_TN_CONNECT]       = RES_TYPE_MP3,  
+    [TWS_RES_SPATIAL_AUDIO]    = RES_TYPE_MP3,  
+
 #endif
 #if ASR_EN
     [TWS_RES_ASR_ON]        = TWS_RES_TYPE,
@@ -137,7 +139,13 @@ void tws_res_get_addr(u32 index, u32 *addr, u32 *len)
             *len = RES_LEN_EQ_MP3;
         break;   
 #endif
+#if APP_SPATIAL_AUDIO_TONE
+        case TWS_RES_SPATIAL_AUDIO:
+            *addr = RES_BUF_EQ_MP3;
+            *len = RES_LEN_EQ_MP3;
+        break; 
 
+#endif
 
 
     case TWS_RES_CONNECTED:

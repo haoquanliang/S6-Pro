@@ -912,6 +912,12 @@ void port_int_example(void)     //sys_set_tmr_enable(1, 1); 前调用 测试OK
 #if APP_SWITCH_TONE_TYPE
 void user_poweron_tone_play(void)
 {
+#if APP_FACTORY_REST_NO_POWER_TONE
+    if(sys_cb.sw_rst_flag == SW_RST_FLAG){
+                sys_cb.sw_rst_flag = SW_RST_DC_IN;
+                return;
+    }
+#endif
     if(sys_cb.lang_id == 1){
          mp3_res_play(RES_BUF_POWERON, RES_LEN_POWERON);
     }else if(sys_cb.lang_id == 2){

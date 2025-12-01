@@ -34,7 +34,7 @@
         <add key="vol_max" value="16级音量" />
         <add key="sys_init_vol" value="8" />
         <add key="sys_recover_initvol" value="8" />
-        <add key="warning_volume" value="8" />
+        <add key="warning_volume" value="6" />
         <add key="buck_mode_en" value="True" />
         <add key="vddba_buck_en" value="True" />
         <add key="vddbt_capless_en" value="False" />
@@ -80,7 +80,7 @@
         <add key="qtest_pickup_status" value="不操作" />
         <add key="bt_tws_en" value="True" />
         <add key="bt_tws_pair_bonding_en" value="True" />
-        <add key="bt_tws_pair_mode" value="1" />
+        <add key="bt_tws_pair_mode" value="0" />
         <add key="bt_tws_lr_mode" value="9" />
         <add key="tws_sel_left_gpio_sel" value="10" />
         <add key="bt_tws_name_suffix_en" value="False" />

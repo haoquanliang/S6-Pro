@@ -447,6 +447,7 @@ void func_message(u16 msg)
                 }
                sys_cb.find_left_ear_going = true;
                app_lr_send_notification(LR_NOTIFY_SYNC_L_FIND_STA, 1, &sys_cb.find_left_ear_going);
+               ab_mate_notify_find_me_left();
             break;
 
          case EVT_FIND_ME_LEFT_STOP:
@@ -461,6 +462,7 @@ void func_message(u16 msg)
                     }
                     sys_cb.find_left_ear_going = false;
                     app_lr_send_notification(LR_NOTIFY_SYNC_L_FIND_STA, 1, &sys_cb.find_left_ear_going);
+                    ab_mate_notify_find_me_right();
                 break;
 
         case EVT_FIND_ME_RIGHT_START:
@@ -619,7 +621,7 @@ void func_message(u16 msg)
       // printf("sys_cb.SWETZ_tick:%d\r\n",sys_cb.SWETZ_tick);
         printf("disp status %d,tws conn %d,tws slave %d, nor conn %d, scan %d, sys_cb.vol:%d  sys_cb.hfp_vol:%d sys_cb.lang_id:%d low_latency:%d sys_cb.eq_mode:%d dev.en:%d\n\r",
         f_bt.disp_status,bt_tws_is_connected(),bt_tws_is_slave(),bt_nor_is_connected(), bt_get_scan(),
-        sys_cb.vol,sys_cb.hfp_vol,sys_cb.lang_id,bt_is_low_latency(),sys_cb.eq_mode,ab_mate_app.mult_dev.en);
+        sys_cb.vol,sys_cb.hfp_vol,sys_cb.lang_id,bt_is_low_latency(),ab_mate_app.eq_info.mode,ab_mate_app.mult_dev.en);
        printf("in_case:%d  peer_in_case:%d  mult_dev.en:%d \r\n",sys_cb.flag_local_in_case,sys_cb.flag_peer_in_case,ab_mate_app.mult_dev.en);
         
              printf("local_in_case:%d peer_in_case:%d\r\n",sys_cb.flag_local_in_case,sys_cb.flag_peer_in_case);
@@ -638,7 +640,10 @@ void func_message(u16 msg)
         // printf("a2dp_index:%d ring_index:%d",bt_get_cur_a2dp_media_index(),bt_call_get_ring_index());
          //printf("local_vbat:%d remote_vbat:%d\r\n",ab_mate_app.local_vbat,ab_mate_app.remote_vbat);
      //   printf("find_leftgoing:%d find_rightgoing:%d\r\n",sys_cb.find_left_ear_going,sys_cb.find_right_ear_going);
-   printf("music_effect_get_state:%d %d\r\n",music_effect_get_state(MUSIC_EFFECT_DBB),music_effect_get_state_real(MUSIC_EFFECT_DBB));  
+   //printf("music_effect_get_state:%d %d\r\n",music_effect_get_state(MUSIC_EFFECT_DBB),music_effect_get_state_real(MUSIC_EFFECT_DBB));  
+   //printf("ab_mate_app.v3d_audio_en:%d\r\n",ab_mate_app.v3d_audio_en);
+   printf("find_left:%d find_right:%d",sys_cb.find_left_ear_going,sys_cb.find_right_ear_going);
+            printf("sys_cb.sw_rst_flag:%d\r\n",sys_cb.sw_rst_flag);
         break;
             
 #endif
@@ -666,6 +671,39 @@ void func_message(u16 msg)
             spp_at_cmd_process();
 
             break;
+#endif
+#if APP_SPATIAL_AUDIO_TONE
+            case EVT_SPATIAL_AUDIO_ON:
+                    
+            if (!music_effect_get_state(MUSIC_EFFECT_SPATIAL_AUDIO))
+            {
+                printf("EVT_SPATIAL_AUDIO_ON\r\n");
+                f_bt.warning_status |= BT_WARN_SPATIAL_AUDIO_SWITCH;
+            }
+                break;
+            case EVT_SPATIAL_AUDIO_OFF:
+            if (music_effect_get_state(MUSIC_EFFECT_SPATIAL_AUDIO))
+            {
+                printf("EVT_SPATIAL_AUDIO_OFF\r\n");
+                f_bt.warning_status |= BT_WARN_SPATIAL_AUDIO_SWITCH;
+            }
+                break;
+
+#endif
+#if APP_SPATIAL_AUDIO_TONE
+            case EVT_EQ_PARA_DEFAULT:
+                if (ab_mate_app.eq_info.mode != 0)
+                {
+                    ab_mate_app.eq_info.mode = 0;
+                    ab_mate_tws_eq_info_sync();          
+                    ab_mate_cm_write(&ab_mate_app.eq_info.mode, AB_MATE_CM_EQ_DATA, 1+AB_MATE_EQ_BAND_CNT, 2); 
+                    ab_mate_notify_eq();  
+                }
+                break;
+            case EVT_SP_AUDIO_DEFAULT:
+                    ab_mate_notify_audio();  
+                break;
+
 #endif
 
 #if SWETZ_BT_TO_PAIR    
@@ -973,7 +1011,12 @@ void func_message(u16 msg)
             break;
 #endif
 
-
+#if APP_REST_FACTORY
+        case EVT_USER_REST:
+                printf("EVT_USER_REST\r\n");
+                sw_reset_kick(SW_RST_FLAG);
+            break;
+#endif
 #if ASR_EN
         case EVT_ASR_START:
             if (sys_cb.asr_enable) {

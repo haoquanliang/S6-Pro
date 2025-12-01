@@ -14,7 +14,7 @@
 
 #if SWETZ
 #define BT_WARN_EQ              BIT(9)
-
+#define BT_WARN_SPATIAL_AUDIO_SWITCH              BIT(10)
 
 #endif
 

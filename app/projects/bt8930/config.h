@@ -88,8 +88,8 @@
 #define AB_USER_KEY                 1//user_key
 #define APP_KEY_FUNTION_SELECT      1//1:使用ab_mate的按键功能，0：使用配置的按键功能
 #define APP_EQ_SET                  1//EQ设置
-#define APP_EQ_TONE                 1//增加eq切换tong声
-#define APP_MP3_BYPASS_EQ           1//播放mp3提示音bypass EQ播完再恢复
+#define APP_EQ_TONE                 0//增加eq切换tong声
+#define APP_MP3_BYPASS_EQ           0//播放mp3提示音bypass EQ播完再恢复
 #define APP_EQ_CMD_REPLY            1//修改EQ命令回复
 #define APP_DEV_EN                  (0)//1to2 默认开关
 #define APP_LANG_TYPE_SET           1//提示音类型
@@ -101,10 +101,16 @@
 #define APP_LANG_ID_SYNC            1//语音类型同步
 
 #define APP_BLE_ADDR_CHANGE         1//修改ble地址
-#define APP_SWITCH_TONE_TYPE        1//提示音类型
-
-#define SWETZ_CLOSE                 1//0:关掉V3D
+#define APP_SWITCH_TONE_TYPE        1//根据提示音类型播放
+#define APP_VBAT_SET_0              0//上传app仓电量置0
+#define SWETZ_VBAT_UPDATE           1//双耳不在仓，不显示仓电量
+#define APP_CASE_VBAT_BIT7          1//仓电量最高位用于表示仓是否充电
+#define APP_TWS_TONE_IS_PLAY        1//如果相同的提示音在播就不在加入队列                    1//
+#define APP_SPATIAL_AUDIO_TONE      1//增加一个切空间音频的提示音,退出提示音的时候判断是否和EQ冲突
+#define APP_REST_FACTORY               1//恢复出厂用同步事件软复位代替看门狗复位
+#define SWETZ_CLOSE                 0//0:关掉V3D
 #define APP_MUSIC_AUDIO_TEST        1//音效调试
+#define APP_FACTORY_REST_NO_POWER_TONE  1//恢复出厂不播开机提示音
 #endif
 
 
@@ -254,8 +260,8 @@
 
 #define BT_TWS_EN                       1   //是否支持TWS
 #define BT_TWS_SCO_EN                   1   //是否支持TWS双路通话
-#define BT_TWS_PAIR_MODE                0   //0=通过蓝牙名字配对，1=通过ID配对
-#define BT_TWS_PAIR_ID                  0x38393530
+#define BT_TWS_PAIR_MODE                1   //0=通过蓝牙名字配对，1=通过ID配对
+#define BT_TWS_PAIR_ID                  0x38393531
 #define BT_TWS_PAIR_BONDING_EN          1   //是否支持TWS组队绑定，调用bt_tws_delete_link_info()删除配对信息可解除绑定
 #define BT_TWS_MS_SWITCH_EN             1   //是否支TWS主从切换
 #define BLE_TWS_MS_SWITCH_EN            1   //是否支BLE主从切换
@@ -363,7 +369,7 @@
 //动态低音
 #define BT_MUSIC_EFFECT_DBB_EN          1                   //动态低音音效使能
 #define BT_MUSIC_EFFECT_DBB_BAND_CNT    1                   //动态低音音效的EQ段数
-#define BT_MUSIC_EFFECT_DBB_DEF_LEVEL   11                  //动态低音音效默认的等级
+#define BT_MUSIC_EFFECT_DBB_DEF_LEVEL   7                  //动态低音音效默认的等级
 //空间音效
 #define BT_MUSIC_EFFECT_SPATIAL_AU_EN   1                   //空间音效使能
 #define BT_MUSIC_EFFECT_SPATIAL_AUEQ_EN 1                   //空间音效下固定使用spatial_audio.eq

@@ -560,6 +560,12 @@
 
 #define EVT_USER_SYNC_DBB_ON    0x713
 #define EVT_USER_SYNC_DBB_OFF   0x714
+
+#define EVT_SPATIAL_AUDIO_ON    0x715
+#define EVT_SPATIAL_AUDIO_OFF   0x716
+#define EVT_EQ_PARA_DEFAULT     0x717
+#define EVT_SP_AUDIO_DEFAULT    0x718
+#define EVT_USER_REST           0x719
 #endif
 
 

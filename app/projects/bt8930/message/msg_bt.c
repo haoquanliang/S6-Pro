@@ -192,7 +192,13 @@ void func_bt_message_do(u16 msg)
     int klu_flag = 0;
 
 #if SWETZ_OUTCASE_AFTER_NOT_KEY
-     if(sys_cb.flag_outcase_5s_kye_null == true && (msg != EVT_SYS_1S && msg != EVT_SYS_5S && msg != EVT_UPDATE_INCASE_STA)){
+     if(sys_cb.flag_outcase_5s_kye_null == true && (msg != EVT_SYS_1S && msg != EVT_SYS_5S && msg != EVT_UPDATE_INCASE_STA)
+        && (msg != EVT_FIND_ME_LEFT_START)
+        && (msg != EVT_FIND_ME_LEFT_STOP)
+        && (msg != EVT_FIND_ME_RIGHT_START)
+        && (msg != EVT_FIND_ME_RIGHT_STOP)
+        && (msg != EVT_UPDATE_INCASE_STA)
+    ){
         return;
      }   
 #endif

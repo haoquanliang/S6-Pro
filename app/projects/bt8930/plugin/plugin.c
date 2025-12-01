@@ -305,7 +305,7 @@ u32 get_wav_res_digvol(void)
             sys_cb.find_me_count = 9;
         }
       
-        printf("warning vol_level:%d  %d\r\n",vol_level,user_bsp_volume_convert(vol_level));
+       // printf("warning vol_level:%d  %d\r\n",vol_level,user_bsp_volume_convert(vol_level));
         return user_bsp_volume_convert(vol_level);
 
     }

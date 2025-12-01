@@ -45,6 +45,7 @@ void app_init_do(void)
 
 u8 app_eq_set(void)
 {
+    printf("app_eq_set\r\n");
     return app_ctrl_eq_set();
 }
 

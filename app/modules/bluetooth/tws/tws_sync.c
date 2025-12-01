@@ -91,7 +91,11 @@ void tws_time_alarm_cb(uint32_t params, uint32_t alarm_tickn)
         }
         else if(params == 2){
                 msg_enqueue(EVT_USER_RING_EXIT);
-        }              
+        } 
+        else if(params == USER_SYNC_EVT_RESET){
+                msg_enqueue(EVT_USER_REST);
+        }
+                     
     }
  
 #endif

@@ -163,7 +163,14 @@ void func_bt_warning_do(void)
 
 #endif
 
+#if APP_SPATIAL_AUDIO_TONE
+    if (func_bt_chkclr_warning(BT_WARN_SPATIAL_AUDIO_SWITCH))
+    {
+        bsp_res_play(TWS_RES_SPATIAL_AUDIO);
+        return;
+    }
 
+#endif
 
 #if BT_TWS_EN
     if(xcfg_cb.bt_tws_en) {
@@ -693,7 +700,7 @@ void func_bt_enter(void)
 #endif
 
 #if SWETZ_TONE
-    f_bt.warning_status |= BT_WARN_PAIRING;
+   // f_bt.warning_status |= BT_WARN_PAIRING;
 #endif
 
 #if BT_2ACL_AUTO_SWITCH

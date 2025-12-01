@@ -368,11 +368,20 @@ u8 charge_box_get_charge_box_bat_level(void)
 {
     if(bt_tws_is_connected()){
         if((sys_cb.loc_bat & BIT(7)) == 0 && (sys_cb.rem_bat & BIT(7)) != 0) {
+#if APP_CASE_VBAT_BIT7           
+            return sys_cb.rem_house_bat;
+#else
             return sys_cb.rem_house_bat & 0x7f;
+#endif
         }
     }
-
+#if APP_CASE_VBAT_BIT7
+    return sys_cb.loc_house_bat;
+#else
     return sys_cb.loc_house_bat & 0x7f;
+#endif
+    
+    
 }
 
 #if (CHARGE_BOX_INTF_SEL == INTF_UART1) || (CHARGE_BOX_INTF_SEL == INTF_UART2)
@@ -748,7 +757,7 @@ static void charge_box_analysis_packet(vh_packet_t *packet)
 
     switch (cmd) {
         case VHOUSE_CMD_GET_VBAT:
-//            TRACE("VHOUSE_CMD_GET_VBAT\n");
+          //  TRACE("VHOUSE_CMD_GET_VBAT\n");
             charge_box_vbat_ack(packet);
             break;
 
@@ -836,7 +845,7 @@ static void charge_box_analysis_packet_for_charge(vh_packet_t *packet)
         case VHOUSE_CMD_OPEN_WINDOW:
             TRACE("VHOUSE_CMD_OPEN_WINDOW\n");
         case VHOUSE_CMD_GET_VBAT:
-            TRACE("VHOUSE_CMD_GET_VBAT\n");
+        //    TRACE("VHOUSE_CMD_GET_VBAT\n");
             charge_box_vbat_ack(packet);
             vhouse_cb.status = 1;                           //开窗，停止充电
             break;
@@ -894,7 +903,7 @@ u32 charge_box_ssw_process(u32 charge_sta)
     if(vhouse_cb.rx_flag) {
         if(packet->checksum == crc8_maxim((u8 *)packet, 5 + packet->length)) {
             TRACE("cmd [%d], %d\n", packet->cmd, charge_sta);
-           // print_r(packet,20);
+          //  print_r(packet,20);
             if (charge_sta) {
                 charge_box_analysis_packet_for_charge(packet);
             } else {

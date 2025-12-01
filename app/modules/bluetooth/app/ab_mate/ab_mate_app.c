@@ -194,10 +194,10 @@ static void ab_mate_data_send_do(uint8_t *packet, uint16_t len)
         ab_mate_latt_send_packet(packet, len);
     }
 #endif
-#if SWETZ 
+#if SWETZ
     TRACE("abmate tx:");
     TRACE_R(packet, len);
-#endif 
+#endif
 
 }
 
@@ -250,6 +250,31 @@ void ab_mate_notify_do(u8 cmd,u8* payload,u8 len)
     ab_mate_data_send((u8*)&ab_mate_cmd_send, AB_MATE_HEADER_LEN + len);
 }
 
+#if APP_SPATIAL_AUDIO_TONE
+void ab_mate_notify_eq(void)
+{
+    if(ab_mate_app.con_sta)
+    {
+        u8 tlv_data[3] = {INFO_EQ, 1, 0};
+
+        tlv_data[2] = ab_mate_app.eq_info.mode;
+        ab_mate_device_info_notify(tlv_data, 3);
+    }
+}
+
+void ab_mate_notify_audio(void)
+{
+    if(ab_mate_app.con_sta)
+    {
+        u8 tlv_data[3] = {INFO_V3D_AUDIO, 1, 0};
+
+        tlv_data[2] = ab_mate_app.v3d_audio_en;
+        ab_mate_device_info_notify(tlv_data, 3);
+    }
+}
+
+#endif
+
 void ab_mate_device_info_notify(u8* payload,u8 len)
 {
     ab_mate_notify_do(CMD_DEVICE_INFO_NOTIFY, payload, len);
@@ -264,10 +289,10 @@ void ab_mate_device_find_do(soft_timer_p timer)
         reset_sleep_delay();
         if (ab_mate_app.find_type <= DEVICE_FIND_START) {
             maxvol_tone_play();
-            
+
         } else {
-#if AB_FIND_EAR            
-            if(sys_cb.find_ear_count == 0){ 
+#if AB_FIND_EAR
+            if(sys_cb.find_ear_count == 0){
                     sys_cb.find_ear_count = 1;
                    wav_res_play(RES_BUF_FIND_1_1_WAV,RES_LEN_FIND_1_1_WAV);
 
@@ -281,13 +306,13 @@ void ab_mate_device_find_do(soft_timer_p timer)
                     wav_res_play(RES_BUF_FIND2_WAV,RES_LEN_FIND2_WAV);
 
             }
-            
-             
-#else            
-            
+
+
+#else
+
             bsp_set_volume(VOL_MAX);
-            bsp_piano_warning_play(WARNING_TONE, TONE_MAX_VOL);             
-#endif             
+            bsp_piano_warning_play(WARNING_TONE, TONE_MAX_VOL);
+#endif
 
         }
     }
@@ -359,7 +384,7 @@ void ab_mate_vbat_check_proc(soft_timer_p timer)
     static u8 remote_bat = 0;
     static u8 box_bat = 0;
     u8 update = 0;
-
+    printf("ab_mate_vbat_check_proc\r\n");
 #if BT_TWS_EN
     u8 sync = 1;
 #endif
@@ -381,7 +406,7 @@ void ab_mate_vbat_check_proc(soft_timer_p timer)
 #else
         local_bat = ab_mate_app.local_vbat;
 #endif
-        
+
         box_bat = ab_mate_app.box_vbat;
 #if BT_TWS_EN
         if(sync){
@@ -393,7 +418,7 @@ void ab_mate_vbat_check_proc(soft_timer_p timer)
 
 #if BT_TWS_EN
     if(remote_bat != ab_mate_app.remote_vbat){
-#if APP_VBAT_CANCEL_BIT7        
+#if APP_VBAT_CANCEL_BIT7
         remote_bat = ab_mate_app.remote_vbat & 0x7f;
 #else
         remote_bat = ab_mate_app.remote_vbat;
@@ -401,7 +426,9 @@ void ab_mate_vbat_check_proc(soft_timer_p timer)
         update = 1;
     }
 #endif
-
+#if SWETZ_VBAT_UPDATE
+    update = 1;
+#endif
     if(!ab_mate_ota_is_start() && ab_mate_app.con_sta && update){
         u8 tlv_data[5] = {INFO_POWER, 3, 0x00, 0x00, 0x00};
 #if BT_TWS_EN
@@ -419,6 +446,13 @@ void ab_mate_vbat_check_proc(soft_timer_p timer)
 #if AB_PULL_EAR_VBAT
             tlv_data[2] = app_bat_level_show_for_app(tlv_data[2]);
             tlv_data[3] = app_bat_level_show_for_app(tlv_data[3]);
+#endif
+#if SWETZ_VBAT_UPDATE
+    if(sys_cb.flag_local_in_case == 0 && sys_cb.flag_peer_in_case == 0){
+        tlv_data[4] = 0;
+
+    }
+
 #endif
 
         ab_mate_device_info_notify(tlv_data,sizeof(tlv_data));
@@ -442,18 +476,54 @@ void ab_mate_vol_notify(void)
 }
 #endif
 
+#if APP_USER_FIND_EAR
+void ab_mate_notify_find_me_left(void)
+{
+    if(ab_mate_app.con_sta)
+    {
+        u8 tlv_data[3] = {INFO_SWET_FIND_ME_LEFT, 1, 0};
+
+        tlv_data[2] = sys_cb.find_left_ear_going;
+        ab_mate_device_info_notify(tlv_data, 3);
+    }
+}
+
+void ab_mate_notify_find_me_right(void)
+{
+    if(ab_mate_app.con_sta)
+    {
+        u8 tlv_data[3] = {INFO_SWET_FIND_ME_RIGHT, 1, 0};
+
+        tlv_data[2] = sys_cb.find_right_ear_going;
+        ab_mate_device_info_notify(tlv_data, 3);
+    }
+}
+
+#endif
+
 #if APP_USER_NOTIFY
 void ab_mate_user_incase_sta_notify(void)
 {
     if(ab_mate_app.con_sta){
         u8 tlv_data[3] = {INFO_NI_CASE_STATE, 1, 0x00};
         tlv_data[2] = user_check_incase_sta_pull();
-    
+
     ab_mate_device_info_notify(tlv_data, sizeof(tlv_data));
     }
 }
 #endif
+#if APP_USER_VBAT_NOTIFY
+void ab_mate_user_vbat_notify(void)
+{
+    if(ab_mate_app.con_sta){
+        u8 tlv_data[3] = {INFO_NI_CASE_STATE, 1, 0x00};
+        tlv_data[2] = user_check_incase_sta_pull();
 
+    ab_mate_device_info_notify(tlv_data, sizeof(tlv_data));
+    }
+}
+
+#endif
 
 #if AB_MATE_ANC_EN
 void ab_mate_anc_mode_notify(void)
@@ -520,14 +590,14 @@ void ab_mate_eq_set(u8 *payload,u8 payload_len)
         if(ab_mate_app.eq_info.mode >= AB_MATE_EQ_CUSTOM_INDEX){
             ab_mate_eq_custom_save();
         }
-#endif  
+#endif
 #if APP_EQ_TONE
             f_bt.warning_status |= BT_WARN_EQ;
-#endif              
+#endif
             #if BT_TWS_EN
                 ab_mate_tws_eq_info_sync();
-            #endif   
-            ab_mate_app.do_flag |= FLAG_EQ_SET;            
+            #endif
+            ab_mate_app.do_flag |= FLAG_EQ_SET;
             ab_mate_cm_write(&ab_mate_app.eq_info.mode, AB_MATE_CM_EQ_DATA, 1+AB_MATE_EQ_BAND_CNT, 2);
 
         }
@@ -655,6 +725,19 @@ uint8_t user_check_incase_sta_pull(void)
 }
 #endif
 
+#if APP_LANG_TYPE_SET
+void ab_mate_app_set_init(void)
+{
+
+    ab_mate_cm_read(&ab_mate_app.vp_vol, AB_MATE_CM_SWET_TONE_VOL,1);
+    printf("init ab_mate_app.vp_vol:%d\r\n",ab_mate_app.vp_vol);
+    if(ab_mate_app.vp_vol == 0){
+        ab_mate_app.vp_vol = WARNING_VOLUME;
+        ab_mate_cm_write(&ab_mate_app.vp_vol, AB_MATE_CM_SWET_TONE_VOL, 1, 2);
+    }
+}
+#endif
+
 
 void ab_mate_device_info_query(u8 *payload,u8 payload_len)
 {
@@ -671,8 +754,19 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
                 buf[write_offset++] = INFO_POWER;
                 buf[write_offset++] = 3;
 #if (CHARGE_BOX_TYPE == CBOX_SSW)
-              
-                ab_mate_app.box_vbat = charge_box_get_charge_box_bat_level();
+#if APP_VBAT_SET_0
+
+    if(sys_cb.flag_local_in_case == 0 && sys_cb.flag_peer_in_case == 0){
+        ab_mate_app.box_vbat = 0;
+
+    }else {
+        ab_mate_app.box_vbat = charge_box_get_charge_box_bat_level();
+
+    }
+#else
+            ab_mate_app.box_vbat = charge_box_get_charge_box_bat_level();
+#endif
+
                 ab_mate_app.local_vbat = sys_cb.loc_bat;
 #else
                 ab_mate_app.local_vbat = bsp_get_bat_level();
@@ -688,8 +782,19 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
                     buf[write_offset++] = ab_mate_app.local_vbat;
                     buf[write_offset++] = ab_mate_app.remote_vbat;
 #endif
+#if APP_VBAT_SET_0
 
+    if(sys_cb.flag_local_in_case == 0 && sys_cb.flag_peer_in_case == 0){
+                    buf[write_offset++] = 0;
+
+    }else {
                     buf[write_offset++] = ab_mate_app.box_vbat;
+    }
+
+#else
+                    buf[write_offset++] = ab_mate_app.box_vbat;
+
+#endif
                 }else
 				#endif
 				{
@@ -700,10 +805,19 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
                     buf[write_offset++] = ab_mate_app.remote_vbat;
                     buf[write_offset++] = ab_mate_app.local_vbat;
 #endif
+#if APP_VBAT_SET_0
 
+    if(sys_cb.flag_local_in_case == 0 && sys_cb.flag_peer_in_case == 0){
+                    buf[write_offset++] = 0;
+
+    }else {
                     buf[write_offset++] = ab_mate_app.box_vbat;
+    }
+#else
+                    buf[write_offset++] = ab_mate_app.box_vbat;
+#endif
 
-                  
+
                 }
             break;
 
@@ -724,7 +838,24 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
                 memcpy(&buf[write_offset], xcfg_cb.bt_name, strlen(xcfg_cb.bt_name));
                 write_offset += strlen(xcfg_cb.bt_name);
                 break;
+#if  APP_USER_FIND_EAR
+            case INFO_SWET_FIND_ME_LEFT:
+                TRACE("INFO_SWET_FIND_ME_LEFT\n");
+                val_len = payload[read_offset + 1];
+                buf[write_offset++] = INFO_SWET_FIND_ME_LEFT;
+                buf[write_offset++] = 1;
+                buf[write_offset++] = sys_cb.find_left_ear_going;
+            break;
 
+            case INFO_SWET_FIND_ME_RIGHT:
+                TRACE("INFO_SWET_FIND_ME_LEFT\n");
+                val_len = payload[read_offset + 1];
+                buf[write_offset++] = INFO_SWET_FIND_ME_RIGHT;
+                buf[write_offset++] = 1;
+                buf[write_offset++] = sys_cb.find_right_ear_going;
+            break;
+
+#endif
             case INFO_EQ:
                 TRACE("INFO_EQ\n");
                 val_len = payload[read_offset + 1];
@@ -829,7 +960,7 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
 #if APP_LANG_TYPE_SET
                 buf[write_offset++] = 2;
                 buf[write_offset++] = sys_cb.lang_id;
-                buf[write_offset++] = 10;//ab_mate_app.vp_vol;暂时随便回复个数据--提示音音量
+                buf[write_offset++] = ab_mate_app.vp_vol;//暂时随便回复个数据--提示音音量
 #else
                 buf[write_offset++] = 1;
                 buf[write_offset++] = lang_app_table[sys_cb.lang_id];
@@ -1399,13 +1530,38 @@ void ab_mate_language_set(u8 *payload, u8 payload_len)
                                 param_sync();
                                 bt_tws_sync_setting();
                                 printf("sys_cb.lang_id charge\r\n");
-                        }      
+                        }
                  }else{
-                        buf[write_offset++] = AB_MATE_FAIL;    
+                        buf[write_offset++] = AB_MATE_FAIL;
                  }
                 break;
 
             case SWET_AB_VOL:
+                    TRACE("SWET_VP_VOL\n");
+                    val_len = payload[read_offset + 1];
+                    buf[write_offset++] = SWET_AB_VOL;
+                    buf[write_offset++] = 1;
+            if (payload[read_offset + 2] <= 15)//音量0~15
+            {
+                buf[write_offset++] = AB_MATE_SUCCESS;
+                ab_mate_app.vp_vol = payload[read_offset + 2];
+                if(ab_mate_app.vp_vol != payload[read_offset + 2]){
+                            ab_mate_app.vp_vol = payload[read_offset + 2];
+                            ab_mate_cm_write(&ab_mate_app.vp_vol, AB_MATE_CM_SWET_TONE_VOL, 1, 2);
+                }
+                ab_mate_cm_write(&ab_mate_app.vp_vol, AB_MATE_CM_SWET_TONE_VOL, 1, 2);
+                app_lr_send_notification(LR_NOTIFY_SYNC_AB_VOL, 1, &ab_mate_app.vp_vol);
+                // if (ab_mate_app.vp_vol != payload[read_offset + 2])
+                // {
+                //     ab_mate_app.vp_vol = payload[read_offset + 2];
+                //    // ab_mate_tws_SWET_app_info_sync();
+                //   //  ab_mate_cm_write(&ab_mate_app.vp_vol, AB_MATE_CM_SWET_VP_VOL, 1, 2);
+                // }
+            }
+            else
+            {
+                buf[write_offset++] = AB_MATE_FAIL;
+            }
 
                 break;
             default:
@@ -1447,14 +1603,14 @@ void ab_mate_mode_set(u8 *payload, u8 payload_len)
 #else
             bsp_res_play(TWS_RES_MUSIC_MODE);
 #endif
-          
+
         }else if(mode == DEVICE_MODE_GAME){
 #if APP_SWITCH_TONE_TYPE
             user_game_mode_tone_play();
 #else
            bsp_res_play(TWS_RES_GAME_MODE);
-#endif            
-            
+#endif
+
         }else{
             result = AB_MATE_FAIL;
         }
@@ -1477,7 +1633,7 @@ void ab_mate_device_find(u8 *payload, u8 payload_len)
                            if(!sys_cb.find_left_ear_going){
                                 msg_enqueue(EVT_FIND_ME_LEFT_START);
                            }
-                            
+
 
                      }
 
@@ -1489,14 +1645,14 @@ void ab_mate_device_find(u8 *payload, u8 payload_len)
                                     msg_enqueue(EVT_FIND_ME_LEFT_STOP);
                             }
                     }
-            } 
+            }
             else if(payload[0] == DEVICE_FIND_START_R){
                      if (bt_tws_is_connected() || (!sys_cb.tws_left_channel)){
                             printf("sys_cb.find_right_ear_going:%d\r\n",sys_cb.find_right_ear_going);
                            if(!sys_cb.find_right_ear_going){
                                 msg_enqueue(EVT_FIND_ME_RIGHT_START);
                            }
-                            
+
 
                      }
 
@@ -1508,7 +1664,7 @@ void ab_mate_device_find(u8 *payload, u8 payload_len)
                                     msg_enqueue(EVT_FIND_ME_RIGHT_STOP);
                             }
                     }
-            } 
+            }
 
 
     }
@@ -1538,7 +1694,7 @@ void ab_mate_device_find(u8 *payload, u8 payload_len)
     case DEVICE_FIND_STOP_L:
     case DEVICE_FIND_START_R:
     case DEVICE_FIND_STOP_R:
-        
+
         #if AB_MATE_DEVICE_FIND_EN && BT_TWS_EN
         ab_mate_tws_device_find_sync();
         #endif
@@ -1574,7 +1730,7 @@ void ab_mate_device_find_side(void)
     printf("--------------type:%d\r\n",type);
 
 #if !APP_USER_FIND_EAR
- 
+
 #else
     start = (type == DEVICE_FIND_START_L || type == DEVICE_FIND_START_R);   //开始/停止
     execute = (tws_left_channel && (type == DEVICE_FIND_START_L || type == DEVICE_FIND_STOP_L)) || \
@@ -1735,11 +1891,13 @@ void ab_mate_v3d_audio_notify(void)
 
 void ab_mate_v3d_audio_set_do(void)
 {
-#if SWETZ_CLOSE
-#if AB_V3D_AUDIO    
+#if !SWETZ_CLOSE
+#if AB_V3D_AUDIO
     if(ab_mate_app.v3d_audio_en){
         if(!music_effect_get_state(MUSIC_EFFECT_SPATIAL_AUDIO)){
+
                 music_spatial_audio_start();
+
                 printf("v3d_audio open\r\n");
         }
 
@@ -1751,7 +1909,9 @@ void ab_mate_v3d_audio_set_do(void)
 
     }
     ab_mate_cm_write(&ab_mate_app.v3d_audio_en, AB_MATE_CM_V3D_AUDIO, 1, 2);
-
+#if APP_SPATIAL_AUDIO_TONE
+            f_bt.warning_status |= BT_WARN_SPATIAL_AUDIO_SWITCH;
+#endif
 #else
     static u8 clk;
     if(ab_mate_app.v3d_audio_en){
@@ -1774,12 +1934,15 @@ void ab_mate_v3d_audio_set_do(void)
 
 void ab_mate_v3d_audio_set(u8 *payload, u8 payload_len)
 {
+
     ab_mate_app.v3d_audio_en = payload[0];
 #if BT_TWS_EN
     ab_mate_tws_v3d_audio_sync();
 #endif
     ab_mate_app.do_flag |= FLAG_V3D_AUDIO_SET;
     ab_mate_request_common_response(AB_MATE_SUCCESS);
+
+
 }
 #endif
 
@@ -1948,8 +2111,8 @@ void ab_mate_mult_dev_en_set_do(void)
         }
 #else
         bt_set_sacn_val = 0x02;  //可连接
-#endif        
-        
+#endif
+
     }else{
         cfg_bt_max_acl_link = 1;
         bt_nor_link_ctrl_max_set(cfg_bt_max_acl_link);
@@ -1960,7 +2123,7 @@ void ab_mate_mult_dev_en_set_do(void)
             {
                 bt_set_sacn_val = 0x03;
             }
-            else 
+            else
             {
                 bt_set_sacn_val = 0;     //不可发现不可连接
             }
@@ -1988,7 +2151,7 @@ void ab_mate_mult_dev_en_set_do(void)
 #else
         bt_set_scan_force(bt_set_sacn_val);
 #endif
-   
+
     TRACE("mult dev set do, en:%d, max acl_link:%d\n", ab_mate_app.mult_dev.en, cfg_bt_max_acl_link);
     ab_mate_cm_write(&ab_mate_app.mult_dev.en, AB_MATE_CM_MULT_DEV_EN, 1, 2);
 }
@@ -2628,8 +2791,8 @@ void ab_mate_receive_proc_do(void)
 
 bool ab_mate_receive_proc(u8 *data,u16 len, u8 con_type)
 {
-     TRACE("ab_mate_receive_proc[%d]:",len);
-     TRACE_R(data,len);
+    //  TRACE("ab_mate_receive_proc[%d]:",len);
+    //  TRACE_R(data,len);
 
 #if SWETZ_APP
     app_priv_ble_handle_received(data,len);
@@ -2729,6 +2892,33 @@ void ab_mate_poweroff_proc(void)
 #if AB_MATE_EQ_EN && AB_MATE_EQ_FOR_IDX_EN
 void ab_mate_eq_overall_gain_set(void)
 {
+#if APP_EQ_SET
+    switch(ab_mate_app.eq_info.mode){
+    case 0:     //normal
+        music_set_eq_overall_gain(0);
+        break;
+    case 1:     //pop
+        music_set_eq_overall_gain(0);
+
+        break;
+    case 2:     //rock
+        music_set_eq_overall_gain(0);
+        break;
+    case 3:     //jazz
+        music_set_eq_overall_gain(-1);
+        break;
+    case 4:     //classic
+        music_set_eq_overall_gain(-5);
+        break;
+    case 5:     //country
+        music_set_eq_overall_gain(0);
+        break;
+    default:
+        music_set_eq_overall_gain(0);
+        break;
+    }
+#else
+
     switch(ab_mate_app.eq_info.mode){
     case 0:     //normal
         music_set_eq_overall_gain(0);
@@ -2752,6 +2942,8 @@ void ab_mate_eq_overall_gain_set(void)
         music_set_eq_overall_gain(0);
         break;
     }
+#endif
+
 }
 #endif
 u8 ab_mate_eq_set_do(void)
@@ -3053,8 +3245,13 @@ void ab_mate_device_reset_do(void)
     ble_delete_bonding_all();//删除ble配对记录
 #endif
     delay_5ms(6);
-    WDT_RST();
-  
+#if APP_REST_FACTORY
+    bt_tws_req_alarm_user(USER_SYNC_EVT_RESET);
+#else
+      //  WDT_RST();
+#endif    
+
+
 }
 
 void ab_mate_var_init(void)
@@ -3102,6 +3299,11 @@ void ab_mate_var_init(void)
 #if AB_MATE_DYNAMIC_BASS_EN
     ab_mate_dynamic_bass_init();
 #endif
+#if APP_LANG_TYPE_SET
+    ab_mate_app_set_init();
+#endif
+
+
     if(init_flag == 0){
         init_flag = 1;
     }else{
@@ -3527,9 +3729,9 @@ uint16_t role_switch_get_user_data(uint8_t *data_ptr)
         data_ptr[offset++] = ab_mate_app.con_sta;
         data_ptr[offset++] = ab_mate_cmd_recv.next_header_seq;
         data_ptr[offset++] = ab_mate_cmd_send.cmd_head.seq;
-       
+
 		data_ptr[offset++] = ab_mate_app.device_find;
-       
+
 		memcpy(&data_ptr[offset], &ab_mate_app.local_key, sizeof(ab_mate_key_info_t));
 		offset += sizeof(ab_mate_key_info_t);
 
@@ -3554,10 +3756,10 @@ uint16_t role_switch_set_user_data(uint8_t *data_ptr, uint16_t len)
         ab_mate_cmd_recv.next_header_seq = data_ptr[offset++];
         ab_mate_cmd_send.cmd_head.seq = data_ptr[offset++];
 
-		ab_mate_app.device_find = data_ptr[offset++];    
+		ab_mate_app.device_find = data_ptr[offset++];
 		memcpy(&ab_mate_app.remote_key, &data_ptr[offset], sizeof(ab_mate_key_info_t));
 		offset += sizeof(ab_mate_key_info_t);
-#if SWETZ        
+#if SWETZ
 #if AB_MATE_DEVICE_FIND_EN
         if(ab_mate_app.device_find){
             soft_timer_start(device_find_timer);
