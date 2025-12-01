@@ -566,6 +566,7 @@
 #define EVT_EQ_PARA_DEFAULT     0x717
 #define EVT_SP_AUDIO_DEFAULT    0x718
 #define EVT_USER_REST           0x719
+#define EVT_CASE_BIT_SYNC       0x720
 #endif
 
 

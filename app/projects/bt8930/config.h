@@ -115,7 +115,7 @@
 #define APP_FACTORY_REST_NO_POWER_TONE  1//恢复出厂不播开机提示音
 #define SPP_BLE_CALLBACK                1//spp ble断开回调处理:1.断开停止查找耳机
 #define APP_INBOX_STA_1S_AFTER_UPDATE   1//APP有毛病，连续发太快接收不了，做500ms延时发送
-
+#define APP_CASE_CHARGE_STA             1//优化主耳不在仓，从耳在仓没有显示仓的在充电的问题
 
 #define SWETZ_CLOSE                 0//0:关掉V3D
 #define APP_MUSIC_AUDIO_TEST        1//音效调试

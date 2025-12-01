@@ -30,6 +30,7 @@ typedef enum
     LR_NOTIFY_SYNC_L_FIND_STA,
     LR_NOTIFY_SYNC_R_FIND_STA,  
     LR_NOTIFY_SYNC_AB_VOL,
+    LR_NOTIFY_SYNC_CASE_CHARGE_STA,
 }LR_CMD_T;
 
 void app_lr_init(void);

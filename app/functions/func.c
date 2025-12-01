@@ -343,7 +343,10 @@ void func_message(u16 msg)
 #if SWETZ_NTC
     static u8 ntc_cnt;
 #endif
+#if APP_CASE_CHARGE_STA
 
+    uint8_t case_charge_sta;
+#endif
     switch (msg) {
 #if BT_TWS_EN
         case EVT_BT_UPDATE_STA:
@@ -659,10 +662,17 @@ void func_message(u16 msg)
    //printf("ab_mate_app.v3d_audio_en:%d\r\n",ab_mate_app.v3d_audio_en);
 //    printf("find_left:%d find_right:%d",sys_cb.find_left_ear_going,sys_cb.find_right_ear_going);
 //             printf("sys_cb.sw_rst_flag:%d\r\n",sys_cb.sw_rst_flag);
-                param_lang_id_read();
-                printf("read land:%d\r\n",sys_cb.lang_id);
+
         break;
             
+#endif
+
+#if APP_CASE_CHARGE_STA    
+        case EVT_CASE_BIT_SYNC:
+                case_charge_sta = charge_box_get_charge_box_bat_level();
+                case_charge_sta = case_charge_sta & 0x80;
+                app_lr_send_notification(LR_NOTIFY_SYNC_CASE_CHARGE_STA, 1, &case_charge_sta);
+            break;
 #endif
 
 #if SWETZ_EVT_1S

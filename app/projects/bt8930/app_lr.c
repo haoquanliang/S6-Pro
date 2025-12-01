@@ -164,7 +164,26 @@ static void lr_parse_notification(void)
            // msg_enqueue(EVT_INBOX_CHANGED);
         }
         break;
+#if APP_CASE_CHARGE_STA
+        case LR_NOTIFY_SYNC_CASE_CHARGE_STA:
+            if (payload_size == 1)
+            {
+                if (tws_rx_buf[PAYLOAD_INDEX])
+                {
+                        sys_cb.flag_peer_case_charge_sta = 0x80;
 
+                }
+                else
+                {
+                        sys_cb.flag_peer_case_charge_sta = 0x00;
+
+                }
+
+
+            }
+            break;
+
+#endif
 
         default:
         LR_DEBUG("lr:unknown notify %d\n", cmd_id);

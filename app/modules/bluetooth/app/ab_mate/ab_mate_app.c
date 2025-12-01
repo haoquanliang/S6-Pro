@@ -384,7 +384,6 @@ void ab_mate_vbat_check_proc(soft_timer_p timer)
     static u8 remote_bat = 0;
     static u8 box_bat = 0;
     u8 update = 0;
-    printf("ab_mate_vbat_check_proc\r\n");
 #if BT_TWS_EN
     u8 sync = 1;
 #endif
@@ -460,6 +459,14 @@ void ab_mate_vbat_check_proc(soft_timer_p timer)
                         }                        
                 }
             }
+#if APP_CASE_CHARGE_STA            
+            else{
+                     if(sys_cb.flag_peer_in_case == 1){
+                            app_lr_send_msg(EVT_CASE_BIT_SYNC);
+                            tlv_data[4] = tlv_data[4] | sys_cb.flag_peer_case_charge_sta;
+                     }
+            }
+#endif            
 #endif
 #if SWETZ_VBAT_UPDATE
     if(sys_cb.flag_local_in_case == 0 && sys_cb.flag_peer_in_case == 0){
@@ -476,7 +483,7 @@ void ab_mate_vbat_check_proc(soft_timer_p timer)
 
 void ab_mate_vbat_timer_creat(void)
 {
-    soft_timer_create(&vbat_timer, 2000, TIMER_REPEATED, ab_mate_vbat_check_proc);
+    soft_timer_create(&vbat_timer, 1000, TIMER_REPEATED, ab_mate_vbat_check_proc);
 }
 
 #if AB_MATE_VOL_EN
