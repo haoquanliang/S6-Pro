@@ -41,7 +41,7 @@
 #define SWETZ_VBAT_DISCHARGE        1//放电电量只能往下降
 
 #define SWETZ_SET_VBAT_LOW_WARNING  1//低电报警电量设置
-#define VBAT_LOW_WARNING_VAL                (1)
+#define VBAT_LOW_WARNING_VAL                (15)//报警电量值
 #define BT_PAIR_SLEEP_EN            (1)//不连接手机也可以进入sleep
 
 #define SWETZ_LOW_WARNING_TIME      1//低电提醒
@@ -81,7 +81,7 @@
 #define SWETZ_POWERON_AFTER_2S_CHECK_INCSE_STA  1//开机2s后交换一次在仓状态
 #define SWETZ_INBOX_STA             1//电量最高位清零,防止app显示错误电量
 #define SWETZ_SHIP_MODE             1//耳机进船运模式
-
+#define SWETZ_OTA_ADDR_CHARGE       0//每次ota初始化地址写0
 
 
 //APP
@@ -116,6 +116,13 @@
 #define SPP_BLE_CALLBACK                1//spp ble断开回调处理:1.断开停止查找耳机
 #define APP_INBOX_STA_1S_AFTER_UPDATE   1//APP有毛病，连续发太快接收不了，做500ms延时发送
 #define APP_CASE_CHARGE_STA             1//优化主耳不在仓，从耳在仓没有显示仓的在充电的问题
+
+#define APP_MESSAGE_DELYA               1//app个别消息增加消抖作用
+#define APP_DELYA_TIME_MS               800//app消息消抖时间ms
+#define APP_TEST                        0
+
+#define APP_MODE_TONE_EVEN              1//去掉游戏音乐模式当前不相同才切的判断，保证最后一次有提示音
+
 
 #define SWETZ_CLOSE                 0//0:关掉V3D
 #define APP_MUSIC_AUDIO_TEST        1//音效调试

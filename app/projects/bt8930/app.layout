@@ -2,39 +2,9 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="..\..\functions\func.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\..\include\config_extra.h" open="1" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="9410" topLine="393" />
-		</Cursor>
-	</File>
-	<File name="app_ble.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3753" topLine="109" />
-		</Cursor>
-	</File>
-	<File name="plugin\multi_lang.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="104" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="..\..\system\system.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="7546" topLine="220" />
-		</Cursor>
-	</File>
-	<File name="..\..\modules\music\bsp_music.c" open="1" top="0" tabpos="20" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3721" topLine="139" />
-		</Cursor>
-	</File>
-	<File name="plugin\plugin.c" open="1" top="0" tabpos="21" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="8052" topLine="293" />
-		</Cursor>
-	</File>
-	<File name="..\..\system\system.c" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4137" topLine="163" />
+			<Cursor1 position="20486" topLine="707" />
 		</Cursor>
 	</File>
 	<File name="..\..\modules\bluetooth\tws\tws_res_tbl.c" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -42,34 +12,19 @@
 			<Cursor1 position="3159" topLine="97" />
 		</Cursor>
 	</File>
-	<File name="xcfg.h" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\..\include\clib.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="36991" topLine="308" />
+			<Cursor1 position="53" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="..\..\include\config_extra.h" open="1" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\..\functions\func.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="20486" topLine="707" />
+			<Cursor1 position="19796" topLine="670" />
 		</Cursor>
 	</File>
-	<File name="..\..\modules\bluetooth\call\bt_sco.c" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\..\system\system.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="8623" topLine="243" />
-		</Cursor>
-	</File>
-	<File name="..\..\modules\charge\charge.c" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="9008" topLine="293" />
-		</Cursor>
-	</File>
-	<File name="app_role_switch.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2067" topLine="63" />
-		</Cursor>
-	</File>
-	<File name="..\..\modules\bluetooth\bt\hfhs.c" open="1" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1785" topLine="58" />
+			<Cursor1 position="7546" topLine="217" />
 		</Cursor>
 	</File>
 	<File name="app_message.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -77,9 +32,19 @@
 			<Cursor1 position="4710" topLine="206" />
 		</Cursor>
 	</File>
-	<File name="..\..\modules\bluetooth\app\ab_mate\ab_mate_app.c" open="1" top="1" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\..\modules\bluetooth\bsp_bt.c" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="25366" topLine="856" />
+			<Cursor1 position="10074" topLine="336" />
+		</Cursor>
+	</File>
+	<File name="..\..\modules\music\bsp_music.c" open="1" top="0" tabpos="20" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3721" topLine="139" />
+		</Cursor>
+	</File>
+	<File name="app_ble.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3753" topLine="109" />
 		</Cursor>
 	</File>
 	<File name="..\..\functions\sfunc_bt_ring.c" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -87,24 +52,59 @@
 			<Cursor1 position="11282" topLine="405" />
 		</Cursor>
 	</File>
-	<File name="..\..\modules\bluetooth\bsp_bt.c" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\..\modules\bluetooth\bt\hfhs.c" open="1" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="10074" topLine="336" />
+			<Cursor1 position="1785" topLine="62" />
+		</Cursor>
+	</File>
+	<File name="app_role_switch.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2067" topLine="63" />
+		</Cursor>
+	</File>
+	<File name="plugin\plugin.c" open="1" top="0" tabpos="21" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8052" topLine="293" />
+		</Cursor>
+	</File>
+	<File name="plugin\multi_lang.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="104" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\modules\bluetooth\call\bt_sco.c" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8623" topLine="243" />
+		</Cursor>
+	</File>
+	<File name="xcfg.h" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="36991" topLine="308" />
 		</Cursor>
 	</File>
 	<File name="app_lr.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2583" topLine="88" />
+			<Cursor1 position="2583" topLine="85" />
+		</Cursor>
+	</File>
+	<File name="..\..\modules\bluetooth\app\ab_mate\ab_mate_app.c" open="1" top="1" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="17792" topLine="614" />
+		</Cursor>
+	</File>
+	<File name="..\..\system\system.c" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4137" topLine="160" />
+		</Cursor>
+	</File>
+	<File name="..\..\modules\charge\charge.c" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9008" topLine="293" />
 		</Cursor>
 	</File>
 	<File name="app_dm.c" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="5128" topLine="182" />
-		</Cursor>
-	</File>
-	<File name="..\..\include\clib.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="53" topLine="0" />
+			<Cursor1 position="5128" topLine="187" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

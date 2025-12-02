@@ -7,7 +7,7 @@
         <add key="spk_mute_io_sel" value="0" />
         <add key="high_mute" value="True" />
         <add key="loudspeaker_unmute_delay" value="6" />
-        <add key="sys_sleep_time" value="600" />
+        <add key="sys_sleep_time" value="30" />
         <add key="sys_off_time" value="0" />
         <add key="lowpower_warning_en" value="True" />
         <add key="lpwr_warning_vbat" value="3.4V" />
@@ -39,7 +39,7 @@
         <add key="vddba_buck_en" value="True" />
         <add key="vddbt_capless_en" value="False" />
         <add key="vddio_sel" value="7" />
-        <add key="charge_en" value="True" />
+        <add key="charge_en" value="False" />
         <add key="charge_trick_en" value="True" />
         <add key="charge_dc_reset" value="True" />
         <add key="charge_dc_not_pwron" value="True" />

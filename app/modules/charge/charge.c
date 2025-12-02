@@ -165,7 +165,13 @@ u8 charge_charge_on_process(void)
 AT(.text.charge.process)
 void charge_process(void)
 {
-    if (CHARGE_DC_IN() && (sys_cb.dc_in_filter == CHARGE_DC_IN_FILTER)) {
+    printf("func_cb.sta:%d\r\n",func_cb.sta);
+#if APP_TEST
+    if (CHARGE_DC_IN() && (sys_cb.dc_in_filter == CHARGE_DC_IN_FILTER) && (!ab_mate_ota_is_start())) {
+#else
+if (CHARGE_DC_IN() && (sys_cb.dc_in_filter == CHARGE_DC_IN_FILTER) ) {
+#endif
+    
         sys_cb.dc_in_filter = CHARGE_DC_IN_FILTER + 1;
         if (func_bt_charge_dcin()) {
             sys_cb.pwrdwn_tone_en = 0;

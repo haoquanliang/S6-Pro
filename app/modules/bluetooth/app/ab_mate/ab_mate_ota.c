@@ -197,6 +197,10 @@ void app_fota_init(void)
     fot_init();
 #elif (AB_FOT_TYPE == AB_FOT_TYPE_PACK)
     ota_pack_init();
+#if SWETZ_OTA_ADDR_CHARGE
+    uint32_t bp_addr = 0;
+    param_fot_addr_write((u8 *)&bp_addr);
+#endif
 #else
     fot_init();
     ota_pack_init();

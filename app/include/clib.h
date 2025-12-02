@@ -61,6 +61,6 @@ void delay_ms(uint n);
 void delay_us(uint n);
 
 u32 tick_get(void);
-bool tick_check_expire(u32 tick, u32 expire_val);
+bool tick_check_expire(u32 tick, u32 expire_val);//user:超时返回1，未超时返回0，expire_val超时值
 
 #endif // _CLIB_H

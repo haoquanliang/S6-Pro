@@ -790,10 +790,24 @@ static void charge_box_analysis_packet(vh_packet_t *packet)
             break;
 
         case VHOUSE_CMD_CLOSE_WINDOW:
-            TRACE("VHOUSE_CMD_CLOSE_WINDOW\n");
+            
+#if APP_TEST
+            if(ab_mate_ota_is_start()){
+                    TRACE("OTA ing\n");
+                    charge_off();
+                        RTCCON8 = (RTCCON8 & ~BIT(6)) | BIT(1);
+                        vusb4s_reset_dis();
+            }else{
+            TRACE("VHOUSE_CMD_CLOSE_WINDOW\n");    
             vhouse_cb.open_win_flag = 0;
             vhouse_cb.status = 0;                           //关盖, 充电
             charge_box_vbat_ack(packet);
+            }
+#else
+            vhouse_cb.open_win_flag = 0;
+            vhouse_cb.status = 0;                           //关盖, 充电
+            charge_box_vbat_ack(packet);
+#endif
             break;
 
         case VHOUSE_CMD_OPEN_WINDOW:
@@ -836,9 +850,11 @@ static void charge_box_analysis_packet_for_charge(vh_packet_t *packet)
         //仓关盖后获取电量
         case VHOUSE_CMD_CLOSE_WIN_GET_VBAT:
             TRACE("VHOUSE_DISP_VBAT\n");
+         
             charge_box_vbat_ack(packet);
             vhouse_cb.open_win_flag = 0;
 			vhouse_cb.status = 0;                           //关盖, 充电
+          
             break;
 
         //仓开盖后获取电量
@@ -903,7 +919,7 @@ u32 charge_box_ssw_process(u32 charge_sta)
     if(vhouse_cb.rx_flag) {
         if(packet->checksum == crc8_maxim((u8 *)packet, 5 + packet->length)) {
             TRACE("cmd [%d], %d\n", packet->cmd, charge_sta);
-            print_r(packet,20);
+           // print_r(packet,20);
             if (charge_sta) {
                 charge_box_analysis_packet_for_charge(packet);
             } else {

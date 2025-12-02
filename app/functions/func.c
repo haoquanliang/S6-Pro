@@ -458,7 +458,9 @@ void func_message(u16 msg)
                 }
                sys_cb.find_left_ear_going = true;
                app_lr_send_notification(LR_NOTIFY_SYNC_L_FIND_STA, 1, &sys_cb.find_left_ear_going);
-               ab_mate_notify_find_me_left();
+#if APP_USER_FIND_EAR               
+                 ab_mate_notify_find_me_left();
+#endif
             break;
 
          case EVT_FIND_ME_LEFT_STOP:
@@ -473,7 +475,10 @@ void func_message(u16 msg)
                     }
                     sys_cb.find_left_ear_going = false;
                     app_lr_send_notification(LR_NOTIFY_SYNC_L_FIND_STA, 1, &sys_cb.find_left_ear_going);
-                    ab_mate_notify_find_me_right();
+#if APP_USER_FIND_EAR
+                    ab_mate_notify_find_me_left();
+#endif
+                    
                 break;
 
         case EVT_FIND_ME_RIGHT_START:
@@ -489,6 +494,9 @@ void func_message(u16 msg)
                 }
                 sys_cb.find_right_ear_going = true;
                 app_lr_send_notification(LR_NOTIFY_SYNC_R_FIND_STA, 1, &sys_cb.find_right_ear_going);
+#if APP_USER_FIND_EAR
+                    ab_mate_notify_find_me_right();
+#endif                
                     break;
 
          case EVT_FIND_ME_RIGHT_STOP:
@@ -504,6 +512,9 @@ void func_message(u16 msg)
                     }
                     sys_cb.find_right_ear_going = false;
                     app_lr_send_notification(LR_NOTIFY_SYNC_R_FIND_STA, 1, &sys_cb.find_right_ear_going);
+#if APP_USER_FIND_EAR
+                    ab_mate_notify_find_me_right();
+#endif
                 break;
 
 
@@ -628,11 +639,11 @@ void func_message(u16 msg)
 #endif
         {
             u8 bat_level = bsp_get_bat_level();
-          //  if(sys_cb.local_bat_level != bat_level){
+            if(sys_cb.local_bat_level != bat_level){
                     sys_cb.local_bat_level = bat_level;
                     app_lr_send_notification(LR_NOTIFY_BATTERY_LEVEL, 1, &sys_cb.local_bat_level);
                     
-         //   }
+            }
         }
         printf("vbat:%d adc_cb.vbat_val:%d sys_cb.local_bat_level:%d  sys_cb.peer_bat_level:%d  box_vbat:%d\r\n",sys_cb.vbat,adc_cb.vbat_val,sys_cb.local_bat_level,sys_cb.peer_bat_level,charge_box_get_charge_box_bat_level());
 
@@ -662,7 +673,8 @@ void func_message(u16 msg)
    //printf("ab_mate_app.v3d_audio_en:%d\r\n",ab_mate_app.v3d_audio_en);
 //    printf("find_left:%d find_right:%d",sys_cb.find_left_ear_going,sys_cb.find_right_ear_going);
 //             printf("sys_cb.sw_rst_flag:%d\r\n",sys_cb.sw_rst_flag);
-
+           
+            
         break;
             
 #endif
@@ -677,6 +689,7 @@ void func_message(u16 msg)
 
 #if SWETZ_EVT_1S
         case EVT_SYS_1S:
+
                 app_check_mute();
 #if SWETZ_NTC
             ntc_cnt++;

@@ -210,6 +210,9 @@ volatile u8  dc_in_filter;      //DC IN filter
     u8 find_me_count;
     u8 flag_playing_find_ear;
     u8 flag_peer_case_charge_sta;
+    u8 flag_eq_set_sw;
+    u32 flag_getcmd_time;
+    u8 time_tick;
 #endif
 #if SWETZ_TEST
     u8 test;

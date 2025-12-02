@@ -195,8 +195,8 @@ static void ab_mate_data_send_do(uint8_t *packet, uint16_t len)
     }
 #endif
 #if SWETZ
-    TRACE("abmate tx:");
-    TRACE_R(packet, len);
+            TRACE("abmate tx:");
+            TRACE_R(packet, len);
 #endif
 
 }
@@ -603,8 +603,10 @@ void ab_mate_eq_set(u8 *payload,u8 payload_len)
     printf("payload[0]:%x\r\n",payload[0]);
 
 #if APP_EQ_SET
-    if(payload_len == 1 && payload[0] < AB_MATE_EQ_RES_CNT){
+    if(payload_len == 1 && payload[0] < AB_MATE_EQ_RES_CNT){       
         if (ab_mate_app.eq_info.mode != payload[0]){
+
+
                 ab_mate_app.eq_info.mode = payload[0];
 
 #if AB_MATE_EQ_USE_DEVICE
@@ -612,9 +614,7 @@ void ab_mate_eq_set(u8 *payload,u8 payload_len)
             ab_mate_eq_custom_save();
         }
 #endif
-#if APP_EQ_TONE
-            f_bt.warning_status |= BT_WARN_EQ;
-#endif
+
             #if BT_TWS_EN
                 ab_mate_tws_eq_info_sync();
             #endif
@@ -1660,8 +1660,12 @@ void ab_mate_mode_set(u8 *payload, u8 payload_len)
 #if AB_MATE_LATENCY_EN
     ab_mate_result_t result = AB_MATE_SUCCESS;
     u8 mode = payload[0];
-
-    if(ab_mate_app.latency_mode != mode){
+#if APP_MODE_TONE_EVEN
+     if(1){
+#else
+     if(ab_mate_app.latency_mode != mode){
+#endif
+   
         if(mode == DEVICE_MODE_NORMAL){
 #if APP_SWITCH_TONE_TYPE
             user_music_mode_tone_play();
@@ -1731,11 +1735,14 @@ void ab_mate_device_find(u8 *payload, u8 payload_len)
                     }
             }
 
+             ab_mate_request_common_response(result);
+    }else {
 
+        ab_mate_request_common_response(AB_MATE_FAIL);
     }
 
-#endif
 
+#else
 
 #if AB_MATE_DEVICE_FIND_EN
     ab_mate_result_t result = AB_MATE_SUCCESS;
@@ -1776,7 +1783,7 @@ void ab_mate_device_find(u8 *payload, u8 payload_len)
     ab_mate_request_common_response(AB_MATE_FAIL);
 #endif
 
-
+#endif
 
 }
 
@@ -2719,7 +2726,11 @@ void ab_mate_request_receive_proc(u8 cmd,u8 *payload,u8 payload_len)
     printf("ab_mate_cmd:0x%x\r\n",cmd);
     switch(cmd){
         case CMD_EQ_SET:
+#if !APP_MESSAGE_DELYA        
             ab_mate_eq_set(payload, payload_len);
+#else
+            sys_cb.flag_getcmd_time = tick_get();
+#endif            
             break;
 
         case CMD_MUSIC_SET:
@@ -2739,7 +2750,12 @@ void ab_mate_request_receive_proc(u8 cmd,u8 *payload,u8 payload_len)
             break;
 
         case CMD_MODE_SET:
-            ab_mate_mode_set(payload, payload_len);
+#if !APP_MESSAGE_DELYA
+         ab_mate_mode_set(payload, payload_len);
+#else
+        sys_cb.flag_getcmd_time = tick_get();
+#endif
+           
             break;
 
         case CMD_IN_EAR_SET:
@@ -2789,7 +2805,11 @@ void ab_mate_request_receive_proc(u8 cmd,u8 *payload,u8 payload_len)
 
 #if AB_MATE_V3D_AUDIO_EN
         case CMT_V3D_AUDIO_SET:
+#if !APP_MESSAGE_DELYA        
             ab_mate_v3d_audio_set(payload, payload_len);
+#else
+            sys_cb.flag_getcmd_time = tick_get();
+#endif
             break;
 #endif
 
@@ -3575,6 +3595,32 @@ void ab_mate_process(void)
 #if (BT_HFP_TIME_EN || BT_MAP_EN)
     ab_mate_get_real_time_process();
 #endif
+
+#if APP_MESSAGE_DELYA
+    if(sys_cb.flag_getcmd_time != 0){
+            if((tick_get() - sys_cb.flag_getcmd_time) > APP_DELYA_TIME_MS && (ab_mate_cmd_recv.cmd_head.cmd == CMD_EQ_SET)){
+                      sys_cb.flag_getcmd_time = 0;
+#if APP_EQ_TONE
+                      f_bt.warning_status |= BT_WARN_EQ;
+#endif                      
+                      ab_mate_eq_set(ab_mate_cmd_recv.payload, ab_mate_cmd_recv.total_len);  
+            }
+
+            if((tick_get() - sys_cb.flag_getcmd_time) > APP_DELYA_TIME_MS && (ab_mate_cmd_recv.cmd_head.cmd == CMT_V3D_AUDIO_SET)){
+                      sys_cb.flag_getcmd_time = 0;      
+                      ab_mate_v3d_audio_set(ab_mate_cmd_recv.payload, ab_mate_cmd_recv.total_len);
+                        
+            }
+
+            if((tick_get() - sys_cb.flag_getcmd_time) > APP_DELYA_TIME_MS && (ab_mate_cmd_recv.cmd_head.cmd == CMD_MODE_SET)){
+                      sys_cb.flag_getcmd_time = 0;      
+                      ab_mate_mode_set(ab_mate_cmd_recv.payload, ab_mate_cmd_recv.total_len);
+                        
+            }            
+    }
+
+#endif
+
 
     ab_mate_app.wakeup = 0;
 }
