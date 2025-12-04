@@ -673,7 +673,7 @@ void func_message(u16 msg)
    //printf("ab_mate_app.v3d_audio_en:%d\r\n",ab_mate_app.v3d_audio_en);
 //    printf("find_left:%d find_right:%d",sys_cb.find_left_ear_going,sys_cb.find_right_ear_going);
 //             printf("sys_cb.sw_rst_flag:%d\r\n",sys_cb.sw_rst_flag);
-           
+           printf("music_effect_DBB_state:%d\r\n",music_effect_get_state(MUSIC_EFFECT_DBB));
             
         break;
             
@@ -689,7 +689,6 @@ void func_message(u16 msg)
 
 #if SWETZ_EVT_1S
         case EVT_SYS_1S:
-
                 app_check_mute();
 #if SWETZ_NTC
             ntc_cnt++;

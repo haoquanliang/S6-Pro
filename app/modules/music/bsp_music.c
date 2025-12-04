@@ -214,7 +214,7 @@ void mp3_res_play(u32 addr, u32 len)
 #if !APP_MP3_BYPASS_EQ
     //音乐的EQ会影响mp3格式的语音提示，在播放前关掉，播完后恢复正常
     //注意：各种音效也会调整EQ 
-    ab_mate_bypass_eq();
+    // ab_mate_bypass_eq();
 #endif
 
 

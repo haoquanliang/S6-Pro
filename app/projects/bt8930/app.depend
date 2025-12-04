@@ -34,13 +34,13 @@
 
 1761018979 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\include\macro.h
 
-1761018979 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\include\clib.h
+1764578674 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\include\clib.h
 
 1761018979 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\include\sfr.h
 
 1761018980 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\projects\bt8930\xcfg.h
 
-1764577017 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\projects\bt8930\config.h
+1764748963 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\projects\bt8930\config.h
 	"config_define.h"
 	"config_extra.h"
 
@@ -115,7 +115,7 @@
 
 1761018979 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\libs\bt8930\api_saradc.h
 
-1764158692 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\libs\bt8930\api_sys.h
+1764647205 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\libs\bt8930\api_sys.h
 
 1761018979 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\libs\bt8930\api_tws.h
 
@@ -190,7 +190,7 @@
 
 1761018979 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\3rd-party\sensor\sc7a20.h
 
-1764562485 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\system\system.h
+1764582443 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\system\system.h
 	"mute.h"
 	"param.h"
 	"device.h"
@@ -311,7 +311,7 @@
 	"app_fota/app_fota.h"
 	"app_fota/app_fota_profile.h"
 
-1764301733 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\app\ab_mate\ab_mate_app.h
+1764726213 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\app\ab_mate\ab_mate_app.h
 	"ab_mate_timer.h"
 	"ab_mate_profile.h"
 
@@ -319,7 +319,7 @@
 
 1763539719 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\app\ab_mate\ab_mate_profile.h
 
-1761018980 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\app\app_demo\app_demo.h
+1764726205 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\app\app_demo\app_demo.h
 
 1761018980 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\app\dueros_dma\dueros_dma_app.h
 	"dma_wrapper.h"
@@ -334,7 +334,7 @@
 1761018980 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\app\tuya\port\tuya_ble_profile.h
 	"include.h"
 
-1761018980 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\app\tuya\port\tuya_ble_app.h
+1764726218 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\app\tuya\port\tuya_ble_app.h
 	"tuya_ble_type.h"
 
 1761018980 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_type.h
@@ -538,7 +538,7 @@
 	"bsp_vad.h"
 	"asr.h"
 
-1764571689 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\functions\func.c
+1764746849 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\functions\func.c
 	"include.h"
 
 1761018979 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\functions\func_aux.c
@@ -546,12 +546,12 @@
 	"func.h"
 	"func_aux.h"
 
-1764234967 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\functions\func_bt.c
+1764667006 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\functions\func_bt.c
 	"include.h"
 	"func.h"
 	"func_bt.h"
 
-1762155302 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\functions\func_bt_dut.c
+1764666927 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\functions\func_bt_dut.c
 	"include.h"
 	"func.h"
 	"api.h"
@@ -561,7 +561,7 @@
 	"func.h"
 	"func_bt_hid.h"
 
-1763521359 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\functions\func_charge.c
+1764665434 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\functions\func_charge.c
 	"include.h"
 	"func.h"
 
@@ -570,7 +570,7 @@
 	"func.h"
 	"func_idle.h"
 
-1764570280 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\functions\func_lowpwr.c
+1764647423 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\functions\func_lowpwr.c
 	"include.h"
 	"func.h"
 
@@ -658,11 +658,11 @@
 1761018980 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\audio\bsp_aux.c
 	"include.h"
 
-1763608790 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\audio\bsp_dac.c
+1764725330 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\audio\bsp_dac.c
 	"include.h"
 	"bsp_dac.h"
 
-1763954964 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\audio\bsp_effect.c
+1764748937 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\audio\bsp_effect.c
 	"include.h"
 
 1762757451 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\audio\bsp_eq.c
@@ -673,11 +673,11 @@
 1761018980 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\audio\bsp_set_effect.c
 	"include.h"
 
-1761018980 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\app\ab_mate\ab_mate_gfps_profile.c
+1764726232 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\app\ab_mate\ab_mate_gfps_profile.c
 	"include.h"
 	"ab_mate_profile.h"
 
-1764317446 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\app\ab_mate\ab_mate_profile.c
+1764642633 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\app\ab_mate\ab_mate_profile.c
 	"include.h"
 	"ab_mate_profile.h"
 
@@ -685,7 +685,7 @@
 	"include.h"
 	"ab_mate_timer.h"
 
-1763630394 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\app\ab_mate\ab_mate_tws.c
+1764580316 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\app\ab_mate\ab_mate_tws.c
 	"include.h"
 	"ab_mate_tws.h"
 	"ab_mate_ota.h"
@@ -719,7 +719,7 @@
 	"dma_wrapper.h"
 	"dma.pb-c.h"
 
-1761018980 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\app\dueros_dma\dma.pb-c.h
+1764726245 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\app\dueros_dma\dma.pb-c.h
 	"protobuf-c.h"
 
 1761018980 d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\app\dueros_dma\protobuf-c.h
@@ -1167,7 +1167,7 @@
 1761018980 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\ble\adv0.c
 	"include.h"
 
-1764129906 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\ble\ble.c
+1764643460 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\ble\ble.c
 	"include.h"
 
 1761018980 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\ble\priv_ble.c
@@ -1181,7 +1181,7 @@
 	"include.h"
 	"api.h"
 
-1764563204 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\bt\bt.c
+1764646509 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\bt\bt.c
 	"include.h"
 	"api.h"
 
@@ -1240,7 +1240,7 @@
 	"api.h"
 	"app_include.h"
 
-1764215198 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\tws\tws_res.c
+1764580678 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\tws\tws_res.c
 	"include.h"
 	"tws_res.h"
 
@@ -1253,10 +1253,10 @@
 1761018980 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\tws\tws_util.c
 	"include.h"
 
-1761698457 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\charge\charge.c
+1764744596 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\charge\charge.c
 	"include.h"
 
-1764570789 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\charge\charge_box.c
+1764747491 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\charge\charge_box.c
 	"include.h"
 
 1761018980 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\debug\debug.c
@@ -1321,7 +1321,7 @@
 1761018980 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\music\bsp_lrc.c
 	"include.h"
 
-1764214281 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\music\bsp_music.c
+1764731296 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\music\bsp_music.c
 	"include.h"
 
 1761884267 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\music\bsp_piano.c
@@ -1385,7 +1385,7 @@
 1764294526 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\system\param.c
 	"include.h"
 
-1764554983 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\system\system.c
+1764578618 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\system\system.c
 	"include.h"
 
 1764570770 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\system\vbat.c
@@ -1402,7 +1402,7 @@
 1764569777 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\projects\bt8930\app_lr.c
 	"app_include.h"
 
-1764242390 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\projects\bt8930\app_message.c
+1764733978 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\projects\bt8930\app_message.c
 	"app_include.h"
 
 1761018980 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\projects\bt8930\app_ringbuf.c
@@ -1441,7 +1441,7 @@
 	"include.h"
 	"ledseg/display_ledseg.h"
 
-1763690475 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\projects\bt8930\main.c
+1764733935 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\projects\bt8930\main.c
 	"include.h"
 
 1761018980 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\projects\bt8930\message\msg_aux.c
@@ -1534,8 +1534,19 @@
 1761018980 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\projects\bt8930\ram.ld
 	"config.h"
 
-1764575244 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\app\ab_mate\ab_mate_ota.c
+1764748080 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\app\ab_mate\ab_mate_ota.c
 	"include.h"
 	"ab_mate_ota.h"
 	"ab_mate_tws.h"
+
+1764748047 source:d:\work\s6pro\s6pro_sdk_debug\s6-pro\app\modules\bluetooth\app\ab_mate\ab_mate_app.c
+	"include.h"
+	"ab_mate_app.h"
+	"ab_mate_timer.h"
+	"ab_mate_ota.h"
+	"ab_mate_tws.h"
+	"ab_mate_profile.h"
+	"hfhs.h"
+	"map.h"
+	"bsp_opus.h"
 

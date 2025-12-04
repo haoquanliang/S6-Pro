@@ -489,10 +489,10 @@ static void charge_box_send_data(u8 *buf,u8 len)
     }
 #endif
 #if SWETZ 
-    if(buf[3] != 0x01){
+     if(buf[3] != 0x01){
         printf("box tx:");
         print_r(buf, len);
-    }
+     }
 
 #endif 
 }
@@ -570,10 +570,22 @@ static void charge_box_vbat_ack(vh_packet_t *packet)
     //发送电量响应包
     packet->header = 0xAA55;
     packet->distinguish = VHOUSE_DISTINGUISH;
+#if APP_ADD_OTA_FLAG
+    packet->length = 0x05;
+    packet->buf[0] = channel;
+    packet->buf[2] = sys_cb.loc_bat;
+    packet->buf[3] = sys_cb.charge_sta;   
+
+    packet->buf[4] = ab_mate_ota_is_start();
+#else
     packet->length = 0x04;
     packet->buf[0] = channel;
     packet->buf[2] = sys_cb.loc_bat;
     packet->buf[3] = sys_cb.charge_sta;
+   
+
+#endif
+
     charge_box_cmd_ack(packet);
 }
 
@@ -791,23 +803,11 @@ static void charge_box_analysis_packet(vh_packet_t *packet)
 
         case VHOUSE_CMD_CLOSE_WINDOW:
             
-#if APP_TEST
-            if(ab_mate_ota_is_start()){
-                    TRACE("OTA ing\n");
-                    charge_off();
-                        RTCCON8 = (RTCCON8 & ~BIT(6)) | BIT(1);
-                        vusb4s_reset_dis();
-            }else{
-            TRACE("VHOUSE_CMD_CLOSE_WINDOW\n");    
+
             vhouse_cb.open_win_flag = 0;
             vhouse_cb.status = 0;                           //关盖, 充电
             charge_box_vbat_ack(packet);
-            }
-#else
-            vhouse_cb.open_win_flag = 0;
-            vhouse_cb.status = 0;                           //关盖, 充电
-            charge_box_vbat_ack(packet);
-#endif
+
             break;
 
         case VHOUSE_CMD_OPEN_WINDOW:

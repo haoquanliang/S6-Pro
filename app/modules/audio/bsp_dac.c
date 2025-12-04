@@ -21,10 +21,19 @@ const u16 dac_dvol_tbl_db[61] = {
 #if !BT_MUSIC_EFFECT_ABT_EN
 AT(.rodata.dac) const
 #endif
+#if SWETZ
 u8 dac_dvol_tbl_16[16 + 1] = {
-    60,  43,  32,  26,  24,  22,  20,  18, 16,
-    14,  12,  10,  8,   6,   4,   2,   0,
+    60,  57,  52,  47,  42,  37,  32,  27, 24,
+    21,  18,  15,  12,   9,   6,   1,   0,
 };
+
+#else
+// u8 dac_dvol_tbl_16[16 + 1] = {
+//     60,  43,  32,  26,  24,  22,  20,  18, 16,
+//     14,  12,  10,  8,   6,   4,   2,   0,
+// };
+
+#endif
 
 #if !BT_MUSIC_EFFECT_ABT_EN
 AT(.rodata.dac) const

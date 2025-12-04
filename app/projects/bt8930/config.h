@@ -92,8 +92,8 @@
 #define AB_USER_KEY                 1//user_key
 #define APP_KEY_FUNTION_SELECT      1//1:使用ab_mate的按键功能，0：使用配置的按键功能
 #define APP_EQ_SET                  1//EQ设置
-#define APP_EQ_TONE                 1//增加eq切换tong声
-#define APP_MP3_BYPASS_EQ           1//播放mp3提示音bypass EQ播完再恢复
+#define APP_EQ_TONE                 0//增加eq切换tong声
+#define APP_MP3_BYPASS_EQ           0//播放mp3提示音bypass EQ播完再恢复
 #define APP_EQ_CMD_REPLY            1//修改EQ命令回复
 #define APP_DEV_EN                  (0)//1to2 默认开关
 #define APP_LANG_TYPE_SET           1//提示音类型
@@ -119,14 +119,14 @@
 
 #define APP_MESSAGE_DELYA               1//app个别消息增加消抖作用
 #define APP_DELYA_TIME_MS               800//app消息消抖时间ms
-#define APP_TEST                        0
 
 #define APP_MODE_TONE_EVEN              1//去掉游戏音乐模式当前不相同才切的判断，保证最后一次有提示音
+#define APP_ADD_OTA_FLAG                1//仓心跳包增加OTA状态字节  
 
 
 #define SWETZ_CLOSE                 0//0:关掉V3D
 #define APP_MUSIC_AUDIO_TEST        1//音效调试
-
+#define APP_TEST                    0
 #endif
 
 
@@ -385,7 +385,7 @@
 //动态低音
 #define BT_MUSIC_EFFECT_DBB_EN          1                   //动态低音音效使能
 #define BT_MUSIC_EFFECT_DBB_BAND_CNT    1                   //动态低音音效的EQ段数
-#define BT_MUSIC_EFFECT_DBB_DEF_LEVEL   7                  //动态低音音效默认的等级
+#define BT_MUSIC_EFFECT_DBB_DEF_LEVEL   1                  //动态低音音效默认的等级
 //空间音效
 #define BT_MUSIC_EFFECT_SPATIAL_AU_EN   1                   //空间音效使能
 #define BT_MUSIC_EFFECT_SPATIAL_AUEQ_EN 1                   //空间音效下固定使用spatial_audio.eq

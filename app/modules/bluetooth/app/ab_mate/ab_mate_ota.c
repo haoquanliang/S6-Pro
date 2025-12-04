@@ -271,6 +271,7 @@ void ab_mate_ota_init(void)
 
 void ab_mate_ota_exit(void)
 {
+    printf("ab_mate_ota_exit\r\n");
     if(fot_var.sys_clk){
         sys_clk_set(fot_var.sys_clk);
     }
@@ -280,6 +281,7 @@ void ab_mate_ota_exit(void)
     }
     memset(&fot_var, 0, sizeof(fot_var));
     unlock_code_fota();
+
 }
 
 bool ab_mate_ota_is_start(void)

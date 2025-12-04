@@ -527,7 +527,9 @@ void ab_mate_user_incase_sta_notify(void)
 {
     if(ab_mate_app.con_sta){
         u8 tlv_data[3] = {INFO_NI_CASE_STATE, 1, 0x00};
+
         tlv_data[2] = user_check_incase_sta_pull();
+        
 
     ab_mate_device_info_notify(tlv_data, sizeof(tlv_data));
     }
@@ -605,9 +607,17 @@ void ab_mate_eq_set(u8 *payload,u8 payload_len)
 #if APP_EQ_SET
     if(payload_len == 1 && payload[0] < AB_MATE_EQ_RES_CNT){       
         if (ab_mate_app.eq_info.mode != payload[0]){
+            ab_mate_app.eq_info.mode = payload[0];
+#if APP_TEST
+            if(ab_mate_app.eq_info.mode == 6){
+                message_send(MSG_ID_DBB_SWITCH, 0, 0);
+                delay_5ms(1);
+                message_send(MSG_ID_DBB_SWITCH, 1, 0);
+            }
 
+#endif
 
-                ab_mate_app.eq_info.mode = payload[0];
+                
 
 #if AB_MATE_EQ_USE_DEVICE
         if(ab_mate_app.eq_info.mode >= AB_MATE_EQ_CUSTOM_INDEX){
@@ -618,6 +628,7 @@ void ab_mate_eq_set(u8 *payload,u8 payload_len)
             #if BT_TWS_EN
                 ab_mate_tws_eq_info_sync();
             #endif
+       
             ab_mate_app.do_flag |= FLAG_EQ_SET;
             ab_mate_cm_write(&ab_mate_app.eq_info.mode, AB_MATE_CM_EQ_DATA, 1+AB_MATE_EQ_BAND_CNT, 2);
 
