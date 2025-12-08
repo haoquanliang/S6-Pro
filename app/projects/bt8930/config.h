@@ -122,11 +122,11 @@
 
 #define APP_MODE_TONE_EVEN              1//去掉游戏音乐模式当前不相同才切的判断，保证最后一次有提示音
 #define APP_ADD_OTA_FLAG                1//仓心跳包增加OTA状态字节  
-
+#define APP_ADD_ABMATE_VOL_SYNC         1//增加提示音音量tws同步
 
 #define SWETZ_CLOSE                 0//0:关掉V3D
 #define APP_MUSIC_AUDIO_TEST        1//音效调试
-#define APP_TEST                    0
+#define APP_TEST                    1
 #endif
 
 
@@ -385,12 +385,12 @@
 //动态低音
 #define BT_MUSIC_EFFECT_DBB_EN          1                   //动态低音音效使能
 #define BT_MUSIC_EFFECT_DBB_BAND_CNT    1                   //动态低音音效的EQ段数
-#define BT_MUSIC_EFFECT_DBB_DEF_LEVEL   1                  //动态低音音效默认的等级
+#define BT_MUSIC_EFFECT_DBB_DEF_LEVEL   6                  //动态低音音效默认的等级
 //空间音效
 #define BT_MUSIC_EFFECT_SPATIAL_AU_EN   1                   //空间音效使能
 #define BT_MUSIC_EFFECT_SPATIAL_AUEQ_EN 1                   //空间音效下固定使用spatial_audio.eq
 #define BT_MUSIC_EFFECT_SPATIAL_AU_L1   0
-#define BT_MUSIC_EFFECT_SPATIAL_AU_DLEN 0                   //空间音效左右声道delay使能
+#define BT_MUSIC_EFFECT_SPATIAL_AU_DLEN 1                   //空间音效左右声道delay使能
 //虚拟低音
 #define BT_MUSIC_EFFECT_VBASS_EN        0                   //虚拟低音使能
 //动态EQ

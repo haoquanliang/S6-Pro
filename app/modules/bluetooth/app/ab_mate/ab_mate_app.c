@@ -608,14 +608,7 @@ void ab_mate_eq_set(u8 *payload,u8 payload_len)
     if(payload_len == 1 && payload[0] < AB_MATE_EQ_RES_CNT){       
         if (ab_mate_app.eq_info.mode != payload[0]){
             ab_mate_app.eq_info.mode = payload[0];
-#if APP_TEST
-            if(ab_mate_app.eq_info.mode == 6){
-                message_send(MSG_ID_DBB_SWITCH, 0, 0);
-                delay_5ms(1);
-                message_send(MSG_ID_DBB_SWITCH, 1, 0);
-            }
 
-#endif
 
                 
 

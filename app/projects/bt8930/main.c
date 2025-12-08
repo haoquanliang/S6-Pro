@@ -58,7 +58,7 @@ int main(void)
     //music_dyeq_audio_start();
   // music_vbass_audio_start();
   music_dbb_audio_start();
-  music_dbb_audio_set_bass_level(BT_MUSIC_EFFECT_DBB_DEF_LEVEL);
+  //music_dbb_audio_set_bass_level(BT_MUSIC_EFFECT_DBB_DEF_LEVEL);
   
 #endif
     func_run();

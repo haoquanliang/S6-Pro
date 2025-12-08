@@ -261,14 +261,14 @@ void mp3_res_play(u32 addr, u32 len)
     }
     music_control(MUSIC_MSG_STOP);
 #if !APP_MP3_BYPASS_EQ
-    if(sys_cb.incall_flag)
-    {
-        //MP3播完后，SCO算法初始化的时候会设置EQ
-    }
-    else
-    {
-        app_eq_set(); 
-    } 
+    // if(sys_cb.incall_flag)
+    // {
+    //     //MP3播完后，SCO算法初始化的时候会设置EQ
+    // }
+    // else
+    // {
+    //     app_eq_set(); 
+    // } 
 #endif
 
 #if BT_MUSIC_EFFECT_EN

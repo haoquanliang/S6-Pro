@@ -7,8 +7,8 @@ const eq_param music_eq_tbl[MUSIC_EQ_TBL_LEN] = {
     {&RES_BUF_EQ_CLASSIC_EQ,     &RES_LEN_EQ_CLASSIC_EQ}, //class
     {&RES_BUF_EQ_JAZZ_EQ,        &RES_LEN_EQ_JAZZ_EQ},    //jazz
     {&RES_BUF_EQ_ELECTRONIC_EQ,  &RES_LEN_EQ_ELECTRONIC_EQ},   //Electronic
-    {&RES_BUF_EQ_POP_EQ,         &RES_LEN_EQ_NORMAL_EQ},   //pop
-    {&RES_BUF_EQ_CLASSIC_EQ,     &RES_LEN_EQ_CLASSIC_EQ},//classic
+    {&RES_BUF_EQ_POP_EQ,         &RES_LEN_EQ_POP_EQ},   //pop
+    {&RES_BUF_EQ_CLASSICAL_EQ,     &RES_LEN_EQ_CLASSICAL_EQ},//classic
     {&RES_BUF_EQ_ROCK_EQ,        &RES_LEN_EQ_ROCK_EQ},//rock
     {&RES_BUF_EQ_BASS_EQ,        &RES_LEN_EQ_BASS_EQ},//bass
     {&RES_BUF_EQ_TREBLE_EQ,      &RES_LEN_EQ_TREBLE_EQ},//treble

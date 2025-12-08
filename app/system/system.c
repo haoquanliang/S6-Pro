@@ -1083,6 +1083,7 @@ bool power_off_check(void)
             #if WARNING_WSBC_EN
             wsbc_res_play(RES_BUF_POWERON, RES_LEN_POWERON);
             #else
+
 #if SWETZ_POWER_ON_TONE
 #if APP_SWITCH_TONE_TYPE
             user_poweron_tone_play();
@@ -1519,6 +1520,8 @@ void sys_init(void)
     app_init_do();
 
     bsp_change_volume(sys_cb.vol);
+
+
 
 #if WARNING_POWER_ON
     if ((xcfg_cb.bt_outbox_voice_pwron_en) || (!sys_cb.outbox_pwron_flag)) {

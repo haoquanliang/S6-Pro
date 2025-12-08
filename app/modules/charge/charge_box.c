@@ -918,7 +918,10 @@ u32 charge_box_ssw_process(u32 charge_sta)
 #if (CHARGE_BOX_INTF_SEL == INTF_HUART)
     if(vhouse_cb.rx_flag) {
         if(packet->checksum == crc8_maxim((u8 *)packet, 5 + packet->length)) {
-            TRACE("cmd [%d], %d\n", packet->cmd, charge_sta);
+            if(packet->cmd != 0x01){
+                 TRACE("cmd [%d], %d\n", packet->cmd, charge_sta);
+            }
+           
            // print_r(packet,20);
             if (charge_sta) {
                 charge_box_analysis_packet_for_charge(packet);

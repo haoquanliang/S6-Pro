@@ -463,6 +463,7 @@ void bt_emit_notice(uint evt, void *params)
         break;
     case BT_NOTICE_TWS_CONNECTED:
         printf("BT_NOTICE_TWS_CONNECTED\r\n");
+        
         if(bt_tws_is_slave()){
             ble_adv_dis();          //副机关闭BLE广播
             tws_res_cleanup();      //播tws提示音前先清一下单耳的提示音。不清会导致rpos慢主耳一步，导致一直w4

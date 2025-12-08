@@ -55,7 +55,7 @@ void app_role_switch_by_inbox(void)
     && (!sys_cb.find_right_ear_going)
    // && (!is_pwrkey_pressed())
    // && (tick_check_expire(sys_cb.tick_event, 1000))
-    && (app_lr_is_idle())
+   // && (app_lr_is_idle())
     )
     {
         bt_tws_switch();
@@ -81,7 +81,7 @@ void app_role_switch_by_outbox(void)
     && (!sys_cb.find_right_ear_going)
    // && (!is_pwrkey_pressed())
    // && (tick_check_expire(sys_cb.tick_event, 1000))
-    && (app_lr_is_idle())
+   // && (app_lr_is_idle())
     )
     {
         bt_tws_switch();

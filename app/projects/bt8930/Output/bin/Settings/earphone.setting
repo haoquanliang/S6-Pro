@@ -30,7 +30,7 @@
         <add key="dacvdd_bypass_en" value="False" />
         <add key="dac_off_for_conn" value="False" />
         <add key="dac_max_gain" value="-2DB" />
-        <add key="bt_call_max_gain" value="-3DB" />
+        <add key="bt_call_max_gain" value="-9DB" />
         <add key="vol_max" value="16级音量" />
         <add key="sys_init_vol" value="16" />
         <add key="sys_recover_initvol" value="16" />
@@ -58,7 +58,7 @@
         <add key="chbox_out_delay" value="15" />
         <add key="bt_name" value="UGREEN HiTune S6 Pro" />
         <add key="bt_addr_mode" value="固定地址" />
-        <add key="bt_addr" value="41:42:00:00:02:B9" />
+        <add key="bt_addr" value="41:42:00:00:02:00" />
         <add key="bt_addr_start" value="41:42:00:00:00:00" />
         <add key="bt_addr_step" value="00:00:00:00:00:01" />
         <add key="bt_addr_end" value="41:42:FF:FF:FF:FF" />
@@ -260,7 +260,7 @@
         <add key="bt_sndp_v6_dnn_level" value="26" />
         <add key="bt_sndp_v7_en" value="False" />
         <add key="bt_sndp_v7_dnn_level" value="26" />
-        <add key="func_music_en" value="True" />
+        <add key="func_music_en" value="False" />
         <add key="dac_24bits_en" value="True" />
         <add key="music_sdcard_en" value="True" />
         <add key="music_udisk_en" value="True" />

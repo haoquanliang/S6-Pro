@@ -778,20 +778,9 @@ const u8 dbb_coef_param[43] = {
 void music_dbb_eq_index_init(u32* coef_l, u32* coef_r)
 {
     dbb_param_cb_t cb;
-#if APP_TEST
-    if(ab_mate_app.eq_info.mode == 6){
-    cb.dbb_param = dbb_coef_param2;
-    cb.param_len = sizeof(dbb_coef_param2);
-    printf("dbb param ---2\r\n");
-    }else{
+
     cb.dbb_param = dbb_coef_param;
     cb.param_len = sizeof(dbb_coef_param);
-   printf("dbb param ---1\r\n");
-    }
-#else
-    cb.dbb_param = dbb_coef_param;
-    cb.param_len = sizeof(dbb_coef_param);
-#endif
 
     cb.coef_l = (s32*)coef_l;
     cb.coef_r = (s32*)coef_r;
@@ -866,7 +855,7 @@ void music_dbb_audio_set_vol_do(u8 vol_level)
 
     u8 bass_level = music_dbb_get_bass_level();
     int res = music_dbb_update_param(vol_level, bass_level);
-
+ 
     //0:不需要change eq，1:先change eq再调音量，2:先调音量再change eq
     if (res == 1) {
         music_set_eq_by_num(sys_cb.eq_mode);

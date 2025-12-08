@@ -288,6 +288,10 @@ void ab_mate_tws_info_all_sync(void)
     tws_sync_data[offset++] = ab_mate_app.dynamic_bass.level;
 #endif
 
+#if APP_TEST
+    tws_sync_data[offset++] = ab_mate_app.vp_vol;
+#endif
+
     tws_sync_data_len = offset;
     tws_data_sync_do();
 
@@ -368,7 +372,10 @@ void ab_mate_tws_info_all_proc(uint8_t *data_ptr, u16 size)
 {
     u16 flag = 0;
     u16 offset = 0;
-
+#if APP_TEST
+    printf("------------------------------------------------info_all_proc:");
+    print_r(data_ptr,size);
+#endif
 #if AB_MATE_EQ_EN
     if(memcmp(&ab_mate_app.eq_info, &data_ptr[offset], sizeof(ab_mate_eq_info_t))){
         memcpy(&ab_mate_app.eq_info, &data_ptr[offset], sizeof(ab_mate_eq_info_t));
@@ -480,6 +487,16 @@ void ab_mate_tws_info_all_proc(uint8_t *data_ptr, u16 size)
     }
     TRACE("tws sync dynamic_bass_en:%d, dynamic_bass_level:%d\n",ab_mate_app.dynamic_bass.en, ab_mate_app.dynamic_bass.level);
     offset+=2;
+#endif
+
+#if APP_TEST
+    if (ab_mate_app.vp_vol != data_ptr[offset])
+    {
+        ab_mate_app.vp_vol = data_ptr[offset];
+        ab_mate_cm_write(&ab_mate_app.vp_vol, AB_MATE_CM_SWET_TONE_VOL, 1, 2);
+    }
+    TRACE("vp_vol:%d\n",ab_mate_app.vp_vol);
+    offset++; 
 #endif
 
     if(ab_mate_app.init_flag){
