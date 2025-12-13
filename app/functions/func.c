@@ -417,9 +417,10 @@ void func_message(u16 msg)
         case EVT_IN_CASE:
                 printf("EVT_IN_CASE\r\n");
                   lr_notify_in_case_info();  
+
 #if APP_USER_NOTIFY
 #if APP_INBOX_STA_1S_AFTER_UPDATE
-#if APP_TEST
+#if APP_OTA_ING_LIMIT_INCASE_UPDATE
             if(!ab_mate_ota_is_start()){
                     message_cancel_all(MSG_ID_UPDATE_1S_AFTER_INCASE_STA);
                     message_send(MSG_ID_UPDATE_1S_AFTER_INCASE_STA, 0, 500);
@@ -440,6 +441,9 @@ void func_message(u16 msg)
 
 
             break;
+
+
+
 
 #if BT_MUSIC_EFFECT_DBB_EN
         case EVT_USER_SYNC_DBB_ON:
@@ -488,6 +492,8 @@ void func_message(u16 msg)
                     
                 break;
 
+
+
         case EVT_FIND_ME_RIGHT_START:
                 if(!sys_cb.tws_left_channel){
                     printf("EVT_FIND_ME_RIGHT_START\r\n");
@@ -530,12 +536,12 @@ void func_message(u16 msg)
         case EVT_OUT_CASE:
                 printf("EVT_OUT_CASE\r\n");
                 lr_notify_in_case_info();  
-                 
+
                
 #if APP_USER_NOTIFY
                
 #if APP_INBOX_STA_1S_AFTER_UPDATE
-#if APP_TEST
+ #if APP_OTA_ING_LIMIT_INCASE_UPDATE
                     if(!ab_mate_ota_is_start()){
                         message_send(MSG_ID_UPDATE_1S_AFTER_INCASE_STA, 0, 500);
 
@@ -557,6 +563,8 @@ void func_message(u16 msg)
 #if SWETZ_ROLE_SWITCH_BY_INBOX
                  msg_enqueue(EVT_OUTBOX_CHANGED);
 #endif
+
+
 
             break;
 #endif

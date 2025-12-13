@@ -383,6 +383,10 @@ void ab_mate_vbat_check_proc(soft_timer_p timer)
     static u8 local_bat = 0;
     static u8 remote_bat = 0;
     static u8 box_bat = 0;
+#if APP_IN_OUT_CASE_UPDATE__VBAT
+    static u8 local_case_sta = 0xff;
+    static u8 local_peer_sta = 0xff;
+#endif
     u8 update = 0;
 #if BT_TWS_EN
     u8 sync = 1;
@@ -399,7 +403,7 @@ void ab_mate_vbat_check_proc(soft_timer_p timer)
     ab_mate_app.local_vbat = bsp_get_bat_level();
 #endif
 
-    if((local_bat != ab_mate_app.local_vbat) || (box_bat != ab_mate_app.box_vbat)){
+    if((local_bat != ab_mate_app.local_vbat) || (box_bat != ab_mate_app.box_vbat) ){
 #if APP_VBAT_CANCEL_BIT7
         local_bat = ab_mate_app.local_vbat & 0x7f;
 #else
@@ -426,9 +430,21 @@ void ab_mate_vbat_check_proc(soft_timer_p timer)
     }
 #endif
 #if SWETZ_VBAT_UPDATE
-    update = 1;
+   // update = 1;//一直上传电量给app
+
+
 #endif
-    if(!ab_mate_ota_is_start() && ab_mate_app.con_sta && update){
+#if APP_IN_OUT_CASE_UPDATE__VBAT
+    if(local_case_sta != sys_cb.flag_local_in_case || local_peer_sta != sys_cb.flag_peer_in_case){
+        local_case_sta = sys_cb.flag_local_in_case;
+        local_peer_sta = sys_cb.flag_peer_in_case;
+         update = 1;
+    }
+
+#endif
+
+     if(!ab_mate_ota_is_start() && ab_mate_app.con_sta && update){
+         printf("222update:%d\r\n",update);
         u8 tlv_data[5] = {INFO_POWER, 3, 0x00, 0x00, 0x00};
 #if BT_TWS_EN
         if(sys_cb.tws_left_channel){
@@ -479,11 +495,13 @@ void ab_mate_vbat_check_proc(soft_timer_p timer)
         ab_mate_device_info_notify(tlv_data,sizeof(tlv_data));
         TRACE("vbat_report:L %d, R %d, Box %d\n",tlv_data[2],tlv_data[3],tlv_data[4]);
     }
+
+
 }
 
 void ab_mate_vbat_timer_creat(void)
 {
-    soft_timer_create(&vbat_timer, 1000, TIMER_REPEATED, ab_mate_vbat_check_proc);
+    soft_timer_create(&vbat_timer, 1500, TIMER_REPEATED, ab_mate_vbat_check_proc);
 }
 
 #if AB_MATE_VOL_EN

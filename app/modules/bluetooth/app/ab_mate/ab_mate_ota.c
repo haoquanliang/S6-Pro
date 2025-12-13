@@ -4,7 +4,7 @@
 
 #if AB_MATE_OTA_EN
 
-#define FOT_DEBUG_EN                    0
+#define FOT_DEBUG_EN                    1
 
 #if FOT_DEBUG_EN
 #define FOT_DEBUG(...)                  printf(__VA_ARGS__)
@@ -512,7 +512,6 @@ static void ab_mate_ota_req_proc(void)
 #if OTA_TEST 
     if (sco_is_connected())
     {
-        printf("666666666666666666666666666666\r\n");
         need_update = 0;
     }
 #endif 
@@ -699,7 +698,12 @@ void ab_mate_ota_proc(u8 cmd,u8 *payload,u8 payload_len)
 {
     u32 addr;
     u32 recv_data_len;
+#if 0//OTA_TEST
+    FOT_DEBUG("OTA CMD: 0x%02x, payload_len: %d\n ota_payload:", cmd, payload_len);
+    print_r(payload,payload_len);
+    FOT_DEBUG("\n");
 
+#endif
     switch(cmd){
     case CMD_OTA_REQ:
         memset(&fot_var,0,sizeof(fot_var));

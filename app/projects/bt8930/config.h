@@ -15,7 +15,7 @@
 #define SWETZ_SPP_CMD       1       //SPP指令
 #define SWETZ_UART_CMD      1       //串口指令
 #define SWETZ_SYNC_EVT      1        //事件左右同步执行
-#define APP_MESSAGE_RUN     1       
+#define APP_MESSAGE_RUN     1
 
 
 #define STR_PRI                     1//中断打印
@@ -94,8 +94,8 @@
 #define AB_USER_KEY                 1//user_key
 #define APP_KEY_FUNTION_SELECT      1//1:使用ab_mate的按键功能，0：使用配置的按键功能
 #define APP_EQ_SET                  1//EQ设置
-#define APP_EQ_TONE                 0//增加eq切换tong声
-#define APP_MP3_BYPASS_EQ           0//播放mp3提示音bypass EQ播完再恢复
+#define APP_EQ_TONE                 1//增加eq切换tong声
+#define APP_MP3_BYPASS_EQ           1//播放mp3提示音bypass EQ播完再恢复
 #define APP_EQ_CMD_REPLY            1//修改EQ命令回复
 #define APP_DEV_EN                  (0)//1to2 默认开关
 #define APP_LANG_TYPE_SET           1//提示音类型
@@ -111,7 +111,7 @@
 #define APP_VBAT_SET_0              0//上传app仓电量置0
 #define SWETZ_VBAT_UPDATE           1//双耳不在仓，不显示仓电量
 #define APP_CASE_VBAT_BIT7          1//仓电量最高位用于表示仓是否充电
-#define APP_TWS_TONE_IS_PLAY        1//如果相同的提示音在播就不在加入队列                    
+#define APP_TWS_TONE_IS_PLAY        1//如果相同的提示音在播就不在加入队列
 #define APP_SPATIAL_AUDIO_TONE      1//增加一个切空间音频的提示音,退出提示音的时候判断是否和EQ冲突
 #define APP_REST_FACTORY               1//恢复出厂用同步事件软复位代替看门狗复位
 #define APP_FACTORY_REST_NO_POWER_TONE  1//恢复出厂不播开机提示音
@@ -123,15 +123,15 @@
 #define APP_DELYA_TIME_MS               800//app消息消抖时间ms
 
 #define APP_MODE_TONE_EVEN              1//去掉游戏音乐模式当前不相同才切的判断，保证最后一次有提示音
-#define APP_ADD_OTA_FLAG                1//仓心跳包增加OTA状态字节  
+#define APP_ADD_OTA_FLAG                1//仓心跳包增加OTA状态字节
 #define APP_ADD_ABMATE_VOL_SYNC         1//增加提示音音量tws同步
 #define EQ_FOR_IDX_EN                   0//关闭独立调eq
-
-
+#define APP_OTA_ING_LIMIT_INCASE_UPDATE 1//ota的时候限制上传在仓状态
+#define APP_IN_OUT_CASE_UPDATE__VBAT    1//增加在仓状态变化上传电量一次
 
 #define SWETZ_CLOSE                 0//0:关掉V3D
 #define APP_MUSIC_AUDIO_TEST        1//音效调试
-#define APP_TEST                    1
+
 #define OTA_TEST                        1
 #endif
 

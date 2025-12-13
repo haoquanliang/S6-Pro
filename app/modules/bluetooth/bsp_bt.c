@@ -357,10 +357,11 @@ void bt_emit_notice(uint evt, void *params)
         bt_set_scan(0x03);
 #endif
 #if SWETZ_RECON_TONE
+        printf("sys_cb.recon_tone:%d\r\n",sys_cb.recon_tone);
         if(sys_cb.recon_tone){
             sys_cb.recon_tone = 0;
         }else{
-            f_bt.warning_status |= BT_WARN_TWS_MCON;
+            f_bt.warning_status |= BT_WARN_PAIRING;
         }
 #endif
 

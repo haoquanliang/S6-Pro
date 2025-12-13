@@ -239,7 +239,7 @@
         <add key="led_lowbat_bluepat" value="0" />
         <add key="led_lowbat_unit" value="6" />
         <add key="led_lowbat_cycle" value="0" />
-        <add key="RESOURCE_DIR_SEL" value="默认" />
+        <add key="RESOURCE_DIR_SEL" value="S6pro_1213" />
         <add key="bt_fbmic_cfg" value="0" />
         <add key="bt_aec_nr_en" value="True" />
         <add key="bt_dnn_en" value="True" />

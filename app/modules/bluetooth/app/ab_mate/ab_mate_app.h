@@ -496,6 +496,7 @@ typedef struct{
 #endif
 #if SWETZ
     u8 vp_vol;
+    u8 vbat_in_out_case_update;//0:更新  1:不更新
 #endif
 
 }ab_mate_app_var_t;
