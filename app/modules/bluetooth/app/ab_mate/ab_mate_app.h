@@ -74,7 +74,7 @@
 #define AB_MATE_EQ_RES_CNT      6       //非自定义的EQ模式总数,AB_MATE_EQ_USE_RES设置为1才有效
 #endif
 
-#define AB_MATE_EQ_FOR_IDX_EN   EQ_APP_EN //是否使能10条EQ独立调节(包括高低音)
+#define AB_MATE_EQ_FOR_IDX_EN   EQ_FOR_IDX_EN//EQ_APP_EN //是否使能10条EQ独立调节(包括高低音)
 
 //ANC 设置
 #if AB_MATE_ANC_EN

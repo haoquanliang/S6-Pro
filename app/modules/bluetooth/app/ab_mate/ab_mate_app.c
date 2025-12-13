@@ -452,21 +452,21 @@ void ab_mate_vbat_check_proc(soft_timer_p timer)
                         if(sys_cb.flag_local_in_case == 0){
                             tlv_data[4] = 0;
                         }
-                }else { 
+                }else {
                         tlv_data[2] = 0;
                         if(sys_cb.flag_local_in_case == 0){
                             tlv_data[4] = 0;
-                        }                        
+                        }
                 }
             }
-#if APP_CASE_CHARGE_STA            
+#if APP_CASE_CHARGE_STA
             else{
                      if(sys_cb.flag_peer_in_case == 1){
                             app_lr_send_msg(EVT_CASE_BIT_SYNC);
                             tlv_data[4] = tlv_data[4] | sys_cb.flag_peer_case_charge_sta;
                      }
             }
-#endif            
+#endif
 #endif
 #if SWETZ_VBAT_UPDATE
     if(sys_cb.flag_local_in_case == 0 && sys_cb.flag_peer_in_case == 0){
@@ -529,7 +529,7 @@ void ab_mate_user_incase_sta_notify(void)
         u8 tlv_data[3] = {INFO_NI_CASE_STATE, 1, 0x00};
 
         tlv_data[2] = user_check_incase_sta_pull();
-        
+
 
     ab_mate_device_info_notify(tlv_data, sizeof(tlv_data));
     }
@@ -605,12 +605,12 @@ void ab_mate_eq_set(u8 *payload,u8 payload_len)
     printf("payload[0]:%x\r\n",payload[0]);
 
 #if APP_EQ_SET
-    if(payload_len == 1 && payload[0] < AB_MATE_EQ_RES_CNT){       
+    if(payload_len == 1 && payload[0] < AB_MATE_EQ_RES_CNT){
         if (ab_mate_app.eq_info.mode != payload[0]){
             ab_mate_app.eq_info.mode = payload[0];
 
 
-                
+
 
 #if AB_MATE_EQ_USE_DEVICE
         if(ab_mate_app.eq_info.mode >= AB_MATE_EQ_CUSTOM_INDEX){
@@ -621,7 +621,7 @@ void ab_mate_eq_set(u8 *payload,u8 payload_len)
             #if BT_TWS_EN
                 ab_mate_tws_eq_info_sync();
             #endif
-       
+
             ab_mate_app.do_flag |= FLAG_EQ_SET;
             ab_mate_cm_write(&ab_mate_app.eq_info.mode, AB_MATE_CM_EQ_DATA, 1+AB_MATE_EQ_BAND_CNT, 2);
 
@@ -797,7 +797,7 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
                 ab_mate_app.local_vbat = bsp_get_bat_level();
 #endif
 
-    
+
 				#if BT_TWS_EN
                 if(sys_cb.tws_left_channel){
 #if AB_PULL_EAR_VBAT
@@ -813,7 +813,7 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
 #else
                     buf[write_offset++] = app_bat_level_show_for_app(ab_mate_app.local_vbat);
                     buf[write_offset++] = app_bat_level_show_for_app(ab_mate_app.remote_vbat);
-#endif                    
+#endif
 #else
                     buf[write_offset++] = ab_mate_app.local_vbat;
                     buf[write_offset++] = ab_mate_app.remote_vbat;
@@ -829,16 +829,16 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
 
 #else
 #if SWETZ_VBAT_UPDATE
-                    if(sys_cb.flag_local_in_case == 0 && sys_cb.flag_peer_in_case == 0){       
+                    if(sys_cb.flag_local_in_case == 0 && sys_cb.flag_peer_in_case == 0){
                             buf[write_offset++] = 0;
                     }else if(sys_cb.flag_local_in_case == 0 && sys_cb.flag_peer_in_case == 1 && (!bt_tws_is_connected()))
                             buf[write_offset++] = 0;
                     else{
                             buf[write_offset++] = ab_mate_app.box_vbat;
                     }
-#else 
+#else
                     buf[write_offset++] = ab_mate_app.box_vbat;
-#endif                    
+#endif
 
 #endif
                 }else
@@ -872,20 +872,20 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
     }
 #else
 #if SWETZ_VBAT_UPDATE
-                    if(sys_cb.flag_local_in_case == 0 && sys_cb.flag_peer_in_case == 0){       
+                    if(sys_cb.flag_local_in_case == 0 && sys_cb.flag_peer_in_case == 0){
                             buf[write_offset++] = 0;
                     }else {
                             buf[write_offset++] = ab_mate_app.box_vbat;
                     }
-#else 
+#else
                     buf[write_offset++] = ab_mate_app.box_vbat;
-#endif                    
+#endif
 #endif
 
 
                 }
 
-    
+
             break;
 
             case INFO_VERSION:
@@ -1669,7 +1669,7 @@ void ab_mate_mode_set(u8 *payload, u8 payload_len)
 #else
      if(ab_mate_app.latency_mode != mode){
 #endif
-   
+
         if(mode == DEVICE_MODE_NORMAL){
 #if APP_SWITCH_TONE_TYPE
             user_music_mode_tone_play();
@@ -2730,11 +2730,11 @@ void ab_mate_request_receive_proc(u8 cmd,u8 *payload,u8 payload_len)
     printf("ab_mate_cmd:0x%x\r\n",cmd);
     switch(cmd){
         case CMD_EQ_SET:
-#if !APP_MESSAGE_DELYA        
+#if !APP_MESSAGE_DELYA
             ab_mate_eq_set(payload, payload_len);
 #else
             sys_cb.flag_getcmd_time = tick_get();
-#endif            
+#endif
             break;
 
         case CMD_MUSIC_SET:
@@ -2759,7 +2759,7 @@ void ab_mate_request_receive_proc(u8 cmd,u8 *payload,u8 payload_len)
 #else
         sys_cb.flag_getcmd_time = tick_get();
 #endif
-           
+
             break;
 
         case CMD_IN_EAR_SET:
@@ -2809,7 +2809,7 @@ void ab_mate_request_receive_proc(u8 cmd,u8 *payload,u8 payload_len)
 
 #if AB_MATE_V3D_AUDIO_EN
         case CMT_V3D_AUDIO_SET:
-#if !APP_MESSAGE_DELYA        
+#if !APP_MESSAGE_DELYA
             ab_mate_v3d_audio_set(payload, payload_len);
 #else
             sys_cb.flag_getcmd_time = tick_get();
@@ -3606,21 +3606,21 @@ void ab_mate_process(void)
                       sys_cb.flag_getcmd_time = 0;
 #if APP_EQ_TONE
                       f_bt.warning_status |= BT_WARN_EQ;
-#endif                      
-                      ab_mate_eq_set(ab_mate_cmd_recv.payload, ab_mate_cmd_recv.total_len);  
+#endif
+                      ab_mate_eq_set(ab_mate_cmd_recv.payload, ab_mate_cmd_recv.total_len);
             }
 
             if((tick_get() - sys_cb.flag_getcmd_time) > APP_DELYA_TIME_MS && (ab_mate_cmd_recv.cmd_head.cmd == CMT_V3D_AUDIO_SET)){
-                      sys_cb.flag_getcmd_time = 0;      
+                      sys_cb.flag_getcmd_time = 0;
                       ab_mate_v3d_audio_set(ab_mate_cmd_recv.payload, ab_mate_cmd_recv.total_len);
-                        
+
             }
 
             if((tick_get() - sys_cb.flag_getcmd_time) > APP_DELYA_TIME_MS && (ab_mate_cmd_recv.cmd_head.cmd == CMD_MODE_SET)){
-                      sys_cb.flag_getcmd_time = 0;      
+                      sys_cb.flag_getcmd_time = 0;
                       ab_mate_mode_set(ab_mate_cmd_recv.payload, ab_mate_cmd_recv.total_len);
-                        
-            }            
+
+            }
     }
 
 #endif
@@ -3749,6 +3749,7 @@ void ab_mate_spp_disconnect_callback(void)
 #if BT_TWS_EN
 void ab_mate_tws_connect_callback(void)
 {
+    printf("ab_mate_tws_connect_callback\r\n");
     if(bt_tws_is_slave() == 0) {
         ab_mate_tws_info_all_sync();
     }

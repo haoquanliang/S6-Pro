@@ -51,7 +51,7 @@
         <add key="ch_full_auto_pwrdwn_en" value="False" />
         <add key="chbox_en" value="True" />
         <add key="ch_box_type_sel" value="3" />
-        <add key="ch_inbox_sel" value="0" />
+        <add key="ch_inbox_sel" value="1" />
         <add key="ch_out_auto_pwron_en" value="False" />
         <add key="ch_leakage_sel" value="2" />
         <add key="chg_inbox_pwrdwn_en" value="False" />
@@ -239,7 +239,7 @@
         <add key="led_lowbat_bluepat" value="0" />
         <add key="led_lowbat_unit" value="6" />
         <add key="led_lowbat_cycle" value="0" />
-        <add key="RESOURCE_DIR_SEL" value="dyeq" />
+        <add key="RESOURCE_DIR_SEL" value="默认" />
         <add key="bt_fbmic_cfg" value="0" />
         <add key="bt_aec_nr_en" value="True" />
         <add key="bt_dnn_en" value="True" />

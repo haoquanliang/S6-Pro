@@ -419,8 +419,15 @@ void func_message(u16 msg)
                   lr_notify_in_case_info();  
 #if APP_USER_NOTIFY
 #if APP_INBOX_STA_1S_AFTER_UPDATE
+#if APP_TEST
+            if(!ab_mate_ota_is_start()){
                     message_cancel_all(MSG_ID_UPDATE_1S_AFTER_INCASE_STA);
                     message_send(MSG_ID_UPDATE_1S_AFTER_INCASE_STA, 0, 500);
+        }
+#else
+                    message_cancel_all(MSG_ID_UPDATE_1S_AFTER_INCASE_STA);
+                    message_send(MSG_ID_UPDATE_1S_AFTER_INCASE_STA, 0, 500);
+#endif                    
 #else
                      msg_enqueue(EVT_UPDATE_INCASE_STA);
 #endif
@@ -528,8 +535,15 @@ void func_message(u16 msg)
 #if APP_USER_NOTIFY
                
 #if APP_INBOX_STA_1S_AFTER_UPDATE
+#if APP_TEST
+                    if(!ab_mate_ota_is_start()){
+                        message_send(MSG_ID_UPDATE_1S_AFTER_INCASE_STA, 0, 500);
 
+                    }
+#else
                     message_send(MSG_ID_UPDATE_1S_AFTER_INCASE_STA, 0, 500);
+#endif
+
 #else
                      msg_enqueue(EVT_UPDATE_INCASE_STA);
 #endif

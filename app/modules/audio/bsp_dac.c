@@ -109,16 +109,18 @@ void bsp_change_volume_db(u8 level)
 }
 
 AT(.text.vol.convert)
-u16 bsp_volume_convert(u8 vol)
+u16 bsp_volume_convert(u8 vol)//返回当前音量的对应的能量值
 {
     u16 vol_set = 0;
     u8 level = 0;
     if (vol <= VOL_MAX) {
         level = dac_dvol_table[vol] + sys_cb.gain_offset;
+        printf("vol:%d level:%d  sys_cb.gain_offset:%d\r\n",vol,level,sys_cb.gain_offset);
         if (level > 60) {
             level = 60;
         }
         vol_set = dac_dvol_tbl_db[level];
+        printf("vol_set:%d\r\n",vol_set);
     }
     return vol_set;
 }
@@ -170,7 +172,18 @@ void bsp_change_volume(u8 vol)
 #if ANC_ALG_DYVOL_FF_LOCAL_VOL_EN
         bsp_anc_alg_dyvol_gain_cal(dac_dvol_tbl_db[level]);
 #else
-        dac_vol_set(dac_dvol_tbl_db[level]);
+        dac_vol_set(dac_dvol_tbl_db[level]);//这里根据音量对应的能量值进行设置--swetz
+#if SWETZ_MUTE_CUR_VOL_0
+        if(dac_dvol_tbl_db[level] == DIG_N60DB){
+                if(!sys_cb.mute){
+                         bsp_sys_mute();
+
+                }
+        }else if(sys_cb.mute){
+                         bsp_sys_unmute();
+        }
+
+#endif
 #endif // ANC_ALG_DYVOL_FF_LOCAL_VOL_EN
     }
 }

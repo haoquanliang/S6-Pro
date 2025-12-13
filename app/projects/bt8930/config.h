@@ -76,12 +76,14 @@
 #define SWETZ_TONE                  1 //
 #define SWETZ_FADE_HANGDLE          1//声音飘的处理
 #define SWETZ_POWER_ON_TONE         1//开机提示音处理
-#define SWETZ_RING_SWITCH_A2DP      0//1拖2的时候来电切换A2dp的连接--切不动先关闭
+#define SWETZ_RING_SWITCH_A2DP      0//1拖2的时候来电切换A2dp的连接--无效果，切不动先关闭
 #define SWETZ_RING_SEC_ROUTE        1//第二路来电ring
 #define SWETZ_POWERON_AFTER_2S_CHECK_INCSE_STA  1//开机2s后交换一次在仓状态
 #define SWETZ_INBOX_STA             1//电量最高位清零,防止app显示错误电量
 #define SWETZ_SHIP_MODE             1//耳机进船运模式
-#define SWETZ_OTA_ADDR_CHARGE       0//每次ota初始化地址写0
+#define SWETZ_OTA_ADDR_CHARGE       1//每次ota初始化地址写0
+#define SWETZ_MUTE_CUR_VOL_0        0//当调节音量为0的时候直接mute音频输出
+#define SWETZ_DBB_LEVEL_FOLLOW_VOL  1//dbb等级跟随sys_cb.vol音量调整
 
 
 //APP
@@ -123,10 +125,14 @@
 #define APP_MODE_TONE_EVEN              1//去掉游戏音乐模式当前不相同才切的判断，保证最后一次有提示音
 #define APP_ADD_OTA_FLAG                1//仓心跳包增加OTA状态字节  
 #define APP_ADD_ABMATE_VOL_SYNC         1//增加提示音音量tws同步
+#define EQ_FOR_IDX_EN                   0//关闭独立调eq
+
+
 
 #define SWETZ_CLOSE                 0//0:关掉V3D
 #define APP_MUSIC_AUDIO_TEST        1//音效调试
 #define APP_TEST                    1
+#define OTA_TEST                        1
 #endif
 
 
@@ -385,7 +391,7 @@
 //动态低音
 #define BT_MUSIC_EFFECT_DBB_EN          1                   //动态低音音效使能
 #define BT_MUSIC_EFFECT_DBB_BAND_CNT    1                   //动态低音音效的EQ段数
-#define BT_MUSIC_EFFECT_DBB_DEF_LEVEL   6                  //动态低音音效默认的等级
+#define BT_MUSIC_EFFECT_DBB_DEF_LEVEL   5                  //动态低音音效默认的等级
 //空间音效
 #define BT_MUSIC_EFFECT_SPATIAL_AU_EN   1                   //空间音效使能
 #define BT_MUSIC_EFFECT_SPATIAL_AUEQ_EN 1                   //空间音效下固定使用spatial_audio.eq

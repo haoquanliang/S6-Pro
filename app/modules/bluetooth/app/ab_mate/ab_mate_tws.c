@@ -288,14 +288,14 @@ void ab_mate_tws_info_all_sync(void)
     tws_sync_data[offset++] = ab_mate_app.dynamic_bass.level;
 #endif
 
-#if APP_TEST
+#if APP_ADD_ABMATE_VOL_SYNC
     tws_sync_data[offset++] = ab_mate_app.vp_vol;
 #endif
 
     tws_sync_data_len = offset;
     tws_data_sync_do();
 
-    TRACE("ab_mate_tws_info_all_sync\n");
+    TRACE("---------ab_mate_tws_info_all_sync\n");
     TRACE_R(tws_sync_data,offset);
 }
 
@@ -372,8 +372,8 @@ void ab_mate_tws_info_all_proc(uint8_t *data_ptr, u16 size)
 {
     u16 flag = 0;
     u16 offset = 0;
-#if APP_TEST
-    printf("------------------------------------------------info_all_proc:");
+#if APP_ADD_ABMATE_VOL_SYNC
+    printf("info_all_proc:");
     print_r(data_ptr,size);
 #endif
 #if AB_MATE_EQ_EN
@@ -489,7 +489,7 @@ void ab_mate_tws_info_all_proc(uint8_t *data_ptr, u16 size)
     offset+=2;
 #endif
 
-#if APP_TEST
+#if APP_ADD_ABMATE_VOL_SYNC
     if (ab_mate_app.vp_vol != data_ptr[offset])
     {
         ab_mate_app.vp_vol = data_ptr[offset];

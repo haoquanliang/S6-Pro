@@ -442,6 +442,16 @@ static void ab_mate_tws_ota_reply_update_request(void)
         goto fot_req_reply;
     }
 
+#if OTA_TEST 
+    if(sco_is_connected())
+    {
+        printf("55555555555555555555555555555555555\r\n");
+        need_update = 0;
+        fot_var.fot_sta = FOT_STA_STOP;
+        goto fot_req_reply;
+    }
+#endif 
+
     if(ble_is_connect()){
         u16 interval = 12;
         bool play_sta = bt_is_playing();
@@ -499,7 +509,13 @@ static void ab_mate_ota_req_proc(void)
     if( (bt_get_status() >= BT_STA_INCOMING) || (fot_var.file_size > FOT_FLASH_SIZE) || (local_ver >= remote_ver)){
         need_update = 0;
     }
-
+#if OTA_TEST 
+    if (sco_is_connected())
+    {
+        printf("666666666666666666666666666666\r\n");
+        need_update = 0;
+    }
+#endif 
     if(need_update == 0){
         ab_mate_cmd_send.cmd_head.cmd = CMD_OTA_REQ;
         ab_mate_cmd_send.cmd_head.cmd_type = CMD_TYPE_RESPONSE;
