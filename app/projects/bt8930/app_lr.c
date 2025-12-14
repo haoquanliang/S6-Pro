@@ -33,8 +33,8 @@ u16 app_lr_tws_get_data(u8 *buf)
 
 bool app_lr_tws_set_data(u8 *data, u16 size)
 {
-    //printf("recv size:%d\n", size);
-    //print_r(data, size);
+    printf("tws recv size:%d\n", size);
+    print_r(data, size);
     if ((size <= TWS_SYNC_BUF_SIZE)
         && (size >= 5)
         && ((data[HEADER_INDEX] == 0x55))
@@ -73,6 +73,7 @@ static void lr_send(u8 cmd_id, u8 payload_size, u8 *payload)
             tws_tx_buf[offset++] = crc8;
             if (app_ring_buffer_enqueue(&lr_tx_buf, tws_tx_buf, offset))
             {
+                
                 bt_tws_sync_custom_data();
             }
             else
@@ -137,7 +138,7 @@ static void lr_parse_notification(void)
         {
             if (payload_size == 1)
             {
-                printf("tws_rx_buf[PAYLOAD_INDEX]:%d\r\n",tws_rx_buf[PAYLOAD_INDEX]);
+               
                 ab_mate_app.vp_vol = tws_rx_buf[PAYLOAD_INDEX];
                 ab_mate_cm_write(&ab_mate_app.vp_vol, AB_MATE_CM_SWET_TONE_VOL, 1, 2);
             }

@@ -220,7 +220,6 @@ void bt_tws_set_info(uint8_t *param)
     if ((tmp <= 2) && tmp != sys_cb.lang_id)
     {
         sys_cb.lang_id = tmp;
-        printf("33333333333333333333333333333333333333333\r\n");
         msg_enqueue(EVT_BT_SET_LANG_ID);        
     }    
 #else    
@@ -271,10 +270,11 @@ void bt_tws_set_info(uint8_t *param)
     tmp = flag;      //避免编译警告
 }
 //tws同步用户自定义的一些数据,通过 bt_tws_sync_custom_data() 进行回调
-uint16_t tws_get_custom_data(uint8_t *buf)
+uint16_t tws_get_custom_data(uint8_t *buf)//用于“主耳”向TWS协议栈提供一包自定义同步数据
 {
     uint16_t len = 0;
 #if TWS_LR
+
     len = app_lr_tws_get_data(buf);
     if (len)
     {
@@ -294,7 +294,7 @@ uint16_t tws_get_custom_data(uint8_t *buf)
     return len;
 }
 
-uint16_t tws_set_custom_data(uint8_t *data_ptr, uint16_t size)
+uint16_t tws_set_custom_data(uint8_t *data_ptr, uint16_t size)//用于“从耳”接收TWS协议栈同步过来的自定义数据。
 {
     //tag:data_ptr[0]
 #if TWS_LR

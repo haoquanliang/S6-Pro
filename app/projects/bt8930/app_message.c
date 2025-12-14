@@ -1,7 +1,3 @@
-/*
-* Copyright (c) 2021 - ruber.wang@qq.com
-* All rights, including trade secret rights, reserved.
-*/
 
 #include "app_include.h"
 

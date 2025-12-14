@@ -128,13 +128,14 @@
 #define EQ_FOR_IDX_EN                   0//关闭独立调eq
 #define APP_OTA_ING_LIMIT_INCASE_UPDATE 1//ota的时候限制上传在仓状态
 #define APP_IN_OUT_CASE_UPDATE__VBAT    1//增加在仓状态变化上传电量一次
+#define APP_BLE_ADV_INTERVAL            1//修改广播间隔
 
-#define SWETZ_CLOSE                 0//0:关掉V3D
+#define SWETZ_CLOSE                 0//1:关掉V3D
 #define APP_MUSIC_AUDIO_TEST        1//音效调试
 
 #define OTA_TEST                        1
 #endif
-#define TEST        1
+
 
 
 /*****************************************************************************

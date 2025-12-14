@@ -1550,3 +1550,1428 @@
 	"map.h"
 	"bsp_opus.h"
 
+1761018980 source:d:\work\s6pro\s6-pro\app\3rd-party\i2s\ta5711.c
+	"include.h"
+
+1761018980 d:\work\s6pro\s6-pro\app\include\include.h
+	"global.h"
+	"xcfg.h"
+	"config.h"
+	"io_def.h"
+	"api.h"
+	"bsp.h"
+	"3rd_party.h"
+	"system.h"
+	"modules.h"
+	"func.h"
+	"plugin.h"
+	"res.h"
+	"res_userbin.h"
+	"res2.h"
+	"app_include.h"
+
+1761018980 d:\work\s6pro\s6-pro\app\include\global.h
+	<stddef.h>
+	<stdarg.h>
+	<stdbool.h>
+	<stdlib.h>
+	<string.h>
+	"typedef.h"
+	"macro.h"
+	"clib.h"
+	"sfr.h"
+
+1761018980 d:\work\s6pro\s6-pro\app\include\typedef.h
+
+1765697980 d:\work\s6pro\s6-pro\app\include\macro.h
+
+1764578676 d:\work\s6pro\s6-pro\app\include\clib.h
+
+1761018980 d:\work\s6pro\s6-pro\app\include\sfr.h
+
+1761018982 d:\work\s6pro\s6-pro\app\projects\bt8930\xcfg.h
+
+1765697549 d:\work\s6pro\s6-pro\app\projects\bt8930\config.h
+	"config_define.h"
+	"config_extra.h"
+
+1761018980 d:\work\s6pro\s6-pro\app\include\config_define.h
+
+1762132494 d:\work\s6pro\s6-pro\app\include\config_extra.h
+
+1761018980 d:\work\s6pro\s6-pro\app\include\io_def.h
+	"global.h"
+	"config.h"
+	"sfr.h"
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api.h
+	"api_btstack.h"
+	"api_cm.h"
+	"api_music.h"
+	"api_sd.h"
+	"api_rtc.h"
+	"api_usb.h"
+	"api_fs.h"
+	"api_device.h"
+	"api_sdadc.h"
+	"api_update.h"
+	"api_dac.h"
+	"api_eq.h"
+	"api_sysclk.h"
+	"api_msg.h"
+	"api_saradc.h"
+	"api_sys.h"
+	"api_tws.h"
+	"api_pwr.h"
+	"api_key.h"
+	"api_gpio.h"
+	"api_uart.h"
+	"api_karaok.h"
+	"api_math.h"
+	"api_tkey.h"
+	"api_nr.h"
+	"api_sensor.h"
+	"api_irrx.h"
+	"api_charge.h"
+	"api_stream.h"
+	"api_effects.h"
+
+1763452468 d:\work\s6pro\s6-pro\app\libs\bt8930\api_btstack.h
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api_cm.h
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api_music.h
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api_sd.h
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api_rtc.h
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api_usb.h
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api_fs.h
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api_device.h
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api_sdadc.h
+
+1764575274 d:\work\s6pro\s6-pro\app\libs\bt8930\api_update.h
+
+1761701698 d:\work\s6pro\s6-pro\app\libs\bt8930\api_dac.h
+
+1762850446 d:\work\s6pro\s6-pro\app\libs\bt8930\api_eq.h
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api_sysclk.h
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api_msg.h
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api_saradc.h
+
+1764647206 d:\work\s6pro\s6-pro\app\libs\bt8930\api_sys.h
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api_tws.h
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api_pwr.h
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api_key.h
+
+1764554258 d:\work\s6pro\s6-pro\app\libs\bt8930\api_gpio.h
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api_uart.h
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api_karaok.h
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api_math.h
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api_tkey.h
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api_nr.h
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api_sensor.h
+	"include.h"
+	"..\..\platform\3rd-party\sensor\sc7a20.h"
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api_irrx.h
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api_charge.h
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api_stream.h
+
+1761018980 d:\work\s6pro\s6-pro\app\libs\bt8930\api_effects.h
+
+1761018980 d:\work\s6pro\s6-pro\app\bsp\bsp.h
+	"bsp_i2c.h"
+	"bsp_timer.h"
+	"bsp_huart.h"
+	"bsp_uart.h"
+	"bsp_saradc.h"
+	"bsp_port_int.h"
+	"bsp_vad.h"
+	"bsp_iis.h"
+	"bsp_opus.h"
+	"bsp_asr.h"
+
+1761018980 d:\work\s6pro\s6-pro\app\bsp\bsp_i2c.h
+
+1761018980 d:\work\s6pro\s6-pro\app\bsp\bsp_timer.h
+
+1761018980 d:\work\s6pro\s6-pro\app\bsp\bsp_huart.h
+
+1761018980 d:\work\s6pro\s6-pro\app\bsp\bsp_uart.h
+
+1763623316 d:\work\s6pro\s6-pro\app\bsp\bsp_saradc.h
+
+1761018980 d:\work\s6pro\s6-pro\app\bsp\bsp_port_int.h
+
+1761018980 d:\work\s6pro\s6-pro\app\bsp\bsp_vad.h
+
+1761018980 d:\work\s6pro\s6-pro\app\bsp\bsp_iis.h
+
+1761018980 d:\work\s6pro\s6-pro\app\bsp\bsp_opus.h
+
+1761018980 d:\work\s6pro\s6-pro\app\bsp\bsp_asr.h
+
+1761018980 d:\work\s6pro\s6-pro\app\3rd-party\3rd_party.h
+	"./i2s/ta5711.h"
+	"./i2s/wm8978.h"
+	"./sensor/sc7a20.h"
+
+1761018980 d:\work\s6pro\s6-pro\app\3rd-party\i2s\ta5711.h
+
+1761018980 d:\work\s6pro\s6-pro\app\3rd-party\i2s\wm8978.h
+
+1761018980 d:\work\s6pro\s6-pro\app\3rd-party\sensor\sc7a20.h
+
+1764582444 d:\work\s6pro\s6-pro\app\system\system.h
+	"mute.h"
+	"param.h"
+	"device.h"
+	"vbat.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\system\mute.h
+
+1763523066 d:\work\s6pro\s6-pro\app\system\param.h
+
+1761018982 d:\work\s6pro\s6-pro\app\system\device.h
+
+1761018982 d:\work\s6pro\s6-pro\app\system\vbat.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\modules.h
+	"key/key_scan.h"
+	"audio/audio.h"
+	"bluetooth/bluetooth.h"
+	"gui/gui.h"
+	"fs/fs.h"
+	"charge/charge.h"
+	"charge/charge_box.h"
+	"music/bsp_id3_tag.h"
+	"music/bsp_karaok.h"
+	"music/bsp_lrc.h"
+	"music/bsp_piano.h"
+	"music/bsp_music.h"
+	"music/bsp_abp.h"
+	"record/record.h"
+	"test/iodm.h"
+	"test/qtest.h"
+	"usb_device/usb_audio.h"
+	"usb_device/usb_enum.h"
+	"usb_device/usb_table.h"
+	"warning/warning_play.h"
+	"update/upd_uart.h"
+	"debug/offline_log.h"
+	"debug/debug.h"
+	"bluetooth/app/dueros_dma/dueros_dma_app.h"
+
+1765635491 d:\work\s6pro\s6-pro\app\modules\key\key_scan.h
+	"pwrkey.h"
+	"adkey.h"
+	"tkey.h"
+	"irkey.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\key\pwrkey.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\key\adkey.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\key\tkey.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\key\irkey.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\audio\audio.h
+	"bsp_anc.h"
+	"bsp_aux.h"
+	"bsp_dac.h"
+	"bsp_eq.h"
+	"bsp_audio.h"
+	"bsp_effect.h"
+	"bsp_anc_alg.h"
+	"bsp_set_effect.h"
+	"bsp_anc_tool.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\audio\bsp_anc.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\audio\bsp_aux.h
+
+1765202945 d:\work\s6pro\s6-pro\app\modules\audio\bsp_dac.h
+
+1762849726 d:\work\s6pro\s6-pro\app\modules\audio\bsp_eq.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\audio\bsp_audio.h
+
+1763619186 d:\work\s6pro\s6-pro\app\modules\audio\bsp_effect.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\audio\bsp_anc_alg.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\audio\bsp_set_effect.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\audio\bsp_anc_tool.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\bluetooth.h
+	"tws/tws.h"
+	"ble/popup.h"
+	"bsp_bt.h"
+	"app/app.h"
+	"bt/pbap.h"
+	"bt/map.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\tws\tws.h
+	"tws_sync.h"
+
+1764147172 d:\work\s6pro\s6-pro\app\modules\bluetooth\tws\tws_sync.h
+	"tws_res.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\tws\tws_res.h
+	"tws_res_tbl.h"
+
+1764139452 d:\work\s6pro\s6-pro\app\modules\bluetooth\tws\tws_res_tbl.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\ble\popup.h
+	"gfps.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\gfps\gfps.h
+	"include.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\bsp_bt.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\app.h
+	"ab_mate/ab_mate_app.h"
+	"app_demo/app_demo.h"
+	"dueros_dma/dueros_dma_app.h"
+	"tuya_ble_profile.h"
+	"tuya_ble_app.h"
+	"ab_mate/ab_mate_app.h"
+	"dueros_dma/dueros_dma_app.h"
+	"app_fota/app_fota.h"
+	"app_fota/app_fota_profile.h"
+
+1765634006 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\ab_mate\ab_mate_app.h
+	"ab_mate_timer.h"
+	"ab_mate_profile.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\ab_mate\ab_mate_timer.h
+
+1763539720 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\ab_mate\ab_mate_profile.h
+
+1764726206 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\app_demo\app_demo.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\dueros_dma\dueros_dma_app.h
+	"dma_wrapper.h"
+	"dueros_dma_tws.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\dueros_dma\dma_wrapper.h
+	"include.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\dueros_dma\dueros_dma_tws.h
+	"include.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\port\tuya_ble_profile.h
+	"include.h"
+
+1764726220 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\port\tuya_ble_app.h
+	"tuya_ble_type.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_type.h
+	"tuya_ble_stdlib.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_stdlib.h
+	<stdbool.h>
+	<stdint.h>
+	<string.h>
+	<stdlib.h>
+	<stddef.h>
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\app_fota\app_fota.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\app_fota\app_fota_profile.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\bt\pbap.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\bt\map.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\gui\gui.h
+	"ledseg/ledseg_common.h"
+	"ledseg/display_ledseg.h"
+	"led/led.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\gui\ledseg\ledseg_common.h
+
+1761018982 d:\work\s6pro\s6-pro\app\projects\bt8930\display\ledseg\display_ledseg.h
+	"ledseg/ledseg_7p7s.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\gui\ledseg\ledseg_7p7s.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\gui\led\led.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\fs\fs.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\charge\charge.h
+
+1764555186 d:\work\s6pro\s6-pro\app\modules\charge\charge_box.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\music\bsp_id3_tag.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\music\bsp_karaok.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\music\bsp_lrc.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\music\bsp_piano.h
+
+1761707402 d:\work\s6pro\s6-pro\app\modules\music\bsp_music.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\music\bsp_abp.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\record\record.h
+
+1763353182 d:\work\s6pro\s6-pro\app\modules\test\iodm.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\test\qtest.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\usb_device\usb_audio.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\usb_device\usb_enum.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\usb_device\usb_table.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\warning\warning_play.h
+	"wsbc.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\warning\wsbc.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\update\upd_uart.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\debug\offline_log.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\debug\debug.h
+
+1763347960 d:\work\s6pro\s6-pro\app\functions\func.h
+	"func_bt.h"
+	"func_bt_hid.h"
+	"func_bt_dut.h"
+	"func_idle.h"
+	"func_music.h"
+	"func_usbdev.h"
+	"func_aux.h"
+	"func_speaker.h"
+	"func_lowpwr.h"
+	"func_update.h"
+
+1764136096 d:\work\s6pro\s6-pro\app\functions\func_bt.h
+
+1761018980 d:\work\s6pro\s6-pro\app\functions\func_bt_hid.h
+
+1761018980 d:\work\s6pro\s6-pro\app\functions\func_bt_dut.h
+
+1761018980 d:\work\s6pro\s6-pro\app\functions\func_idle.h
+
+1761018980 d:\work\s6pro\s6-pro\app\functions\func_music.h
+
+1761018980 d:\work\s6pro\s6-pro\app\functions\func_usbdev.h
+
+1761018980 d:\work\s6pro\s6-pro\app\functions\func_aux.h
+
+1761018980 d:\work\s6pro\s6-pro\app\functions\func_speaker.h
+
+1761018980 d:\work\s6pro\s6-pro\app\functions\func_lowpwr.h
+
+1761018980 d:\work\s6pro\s6-pro\app\functions\func_update.h
+
+1761018982 d:\work\s6pro\s6-pro\app\projects\bt8930\plugin\plugin.h
+	"multi_lang.h"
+	"port_pwm.h"
+	"port_linein.h"
+	"port_led.h"
+	"port_sd.h"
+	"port_tkey.h"
+	"bt_call.h"
+
+1761020170 d:\work\s6pro\s6-pro\app\projects\bt8930\plugin\multi_lang.h
+
+1761018982 d:\work\s6pro\s6-pro\app\projects\bt8930\port\port_pwm.h
+
+1761018982 d:\work\s6pro\s6-pro\app\projects\bt8930\port\port_linein.h
+
+1761018982 d:\work\s6pro\s6-pro\app\projects\bt8930\port\port_led.h
+
+1761018982 d:\work\s6pro\s6-pro\app\projects\bt8930\port\port_sd.h
+
+1761018982 d:\work\s6pro\s6-pro\app\projects\bt8930\port\port_tkey.h
+
+1761018982 d:\work\s6pro\s6-pro\app\projects\bt8930\plugin\bt_call.h
+
+1764837960 d:\work\s6pro\s6-pro\app\projects\bt8930\res.h
+
+1761018982 d:\work\s6pro\s6-pro\app\projects\bt8930\res2.h
+
+1762311434 d:\work\s6pro\s6-pro\app\projects\bt8930\app_include.h
+	"include.h"
+	"app_lr.h"
+	"app_role_switch.h"
+	"app_ringbuf.h"
+	"app_message.h"
+	"app_ble.h"
+	"app_dm.h"
+
+1765699244 d:\work\s6pro\s6-pro\app\projects\bt8930\app_lr.h
+
+1761018982 d:\work\s6pro\s6-pro\app\projects\bt8930\app_role_switch.h
+
+1761018982 d:\work\s6pro\s6-pro\app\projects\bt8930\app_ringbuf.h
+	<stdint.h>
+	<stdbool.h>
+
+1764234878 d:\work\s6pro\s6-pro\app\projects\bt8930\app_message.h
+	"include.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\projects\bt8930\app_ble.h
+	"include.h"
+
+1764571870 d:\work\s6pro\s6-pro\app\projects\bt8930\app_dm.h
+
+1761018980 source:d:\work\s6pro\s6-pro\app\3rd-party\i2s\wm8978.c
+	"include.h"
+
+1761018980 source:d:\work\s6pro\s6-pro\app\3rd-party\sensor\sc7a20.c
+	"include.h"
+	"sc7a20.h"
+
+1761018980 source:d:\work\s6pro\s6-pro\app\bsp\bsp_asr.c
+	"include.h"
+	"asr.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\asr\asr.h
+
+1763111754 source:d:\work\s6pro\s6-pro\app\bsp\bsp_huart.c
+	"include.h"
+	"api.h"
+
+1761018980 source:d:\work\s6pro\s6-pro\app\bsp\bsp_i2c.c
+	"include.h"
+
+1761018980 source:d:\work\s6pro\s6-pro\app\bsp\bsp_iis.c
+	"include.h"
+
+1761018980 source:d:\work\s6pro\s6-pro\app\bsp\bsp_opus.c
+	"include.h"
+	"api.h"
+
+1761018980 source:d:\work\s6pro\s6-pro\app\bsp\bsp_port_int.c
+	"include.h"
+
+1761018980 source:d:\work\s6pro\s6-pro\app\bsp\bsp_saradc.c
+	"include.h"
+
+1761018980 source:d:\work\s6pro\s6-pro\app\bsp\bsp_timer.c
+	"include.h"
+
+1761018980 source:d:\work\s6pro\s6-pro\app\bsp\bsp_uart.c
+	"include.h"
+
+1761018980 source:d:\work\s6pro\s6-pro\app\bsp\bsp_vad.c
+	"include.h"
+	"bsp_vad.h"
+	"asr.h"
+
+1765637973 source:d:\work\s6pro\s6-pro\app\functions\func.c
+	"include.h"
+
+1761018980 source:d:\work\s6pro\s6-pro\app\functions\func_aux.c
+	"include.h"
+	"func.h"
+	"func_aux.h"
+
+1765015982 source:d:\work\s6pro\s6-pro\app\functions\func_bt.c
+	"include.h"
+	"func.h"
+	"func_bt.h"
+
+1765003926 source:d:\work\s6pro\s6-pro\app\functions\func_bt_dut.c
+	"include.h"
+	"func.h"
+	"api.h"
+
+1761018980 source:d:\work\s6pro\s6-pro\app\functions\func_bt_hid.c
+	"include.h"
+	"func.h"
+	"func_bt_hid.h"
+
+1764665436 source:d:\work\s6pro\s6-pro\app\functions\func_charge.c
+	"include.h"
+	"func.h"
+
+1761018980 source:d:\work\s6pro\s6-pro\app\functions\func_idle.c
+	"include.h"
+	"func.h"
+	"func_idle.h"
+
+1765697574 source:d:\work\s6pro\s6-pro\app\functions\func_lowpwr.c
+	"include.h"
+	"func.h"
+
+1763519858 source:d:\work\s6pro\s6-pro\app\functions\func_music.c
+	"include.h"
+	"func.h"
+	"func_music.h"
+
+1761018980 source:d:\work\s6pro\s6-pro\app\functions\func_speaker.c
+	"include.h"
+	"func.h"
+	"func_speaker.h"
+
+1761018980 source:d:\work\s6pro\s6-pro\app\functions\func_update.c
+	"include.h"
+	"func.h"
+	"func_update.h"
+
+1761018980 source:d:\work\s6pro\s6-pro\app\functions\func_usbdev.c
+	"include.h"
+	"func.h"
+	"func_usbdev.h"
+
+1762757404 source:d:\work\s6pro\s6-pro\app\functions\sfunc_bt_call.c
+	"include.h"
+	"func.h"
+	"func_bt.h"
+
+1761018980 source:d:\work\s6pro\s6-pro\app\functions\sfunc_bt_ota.c
+	"include.h"
+	"func.h"
+	"func_bt.h"
+
+1762911064 source:d:\work\s6pro\s6-pro\app\functions\sfunc_bt_ring.c
+	"include.h"
+	"func.h"
+	"func_bt.h"
+
+1762228444 source:d:\work\s6pro\s6-pro\app\libs\bt8930\strong_bt.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\libs\bt8930\strong_le.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\libs\bt8930\strong_sco.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\libs\bt8930\strong_symbol.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\libs\bt8930\strong_tws.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\asr\asr.c
+	"include.h"
+	"asr.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\asr\asr_prefetch.c
+	"include.h"
+	"asr.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\asr\asr_strong_symbol.c
+	"include.h"
+	"asr.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\audio\bsp_anc.c
+	"include.h"
+	"bsp_anc_param_table.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\audio\bsp_anc_param_table.h
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\audio\bsp_anc_alg.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\audio\bsp_anc_param_table.c
+	"include.h"
+	"bsp_anc_param_table.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\audio\bsp_anc_tool.c
+	"include.h"
+
+1761700904 source:d:\work\s6pro\s6-pro\app\modules\audio\bsp_audio.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\audio\bsp_aux.c
+	"include.h"
+
+1765613862 source:d:\work\s6pro\s6-pro\app\modules\audio\bsp_dac.c
+	"include.h"
+	"bsp_dac.h"
+
+1765619432 source:d:\work\s6pro\s6-pro\app\modules\audio\bsp_effect.c
+	"include.h"
+
+1762757452 source:d:\work\s6pro\s6-pro\app\modules\audio\bsp_eq.c
+	"include.h"
+	"bsp_eq.h"
+	"bsp_anc.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\audio\bsp_set_effect.c
+	"include.h"
+
+1765697316 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\ab_mate\ab_mate_app.c
+	"include.h"
+	"ab_mate_app.h"
+	"ab_mate_timer.h"
+	"ab_mate_ota.h"
+	"ab_mate_tws.h"
+	"ab_mate_profile.h"
+	"hfhs.h"
+	"map.h"
+	"bsp_opus.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\ab_mate\ab_mate_ota.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\ab_mate\ab_mate_tws.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\bt\hfhs.h
+
+1764726234 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\ab_mate\ab_mate_gfps_profile.c
+	"include.h"
+	"ab_mate_profile.h"
+
+1765619163 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\ab_mate\ab_mate_ota.c
+	"include.h"
+	"ab_mate_ota.h"
+	"ab_mate_tws.h"
+
+1764642634 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\ab_mate\ab_mate_profile.c
+	"include.h"
+	"ab_mate_profile.h"
+
+1765633080 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\ab_mate\ab_mate_timer.c
+	"include.h"
+	"ab_mate_timer.h"
+
+1765202909 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\ab_mate\ab_mate_tws.c
+	"include.h"
+	"ab_mate_tws.h"
+	"ab_mate_ota.h"
+	"ab_mate_timer.h"
+	"ab_mate_profile.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\app_demo\app_demo.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\app_fota\app_fota.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\app_fota\app_fota_profile.c
+	"include.h"
+
+1764209130 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\app_interface.c
+	"include.h"
+	"app.h"
+
+1763428514 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\app_test\app_test.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\doubao\doubao.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\dueros_dma\dma.pb-c.c
+	"dma_wrapper.h"
+	"dma.pb-c.h"
+
+1764726246 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\dueros_dma\dma.pb-c.h
+	"protobuf-c.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\dueros_dma\protobuf-c.h
+	<assert.h>
+	<stddef.h>
+	<stdint.h>
+	<macro.h>
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\dueros_dma\dma_stream.c
+	"dma_stream.h"
+	"dma_utils.h"
+	"include.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\dueros_dma\dma_stream.h
+	"dma_wrapper.h"
+	"dma.pb-c.h"
+	"dma_utils.h"
+	"include.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\dueros_dma\dma_utils.h
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\dueros_dma\dma_utils.c
+	"dma_stream.h"
+	"dma_utils.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\dueros_dma\dma_wrapper.c
+	"dueros_dma_extern.h"
+	"dueros_dma_app.h"
+	"api_cm.h"
+	"dueros_dma_profile.h"
+	"api_btstack.h"
+	"xcfg.h"
+	"dueros_dma_sha256.h"
+	"dueros_dma_tws.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\dueros_dma\dueros_dma_extern.h
+	"dma_wrapper.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\dueros_dma\dueros_dma_profile.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\dueros_dma\dueros_dma_sha256.h
+	"typedef.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\dueros_dma\dueros_dma_app.c
+	"dueros_dma_app.h"
+	"dueros_dma_profile.h"
+	"dueros_dma_extern.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\dueros_dma\dueros_dma_profile.c
+	"include.h"
+	"dueros_dma_profile.h"
+	"dma_wrapper.h"
+	"dueros_dma_app.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\dueros_dma\dueros_dma_sha256.c
+	<string.h>
+	"dueros_dma_sha256.h"
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\dueros_dma\dueros_dma_tws.c
+	"include.h"
+	"dueros_dma_tws.h"
+	"dma_wrapper.h"
+	"dueros_dma_app.h"
+
+1763630402 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\dueros_dma\protobuf-c.c
+	"protobuf-c.h"
+	"dma_wrapper.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\mbedtls\aes.c
+	"include.h"
+	"aes.h"
+	<string.h>
+	"mbedtls/padlock.h"
+	"mbedtls/aesni.h"
+	"mbedtls/platform.h"
+	<stdio.h>
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\mbedtls\aes.h
+	<stddef.h>
+	<stdint.h>
+	"aes_alt.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\mbedtls\md5.c
+	"include.h"
+	"md5.h"
+	<string.h>
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\mbedtls\md5.h
+	<stddef.h>
+	<stdint.h>
+	"md5_alt.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\mbedtls\sha256.c
+	"sha256.h"
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\mbedtls\sha256.h
+	<stddef.h>
+	<stdint.h>
+	"sha256_alt.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\port\tuya_ble_app.c
+	"include.h"
+	"tuya_ble_api.h"
+	"tuya_ble_log.h"
+	"tuya_ble_mem.h"
+	"tuya_ble_timer.h"
+	"tuya_ble_app.h"
+	"tuya_ble_utils.h"
+	"tuya_ble_event.h"
+	"tuya_ble_ota.h"
+	"tuya_ble_mutli_tsf_protocol.h"
+	"tuya_ble_tws.h"
+	"tuya_ble_data_handler.h"
+	"tuya_ble_main.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_api.h
+	"tuya_ble_type.h"
+	"tuya_ble_internal_config.h"
+	"tuya_ble_port.h"
+	"tuya_ble_app.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_internal_config.h
+	"tuya_ble_config.h"
+	"tuya_ble_port.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_config.h
+	"tuya_ble_custom_config.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\port\tuya_ble_custom_config.h
+	"include.h"
+	"tuya_ble_type.h"
+	"tuya_ble_app.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_port.h
+	"tuya_ble_stdlib.h"
+	"tuya_ble_type.h"
+	"tuya_ble_config.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_log.h
+	"tuya_ble_stdlib.h"
+	"tuya_ble_internal_config.h"
+	"tuya_ble_log_internal.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_log_internal.h
+	"tuya_ble_port.h"
+	"tuya_ble_internal_config.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_mem.h
+	"tuya_ble_type.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\port\tuya_ble_timer.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_utils.h
+	"tuya_ble_stdlib.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_event.h
+	"tuya_ble_stdlib.h"
+	"tuya_ble_type.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\port\tuya_ble_ota.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_mutli_tsf_protocol.h
+	"tuya_ble_stdlib.h"
+	"tuya_ble_config.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\port\tuya_ble_tws.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_data_handler.h
+	"tuya_ble_stdlib.h"
+	"tuya_ble_internal_config.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_main.h
+	"tuya_ble_type.h"
+	"tuya_ble_internal_config.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\port\tuya_ble_bt892x.c
+	"include.h"
+	"tuya_ble_timer.h"
+	"tuya_ble_port.h"
+	"tuya_ble_type.h"
+	"aes.h"
+	"md5.h"
+	"tuya_ble_utils.h"
+
+1764985406 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\port\tuya_ble_ota.c
+	"include.h"
+	"tuya_ble_log.h"
+	"tuya_ble_type.h"
+	"tuya_ble_utils.h"
+	"tuya_ble_api.h"
+	"tuya_ble_ota.h"
+	"api_update.h"
+	"tuya_ble_tws.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\port\tuya_ble_profile.c
+	"include.h"
+	"tuya_ble_api.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\port\tuya_ble_timer.c
+	"include.h"
+	"tuya_ble_timer.h"
+	"tuya_ble_type.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\port\tuya_ble_tws.c
+	"include.h"
+	"tuya_ble_log.h"
+	"tuya_ble_app.h"
+	"tuya_ble_ota.h"
+	"tuya_ble_storage.h"
+	"tuya_ble_tws.h"
+	"tuya_ble_utils.h"
+	"tuya_ble_data_handler.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_storage.h
+	"tuya_ble_type.h"
+	"tuya_ble_internal_config.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\src\tuya_ble_api.c
+	"tuya_ble_stdlib.h"
+	"tuya_ble_api.h"
+	"tuya_ble_port.h"
+	"tuya_ble_type.h"
+	"tuya_ble_main.h"
+	"tuya_ble_mem.h"
+	"tuya_ble_log.h"
+	"tuya_ble_data_handler.h"
+	"tuya_ble_internal_config.h"
+	"tuya_ble_mutli_tsf_protocol.h"
+	"tuya_ble_storage.h"
+	"tuya_ble_utils.h"
+	"tuya_ble_sdk_version.h"
+	"tuya_ble_gatt_send_queue.h"
+	"tuya_ble_event.h"
+	"tuya_ble_app_production_test.h"
+	"cJSON.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_sdk_version.h
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_gatt_send_queue.h
+	"tuya_ble_stdlib.h"
+	"tuya_ble_type.h"
+	"tuya_ble_queue.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_queue.h
+	"tuya_ble_stdlib.h"
+	"tuya_ble_type.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_app_production_test.h
+	<stdint.h>
+	"tuya_ble_internal_config.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\src\tuya_ble_bulk_data.c
+	"tuya_ble_bulk_data.h"
+	"tuya_ble_stdlib.h"
+	"tuya_ble_type.h"
+	"tuya_ble_heap.h"
+	"tuya_ble_mem.h"
+	"tuya_ble_api.h"
+	"tuya_ble_port.h"
+	"tuya_ble_main.h"
+	"tuya_ble_internal_config.h"
+	"tuya_ble_data_handler.h"
+	"tuya_ble_mutli_tsf_protocol.h"
+	"tuya_ble_utils.h"
+	"tuya_ble_secure.h"
+	"tuya_ble_main.h"
+	"tuya_ble_storage.h"
+	"tuya_ble_unix_time.h"
+	"tuya_ble_log.h"
+	"tuya_ble_gatt_send_queue.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_bulk_data.h
+	"tuya_ble_stdlib.h"
+	"tuya_ble_type.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_heap.h
+	"tuya_ble_stdlib.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_secure.h
+	"tuya_ble_type.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_unix_time.h
+	"tuya_ble_stdlib.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\src\tuya_ble_data_handler.c
+	"include.h"
+	"tuya_ble_stdlib.h"
+	"tuya_ble_type.h"
+	"tuya_ble_heap.h"
+	"tuya_ble_mem.h"
+	"tuya_ble_api.h"
+	"tuya_ble_port.h"
+	"tuya_ble_main.h"
+	"tuya_ble_internal_config.h"
+	"tuya_ble_data_handler.h"
+	"tuya_ble_mutli_tsf_protocol.h"
+	"tuya_ble_utils.h"
+	"tuya_ble_secure.h"
+	"tuya_ble_main.h"
+	"tuya_ble_storage.h"
+	"tuya_ble_unix_time.h"
+	"tuya_ble_log.h"
+	"tuya_ble_gatt_send_queue.h"
+	"tuya_ble_bulk_data.h"
+	"tuya_ble_app_production_test.h"
+	"tuya_ble_app_uart_common_handler.h"
+	"tuya_ble_feature_weather.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_app_uart_common_handler.h
+	<stdint.h>
+	"tuya_ble_internal_config.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_feature_weather.h
+	"tuya_ble_stdlib.h"
+	"tuya_ble_type.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\src\tuya_ble_event.c
+	"tuya_ble_stdlib.h"
+	"tuya_ble_type.h"
+	"tuya_ble_heap.h"
+	"tuya_ble_mem.h"
+	"tuya_ble_api.h"
+	"tuya_ble_port.h"
+	"tuya_ble_main.h"
+	"tuya_ble_secure.h"
+	"tuya_ble_data_handler.h"
+	"tuya_ble_storage.h"
+	"tuya_ble_sdk_version.h"
+	"tuya_ble_utils.h"
+	"tuya_ble_event.h"
+	"tuya_ble_log.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\src\tuya_ble_event_handler.c
+	"tuya_ble_stdlib.h"
+	"tuya_ble_type.h"
+	"tuya_ble_heap.h"
+	"tuya_ble_mem.h"
+	"tuya_ble_api.h"
+	"tuya_ble_port.h"
+	"tuya_ble_main.h"
+	"tuya_ble_secure.h"
+	"tuya_ble_data_handler.h"
+	"tuya_ble_storage.h"
+	"tuya_ble_sdk_version.h"
+	"tuya_ble_event.h"
+	"tuya_ble_utils.h"
+	"tuya_ble_app_uart_common_handler.h"
+	"tuya_ble_app_production_test.h"
+	"tuya_ble_log.h"
+	"tuya_ble_event_handler.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\include\tuya_ble_event_handler.h
+	"tuya_ble_type.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\src\tuya_ble_event_handler_weak.c
+	"tuya_ble_stdlib.h"
+	"tuya_ble_type.h"
+	"tuya_ble_event_handler.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\src\tuya_ble_gatt_send_queue.c
+	"tuya_ble_stdlib.h"
+	"tuya_ble_gatt_send_queue.h"
+	"tuya_ble_type.h"
+	"tuya_ble_config.h"
+	"tuya_ble_port.h"
+	"tuya_ble_mem.h"
+	"tuya_ble_main.h"
+	"tuya_ble_log.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\src\tuya_ble_heap.c
+	"tuya_ble_stdlib.h"
+	"tuya_ble_heap.h"
+	"tuya_ble_port.h"
+	"tuya_ble_internal_config.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\src\tuya_ble_main.c
+	"tuya_ble_stdlib.h"
+	"tuya_ble_type.h"
+	"tuya_ble_heap.h"
+	"tuya_ble_mem.h"
+	"tuya_ble_api.h"
+	"tuya_ble_port.h"
+	"tuya_ble_main.h"
+	"tuya_ble_secure.h"
+	"tuya_ble_data_handler.h"
+	"tuya_ble_storage.h"
+	"tuya_ble_sdk_version.h"
+	"tuya_ble_event.h"
+	"tuya_ble_utils.h"
+	"tuya_ble_app_uart_common_handler.h"
+	"tuya_ble_app_production_test.h"
+	"tuya_ble_log.h"
+	"tuya_ble_internal_config.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\src\tuya_ble_mem.c
+	"tuya_ble_stdlib.h"
+	"tuya_ble_type.h"
+	"tuya_ble_heap.h"
+	"tuya_ble_mem.h"
+	"tuya_ble_internal_config.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\src\tuya_ble_mutli_tsf_protocol.c
+	"tuya_ble_stdlib.h"
+	"tuya_ble_type.h"
+	"tuya_ble_mem.h"
+	"tuya_ble_mutli_tsf_protocol.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\src\tuya_ble_port.c
+	"tuya_ble_port.h"
+	"tuya_ble_type.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\src\tuya_ble_queue.c
+	"tuya_ble_stdlib.h"
+	"tuya_ble_queue.h"
+	"tuya_ble_type.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\src\tuya_ble_storage.c
+	"tuya_ble_stdlib.h"
+	"tuya_ble_api.h"
+	"tuya_ble_port.h"
+	"tuya_ble_type.h"
+	"tuya_ble_main.h"
+	"tuya_ble_mem.h"
+	"tuya_ble_data_handler.h"
+	"tuya_ble_internal_config.h"
+	"tuya_ble_mutli_tsf_protocol.h"
+	"tuya_ble_storage.h"
+	"tuya_ble_utils.h"
+	"tuya_ble_log.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\src\tuya_ble_unix_time.c
+	"tuya_ble_stdlib.h"
+	"tuya_ble_unix_time.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\app\tuya\src\tuya_ble_utils.c
+	"tuya_ble_stdlib.h"
+	"tuya_ble_utils.h"
+	"tuya_ble_port.h"
+	"tuya_ble_mem.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\ble\adv0.c
+	"include.h"
+
+1764643462 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\ble\ble.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\ble\priv_ble.c
+	"include.h"
+
+1765619947 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\bsp_bt.c
+	"include.h"
+	"api.h"
+
+1764125608 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\bt\a2dp.c
+	"include.h"
+	"api.h"
+
+1764646510 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\bt\bt.c
+	"include.h"
+	"api.h"
+
+1761815828 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\bt\dev_vol.c
+	"include.h"
+	"api.h"
+
+1764570268 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\bt\hfhs.c
+	"include.h"
+	"api.h"
+	"hfhs.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\bt\hid.c
+	"include.h"
+	"api.h"
+	"func.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\bt\id3_tag.c
+	"id3_tag.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\bt\id3_tag.h
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\bt\map.c
+	"include.h"
+	"map.h"
+
+1762142830 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\bt\pbap.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\bt\profile.c
+	"include.h"
+	"api.h"
+
+1764237078 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\bt\spp.c
+	"include.h"
+	"api.h"
+
+1761873648 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\call\bt_sco.c
+	"include.h"
+	"bt_sco.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\bluetooth\call\bt_sco.h
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\gfps\gfps.c
+	"include.h"
+	"gfps.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\gfps\gfps_util.c
+	"include.h"
+
+1765699185 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\tws\tws.c
+	"include.h"
+	"api.h"
+	"app_include.h"
+
+1765615518 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\tws\tws_res.c
+	"include.h"
+	"tws_res.h"
+
+1764135860 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\tws\tws_res_tbl.c
+	"include.h"
+
+1764147788 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\tws\tws_sync.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\bluetooth\tws\tws_util.c
+	"include.h"
+
+1764808784 source:d:\work\s6pro\s6-pro\app\modules\charge\charge.c
+	"include.h"
+
+1765199012 source:d:\work\s6pro\s6-pro\app\modules\charge\charge_box.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\debug\debug.c
+	"include.h"
+	"debug.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\debug\offline_log.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\fs\fs.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\gui\gui.c
+	"include.h"
+	"gui.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\gui\led\led.c
+	"include.h"
+	"led.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\gui\ledseg\ledseg_6c6s.c
+	"include.h"
+	"ledseg_6c6s.h"
+
+1761018982 d:\work\s6pro\s6-pro\app\modules\gui\ledseg\ledseg_6c6s.h
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\gui\ledseg\ledseg_7p7s.c
+	"include.h"
+	"ledseg_common.h"
+	"ledseg_7p7s.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\gui\ledseg\ledseg_common.c
+	"include.h"
+	"ledseg_common.h"
+	"ledseg_7p7s.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\key\adkey.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\key\key_scan.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\key\knob.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\key\pwrkey.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\key\tkey.c
+	"include.h"
+	"api.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\music\bsp_abp.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\music\bsp_id3_tag.c
+	"include.h"
+
+1762331114 source:d:\work\s6pro\s6-pro\app\modules\music\bsp_karaok.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\music\bsp_lrc.c
+	"include.h"
+
+1765011648 source:d:\work\s6pro\s6-pro\app\modules\music\bsp_music.c
+	"include.h"
+
+1761884268 source:d:\work\s6pro\s6-pro\app\modules\music\bsp_piano.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\record\record.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\test\anc_test.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\test\enc_test.c
+	"include.h"
+
+1765004706 source:d:\work\s6pro\s6-pro\app\modules\test\iodm.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\test\qtest.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\update\upd_uart.c
+	"include.h"
+
+1761701222 source:d:\work\s6pro\s6-pro\app\modules\usb_device\usb_audio.c
+	"include.h"
+	"usb_audio.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\usb_device\usb_enum.c
+	"include.h"
+	"usb_enum.h"
+	"usb_table.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\usb_device\usb_table.c
+	"include.h"
+	"usb_table.h"
+	"usb_enum.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\usb_host\usb_iap.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\warning\warning_play.c
+	"include.h"
+	"warning_play.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\modules\warning\wsbc.c
+	"include.h"
+	"wsbc.h"
+
+1764247144 source:d:\work\s6pro\s6-pro\app\system\cm.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\system\device.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\system\interrupt.c
+	"include.h"
+
+1761018982 source:d:\work\s6pro\s6-pro\app\system\mute.c
+	"include.h"
+
+1764294528 source:d:\work\s6pro\s6-pro\app\system\param.c
+	"include.h"
+
+1765630893 source:d:\work\s6pro\s6-pro\app\system\system.c
+	"include.h"
+
+1765454716 source:d:\work\s6pro\s6-pro\app\system\vbat.c
+	"include.h"
+
+1761903236 source:d:\work\s6pro\s6-pro\app\projects\bt8930\app_ble.c
+	"app_include.h"
+
+1764571974 source:d:\work\s6pro\s6-pro\app\projects\bt8930\app_dm.c
+	"include.h"
+	"app_lr.h"
+	"app_dm.h"
+
+1765697959 source:d:\work\s6pro\s6-pro\app\projects\bt8930\app_message.c
+	"app_include.h"
+
+1765699411 source:d:\work\s6pro\s6-pro\app\projects\bt8930\app_ringbuf.c
+	"app_ringbuf.h"
+
+1764992816 source:d:\work\s6pro\s6-pro\app\projects\bt8930\app_role_switch.c
+	"app_include.h"
+

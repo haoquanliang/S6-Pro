@@ -10,8 +10,12 @@
 #define AB_MATE_PAYLOAD_POS     5
 #define AB_MATE_CM_TAG          0xab23
 #define AB_MATE_BT_NAME_TAG     0x5d
-
+#if APP_BLE_ADV_INTERVAL
+#define AB_MATE_ADV_INTERVAL        320     //adv: x * 0.625ms
+#else
 #define AB_MATE_ADV_INTERVAL        480     //adv: x * 0.625ms
+#endif
+
 #define AB_MATE_ADV_SLEEP_INTERVAL  640
 #define AB_MATE_CON_INTERVAL        52      //con: x * 1.25ms
 #define AB_MATE_CON_SLEEP_INTERVAL  320
