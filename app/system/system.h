@@ -5,6 +5,15 @@
 #include "param.h"
 #include "device.h"
 #include "vbat.h"
+#if SWETZ_VBAT_VIR_PRESSURE
+static bool is_update_level_using_charging_time;
+static uint8_t charging_update_gauge_count;
+static uint8_t bat_wait_stable_cnt;
+
+#define CHARGING_UPDATE_GAUGE_COUNT_NUMBER (12)//12*5=60秒
+#define BAT_STABLE_CNT (12)//12*5=60秒
+#endif
+
 
 #if SWETZ_VBAT_TO_PHONE
 #define VOLT_BAT_LEVEL_100 (4259)//
@@ -31,6 +40,23 @@
 
 
 
+#endif
+
+#if SWETZ_VBAT_VIR_PRESSURE
+#define VOLT_BAT_LEVEL_CHARGING_70  (4312)
+#define VOLT_BAT_LEVEL_CHARGING_65  (4276)
+#define VOLT_BAT_LEVEL_CHARGING_60  (4248)
+#define VOLT_BAT_LEVEL_CHARGING_55  (4216)
+#define VOLT_BAT_LEVEL_CHARGING_50  (4189)
+#define VOLT_BAT_LEVEL_CHARGING_45  (4159)
+#define VOLT_BAT_LEVEL_CHARGING_40  (4137)
+#define VOLT_BAT_LEVEL_CHARGING_35  (4112)
+#define VOLT_BAT_LEVEL_CHARGING_30  (4089)
+#define VOLT_BAT_LEVEL_CHARGING_25  (4070)
+#define VOLT_BAT_LEVEL_CHARGING_20  (4058)
+#define VOLT_BAT_LEVEL_CHARGING_15  (4035)
+#define VOLT_BAT_LEVEL_CHARGING_10  (3998)
+#define VOLT_BAT_LEVEL_CHARGING_5   (3957)
 #endif
 
 
@@ -217,6 +243,10 @@ volatile u8  dc_in_filter;      //DC IN filter
 #if SWETZ_TEST
     u8 test;
 #endif
+#if SWETZ_VBAT_VIR_PRESSURE
+    u8 param_vbta;
+#endif
+
 
 } sys_cb_t;
 extern sys_cb_t sys_cb;
@@ -248,6 +278,12 @@ void sd_soft_cmd_detect(u32 check_ms);
 void cpu_set_sfr(psfr_t sfr, u32 value);
 void cpu_clr_sfr(psfr_t sfr, u32 value);
 
+#if SWETZ_VBAT_VIR_PRESSURE
+static uint8_t get_bat_level_from_volt_wi_charger(uint16_t volt);
+void app_bat_level_update(bool charging);
+
+#endif
+
 #if SWETZ_VBAT_TO_PHONE
 static uint8_t get_bat_level_from_volt_wo_charger(uint16_t volt);
 uint8_t app_bat_level_show_for_phone(uint8_t bat_real_level);
@@ -266,7 +302,12 @@ void user_low_bat_tone_play(void);
 #if SWETZ_SHIP_MODE
 void swetz_ship_mode(bool mode);
 #endif
+#if SWETZ_VBAT_VIR_PRESSURE
+void vbat_write_param(void);
+uint8_t vbat_read_param(void);
 
+
+#endif
 
 #if SWETZ_NTC
 u8 user_ntc_check(void);

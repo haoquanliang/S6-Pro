@@ -29,11 +29,11 @@
         <add key="dac_vcm_less_en" value="False" />
         <add key="dacvdd_bypass_en" value="False" />
         <add key="dac_off_for_conn" value="False" />
-        <add key="dac_max_gain" value="-2DB" />
+        <add key="dac_max_gain" value="0DB" />
         <add key="bt_call_max_gain" value="-9DB" />
         <add key="vol_max" value="16级音量" />
-        <add key="sys_init_vol" value="16" />
-        <add key="sys_recover_initvol" value="16" />
+        <add key="sys_init_vol" value="10" />
+        <add key="sys_recover_initvol" value="10" />
         <add key="warning_volume" value="6" />
         <add key="buck_mode_en" value="True" />
         <add key="vddba_buck_en" value="True" />
@@ -56,7 +56,7 @@
         <add key="ch_leakage_sel" value="2" />
         <add key="chg_inbox_pwrdwn_en" value="False" />
         <add key="chbox_out_delay" value="15" />
-        <add key="bt_name" value="UGREEN HiTune S6 Pro" />
+        <add key="bt_name" value="UGREEN HiTune S6 Pro-1" />
         <add key="bt_addr_mode" value="固定地址" />
         <add key="bt_addr" value="41:42:00:00:02:00" />
         <add key="bt_addr_start" value="41:42:00:00:00:00" />
@@ -349,7 +349,7 @@
         <add key="ntc_0p2c_charge_voltage_follow" value="False" />
         <add key="ntc_0p2c_charge_stop_curr" value="5mA" />
         <add key="ntc_0p2c_charge_trickle_curr" value="5mA" />
-        <add key="ntc_0p3c_en" value="False" />
+        <add key="ntc_0p3c_en" value="True" />
         <add key="ntc_0p3c_enter" value="156" />
         <add key="ntc_0p3c_exit" value="150" />
         <add key="ntc_0p3c_constant_curr" value="20mA" />

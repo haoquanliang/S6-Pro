@@ -84,7 +84,7 @@
 #define SWETZ_OTA_ADDR_CHARGE       1//每次ota初始化地址写0
 #define SWETZ_MUTE_CUR_VOL_0        0//当调节音量为0的时候直接mute音频输出
 #define SWETZ_DBB_LEVEL_FOLLOW_VOL  1//dbb等级跟随sys_cb.vol音量调整
-
+#define SWETZ_VBAT_VIR_PRESSURE     1//防止耳机充电转放电的时候虚压导致电量变化快
 
 //APP
 #define APP_BLE_RADIO               1//广播ble修改
@@ -128,12 +128,15 @@
 #define EQ_FOR_IDX_EN                   0//关闭独立调eq
 #define APP_OTA_ING_LIMIT_INCASE_UPDATE 1//ota的时候限制上传在仓状态
 #define APP_IN_OUT_CASE_UPDATE__VBAT    1//增加在仓状态变化上传电量一次
-#define APP_BLE_ADV_INTERVAL            1//修改广播间隔
+#define APP_BLE_ADV_INTERVAL            1//修改app ble广播间隔
+#define APP_VERSION_CHANGE              1//修改上传的版本号
+
 
 #define SWETZ_CLOSE                 0//1:关掉V3D
 #define APP_MUSIC_AUDIO_TEST        1//音效调试
 
-#define OTA_TEST                        1
+#define OTA_TEST                    1
+
 #endif
 
 
@@ -359,7 +362,7 @@
 #if (FLASH_SIZE == FSIZE_1M)
 #if RES_USERBIN_EN
 #define AB_FOT_PACK_START_ADDR          0xAF000             //(FLASH_SIZE - 24K(参数区20k+RES2 4k) - USERBIN_SIZE - AB_FOT_PACK_SIZE)
-#define AB_FOT_PACK_SIZE                0x32000
+#define AB_FOT_PACK_SIZE                0x32000 
 
 #define USERBIN_START_ADDR              0xE1000             //(FLASH_SIZE - 24K(参数区20k+RES2 4k) - USERBIN_SIZE)
 #define USERBIN_SIZE                    0x19000             //100k
@@ -917,7 +920,7 @@
 #define OPUS_DEC_EN                     0            //opus解码使能
 
 #define UG_VERSION       002
-#define SW_VERSION		 2		        //只能使用数字(u16)，例如版本号V1.0.2，ab_mate用102表示，ab_fot用0x102表示
+#define SW_VERSION		 16		        //只能使用数字(u16)，例如版本号V1.0.2，ab_mate用102表示，ab_fot用0x102表示
 #define HW_VERSION		"V0.0.7"		//只能使用数字0-9,ota需要转码
 #include "config_extra.h"
 

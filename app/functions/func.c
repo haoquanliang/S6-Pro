@@ -667,19 +667,19 @@ void func_message(u16 msg)
                     
             }
         }
-        printf("vbat:%d adc_cb.vbat_val:%d sys_cb.local_bat_level:%d  sys_cb.peer_bat_level:%d  box_vbat:%d\r\n",sys_cb.vbat,adc_cb.vbat_val,sys_cb.local_bat_level,sys_cb.peer_bat_level,charge_box_get_charge_box_bat_level());
+     //   printf("vbat:%d adc_cb.vbat_val:%d sys_cb.local_bat_level:%d  sys_cb.peer_bat_level:%d  box_vbat:%d\r\n",sys_cb.vbat,adc_cb.vbat_val,sys_cb.local_bat_level,sys_cb.peer_bat_level,charge_box_get_charge_box_bat_level());
 
       // printf("sys_cb.SWETZ_tick:%d\r\n",sys_cb.SWETZ_tick);
-        if(sys_cb.tws_left_channel){
-            printf("L ");
-        }else{
-            printf("R ");
-        }
-        printf("disp status %d,tws conn %d,tws slave %d, nor conn %d, scan %d, sys_cb.vol:%d  sys_cb.hfp_vol:%d sys_cb.lang_id:%d low_latency:%d sys_cb.eq_mode:%d dev.en:%d ab_mate_app.vp_vol:%d\n\r",
-        f_bt.disp_status,bt_tws_is_connected(),bt_tws_is_slave(),bt_nor_is_connected(), bt_get_scan(),
-        sys_cb.vol,sys_cb.hfp_vol,sys_cb.lang_id,bt_is_low_latency(),ab_mate_app.eq_info.mode,ab_mate_app.mult_dev.en,ab_mate_app.vp_vol);
-       printf("in_case:%d  peer_in_case:%d  mult_dev.en:%d \r\n",sys_cb.flag_local_in_case,sys_cb.flag_peer_in_case,ab_mate_app.mult_dev.en);
-       printf("bass_level:%d\r\n",music_dbb_get_bass_level());
+        // if(sys_cb.tws_left_channel){
+        //     printf("L ");
+        // }else{
+        //     printf("R ");
+        // }
+        // printf("disp status %d,tws conn %d,tws slave %d, nor conn %d, scan %d, sys_cb.vol:%d  sys_cb.hfp_vol:%d sys_cb.lang_id:%d low_latency:%d sys_cb.eq_mode:%d dev.en:%d ab_mate_app.vp_vol:%d\n\r",
+        // f_bt.disp_status,bt_tws_is_connected(),bt_tws_is_slave(),bt_nor_is_connected(), bt_get_scan(),
+        // sys_cb.vol,sys_cb.hfp_vol,sys_cb.lang_id,bt_is_low_latency(),ab_mate_app.eq_info.mode,ab_mate_app.mult_dev.en,ab_mate_app.vp_vol);
+      // printf("in_case:%d  peer_in_case:%d  mult_dev.en:%d \r\n",sys_cb.flag_local_in_case,sys_cb.flag_peer_in_case,ab_mate_app.mult_dev.en);
+     //  printf("bass_level:%d\r\n",music_dbb_get_bass_level());
        
           //   printf("local_in_case:%d peer_in_case:%d\r\n",sys_cb.flag_local_in_case,sys_cb.flag_peer_in_case);
            //  app_lr_send_notification(LR_NOTIFY_IN_CASE_STATUS, 1, &sys_cb.flag_local_in_case);
@@ -701,8 +701,12 @@ void func_message(u16 msg)
    //printf("ab_mate_app.v3d_audio_en:%d\r\n",ab_mate_app.v3d_audio_en);
 //    printf("find_left:%d find_right:%d",sys_cb.find_left_ear_going,sys_cb.find_right_ear_going);
 //             printf("sys_cb.sw_rst_flag:%d\r\n",sys_cb.sw_rst_flag);
-           printf("music_effect_DBB_state:%d\r\n",music_effect_get_state(MUSIC_EFFECT_DBB));
-            
+          // printf("music_effect_DBB_state:%d\r\n",music_effect_get_state(MUSIC_EFFECT_DBB));
+
+
+#if SWETZ_VBAT_VIR_PRESSURE
+    app_bat_level_update(false);
+#endif
         break;
             
 #endif

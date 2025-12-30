@@ -203,6 +203,10 @@ void charge_exit(void)
     charge_box_reinit();
 #endif
     tkey_stop_calibration_in_charge();
+#if SWETZ_VBAT_VIR_PRESSURE
+    vbat_write_param();
+#endif
+
     printf("charge_exit\n");
 }
 

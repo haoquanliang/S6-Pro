@@ -140,7 +140,9 @@
 
 #define AB_MATE_CM_SWET_KEY_TONE_MODE       (150)                                                       //1byte，从地址150开始
 #define AB_MATE_CM_SWET_TONE_VOL              (AB_MATE_CM_SWET_KEY_TONE_MODE + 1)  
-
+#if SWETZ_VBAT_VIR_PRESSURE
+#define AB_MATE_CM_PARM_VBAT                (AB_MATE_CM_SWET_KEY_TONE_MODE + 1) 
+#endif
 
 typedef enum{
     AB_MATE_SUCCESS = 0,
@@ -454,7 +456,12 @@ typedef struct{
     u8 local_vbat;
     u8 remote_vbat;
     u8 box_vbat;
+#if APP_VERSION_CHANGE
+    u8 version[3];
+#else
     u8 version[4];
+#endif
+
     u8 con_sta;
     u8 rem_con_sta;
     u8 init_flag;

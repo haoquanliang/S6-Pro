@@ -3375,8 +3375,14 @@ void ab_mate_var_init(void)
 
     ab_mate_app.version[0] = SW_VERSION % 10;
     ab_mate_app.version[1] = (SW_VERSION % 100) / 10;
+#if APP_VERSION_CHANGE
+    ab_mate_app.version[2] = 1;
+  //  ab_mate_app.version[3] = SW_VERSION / 1000;
+
+#else
     ab_mate_app.version[2] = (SW_VERSION % 1000) / 100;
     ab_mate_app.version[3] = SW_VERSION / 1000;
+#endif
 #if AB_MATE_OTA_EN
     ab_mate_app.flash_crc = fot_head_crc_get();
 #endif

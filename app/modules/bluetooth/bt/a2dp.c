@@ -16,8 +16,8 @@ const uint8_t cfg_bt_a2dp_media_discard = 20;            //�������
 #if SWETZ
 const uint8_t cfg_a2dp_sbc_max_bitpool = 39;            //����SBC��ʽ������ʣ�Ĭ��ֵΪ53����ѡֵ24~53�����鲻����39��
 const uint32_t cfg_a2dp_aac_max_bitrate = 192000;       //����AAC��ʽ������ʣ�Ĭ��ֵΪ0�������ƣ�����ѡֵ128000, 192000, 256000,
-uint16_t cfg_bt_music_normal_latency   = 180;           //����������ͨģʽ�ӳ٣�Ĭ��ֵ280ms����ѡֵ100~450
-uint16_t cfg_bt_music_low_latency      = 70;            //����������Ϸģʽ�ӳ٣�Ĭ��ֵ60ms����ѡֵ60~100
+uint16_t cfg_bt_music_normal_latency   = 180; //230          //����������ͨģʽ�ӳ٣�Ĭ��ֵ280ms����ѡֵ100~450
+uint16_t cfg_bt_music_low_latency      = 60;            //����������Ϸģʽ�ӳ٣�Ĭ��ֵ60ms����ѡֵ60~100
 #else
 const uint8_t cfg_a2dp_sbc_max_bitpool = 39;            //����SBC��ʽ������ʣ�Ĭ��ֵΪ53����ѡֵ24~53�����鲻����39��
 const uint32_t cfg_a2dp_aac_max_bitrate = 128000;       //����AAC��ʽ������ʣ�Ĭ��ֵΪ0�������ƣ�����ѡֵ128000, 192000, 256000,

@@ -636,6 +636,9 @@ bool func_bt_charge_dcin(void)
     }
 #endif
 printf("888888888888555555555\r\n");
+
+
+
     if ((xcfg_cb.bt_tswi_charge_rst_en) || (func_cb.sta != FUNC_BT)) {
 		sys_cb.discon_reason = 0;
 
@@ -792,6 +795,11 @@ void func_bt_exit(void)
 
 #if APP_MESSAGE_RUN
     message_init();
+#endif
+
+
+#if SWETZ_VBAT_VIR_PRESSURE
+    vbat_write_param();
 #endif
 
 }

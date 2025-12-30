@@ -492,10 +492,13 @@ static void ab_mate_ota_req_proc(void)
 
     u32 remote_ver;
     u32 local_ver;
-
+#if APP_VERSION_CHANGE
+    memcpy(&remote_ver, fot_var.remote_ver, 3);
+    memcpy(&local_ver, ab_mate_app.version, 3);
+#else
     memcpy(&remote_ver, fot_var.remote_ver, 4);
     memcpy(&local_ver, ab_mate_app.version, 4);
-
+#endif
     FOT_DEBUG("-->fot_local_ver:0x%x\n",local_ver);
     FOT_DEBUG("-->fot_remote_ver:0x%x\n",remote_ver);
 
