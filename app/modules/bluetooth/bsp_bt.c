@@ -411,6 +411,17 @@ void bt_emit_notice(uint evt, void *params)
         break;
     case BT_NOTICE_MUSIC_SET_VOL:
         if((sys_cb.incall_flag & INCALL_FLAG_SCO) == 0) {
+#if SWETZ_TEST
+            if(!tws_res_is_playing()){
+                extern uint16_t cfg_tws_sync_alarm_time;
+                cfg_tws_sync_alarm_time      = 200;
+                if(music_effect_get_state_real(MUSIC_EFFECT_DBB)){
+                    sys_clk_req(INDEX_GFPS, SYS_160M);
+                }
+            }
+
+#endif
+
             dev_vol_set_cb(packet[0], packet[1], 1);
         }
         break;

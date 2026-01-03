@@ -19,7 +19,7 @@
 
 
 #define STR_PRI                     1//中断打印
-#define  SWETZ_TEST                       1
+#define  SWETZ_TEST                       0
 
 #define SWETZ                       1
 #if SWETZ

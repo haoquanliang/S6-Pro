@@ -670,14 +670,15 @@ void func_message(u16 msg)
      //   printf("vbat:%d adc_cb.vbat_val:%d sys_cb.local_bat_level:%d  sys_cb.peer_bat_level:%d  box_vbat:%d\r\n",sys_cb.vbat,adc_cb.vbat_val,sys_cb.local_bat_level,sys_cb.peer_bat_level,charge_box_get_charge_box_bat_level());
 
       // printf("sys_cb.SWETZ_tick:%d\r\n",sys_cb.SWETZ_tick);
-        // if(sys_cb.tws_left_channel){
-        //     printf("L ");
-        // }else{
-        //     printf("R ");
-        // }
-        // printf("disp status %d,tws conn %d,tws slave %d, nor conn %d, scan %d, sys_cb.vol:%d  sys_cb.hfp_vol:%d sys_cb.lang_id:%d low_latency:%d sys_cb.eq_mode:%d dev.en:%d ab_mate_app.vp_vol:%d\n\r",
-        // f_bt.disp_status,bt_tws_is_connected(),bt_tws_is_slave(),bt_nor_is_connected(), bt_get_scan(),
-        // sys_cb.vol,sys_cb.hfp_vol,sys_cb.lang_id,bt_is_low_latency(),ab_mate_app.eq_info.mode,ab_mate_app.mult_dev.en,ab_mate_app.vp_vol);
+        if(sys_cb.tws_left_channel){
+            printf("L ");
+        }else{
+            printf("R ");
+        }
+        printf("disp status %d,tws conn %d,tws slave %d, nor conn %d, scan %d, sys_cb.vol:%d  sys_cb.hfp_vol:%d sys_cb.lang_id:%d low_latency:%d sys_cb.eq_mode:%d dev.en:%d ab_mate_app.vp_vol:%d\n\r",
+        f_bt.disp_status,bt_tws_is_connected(),bt_tws_is_slave(),bt_nor_is_connected(), bt_get_scan(),
+        sys_cb.vol,sys_cb.hfp_vol,sys_cb.lang_id,bt_is_low_latency(),ab_mate_app.eq_info.mode,ab_mate_app.mult_dev.en,ab_mate_app.vp_vol);
+        printf("sys_clk_get:%d\r\n",sys_clk_get_cur());
       // printf("in_case:%d  peer_in_case:%d  mult_dev.en:%d \r\n",sys_cb.flag_local_in_case,sys_cb.flag_peer_in_case,ab_mate_app.mult_dev.en);
      //  printf("bass_level:%d\r\n",music_dbb_get_bass_level());
        
@@ -940,6 +941,12 @@ void func_message(u16 msg)
 #if BT_MUSIC_EFFECT_SOFT_VOL_EN
         case EVT_SOFT_VOL_SET:
             bsp_change_volume(sys_cb.vol);
+#if SWETZ_TEST
+            if(music_effect_get_state_real(MUSIC_EFFECT_DBB)){
+                sys_clk_free(INDEX_GFPS);
+            }
+#endif
+
             break;
 #endif // BT_MUSIC_EFFECT_SOFT_VOL_EN
 #if ABP_EN
