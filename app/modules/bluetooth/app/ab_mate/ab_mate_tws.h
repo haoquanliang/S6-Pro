@@ -31,6 +31,10 @@ enum{
     TWS_INFO_OTA_FILE_ADDR,
     TWS_INFO_OTA_UPDATE_DONE,
     TWS_INFO_OTA_ERR,
+#if APP_AL_REPLY
+    TWS_INFO_AI_STATE,
+#endif
+
 };
 
 enum{

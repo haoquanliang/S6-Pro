@@ -143,7 +143,14 @@ bool user_def_key_msg(u8 func_sel)
 
 #endif
 
-    }else {                                            //VOL+, VOL-
+    } 
+#if APP_KEY_AI
+    else if(func_sel == UDK_KEY_AI_REC){
+            printf("UDK_KEY_AI_REC\r\n");
+            msg_enqueue(EVT_AL_KEY);
+    }
+#endif
+    else {                                            //VOL+, VOL-
         func_message(get_user_def_vol_msg(func_sel));
     }
     return true;
@@ -211,6 +218,9 @@ void func_bt_message_do(u16 msg)
     case KU_PLAY_USER_DEF:
     case KU_PLAY_PWR_USER_DEF:
         printf("33KU_PLAY_PWR_USER_DEF\r\n");
+#if !SWETZ_TEST
+        user_finger_up();
+#endif
 #if SWETZ_SYNC_EVT
     //bt_tws_req_alarm_user(1);//双耳同步执行
 #endif

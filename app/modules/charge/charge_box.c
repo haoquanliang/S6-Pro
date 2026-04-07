@@ -489,10 +489,10 @@ static void charge_box_send_data(u8 *buf,u8 len)
     }
 #endif
 #if SWETZ 
-     if(buf[3] != 0x01){
+ //    if(buf[3] != 0x01){
         printf("box tx:");
         print_r(buf, len);
-     }
+    //  }
 
 #endif 
 }
@@ -571,12 +571,21 @@ static void charge_box_vbat_ack(vh_packet_t *packet)
     packet->header = 0xAA55;
     packet->distinguish = VHOUSE_DISTINGUISH;
 #if APP_ADD_OTA_FLAG
-    packet->length = 0x05;
+    packet->length = 0x06;
     packet->buf[0] = channel;
     packet->buf[2] = sys_cb.loc_bat;
     packet->buf[3] = sys_cb.charge_sta;   
 
     packet->buf[4] = ab_mate_ota_is_start();
+#if SWETZ_SCAN_STATE_TO_CASE
+    if(!bt_tws_is_slave() && (sys_cb.scan_state != bt_get_curr_scan())){
+       sys_cb.scan_state = bt_get_curr_scan();
+
+        app_lr_send_notification(LR_NOTIFY_SYNC_SCAN_STATE, 1, &sys_cb.scan_state);
+    }
+
+#endif
+    packet->buf[5] = sys_cb.scan_state;
 #else
     packet->length = 0x04;
     packet->buf[0] = channel;

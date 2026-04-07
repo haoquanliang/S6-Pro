@@ -720,6 +720,14 @@ void func_bt_enter(void)
 #if SWETZ_POWERON_AFTER_2S_CHECK_INCSE_STA
      message_send(MSG_ID_UPDATE_INCASE_STA, 0, 2000);
 #endif
+#if SWETZ_SCAN_STATE_TO_CASE
+        if(!bt_tws_is_slave()){
+        sys_cb.scan_state = bt_get_curr_scan();
+        app_lr_send_notification(LR_NOTIFY_SYNC_SCAN_STATE, 1, &sys_cb.scan_state);
+        }
+
+#endif
+
 
 }
 

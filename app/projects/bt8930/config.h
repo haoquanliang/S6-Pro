@@ -82,11 +82,11 @@
 #define SWETZ_INBOX_STA             1//电量最高位清零,防止app显示错误电量
 #define SWETZ_SHIP_MODE             1//耳机进船运模式
 #define SWETZ_OTA_ADDR_CHARGE       1//每次ota初始化地址写0
-#define SWETZ_MUTE_CUR_VOL_0        0//当调节音量为0的时候直接mute音频输出
+#define SWETZ_MUTE_CUR_VOL_0        1//当调节音量为0的时候直接mute音频输出
 #define SWETZ_DBB_LEVEL_FOLLOW_VOL  1//dbb等级跟随sys_cb.vol音量调整
 #define SWETZ_VBAT_VIR_PRESSURE     1//防止耳机充电转放电的时候虚压导致电量变化快
-
-//APP
+#define SWETZ_SCAN_STATE_TO_CASE            1//扫描状态判断给仓
+//APP功能
 #define APP_BLE_RADIO               1//广播ble修改
 #define AB_FIND_EAR                 0//查找耳机--下面重写了-功能关闭
 #define AB_PULL_EAR_VBAT            1//传aap的耳机电量精度10%
@@ -125,15 +125,19 @@
 #define APP_MODE_TONE_EVEN              1//去掉游戏音乐模式当前不相同才切的判断，保证最后一次有提示音
 #define APP_ADD_OTA_FLAG                1//仓心跳包增加OTA状态字节
 #define APP_ADD_ABMATE_VOL_SYNC         1//增加提示音音量tws同步
-#define EQ_FOR_IDX_EN                   0//关闭独立调eq
+#define EQ_FOR_IDX_EN                   1//关闭独立调eq --没在用
 #define APP_OTA_ING_LIMIT_INCASE_UPDATE 1//ota的时候限制上传在仓状态
 #define APP_IN_OUT_CASE_UPDATE__VBAT    1//增加在仓状态变化上传电量一次
 #define APP_BLE_ADV_INTERVAL            1//修改app ble广播间隔
 #define APP_VERSION_CHANGE              1//修改上传的版本号
+#define APP_KEY_AI                      1//增加按键功能触发AI录音
+#define APP_AL_REPLY                    1//回复app上报的AI录音状态
+#define APP_USER_EQ_SET                 1//增加自定义eq
+#define SWETZ_CANSEND_NOW               1//调试时这个变量暂时置1
 
 
 #define SWETZ_CLOSE                 0//1:关掉V3D
-#define APP_MUSIC_AUDIO_TEST        1//音效调试
+#define APP_MUSIC_AUDIO_TEST        0//音效调试
 
 #define OTA_TEST                    1
 
@@ -253,9 +257,9 @@
 #define BT_HSP_EN                       0   //是否打开蓝牙HSP通话服务
 #define BT_SPP_EN                       1   //是否打开蓝牙串口服务
 #define BT_ID3_TAG_EN                   0   //是否打开蓝牙ID3功能
-#define BT_HID_EN                       0   //是否打开蓝牙HID服务
+#define BT_HID_EN                       1   //是否打开蓝牙HID服务
 #define BT_ATT_EN                       0   //是否打开GATT_OVER_BREDR
-#define BT_HID_DOUYIN_EN                0   //是否打开刷抖音功能(对应BT_HID_TYPE = 3,配置文件要开启拍照功能)
+#define BT_HID_DOUYIN_EN                1   //是否打开刷抖音功能(对应BT_HID_TYPE = 3,配置文件要开启拍照功能)
 #define BT_HID_TYPE                     0   //选择HID服务类型: 0=自拍器(VOL+, 部分Android不能拍照), 1=自拍器(VOL+和ENTER, 影响IOS键盘使用), 2=游戏手柄, 3=抖音功能
 #define BT_HID_MANU_EN                  0   //蓝牙HID是否需要手动连接/断开
 #define BT_HID_DISCON_DEFAULT_EN        0   //蓝牙HID服务默认不连接，需要手动进行连接。
@@ -580,7 +584,7 @@
 #define DAC_FAST_SETUP_EN               0                           //DAC快速上电，有噪声需要外部功放MUTE
 #define DAC_MAX_GAIN                    xcfg_cb.dac_max_gain        //配置DAC最大模拟增益，默认设置为dac_vol_table[VOL_MAX]
 #define DAC_24BITS_EN                   xcfg_cb.dac_24bits_en
-#define DAC_OUT_SPR                     xcfg_cb.dac_spr_sel         //dac out sample rate
+#define DAC_OUT_SPR                     DAC_OUT_96K//xcfg_cb.dac_spr_sel         //dac out sample rate
 #define DAC_VCM_CAPLESS_EN              xcfg_cb.dac_vcm_less_en     //DAC VCM省电容方案,使用内部VCM
 #define DAC_MAXOUT_EN                   xcfg_cb.dac_maxout_en       //DAC大功率模式
 #define DAC_PULL_DOWN_DELAY             80                          //控制DAC隔直电容的放电时间, 无电容时可设为0，减少开机时间。
@@ -602,8 +606,8 @@
 #define EQ_DBG_IN_SPP                   1           //是否使能SPP在线调节EQ
 #define EQ_DAC_DIV_EN                   0           //是否使能EQ DAC分频功能
 
-#define EQ_APP_EN                       0           //是否打开APP独立调EQ功能
-#define EQ_APP_NUM                      6           //APP独立调EQ使用EQ条数
+#define EQ_APP_EN                       1           //是否打开APP独立调EQ功能
+#define EQ_APP_NUM                      10           //APP独立调EQ使用EQ条数
 
 #define ANC_EN                          0           //是否打开ANC功能
 #define ANC_EQ_RES2_EN                  0           //是否使用资源2

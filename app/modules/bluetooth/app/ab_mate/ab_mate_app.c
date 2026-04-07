@@ -59,6 +59,16 @@ static struct eq_mode_custom_st eq_mode_custom = {
 #endif
 #endif
 
+
+#if APP_KEY_AI
+enum {
+    AI_DIALOGUE    = 1,
+    AI_CHAT,
+    AI_RECORD,
+};
+
+#endif
+
 #if AB_MATE_ANC_EN
 static const u8 anc_app_table[] = {APP_ANC_STOP, APP_ANC_START, APP_ANC_TRANSPARENCY};
 #endif
@@ -90,7 +100,13 @@ static const u8 key_app2local_table[] = {UDK_NONE,          UDK_REDIALING,
                                          UDK_SIRI,          UDK_PREV,
                                          UDK_NEXT,          UDK_VOL_UP,
                                          UDK_VOL_DOWN,      UDK_PLAY_PAUSE,
-                                         UDK_LOW_LATENCY,   UDK_NR
+                                        UDK_LOW_LATENCY,   UDK_NR,                                        
+#if APP_KEY_AI                                         
+                                         UDK_NONE,   UDK_NONE,
+                                         UDK_NONE,  UDK_NONE,
+                                         UDK_KEY_AI_REC
+#endif
+                                       
                                     };
 #if !AB_MATE_KEY_USER_DEF_EN
 static const u8 key_local2app_table[] = {APP_KEY_NONE,      APP_KEY_REDIALING,
@@ -203,6 +219,9 @@ static void ab_mate_data_send_do(uint8_t *packet, uint16_t len)
 
 void ab_mate_data_send(u8* buf, u16 len)
 {
+#if SWETZ_CANSEND_NOW
+    ab_mate_app.can_send_now = 1;
+#endif
     if(ab_mate_app.con_sta && ab_mate_app.can_send_now){
 
         u8 mtu = ab_mate_mtu_get() - AB_MATE_HEADER_LEN;
@@ -532,7 +551,6 @@ void ab_mate_notify_find_me_right(void)
     if(ab_mate_app.con_sta)
     {
         u8 tlv_data[3] = {INFO_SWET_FIND_ME_RIGHT, 1, 0};
-
         tlv_data[2] = sys_cb.find_right_ear_going;
         ab_mate_device_info_notify(tlv_data, 3);
     }
@@ -545,10 +563,50 @@ void ab_mate_user_incase_sta_notify(void)
 {
     if(ab_mate_app.con_sta){
         u8 tlv_data[3] = {INFO_NI_CASE_STATE, 1, 0x00};
-
         tlv_data[2] = user_check_incase_sta_pull();
+    ab_mate_device_info_notify(tlv_data, sizeof(tlv_data));
+    }
+}
+#endif
 
+#if APP_USER_EQ_SET
+void ab_mate_user_eq_notify(void)
+{
+    if(ab_mate_app.con_sta){
+        u16 freq_table[] = {31, 62, 125, 250, 500, 1000, 2000, 4000, 8000, 16000};
+        u8 offset = 2;  // 从 tlv_data[2] 开始写入频率+增益数据
+        s8 tlv_data[32] = {0x00};
+        tlv_data[0]  = INFO_USER_EQ;
+        tlv_data[1] = 30;
+        for(u8 i = 0; i < 10; i++){
+            u16 freq = freq_table[i];
+            s8 gain = ab_mate_app.eq_info.gain[i];  // 获取增益值（0x00~0x0C）
+            
+            // 频率小端字节序存储
+            tlv_data[offset++] = freq & 0xFF;        // 低字节
+            tlv_data[offset++] = (freq >> 8) & 0xFF; // 高字节
+            tlv_data[offset++] = (gain+6);               // 增益值
+        }
+        printf("freq_gain_data[");
+        for(u8 i = 0; i < 30; i++){
+            printf("%02x", tlv_data[i+2]);
+            if((i+1) % 3 == 0) printf(" ");
+        }        
+        printf("]\n");
 
+        ab_mate_device_info_notify(tlv_data, sizeof(tlv_data));
+    }
+}
+
+#endif
+
+#if APP_KEY_AI
+void ab_mate_user_ai_key_notify(void)
+{
+    if(ab_mate_app.con_sta){
+        u8 tlv_data[3] = {INFO_AI_KEY_STATE, 1, 0x00};
+
+        tlv_data[2] = AI_RECORD;
     ab_mate_device_info_notify(tlv_data, sizeof(tlv_data));
     }
 }
@@ -618,6 +676,42 @@ void ab_mate_eq_custom_save(void)
 }
 #endif
 
+#if APP_USER_EQ_SET
+void user_eq_set(u8 *payload,u8 payload_len)
+{
+    print_r(payload,payload_len);
+    uint offset = 4;
+    ab_mate_app.eq_info.band_cnt = 10;
+    ab_mate_app.eq_info.mode = 10;
+    
+    for(uint i= 0;i< 10;i++){//拷贝增益到ab_mate_app.eq_info.gain
+        ab_mate_app.eq_info.gain[i] = (payload[offset] - 6);
+        offset = offset+3;
+    }
+
+#if BT_TWS_EN
+                ab_mate_tws_eq_info_sync();
+#endif
+            ab_mate_app.do_flag |= FLAG_EQ_SET;
+            ab_mate_cm_write(&ab_mate_app.eq_info.mode, AB_MATE_CM_EQ_DATA, 1+AB_MATE_EQ_BAND_CNT, 2);
+            ab_mate_request_common_response(AB_MATE_SUCCESS);
+
+}
+
+void user_eq_rm_recover(u8 *payload,u8 payload_len)
+{   
+    if(ab_mate_app.eq_info.mode != 0x00){
+        msg_enqueue(EVT_EQ_PARA_DEFAULT);
+
+    }
+    ab_mate_request_common_response(AB_MATE_SUCCESS);
+
+}
+
+
+#endif
+
+
 void ab_mate_eq_set(u8 *payload,u8 payload_len)
 {
     printf("payload[0]:%x\r\n",payload[0]);
@@ -626,10 +720,6 @@ void ab_mate_eq_set(u8 *payload,u8 payload_len)
     if(payload_len == 1 && payload[0] < AB_MATE_EQ_RES_CNT){
         if (ab_mate_app.eq_info.mode != payload[0]){
             ab_mate_app.eq_info.mode = payload[0];
-
-
-
-
 #if AB_MATE_EQ_USE_DEVICE
         if(ab_mate_app.eq_info.mode >= AB_MATE_EQ_CUSTOM_INDEX){
             ab_mate_eq_custom_save();
@@ -706,6 +796,7 @@ void ab_mate_music_set(u8 *payload,u8 payload_len)
             break;
 
         case A2DP_CTL_PASUE:
+            printf("A2DP_CTL_PASUE\r\n");
             bt_music_pause();
             ab_mate_app.play_sta = 0;
             delay_5ms(4);
@@ -788,7 +879,12 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
     u8 write_offset = 0;
     u8 *buf = ab_mate_cmd_send.payload;
     u8 val_len = 0;
-
+#if APP_USER_EQ_SET
+    u16 freq_table[] = {31, 62, 125, 250, 500, 1000, 2000, 4000, 8000, 16000};
+    u8 offset = 2;  // 从 tlv_data[2] 开始写入频率+增益数据
+    u16 freq = 0;
+    u8 gain = 0;
+#endif
     while(read_offset < payload_len){
         switch(payload[read_offset]){
             case INFO_POWER:
@@ -1007,6 +1103,25 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
                  user_check_incase_sta_pull();
                  buf[write_offset++] = incase_sta;
                 break;
+#endif
+
+#if APP_USER_EQ_SET
+                case INFO_USER_EQ:
+                    printf("INFO_USER_EQ\r\n");
+                    val_len = payload[read_offset + 1];
+                    buf[write_offset++] = INFO_USER_EQ;
+                    buf[write_offset++] = 30;
+                    for(u8 i = 0; i < 10; i++){
+                        freq = freq_table[i];
+                        gain = ab_mate_app.eq_info.gain[i];  // 获取增益值（0x00~0x0C）
+                        
+                        // 频率小端字节序存储
+                        buf[write_offset++] = freq & 0xFF;        // 低字节
+                        buf[write_offset++] = (freq >> 8) & 0xFF; // 高字节
+                        buf[write_offset++] = (gain+6);               // 增益值
+                    }
+                   
+                    break;
 #endif
 
             case INFO_PLAY_STA:
@@ -1973,6 +2088,9 @@ void ab_mate_led_set(u8 *payload, u8 payload_len)
 #endif
 }
 
+
+
+
 #if AB_MATE_V3D_AUDIO_EN
 void ab_mate_v3d_audio_notify(void)
 {
@@ -2053,6 +2171,16 @@ void ab_mate_call_ctrl(u8 *payload, u8 payload_len)
     ab_mate_request_common_response(AB_MATE_FAIL);
 #endif
 }
+
+#if APP_AL_REPLY
+void ab_mate_ai_reply(u8 *payload, u8 payload_len)
+{
+    ab_mate_app.ai_state = payload[0];//ai 录音开启关闭状态
+    ab_mate_tws_ai_state_sync();
+    ab_mate_request_common_response(AB_MATE_SUCCESS);
+
+}
+#endif
 
 void ab_mate_mic_ctrl(u8 *payload, u8 payload_len)
 {
@@ -2755,6 +2883,19 @@ void ab_mate_request_receive_proc(u8 cmd,u8 *payload,u8 payload_len)
 #endif
             break;
 
+#if APP_USER_EQ_SET
+        case CMD_USER_EQ_SET:
+            printf("CMD_USER_EQ_SET\r\n");
+            user_eq_set(payload,payload_len);
+            break;
+        case CMD_USER_EQ_RM:
+            printf("CMD_USER_EQ_RM\r\n");
+            user_eq_rm_recover(payload,payload_len);
+            
+            break;
+
+#endif
+
         case CMD_MUSIC_SET:
             ab_mate_music_set(payload, payload_len);
             break;
@@ -2852,7 +2993,12 @@ void ab_mate_request_receive_proc(u8 cmd,u8 *payload,u8 payload_len)
             ab_mate_dynamic_bass_set(payload, payload_len);
             break;
 #endif
-
+#if APP_AL_REPLY
+        case CMD_AI_REPLY:
+              printf("CMD_AI_REPLY\r\n");
+              ab_mate_ai_reply(payload, payload_len);   
+            break;
+#endif
         case CMD_CALL_CTRL:
             ab_mate_call_ctrl(payload, payload_len);
             break;

@@ -89,6 +89,7 @@ void user_finger_down(void)
  */
 void user_finger_up(void)
 {
+     printf("user_finger_up\r\n");
     if(bt_is_ios_device()){
         bt_hid_point_pos(0, -2047, 2047);  	//这两步是把指针回到左下角去
         bt_hid_point_pos(0, 60, -60);       //移动到下中间
@@ -104,6 +105,7 @@ void user_finger_up(void)
         bt_hid_point_pos(1, 2000, 2300);
         bt_hid_point_pos(1, 2000, 1000);
         bt_hid_point_pos(0, 2000, 1000);
+       
     }
 }
 

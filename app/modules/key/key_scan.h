@@ -568,6 +568,7 @@
 #define EVT_USER_REST           0x719
 #define EVT_CASE_BIT_SYNC       0x720
 #define EVT_IN_OUT_CASE_VBAT_UPDATE       0x721
+#define EVT_AL_KEY              0x722
 #endif
 
 

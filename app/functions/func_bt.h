@@ -40,6 +40,9 @@ enum _user_def_key {
     UDK_DUT,                        //12
     UDK_LOW_LATENCY,                //13
     UDK_NR,                         //14
+#if APP_KEY_AI
+    UDK_KEY_AI_REC,                 //15
+#endif  
 };
 
 enum {

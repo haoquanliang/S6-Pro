@@ -181,6 +181,13 @@ void ab_mate_tws_v3d_audio_sync(void)
 }
 #endif
 
+#if APP_AL_REPLY
+void ab_mate_tws_ai_state_sync(void)
+{
+    ab_mate_tws_cmd_sync_byte(TWS_INFO_AI_STATE, ab_mate_app.ai_state);
+}
+#endif
+
 #if AB_MATE_MULT_DEV_EN
 void ab_mate_tws_mult_dev_info_sync(void)
 {
@@ -607,6 +614,16 @@ void ab_mate_tws_info_3d_audio_proc(uint8_t *data_ptr, u16 size)
     }
 }
 #endif
+
+#if APP_AL_REPLY
+void ab_mate_tws_info_ai_state_proc(uint8_t *data_ptr, u16 size)
+{
+    if(ab_mate_app.ai_state != data_ptr[0]){
+        ab_mate_app.ai_state = data_ptr[0];
+    }
+}
+#endif
+
 #if AB_MATE_MULT_DEV_EN
 void ab_mate_tws_info_mult_dev_en_set(uint8_t data)
 {
@@ -824,7 +841,11 @@ void ab_mate_tws_recv_proc(uint8_t *data_ptr, u16 size)
             ab_mate_tws_info_3d_audio_proc(p_data, data_len);
             break;
 #endif
-
+#if APP_AL_REPLY
+        case TWS_INFO_AI_STATE:
+             ab_mate_tws_info_ai_state_proc(p_data, data_len);
+            break;
+#endif
 #if AB_MATE_MULT_DEV_EN
         case TWS_INFO_MULT_DEV:
             TRACE("TWS_INFO_MULT_DEV\n");

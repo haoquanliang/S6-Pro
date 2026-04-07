@@ -98,7 +98,7 @@ u32 music_tx_buffer[256 * 4] AT(.music_exbuff.dump);
 #define HRTF_RT_STA_EN(x)       ((x) & (HRTF_RT_STA_BIT))
 #define USER_ALG_EN(x)          ((x) & (USER_ALG_STA_BIT))
 //主频设置
-#define DBB_SYSCLK_SEL          SYS_24M
+#define DBB_SYSCLK_SEL          SYS_48M
 #define SPATIAL_AU_SYSCLK_SEL   SYS_100M
 #define VBASS_SYSCLK_SEL        SYS_48M
 #define DYEQ_SYSCLK_SEL         (BT_MUSIC_EFFECT_DYEQ_VBASS_EN ? SYS_100M : SYS_60M)
@@ -276,6 +276,7 @@ void msc_pcm_out_stop_callback(u8 codec)
 //进入通话
 void music_effect_sco_audio_init_do(void)
 {
+    printf("music_effect_sco_audio_init_do\r\n");
     music_effect.audio_comm_init_flag = 0;
     music_effect_alg_suspend(MUSIC_EFFECT_SUSPEND_FOR_SCO);
 #if ABP_EN
@@ -288,6 +289,7 @@ void music_effect_sco_audio_init_do(void)
 //退出通话
 void music_effect_sco_audio_exit_do(void)
 {
+    printf("music_effect_sco_audio_exit_do\r\n");
     music_effect_alg_reinit();
     music_effect_alg_restart();
 #if ABP_EN

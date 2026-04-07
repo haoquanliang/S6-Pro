@@ -63,6 +63,11 @@ uint16_t dev_vol_req_cb(uint8_t dev_vol, uint8_t setting_type, bool remote)
     TRACE("dev_vol_set_req: %d(%x, %d, %d)\n", vol_set, dev_vol, remote, setting_type);
 
     if(feat != 0) {
+#if SWETZ_TEST
+        extern uint16_t cfg_tws_sync_alarm_time;
+        cfg_tws_sync_alarm_time      = 500;        
+#endif
+
         msg_enqueue(EVT_TWS_SET_VOL);
     }
     return bsp_volume_convert(vol_set) | (hfp_type<<15);

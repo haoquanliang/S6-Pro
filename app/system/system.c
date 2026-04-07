@@ -1362,6 +1362,8 @@ static bool power_on_frist_enable(u32 rtccon9)
         return false;
     }
 
+
+
     if (CHARGE_DC_IN() && (CHARGE_DC_NOT_PWRON) && (xcfg_cb.charge_en)) {   //VUSB充电禁止开机
         return false;
     }

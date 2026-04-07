@@ -70,7 +70,7 @@
 //Eq设置
 #define AB_MATE_EQ_BAND_CNT     10      //EQ总段数，需要和APP界面相对应
 #define AB_MATE_EQ_CUSTOM_INDEX 0x20    //自定义EQ对应的模式号
-#define AB_MATE_EQ_USE_DEVICE   1       //0：各模式的EQ增益使用APP端默认定义的  1：使用设备端定义的增益值
+#define AB_MATE_EQ_USE_DEVICE   0       //0：各模式的EQ增益使用APP端默认定义的  1：使用设备端定义的增益值
 #define AB_MATE_EQ_USE_RES      1       //非自定义EQ模式的EQ效果是否直接使用EQ资源文件里面的配置
 #if APP_EQ_SET
 #define AB_MATE_EQ_RES_CNT      8       //非自定义的EQ模式总数,AB_MATE_EQ_USE_RES设置为1才有效
@@ -78,7 +78,7 @@
 #define AB_MATE_EQ_RES_CNT      6       //非自定义的EQ模式总数,AB_MATE_EQ_USE_RES设置为1才有效
 #endif
 
-#define AB_MATE_EQ_FOR_IDX_EN   EQ_FOR_IDX_EN//EQ_APP_EN //是否使能10条EQ独立调节(包括高低音)
+#define AB_MATE_EQ_FOR_IDX_EN   EQ_APP_EN //是否使能10条EQ独立调节(包括高低音)
 
 //ANC 设置
 #if AB_MATE_ANC_EN
@@ -185,8 +185,15 @@ enum{
     CMD_MULT_DEV_SET,
     CMD_VOICE_RECOGNITION,
     CMD_ANC_INFO_SET,
+#if APP_AL_REPLY
+    CMD_AI_REPLY,
+#else
     CMD_DYNAMIC_BASS_SET,
-
+#endif
+#if APP_USER_EQ_SET
+    CMD_USER_EQ_SET = 0x37,
+    CMD_USER_EQ_RM = 0x38,
+#endif
     CMD_CALL_CTRL = 0x39,
     CMD_MIC_CTRL,
     CMD_RECORD_CTRL,
@@ -250,6 +257,9 @@ enum{
     APP_KEY_PLAY_PAUSE,
     APP_KEY_LOW_LATENCY,
     APP_KEY_ANC,
+#if APP_KEY_AI
+    APP_KEY_AI_REC,
+#endif
 };
 
 enum{
@@ -297,10 +307,12 @@ enum{
 #if SWETZ
     INFO_SWET_FIND_ME_LEFT = 0x92,
     INFO_SWET_FIND_ME_RIGHT = 0x93,
-    INFO_NI_CASE_STATE = 0x94,
-    
+    INFO_NI_CASE_STATE  = 0x94,
+    INFO_USER_EQ        = 0x96,
 #endif
-
+#if APP_KEY_AI
+    INFO_AI_KEY_STATE = 0x1B,
+#endif
 
     INFO_DEV_CAP = 0xFE,
     INFO_MTU = 0xFF,
@@ -509,7 +521,9 @@ typedef struct{
     u8 vp_vol;
     u8 vbat_in_out_case_update;//0:更新  1:不更新
 #endif
-
+#if APP_AL_REPLY
+    u8 ai_state;
+#endif
 }ab_mate_app_var_t;
 
 
@@ -566,6 +580,9 @@ void ab_mate_user_incase_sta_notify(void);
 uint8_t user_check_incase_sta_pull(void);
 void ab_mate_notify_eq(void);
 void ab_mate_notify_audio(void);
+#endif
+#if APP_USER_EQ_SET
+void ab_mate_user_eq_notify(void);
 #endif
 #endif
 #endif

@@ -673,6 +673,65 @@ int get_anc_alg_adp_eq_coef(u8 idx);
 #endif
 static struct eq_div_t eq_div[2];               //存放所有div eq的参数(左右声道)
 
+#if APP_USER_EQ_SET
+//根据index设置12条EQ示例，包含高低音
+//Q:0.7070000
+//采样率：48000
+// static const int tbl_coef[12][2] = {
+//     //param0                    param1
+//     { CAL_FIX(0.0028697874),    CAL_FIX(0.9999917668)},     //Band:0(31Hz)
+//     { CAL_FIX(0.0057395274),    CAL_FIX(0.9999670672)},     //Band:1(62Hz)
+//     { CAL_FIX(0.0115712386),    CAL_FIX(0.9998661355)},     //Band:2(160Hz)
+//     { CAL_FIX(0.0231393780),    CAL_FIX(0.9994644858)},     //Band:3(250Hz)
+//     { CAL_FIX(0.0462539738),    CAL_FIX(0.9978585743)},     //Band:4(500Hz)
+//     { CAL_FIX(0.0923098940),    CAL_FIX(0.9914448614)},     //Band:5(1000Hz)
+//     { CAL_FIX(0.1830403431),    CAL_FIX(0.9659258263)},     //Band:6(2000Hz)
+//     { CAL_FIX(0.3536067885),    CAL_FIX(0.8660254038)},     //Band:7(4000Hz)
+//     { CAL_FIX(0.6124649249),    CAL_FIX(0.5000000000)},     //Band:8(8000Hz)
+//     { CAL_FIX(0.6124649249),    CAL_FIX(-0.5000000000)},    //Band:9(16000Hz)
+//     { CAL_FIX(0.0284864965),    CAL_FIX(0.9990866674)},     //BASS:300Hz
+//     { CAL_FIX(0.2763541250),    CAL_FIX(0.9100351062)},     //TREB:3000Hz
+// };
+
+//根据index设置12条EQ示例，包含高低音
+//Q:0.7070000
+//采样率：96000
+static const int tbl_coef[12][2] = {
+    //param0                    param1
+    { CAL_FIX(0.0014348967),    CAL_FIX(0.9999979417)},     //Band:0(31Hz)
+    { CAL_FIX(0.0028697875),    CAL_FIX(0.9999917667)},     //Band:1(62Hz)
+    { CAL_FIX(0.0057858124),    CAL_FIX(0.9999665337)},     //Band:2(160Hz)
+    { CAL_FIX(0.0115712375),    CAL_FIX(0.9998661350)},     //Band:3(250Hz)
+    { CAL_FIX(0.0231393789),    CAL_FIX(0.9994645778)},     //Band:4(500Hz)
+    { CAL_FIX(0.0462539809),    CAL_FIX(0.9978589235)},     //Band:5(1000Hz)
+    { CAL_FIX(0.0923098983),    CAL_FIX(0.9914448614)},     //Band:6(2000Hz)
+    { CAL_FIX(0.1830403430),    CAL_FIX(0.9659258263)},     //Band:7(4000Hz)
+    { CAL_FIX(0.3535533906),    CAL_FIX(0.8660254038)},     //Band:8(8000Hz)
+    { CAL_FIX(0.6123724357),    CAL_FIX(0.5000000000)},    //Band:9(16000Hz)
+    { CAL_FIX(0.0284864965),    CAL_FIX(0.9990866674)},     //BASS:300Hz
+    { CAL_FIX(0.2763541250),    CAL_FIX(0.9100351062)},     //TREB:3000Hz
+};
+
+//根据index设置12条EQ示例，包含高低音
+//Q:4
+//采样率：96000
+// static const int tbl_coef[12][2] = {
+//     //param0                    param1
+//     { CAL_FIX(0.0002536180),    CAL_FIX(0.9999979417)},     //Band:0(31Hz)
+//     { CAL_FIX(0.0005072350),    CAL_FIX(0.9999917668)},     //Band:1(62Hz)
+//     { CAL_FIX(0.0010226425),    CAL_FIX(0.9999665337)},     //Band:2(160Hz)
+//     { CAL_FIX(0.0020452165),    CAL_FIX(0.9998661350)},     //Band:3(250Hz)
+//     { CAL_FIX(0.0040898853),    CAL_FIX(0.9994645778)},     //Band:4(500Hz)
+//     { CAL_FIX(0.0081753912),    CAL_FIX(0.9978589232)},     //Band:5(1000Hz)
+//     { CAL_FIX(0.0163157740),    CAL_FIX(0.9914448614)},     //Band:6(2000Hz)
+//     { CAL_FIX(0.0323523806),    CAL_FIX(0.9659258263)},     //Band:7(4000Hz)
+//     { CAL_FIX(0.3535533906),    CAL_FIX(0.8660254038)},     //Band:8(8000Hz)
+//     { CAL_FIX(0.0625000000),    CAL_FIX(0.5000000000)},    //Band:9(16000Hz)
+//     { CAL_FIX(0.0284864965),    CAL_FIX(0.9990866674)},     //BASS:300Hz
+//     { CAL_FIX(0.2763541250),    CAL_FIX(0.9100351062)},     //TREB:3000Hz
+// };
+
+#else
 //根据index设置12条EQ示例，包含高低音
 //Q:0.750000
 static const int tbl_coef[12][2] = {
@@ -690,6 +749,8 @@ static const int tbl_coef[12][2] = {
     { CAL_FIX(0.0284864965),    CAL_FIX(0.9990866674)},     //BASS:300Hz
     { CAL_FIX(0.2763541250),    CAL_FIX(0.9100351062)},     //TREB:3000Hz
 };
+
+#endif
 
 void eq_index_init(void)
 {
@@ -745,6 +806,48 @@ void music_set_pt_eq(u8 channel, u8 band_cnt, const u32 *param)
 #endif
 
 #if EQ_APP_EN
+
+#if APP_USER_EQ_SET
+void music_set_eq_for_index(u8 index, int gain)
+{
+    int real_gain;         // 实际 dB 的整数部分
+    int gain_fraction;     // 实际 dB 的小数部分（0.1 dB，-9 ~ 9）
+
+    // 仍然沿用原来的范围保护：APP 传入的“逻辑增益”限制在 -12 ~ 12
+    if (index >= EQ_APP_NUM || gain < -12 || gain > 12) {
+        return;
+    }
+
+    printf("index:%d app_gain:%d\n", index, gain);
+
+    if (gain >= 0) {
+        // 正增益：0.5 dB/步
+        // 实际 dB = gain * 0.5
+        // 换算成整数 + 0.1dB 小数
+        // 例如 gain = 5 → 2.5 dB → real_gain = 2, gain_fraction = 5
+        int tmp = gain * 5;           // 等价于 gain * 0.5 * 10
+        real_gain    = tmp / 10;      // 整数部分
+        gain_fraction = tmp % 10;     // 小数部分 (0 ~ 9)
+    } else {
+        // 负增益：-1 dB/步，直接使用即可
+        // 实际 dB = gain
+        real_gain    = gain;
+        gain_fraction = 0;
+    }
+
+    // 再做一层保险，防止超出 eq_coef_cal_ext 的范围（-12~12, -9~9）
+    if (real_gain > 12)  real_gain = 12;
+    if (real_gain < -12) real_gain = -12;
+    if (gain_fraction > 9)  gain_fraction = 9;
+    if (gain_fraction < -9) gain_fraction = -9;
+
+    // 使用扩展接口：整数 + 小数
+    eq_coef_cal_ext(&app_coef[index], real_gain, gain_fraction);
+
+    // 左右声道保持一致
+    memcpy(eq_div[1].coef[index], eq_div[0].coef[index], 20);
+}
+#else
 //根据EQ号来设置EQ[11:0]
 void music_set_eq_for_index(u8 index, int gain)
 {
@@ -753,9 +856,14 @@ void music_set_eq_for_index(u8 index, int gain)
     }
     printf("index:%d gain:%d\n",index,gain);
 
-    eq_coef_cal(&app_coef[index], gain);
+        eq_coef_cal(&app_coef[index], gain);
+
     memcpy(eq_div[1].coef[index], eq_div[0].coef[index], 20);           //左右声道保持一致
 }
+
+#endif
+
+
 
 void music_set_eq_for_index_do(void)
 {

@@ -165,6 +165,16 @@ static void lr_parse_notification(void)
            // msg_enqueue(EVT_INBOX_CHANGED);
         }
         break;
+#if SWETZ_SCAN_STATE_TO_CASE
+        case LR_NOTIFY_SYNC_SCAN_STATE:
+            if (payload_size == 1)
+            {
+                sys_cb.scan_state = tws_rx_buf[PAYLOAD_INDEX];
+            }
+            break;
+
+#endif
+
 #if APP_CASE_CHARGE_STA
         case LR_NOTIFY_SYNC_CASE_CHARGE_STA:
             if (payload_size == 1)
