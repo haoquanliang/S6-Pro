@@ -725,7 +725,6 @@ void func_bt_enter(void)
         sys_cb.scan_state = bt_get_curr_scan();
         app_lr_send_notification(LR_NOTIFY_SYNC_SCAN_STATE, 1, &sys_cb.scan_state);
         }
-
 #endif
 
 

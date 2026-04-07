@@ -256,6 +256,13 @@ void bt_emit_notice(uint evt, void *params)
         break;
 
     case BT_NOTICE_DISCONNECT:
+#if USER_OVERHANG_TO_SLEEP
+        if(packet[1] == 0x08){
+             sys_cb.flag_overhang_to_sleep = true;    
+        }
+
+#endif
+
 #if SWETZ_SAVE_AG_ADDR
         app_dm_handle_ag_disconnect((bt_bd_addr_t*)&packet[2]);
 #endif    
@@ -292,6 +299,10 @@ void bt_emit_notice(uint evt, void *params)
         delay_5ms(5);
         break;
     case BT_NOTICE_CONNECTED:
+
+#if USER_OVERHANG_TO_SLEEP
+        sys_cb.flag_overhang_to_sleep = false;
+#endif
 #if SWETZ_SAVE_AG_ADDR
         app_dm_handle_ag_connect((bt_bd_addr_t*)&packet[2]);
 #endif
@@ -353,15 +364,30 @@ void bt_emit_notice(uint evt, void *params)
     case BT_NOTICE_CONNECT_FAIL:
     DEBUG_SW("BT_NOTICE_CONNECT_FAIL\r\n");
 
+
+
 #if SWETZ_RECONNECT_BT_STATE
         bt_set_scan(0x03);
 #endif
 #if SWETZ_RECON_TONE
         printf("sys_cb.recon_tone:%d\r\n",sys_cb.recon_tone);
-        if(sys_cb.recon_tone){
+        if(sys_cb.recon_tone ){
             sys_cb.recon_tone = 0;
         }else{
+            if(sys_cb.flag_overhang_to_sleep == false)
             f_bt.warning_status |= BT_WARN_PAIRING;
+        }
+#endif
+#if USER_OVERHANG_TO_SLEEP
+        if(sys_cb.flag_overhang_to_sleep){
+            sys_cb.flag_overhang_to_sleep = false;
+            if(bt_tws_is_connected()){
+                    bt_tws_req_alarm_user(USER_SYNC_EVT_OVERHANG_TO_SLEEP);
+                }else{
+                    sys_cb.sleep_delay = 0;//进入休眠 
+                }
+            // message_send(MSG_ID_OVERHANG_TO_ELEEP_TIME,0,10000);
+           // sys_cb.sleep_delay = 0;//进入休眠
         }
 #endif
 

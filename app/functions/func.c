@@ -653,6 +653,16 @@ void func_message(u16 msg)
 
             break;
 
+
+#if USER_OVERHANG_TO_SLEEP
+        case EVT_OVERHANG_TO_SLEEP: 
+                printf("EVT_OVERHANG_TO_SLEEP allow_sleep:%d\r\n",bt_is_allow_sleep());
+                message_send(MSG_ID_OVERHANG_TO_ELEEP_TIME,0,5000);
+                // sys_cb.sleep_delay = 0;//进入休眠
+                break;
+
+#endif
+
 #if SWETZ_EVT_5S
         case EVT_SYS_5S:
             print_bd_addr_sw();
@@ -684,7 +694,7 @@ void func_message(u16 msg)
           //cal_in_case:%d peer_in_case:%d\r\n",sys_cb.flag_local_in_case,sys_cb.flag_peer_in_case);
            //  app_lr_send_notification(LR_NOTIFY_IN_CASE_STATUS, 1, &sys_cb.flag_local_in_case);
        // printf("ab_mate_app.con_sta:%d\r\n",ab_mate_app.con_sta);
-        //  printf("sys_cb.sleep_delay:%d sys_cb.pwroff_delay:%d sys_cb.sleep_en:%d port_2led_is_sleep_en:%d  bt_is_allow_sleep:%d\r\n",sys_cb.sleep_delay,sys_cb.pwroff_delay,sys_cb.sleep_en,port_2led_is_sleep_en(),bt_is_allow_sleep());
+          printf("sys_cb.sleep_delay:%d sys_cb.pwroff_delay:%d sys_cb.sleep_en:%d port_2led_is_sleep_en:%d  bt_is_allow_sleep:%d\r\n",sys_cb.sleep_delay,sys_cb.pwroff_delay,sys_cb.sleep_en,port_2led_is_sleep_en(),bt_is_allow_sleep());
         //  u8 bt_tws_addr[6];
         // printf("get_link:%d\r\n",bt_tws_get_link_info(bt_tws_addr));
         // printf("bt_tws_addr: %02X:%02X:%02X:%02X:%02X:%02X\n",
@@ -735,6 +745,12 @@ void func_message(u16 msg)
 
 #if SWETZ_EVT_1S
         case EVT_SYS_1S:
+#if SWETZ_SCAN_STATE_TO_CASE
+        if(!bt_tws_is_slave() && (sys_cb.flag_local_in_case || sys_cb.flag_peer_in_case)){
+        sys_cb.scan_state = bt_get_curr_scan();
+        app_lr_send_notification(LR_NOTIFY_SYNC_SCAN_STATE, 1, &sys_cb.scan_state);
+        }
+#endif
                 app_check_mute();
 #if SWETZ_NTC
             ntc_cnt++;

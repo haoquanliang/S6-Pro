@@ -19,7 +19,7 @@
 
 
 #define STR_PRI                     1//中断打印
-#define  SWETZ_TEST                       1
+#define  SWETZ_TEST                       0
 
 #define SWETZ                       1
 #if SWETZ
@@ -32,7 +32,7 @@
 #define SWETZ_DEL_TWS_CON_TONE      1//去掉tws左右通道的提示音
 #define SWETZ_SET_SCAN_STATE        1//设置蓝牙状态
 #define SWETZ_UGRING                  1 //播放本地来电ring
-#define NUM_BT_RETURN_CON              10// 上电回连手机次数, 1.28s * n, 不小于5次
+#define NUM_BT_RETURN_CON              12// 上电回连手机次数, 1.28s * n, 不小于5次
 #define NUM_TWS_RETURN_CON             100//设置TWS搜索次数, 1.25s * n, 不小于2次
 #define SWETZ_CHECK_INBOX           1//出入仓检测
 #define SWETZ_L_THREE_P             0//修改三击功能
@@ -86,6 +86,12 @@
 #define SWETZ_DBB_LEVEL_FOLLOW_VOL  1//dbb等级跟随sys_cb.vol音量调整
 #define SWETZ_VBAT_VIR_PRESSURE     1//防止耳机充电转放电的时候虚压导致电量变化快
 #define SWETZ_SCAN_STATE_TO_CASE            1//扫描状态判断给仓
+#define USER_OVERHANG_TO_SLEEP               1//自定义回连,失败进休眠
+
+
+
+
+
 //APP功能
 #define APP_BLE_RADIO               1//广播ble修改
 #define AB_FIND_EAR                 0//查找耳机--下面重写了-功能关闭
@@ -142,7 +148,7 @@
 #define OTA_TEST                    1
 
 #endif
-
+#define GIT_TEST2       1
 
 
 /*****************************************************************************
@@ -238,7 +244,7 @@
 #define BT_NAME_WITH_ADDR_EN            0   //蓝牙名称是否附加地址信息（调试用，例如：btbox-***）
 #define BT_LINK_INFO_PAGE1_EN           0   //是否使用PAGE1回连信息（打开后可以最多保存8个回连信息）
 #define BT_POWER_UP_RECONNECT_TIMES     3   //上电回连次数
-#define BT_TIME_OUT_RECONNECT_TIMES     20  //掉线回连次数，5.12s一次
+#define BT_TIME_OUT_RECONNECT_TIMES     58  //掉线回连次数，5.12s一次
 #define BT_SIMPLE_PAIR_EN               1   //是否打开蓝牙简易配对功能（关闭时需要手机端输入PIN码）
 #define BT_DISCOVER_CTRL_EN             2   //是否使用按键打开可被发现（需自行添加配对键处理才能被连接配对）
 #define BT_PWRKEY_5S_DISCOVER_EN        0   //是否使用长按5S开机进入可被发现(耳机长按开机功能)

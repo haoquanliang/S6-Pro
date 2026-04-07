@@ -96,6 +96,13 @@ void tws_time_alarm_cb(uint32_t params, uint32_t alarm_tickn)
                 msg_enqueue(EVT_USER_REST);
         }
                      
+#if USER_OVERHANG_TO_SLEEP
+        if(params == USER_SYNC_EVT_OVERHANG_TO_SLEEP)
+        {
+                msg_enqueue(EVT_OVERHANG_TO_SLEEP);
+        }
+#endif
+
     }
  
 #endif

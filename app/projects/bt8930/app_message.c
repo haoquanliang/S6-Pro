@@ -278,7 +278,20 @@ static void message_process(message_item_t *message)
                 msg_enqueue(EVT_UPDATE_INCASE_STA);
             break;
 #endif
-            
+
+#if USER_OVERHANG_TO_SLEEP
+        case MSG_ID_OVERHANG_TO_ELEEP_TIME:
+                printf("MSG_ID_OVERHANG_TO_ELEEP_TIME\r\n");
+                // if(bt_tws_is_connected()){
+                //     bt_tws_req_alarm_user(USER_SYNC_EVT_OVERHANG_TO_SLEEP);
+                // }else{
+                //     sys_cb.sleep_delay = 0;//进入休眠 
+                // }
+                sys_cb.sleep_delay = 0;//进入休眠 
+                break;
+
+#endif
+
 #if APP_USER_FIND_EAR
         case MSG_ID_FIND_ME_LEFT:
 

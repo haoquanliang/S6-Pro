@@ -240,6 +240,7 @@ volatile u8  dc_in_filter;      //DC IN filter
     u32 flag_getcmd_time;
     u8 time_tick;
     u8 scan_state;
+    u8 flag_overhang_to_sleep;
 #endif
 #if SWETZ_TEST
     u8 test;
