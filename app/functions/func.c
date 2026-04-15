@@ -605,6 +605,19 @@ void func_message(u16 msg)
             break;
 #endif
 
+#if APP_KEY_AI
+        case EVT_TONE_AI:
+                if(bt_tws_is_connected() && bt_tws_is_slave()){
+                        app_lr_send_msg(EVT_TONE_AI);
+
+                }else{
+                        bsp_res_play(TWS_RES_TONE_AI);
+                }
+                
+              break;    
+
+#endif
+
 #if SWETZ_KEY_RECON
         case EVT_RECONN_AG:
         if (bt_tws_is_connected() && bt_tws_is_slave())
@@ -712,8 +725,13 @@ void func_message(u16 msg)
 //    printf("find_left:%d find_right:%d",sys_cb.find_left_ear_going,sys_cb.find_right_ear_going);
 //             printf("sys_cb.sw_rst_flag:%d\r\n",sys_cb.sw_rst_flag);
           // printf("music_effect_DBB_state:%d\r\n",music_effect_get_state(MUSIC_EFFECT_DBB));
-            // printf("Lkey_short:%d key_double:%d key_three:%d key_long:%d\r\n",ab_mate_app.local_key.key_short,ab_mate_app.local_key.key_double,ab_mate_app.local_key.key_three,ab_mate_app.local_key.key_long);
-            // printf("Rkey_short:%d key_double:%d key_three:%d key_long:%d\r\n",ab_mate_app.remote_key.key_short,ab_mate_app.remote_key.key_double,ab_mate_app.remote_key.key_three,ab_mate_app.remote_key.key_long);
+            if(sys_cb.tws_left_channel){
+             printf("Lkey_short:%d key_double:%d key_three:%d key_long:%d\r\n",ab_mate_app.local_key.key_short,ab_mate_app.local_key.key_double,ab_mate_app.local_key.key_three,ab_mate_app.local_key.key_long);
+
+            }else{
+            printf("Rkey_short:%d key_double:%d key_three:%d key_long:%d\r\n",ab_mate_app.local_key.key_short,ab_mate_app.local_key.key_double,ab_mate_app.local_key.key_three,ab_mate_app.local_key.key_long);
+            }
+            printf("ab_mate_app.ai_state:%d\r\n",ab_mate_app.ai_state);
             // printf("ab_mate_app.ai_state:%d\r\n",ab_mate_app.ai_state);
 //printf("gain:%d %d %d %d %d %d %d %d %d %d \r\n",ab_mate_app.eq_info.gain[0],ab_mate_app.eq_info.gain[1],ab_mate_app.eq_info.gain[2],ab_mate_app.eq_info.gain[3],ab_mate_app.eq_info.gain[4],ab_mate_app.eq_info.gain[5],ab_mate_app.eq_info.gain[6],ab_mate_app.eq_info.gain[7],ab_mate_app.eq_info.gain[8],ab_mate_app.eq_info.gain[9]);
             printf("bt_get_curr_scan:%d\r\n",bt_get_curr_scan());
@@ -725,8 +743,10 @@ void func_message(u16 msg)
 #endif
 #if APP_KEY_AI
             case EVT_AL_KEY:
+                    printf("EVT_AL_KEY\r\n");
                     if(!bt_tws_is_slave()){
                         ab_mate_user_ai_key_notify();
+
                     }else {
                         app_lr_send_msg(EVT_AL_KEY);
                     }

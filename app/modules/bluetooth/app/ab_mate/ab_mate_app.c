@@ -103,7 +103,7 @@ static const u8 key_app2local_table[] = {UDK_NONE,          UDK_REDIALING,
                                         UDK_LOW_LATENCY,   UDK_NR,                                        
 #if APP_KEY_AI                                         
                                          UDK_NONE,   UDK_NONE,
-                                         UDK_NONE,  UDK_NONE,
+                                         UDK_NONE,  UDK_KEY_AI_REC,
                                          UDK_KEY_AI_REC
 #endif
                                        
@@ -2107,18 +2107,14 @@ void ab_mate_v3d_audio_set_do(void)
 #if AB_V3D_AUDIO
     if(ab_mate_app.v3d_audio_en){
         if(!music_effect_get_state(MUSIC_EFFECT_SPATIAL_AUDIO)){
-
                 music_spatial_audio_start();
-
                 printf("v3d_audio open\r\n");
         }
-
     }else{
         if(music_effect_get_state(MUSIC_EFFECT_SPATIAL_AUDIO)){
                 music_spatial_audio_stop();
                 printf("v3d_audio close\r\n");
         }
-
     }
     ab_mate_cm_write(&ab_mate_app.v3d_audio_en, AB_MATE_CM_V3D_AUDIO, 1, 2);
 #if APP_SPATIAL_AUDIO_TONE

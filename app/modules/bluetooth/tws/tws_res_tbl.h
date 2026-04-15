@@ -33,6 +33,7 @@ enum {
     TWS_RES_TN_DISC,
     TWS_RES_TN_CONNECT,
     TWS_RES_SPATIAL_AUDIO,
+    TWS_RES_TONE_AI,
 #endif
     //副耳也可以请求的提示音
     TWS_RES_LOW_BATTERY,        //STA

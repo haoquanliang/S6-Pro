@@ -147,7 +147,14 @@ bool user_def_key_msg(u8 func_sel)
 #if APP_KEY_AI
     else if(func_sel == UDK_KEY_AI_REC){
             printf("UDK_KEY_AI_REC\r\n");
-            msg_enqueue(EVT_AL_KEY);
+
+          
+
+            if(!ab_mate_app.ai_state){
+                    msg_enqueue(EVT_TONE_AI);
+                    msg_enqueue(EVT_AL_KEY);
+            }
+            
     }
 #endif
     else {                                            //VOL+, VOL-

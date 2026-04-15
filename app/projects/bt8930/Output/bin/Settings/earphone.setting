@@ -7,7 +7,7 @@
         <add key="spk_mute_io_sel" value="0" />
         <add key="high_mute" value="True" />
         <add key="loudspeaker_unmute_delay" value="6" />
-        <add key="sys_sleep_time" value="120" />
+        <add key="sys_sleep_time" value="0" />
         <add key="sys_off_time" value="0" />
         <add key="lowpower_warning_en" value="True" />
         <add key="lpwr_warning_vbat" value="3.4V" />
@@ -58,7 +58,7 @@
         <add key="chbox_out_delay" value="15" />
         <add key="bt_name" value="UGREEN HiTune S6 Pro" />
         <add key="bt_addr_mode" value="固定地址" />
-        <add key="bt_addr" value="41:42:00:00:00:F0" />
+        <add key="bt_addr" value="41:42:00:00:00:08" />
         <add key="bt_addr_start" value="41:42:00:00:00:00" />
         <add key="bt_addr_step" value="00:00:00:00:00:01" />
         <add key="bt_addr_end" value="41:42:FF:FF:FF:FF" />
