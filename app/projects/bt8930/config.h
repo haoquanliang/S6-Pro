@@ -148,7 +148,7 @@
 #define OTA_TEST                    1
 
 #endif
-#define GIT_TEST2       1
+
 
 
 /*****************************************************************************
@@ -782,7 +782,7 @@
 //涓流充电（电池电压小于2.9v）电流
 #define CHARGE_TRICKLE_CURR             xcfg_cb.charge_trickle_curr
 //恒压差充电差值选择：0:187.5mV  1:250mV  2:312mV  3:375mV
-#define CHARGE_VOLT_FOLLOW_DIFF         0
+#define CHARGE_VOLT_FOLLOW_DIFF         2
 
 /*****************************************************************************
  * Module    :  充电仓功能选择

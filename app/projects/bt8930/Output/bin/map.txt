@@ -9628,36 +9628,36 @@ LOAD Output\obj\projects\bt8930\port\port_update.o
                 0x0000000010029de0       0x82 Output\obj\modules\charge\charge.o
                 0x0000000010029de0                charge_power_on_pre
  .text.charge_init
-                0x0000000010029e62      0x13e Output\obj\modules\charge\charge.o
+                0x0000000010029e62      0x140 Output\obj\modules\charge\charge.o
                 0x0000000010029e62                charge_init
  .text.charge_0p3c_init
-                0x0000000010029fa0      0x13c Output\obj\modules\charge\charge.o
-                0x0000000010029fa0                charge_0p3c_init
+                0x0000000010029fa2      0x13e Output\obj\modules\charge\charge.o
+                0x0000000010029fa2                charge_0p3c_init
  .text.bsp.charge
-                0x000000001002a0dc       0xe6 Output\obj\modules\charge\charge_box.o
-                0x000000001002a0dc                charge_box_sta
-                0x000000001002a116                charge_box_outbox_stable_check
+                0x000000001002a0e0       0xe6 Output\obj\modules\charge\charge_box.o
+                0x000000001002a0e0                charge_box_sta
+                0x000000001002a11a                charge_box_outbox_stable_check
  .text.charge_box_reinit
-                0x000000001002a1c2       0x34 Output\obj\modules\charge\charge_box.o
-                0x000000001002a1c2                charge_box_reinit
+                0x000000001002a1c6       0x34 Output\obj\modules\charge\charge_box.o
+                0x000000001002a1c6                charge_box_reinit
  .text.charge_box_bat_is_ready
-                0x000000001002a1f6        0x8 Output\obj\modules\charge\charge_box.o
-                0x000000001002a1f6                charge_box_bat_is_ready
+                0x000000001002a1fa        0x8 Output\obj\modules\charge\charge_box.o
+                0x000000001002a1fa                charge_box_bat_is_ready
  .text.charge_box_get_charge_box_bat_level
-                0x000000001002a1fe       0x3a Output\obj\modules\charge\charge_box.o
-                0x000000001002a1fe                charge_box_get_charge_box_bat_level
- .text.iodm     0x000000001002a238        0x4 Output\obj\modules\charge\charge_box.o
-                0x000000001002a238                charge_box_factory_reset
+                0x000000001002a202       0x3a Output\obj\modules\charge\charge_box.o
+                0x000000001002a202                charge_box_get_charge_box_bat_level
+ .text.iodm     0x000000001002a23c        0x4 Output\obj\modules\charge\charge_box.o
+                0x000000001002a23c                charge_box_factory_reset
  .text.charge_box_channel_confirm
-                0x000000001002a23c       0x32 Output\obj\modules\charge\charge_box.o
-                0x000000001002a23c                charge_box_channel_confirm
+                0x000000001002a240       0x32 Output\obj\modules\charge\charge_box.o
+                0x000000001002a240                charge_box_channel_confirm
  .text.charge_box_ssw_init
-                0x000000001002a26e       0x30 Output\obj\modules\charge\charge_box.o
-                0x000000001002a26e                charge_box_ssw_init
+                0x000000001002a272       0x30 Output\obj\modules\charge\charge_box.o
+                0x000000001002a272                charge_box_ssw_init
  .text.charge_box_init
-                0x000000001002a29e        0x4 Output\obj\modules\charge\charge_box.o
-                0x000000001002a29e                charge_box_init
- *fill*         0x000000001002a2a2       0x5e 
+                0x000000001002a2a2        0x4 Output\obj\modules\charge\charge_box.o
+                0x000000001002a2a2                charge_box_init
+ *fill*         0x000000001002a2a6       0x5a 
  .text.led_disp.set
                 0x000000001002a300       0xfa Output\obj\modules\gui\led\led.o
                 0x000000001002a300                led_set_sta_do
