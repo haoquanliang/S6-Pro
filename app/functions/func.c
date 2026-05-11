@@ -706,7 +706,7 @@ void func_message(u16 msg)
        
           //cal_in_case:%d peer_in_case:%d\r\n",sys_cb.flag_local_in_case,sys_cb.flag_peer_in_case);
            //  app_lr_send_notification(LR_NOTIFY_IN_CASE_STATUS, 1, &sys_cb.flag_local_in_case);
-       // printf("ab_mate_app.con_sta:%d\r\n",ab_mate_app.con_sta);
+          printf("ab_mate_app.con_sta:%d\r\n",ab_mate_app.con_sta);
           printf("sys_cb.sleep_delay:%d sys_cb.pwroff_delay:%d sys_cb.sleep_en:%d port_2led_is_sleep_en:%d  bt_is_allow_sleep:%d\r\n",sys_cb.sleep_delay,sys_cb.pwroff_delay,sys_cb.sleep_en,port_2led_is_sleep_en(),bt_is_allow_sleep());
         //  u8 bt_tws_addr[6];
         // printf("get_link:%d\r\n",bt_tws_get_link_info(bt_tws_addr));
@@ -733,7 +733,7 @@ void func_message(u16 msg)
             }
             printf("ab_mate_app.ai_state:%d\r\n",ab_mate_app.ai_state);
             // printf("ab_mate_app.ai_state:%d\r\n",ab_mate_app.ai_state);
-//printf("gain:%d %d %d %d %d %d %d %d %d %d \r\n",ab_mate_app.eq_info.gain[0],ab_mate_app.eq_info.gain[1],ab_mate_app.eq_info.gain[2],ab_mate_app.eq_info.gain[3],ab_mate_app.eq_info.gain[4],ab_mate_app.eq_info.gain[5],ab_mate_app.eq_info.gain[6],ab_mate_app.eq_info.gain[7],ab_mate_app.eq_info.gain[8],ab_mate_app.eq_info.gain[9]);
+printf("gain:%d %d %d %d %d %d %d %d %d %d \r\n",ab_mate_app.eq_info.gain[0],ab_mate_app.eq_info.gain[1],ab_mate_app.eq_info.gain[2],ab_mate_app.eq_info.gain[3],ab_mate_app.eq_info.gain[4],ab_mate_app.eq_info.gain[5],ab_mate_app.eq_info.gain[6],ab_mate_app.eq_info.gain[7],ab_mate_app.eq_info.gain[8],ab_mate_app.eq_info.gain[9]);
             printf("bt_get_curr_scan:%d\r\n",bt_get_curr_scan());
 #if SWETZ_VBAT_VIR_PRESSURE
     app_bat_level_update(false);
@@ -813,18 +813,33 @@ void func_message(u16 msg)
 #endif
 #if APP_SPATIAL_AUDIO_TONE
             case EVT_EQ_PARA_DEFAULT:
-                if (ab_mate_app.eq_info.mode != 0)
-                {
-                    ab_mate_app.eq_info.mode = 0;
-                    ab_mate_tws_eq_info_sync();          
-                    ab_mate_cm_write(&ab_mate_app.eq_info.mode, AB_MATE_CM_EQ_DATA, 1+AB_MATE_EQ_BAND_CNT, 2); 
-                    ab_mate_notify_eq();  
-                }
+                printf("EVT_EQ_PARA_DEFAULT\r\n");  
+{
+               bt_tws_req_alarm_user(USER_SYNC_EVT_EQ_BYPASS);
+                
+}
+
                 break;
             case EVT_SP_AUDIO_DEFAULT:
                     ab_mate_notify_audio();  
                 break;
 
+#endif
+
+#if USER_EQ_SYNC_BYPASS
+            case EVT_EQ_BYPASS:
+                 printf("EVT_EQ_BYPASS\r\n");
+                ab_mate_bypass_eq();
+
+ if (ab_mate_app.eq_info.mode != 0)
+        {
+                ab_mate_app.eq_info.mode = 0;
+                ab_mate_tws_eq_info_sync();
+                ab_mate_app.do_flag |= FLAG_EQ_SET;
+                ab_mate_cm_write(&ab_mate_app.eq_info.mode, AB_MATE_CM_EQ_DATA, 1+AB_MATE_EQ_BAND_CNT, 2); 
+                ab_mate_notify_eq(); 
+        }
+                break;
 #endif
 
 #if SWETZ_BT_TO_PAIR    

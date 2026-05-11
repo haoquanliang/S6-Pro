@@ -573,12 +573,13 @@ void ab_mate_user_incase_sta_notify(void)
 void ab_mate_user_eq_notify(void)
 {
     if(ab_mate_app.con_sta){
-        u16 freq_table[] = {31, 62, 125, 250, 500, 1000, 2000, 4000, 8000, 16000};
+        u16 freq_table[] = {62, 250, 500, 1000, 2000, 4000, 8000, 16000};
+       // u16 freq_table[] = {31, 62, 125, 250, 500, 1000, 2000, 4000, 8000, 16000};
         u8 offset = 2;  // 从 tlv_data[2] 开始写入频率+增益数据
-        s8 tlv_data[32] = {0x00};
+        s8 tlv_data[26] = {0x00};
         tlv_data[0]  = INFO_USER_EQ;
-        tlv_data[1] = 30;
-        for(u8 i = 0; i < 10; i++){
+        tlv_data[1] = 24;
+        for(u8 i = 0; i < sizeof(freq_table)/sizeof(freq_table[0]); i++){
             u16 freq = freq_table[i];
             s8 gain = ab_mate_app.eq_info.gain[i];  // 获取增益值（0x00~0x0C）
             
@@ -588,13 +589,14 @@ void ab_mate_user_eq_notify(void)
             tlv_data[offset++] = (gain+6);               // 增益值
         }
         printf("freq_gain_data[");
-        for(u8 i = 0; i < 30; i++){
+        for(u8 i = 0; i < 24; i++){
             printf("%02x", tlv_data[i+2]);
             if((i+1) % 3 == 0) printf(" ");
         }        
         printf("]\n");
 
         ab_mate_device_info_notify(tlv_data, sizeof(tlv_data));
+       
     }
 }
 
@@ -681,10 +683,10 @@ void user_eq_set(u8 *payload,u8 payload_len)
 {
     print_r(payload,payload_len);
     uint offset = 4;
-    ab_mate_app.eq_info.band_cnt = 10;
-    ab_mate_app.eq_info.mode = 10;
+    ab_mate_app.eq_info.band_cnt = 8;
+     ab_mate_app.eq_info.mode = 0xA0;
     
-    for(uint i= 0;i< 10;i++){//拷贝增益到ab_mate_app.eq_info.gain
+    for(uint i= 0;i< 8;i++){//拷贝增益到ab_mate_app.eq_info.gain
         ab_mate_app.eq_info.gain[i] = (payload[offset] - 6);
         offset = offset+3;
     }
@@ -695,6 +697,7 @@ void user_eq_set(u8 *payload,u8 payload_len)
             ab_mate_app.do_flag |= FLAG_EQ_SET;
             ab_mate_cm_write(&ab_mate_app.eq_info.mode, AB_MATE_CM_EQ_DATA, 1+AB_MATE_EQ_BAND_CNT, 2);
             ab_mate_request_common_response(AB_MATE_SUCCESS);
+            ab_mate_notify_eq();
 
 }
 
@@ -880,7 +883,7 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
     u8 *buf = ab_mate_cmd_send.payload;
     u8 val_len = 0;
 #if APP_USER_EQ_SET
-    u16 freq_table[] = {31, 62, 125, 250, 500, 1000, 2000, 4000, 8000, 16000};
+    u16 freq_table[] = {62, 250, 500, 1000, 2000, 4000, 8000, 16000};
     u8 offset = 2;  // 从 tlv_data[2] 开始写入频率+增益数据
     u16 freq = 0;
     u8 gain = 0;
@@ -1110,8 +1113,9 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
                     printf("INFO_USER_EQ\r\n");
                     val_len = payload[read_offset + 1];
                     buf[write_offset++] = INFO_USER_EQ;
-                    buf[write_offset++] = 30;
-                    for(u8 i = 0; i < 10; i++){
+                    
+                    buf[write_offset++] = 24;
+                    for(u8 i = 0; i < 8; i++){
                         freq = freq_table[i];
                         gain = ab_mate_app.eq_info.gain[i];  // 获取增益值（0x00~0x0C）
                         
@@ -3197,6 +3201,8 @@ void ab_mate_eq_overall_gain_set(void)
 #endif
 u8 ab_mate_eq_set_do(void)
 {
+   
+ printf("555555555555555555555555555555555\r\n");
 #if AB_MATE_EQ_EN
 #if AB_MATE_EQ_USE_RES
     if(ab_mate_app.eq_info.mode < AB_MATE_EQ_RES_CNT){
@@ -3662,6 +3668,7 @@ void ab_mate_flag_do(void)
         if(!sco_is_connected()){
             ab_mate_app.do_flag &= ~FLAG_EQ_SET;
             ab_mate_eq_set_do();
+            
         }
     }
 

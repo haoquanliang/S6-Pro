@@ -139,8 +139,8 @@
 #define APP_KEY_AI                      1//增加按键功能触发AI录音
 #define APP_AL_REPLY                    1//回复app上报的AI录音状态
 #define APP_USER_EQ_SET                 1//增加自定义eq
-#define SWETZ_CANSEND_NOW               1//调试时这个变量暂时置1
-
+#define SWETZ_CANSEND_NOW               0//调试时这个变量暂时置1
+#define USER_EQ_SYNC_BYPASS             1//同步 bypass eq
 
 #define SWETZ_CLOSE                 0//1:关掉V3D
 #define APP_MUSIC_AUDIO_TEST        0//音效调试
@@ -613,7 +613,7 @@
 #define EQ_DAC_DIV_EN                   0           //是否使能EQ DAC分频功能
 
 #define EQ_APP_EN                       1           //是否打开APP独立调EQ功能
-#define EQ_APP_NUM                      10           //APP独立调EQ使用EQ条数
+#define EQ_APP_NUM                      8           //APP独立调EQ使用EQ条数
 
 #define ANC_EN                          0           //是否打开ANC功能
 #define ANC_EQ_RES2_EN                  0           //是否使用资源2
@@ -929,8 +929,8 @@
 #define OPUS_ENC_EN                     0            //opus编码使能
 #define OPUS_DEC_EN                     0            //opus解码使能
 
-#define UG_VERSION       002
-#define SW_VERSION		 16		        //只能使用数字(u16)，例如版本号V1.0.2，ab_mate用102表示，ab_fot用0x102表示
+#define UG_VERSION       143
+#define SW_VERSION		 43		        //只能使用数字(u16)，例如版本号V1.0.2，ab_mate用102表示，ab_fot用0x102表示
 #define HW_VERSION		"V0.0.7"		//只能使用数字0-9,ota需要转码
 #include "config_extra.h"
 

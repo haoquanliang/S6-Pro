@@ -68,9 +68,9 @@
 #define AB_MATE_CUSTOM_CMD_CALL_EN  1                    //自定义命令-拨号
 
 //Eq设置
-#define AB_MATE_EQ_BAND_CNT     10      //EQ总段数，需要和APP界面相对应
+#define AB_MATE_EQ_BAND_CNT     8      //EQ总段数，需要和APP界面相对应
 #define AB_MATE_EQ_CUSTOM_INDEX 0x20    //自定义EQ对应的模式号
-#define AB_MATE_EQ_USE_DEVICE   0       //0：各模式的EQ增益使用APP端默认定义的  1：使用设备端定义的增益值
+#define AB_MATE_EQ_USE_DEVICE   1       //0：各模式的EQ增益使用APP端默认定义的  1：使用设备端定义的增益值
 #define AB_MATE_EQ_USE_RES      1       //非自定义EQ模式的EQ效果是否直接使用EQ资源文件里面的配置
 #if APP_EQ_SET
 #define AB_MATE_EQ_RES_CNT      8       //非自定义的EQ模式总数,AB_MATE_EQ_USE_RES设置为1才有效

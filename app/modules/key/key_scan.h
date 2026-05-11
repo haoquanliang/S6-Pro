@@ -571,6 +571,7 @@
 #define EVT_AL_KEY              0x722
 #define EVT_OVERHANG_TO_SLEEP   0x723
 #define EVT_TONE_AI             0x724
+#define EVT_EQ_BYPASS           0x725
 #endif
 
 
