@@ -694,6 +694,7 @@ void user_eq_set(u8 *payload,u8 payload_len)
 #if BT_TWS_EN
                 ab_mate_tws_eq_info_sync();
 #endif
+            f_bt.warning_status |= BT_WARN_EQ;
             ab_mate_app.do_flag |= FLAG_EQ_SET;
             ab_mate_cm_write(&ab_mate_app.eq_info.mode, AB_MATE_CM_EQ_DATA, 1+AB_MATE_EQ_BAND_CNT, 2);
             ab_mate_request_common_response(AB_MATE_SUCCESS);
@@ -1113,7 +1114,7 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
                     printf("INFO_USER_EQ\r\n");
                     val_len = payload[read_offset + 1];
                     buf[write_offset++] = INFO_USER_EQ;
-                    
+                    if(ab_mate_app.eq_info.mode == 0xA0){
                     buf[write_offset++] = 24;
                     for(u8 i = 0; i < 8; i++){
                         freq = freq_table[i];
@@ -1124,6 +1125,13 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
                         buf[write_offset++] = (freq >> 8) & 0xFF; // 高字节
                         buf[write_offset++] = (gain+6);               // 增益值
                     }
+
+                    }else{
+                        buf[write_offset++] = 0;    
+                    }
+
+
+
                    
                     break;
 #endif

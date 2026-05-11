@@ -8830,718 +8830,718 @@ LOAD Output\obj\projects\bt8930\port\port_update.o
                 0x00000000100234ba       0x38 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
                 0x00000000100234ba                ab_mate_eq_custom_save
  .text.user_eq_set
-                0x00000000100234f2       0x66 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100234f2       0x74 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
                 0x00000000100234f2                user_eq_set
  .text.user_eq_rm_recover
-                0x0000000010023558       0x20 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010023558                user_eq_rm_recover
+                0x0000000010023566       0x20 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010023566                user_eq_rm_recover
  .text.ab_mate_eq_set
-                0x0000000010023578       0x68 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010023578                ab_mate_eq_set
- *fill*         0x00000000100235e0        0x0 
+                0x0000000010023586       0x68 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010023586                ab_mate_eq_set
+ *fill*         0x00000000100235ee        0x2 
  .text.ab_mate_music_set
-                0x00000000100235e0      0x102 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x00000000100235e0                ab_mate_music_set
+                0x00000000100235f0      0x102 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100235f0                ab_mate_music_set
  .text.user_check_incase_sta_pull
-                0x00000000100236e2       0xd2 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x00000000100236e2                user_check_incase_sta_pull
+                0x00000000100236f2       0xd2 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100236f2                user_check_incase_sta_pull
  .text.ab_mate_user_incase_sta_notify
-                0x00000000100237b4       0x36 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x00000000100237b4                ab_mate_user_incase_sta_notify
+                0x00000000100237c4       0x36 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100237c4                ab_mate_user_incase_sta_notify
  .text.ab_mate_app_set_init
-                0x00000000100237ea       0x50 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x00000000100237ea                ab_mate_app_set_init
+                0x00000000100237fa       0x50 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100237fa                ab_mate_app_set_init
  .text.ab_mate_key_set_do
-                0x000000001002383a       0xa2 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x000000001002383a                ab_mate_key_set_do
+                0x000000001002384a       0xa2 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x000000001002384a                ab_mate_key_set_do
  .text.ab_mate_key_set
-                0x00000000100238dc      0x268 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x00000000100238dc                ab_mate_key_set
+                0x00000000100238ec      0x268 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100238ec                ab_mate_key_set
  .text.ab_mate_language_set
-                0x0000000010023b44      0x17a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010023b44                ab_mate_language_set
+                0x0000000010023b54      0x17a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010023b54                ab_mate_language_set
  .text.ab_mate_mode_set
-                0x0000000010023cbe       0x24 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010023cbe                ab_mate_mode_set
+                0x0000000010023cce       0x24 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010023cce                ab_mate_mode_set
  .text.ab_mate_device_find
-                0x0000000010023ce2      0x10c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010023ce2                ab_mate_device_find
+                0x0000000010023cf2      0x10c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010023cf2                ab_mate_device_find
  .text.ab_mate_device_reset
-                0x0000000010023dee       0x40 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010023dee                ab_mate_device_reset
+                0x0000000010023dfe       0x40 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010023dfe                ab_mate_device_reset
  .text.ab_mate_bt_name_set
-                0x0000000010023e2e       0x58 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010023e2e                ab_mate_bt_name_set
+                0x0000000010023e3e       0x58 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010023e3e                ab_mate_bt_name_set
  .text.ab_mate_bt_link_info_clear_do
-                0x0000000010023e86       0x22 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010023e86                ab_mate_bt_link_info_clear_do
+                0x0000000010023e96       0x22 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010023e96                ab_mate_bt_link_info_clear_do
  .text.ab_mate_bt_link_info_clear
-                0x0000000010023ea8       0x22 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010023ea8                ab_mate_bt_link_info_clear
+                0x0000000010023eb8       0x22 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010023eb8                ab_mate_bt_link_info_clear
  .text.ab_mate_led_set
-                0x0000000010023eca       0x52 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010023eca                ab_mate_led_set
+                0x0000000010023eda       0x52 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010023eda                ab_mate_led_set
  .text.ab_mate_v3d_audio_set_do
-                0x0000000010023f1c       0x6e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010023f1c                ab_mate_v3d_audio_set_do
+                0x0000000010023f2c       0x6e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010023f2c                ab_mate_v3d_audio_set_do
  .text.ab_mate_v3d_audio_set
-                0x0000000010023f8a       0x2a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010023f8a                ab_mate_v3d_audio_set
+                0x0000000010023f9a       0x2a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010023f9a                ab_mate_v3d_audio_set
  .text.ab_mate_ai_reply
-                0x0000000010023fb4       0x1e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010023fb4                ab_mate_ai_reply
+                0x0000000010023fc4       0x1e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010023fc4                ab_mate_ai_reply
  .text.bt_get_disconnect_addr
-                0x0000000010023fd2       0x18 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010023fd2                bt_get_disconnect_addr
+                0x0000000010023fe2       0x18 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010023fe2                bt_get_disconnect_addr
  .text.ab_mate_mult_dev_addr_encrypt
-                0x0000000010023fea       0x16 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010023fea                ab_mate_mult_dev_addr_encrypt
+                0x0000000010023ffa       0x16 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010023ffa                ab_mate_mult_dev_addr_encrypt
  .text.ab_mate_mult_dev_addr_decrypt
-                0x0000000010024000        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010024000                ab_mate_mult_dev_addr_decrypt
+                0x0000000010024010        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010024010                ab_mate_mult_dev_addr_decrypt
  .text.ab_mate_mult_dev_en_set_do
-                0x0000000010024004       0x96 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010024004                ab_mate_mult_dev_en_set_do
+                0x0000000010024014       0x96 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010024014                ab_mate_mult_dev_en_set_do
  .text.ab_mate_mult_dev_unpair_do
-                0x000000001002409a       0x1a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x000000001002409a                ab_mate_mult_dev_unpair_do
+                0x00000000100240aa       0x1a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100240aa                ab_mate_mult_dev_unpair_do
  .text.ab_mate_connect_info_get
-                0x00000000100240b4       0xe4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x00000000100240b4                ab_mate_connect_info_get
+                0x00000000100240c4       0xe4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100240c4                ab_mate_connect_info_get
  .text.ab_mate_device_info_query
-                0x0000000010024198      0xa8e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010024198                ab_mate_device_info_query
+                0x00000000100241a8      0xaa4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100241a8                ab_mate_device_info_query
  .text.ab_mate_connect_info_set
-                0x0000000010024c26       0xd6 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010024c26                ab_mate_connect_info_set
+                0x0000000010024c4c       0xd6 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010024c4c                ab_mate_connect_info_set
  .text.ab_mate_connect_info_notify
-                0x0000000010024cfc       0x60 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010024cfc                ab_mate_connect_info_notify
+                0x0000000010024d22       0x60 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010024d22                ab_mate_connect_info_notify
  .text.ab_mate_mult_dev_set
-                0x0000000010024d5c      0x196 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010024d5c                ab_mate_mult_dev_set
+                0x0000000010024d82      0x196 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010024d82                ab_mate_mult_dev_set
  .text.ab_mate_bt_sta_timer_creat
-                0x0000000010024ef2       0x1a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010024ef2                ab_mate_bt_sta_timer_creat
- *fill*         0x0000000010024f0c        0x0 
+                0x0000000010024f18       0x1a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010024f18                ab_mate_bt_sta_timer_creat
+ *fill*         0x0000000010024f32        0x2 
  .text.ab_mate_hid_ctrl
-                0x0000000010024f0c       0x66 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010024f0c                ab_mate_hid_ctrl
+                0x0000000010024f34       0x66 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010024f34                ab_mate_hid_ctrl
  .text.ab_mate_custom_request_receive_proc
-                0x0000000010024f72       0xdc Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010024f72                ab_mate_custom_request_receive_proc
+                0x0000000010024f9a       0xdc Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010024f9a                ab_mate_custom_request_receive_proc
  .text.ab_mate_request_receive_proc
-                0x000000001002504e      0x1c8 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x000000001002504e                ab_mate_request_receive_proc
+                0x0000000010025076      0x1c8 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025076                ab_mate_request_receive_proc
  .text.ab_mate_receive_proc_do
-                0x0000000010025216       0x24 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025216                ab_mate_receive_proc_do
- *fill*         0x000000001002523a        0x2 
+                0x000000001002523e       0x24 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x000000001002523e                ab_mate_receive_proc_do
+ *fill*         0x0000000010025262        0x2 
  .text.ab_mate_eq_overall_gain_set
-                0x000000001002523c       0x46 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x000000001002523c                ab_mate_eq_overall_gain_set
+                0x0000000010025264       0x46 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025264                ab_mate_eq_overall_gain_set
  .text.ab_mate_eq_set_do
-                0x0000000010025282       0xe0 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025282                ab_mate_eq_set_do
+                0x00000000100252aa       0xe0 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100252aa                ab_mate_eq_set_do
  .text.ab_mate_key_init
-                0x0000000010025362      0x128 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025362                ab_mate_key_init
+                0x000000001002538a      0x128 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x000000001002538a                ab_mate_key_init
  .text.ab_mate_mode_set_do
-                0x000000001002548a       0x2e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x000000001002548a                ab_mate_mode_set_do
+                0x00000000100254b2       0x2e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100254b2                ab_mate_mode_set_do
  .text.ab_mate_eq_init
-                0x00000000100254b8       0x90 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x00000000100254b8                ab_mate_eq_init
+                0x00000000100254e0       0x90 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100254e0                ab_mate_eq_init
  .text.ab_mate_bt_name_init
-                0x0000000010025548       0x66 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025548                ab_mate_bt_name_init
+                0x0000000010025570       0x66 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025570                ab_mate_bt_name_init
  .text.ab_mate_lang_init
-                0x00000000100255ae       0x74 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x00000000100255ae                ab_mate_lang_init
+                0x00000000100255d6       0x74 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100255d6                ab_mate_lang_init
  .text.ab_mate_led_init
-                0x0000000010025622       0x3c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025622                ab_mate_led_init
+                0x000000001002564a       0x3c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x000000001002564a                ab_mate_led_init
  .text.ab_mate_v3d_audio_init
-                0x000000001002565e       0x52 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x000000001002565e                ab_mate_v3d_audio_init
+                0x0000000010025686       0x52 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025686                ab_mate_v3d_audio_init
  .text.ab_mate_mult_dev_init
-                0x00000000100256b0       0x60 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x00000000100256b0                ab_mate_mult_dev_init
+                0x00000000100256d8       0x60 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100256d8                ab_mate_mult_dev_init
  .text.ab_mate_device_reset_do
-                0x0000000010025710       0x5c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025710                ab_mate_device_reset_do
+                0x0000000010025738       0x5c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025738                ab_mate_device_reset_do
  .text.ab_mate_var_init
-                0x000000001002576c       0xc4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x000000001002576c                ab_mate_var_init
+                0x0000000010025794       0xc4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025794                ab_mate_var_init
  .text.ab_mate_init_do
-                0x0000000010025830       0x80 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025830                ab_mate_init_do
+                0x0000000010025858       0x80 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025858                ab_mate_init_do
  .text.ab_mate_connect_proc
-                0x00000000100258b0       0x48 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x00000000100258b0                ab_mate_connect_proc
+                0x00000000100258d8       0x48 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x00000000100258d8                ab_mate_connect_proc
  .text.ab_mate_disconnect_proc
-                0x00000000100258f8       0x2a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x00000000100258f8                ab_mate_disconnect_proc
+                0x0000000010025920       0x2a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025920                ab_mate_disconnect_proc
  .text.ab_mate_ble_connect_callback
-                0x0000000010025922       0x1c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025922                ab_mate_ble_connect_callback
+                0x000000001002594a       0x1c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x000000001002594a                ab_mate_ble_connect_callback
  .text.ab_mate_ble_disconnect_callback
-                0x000000001002593e       0x16 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x000000001002593e                ab_mate_ble_disconnect_callback
+                0x0000000010025966       0x16 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025966                ab_mate_ble_disconnect_callback
  .text.ab_mate_disable_adv_for_spp_connect
-                0x0000000010025954       0x1c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025954                ab_mate_disable_adv_for_spp_connect
+                0x000000001002597c       0x1c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x000000001002597c                ab_mate_disable_adv_for_spp_connect
  .text.ab_mate_receive_proc
-                0x0000000010025970      0x1ba Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025970                ab_mate_receive_proc
+                0x0000000010025998      0x1ba Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025998                ab_mate_receive_proc
  .text.ab_mate.flag
-                0x0000000010025b2a      0x156 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025b2a                ab_mate_flag_do
+                0x0000000010025b52      0x156 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025b52                ab_mate_flag_do
  .text.ab_mate_enable_adv_for_spp_disconnect
-                0x0000000010025c80       0x2a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025c80                ab_mate_enable_adv_for_spp_disconnect
+                0x0000000010025ca8       0x2a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025ca8                ab_mate_enable_adv_for_spp_disconnect
  .text.ab_mate_spp_connect_callback
-                0x0000000010025caa        0x6 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025caa                ab_mate_spp_connect_callback
+                0x0000000010025cd2        0x6 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025cd2                ab_mate_spp_connect_callback
  .text.ab_mate_spp_disconnect_callback
-                0x0000000010025cb0       0x28 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025cb0                ab_mate_spp_disconnect_callback
+                0x0000000010025cd8       0x28 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025cd8                ab_mate_spp_disconnect_callback
  .text.ab_mate_tws_connect_callback
-                0x0000000010025cd8       0x36 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025cd8                ab_mate_tws_connect_callback
+                0x0000000010025d00       0x36 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025d00                ab_mate_tws_connect_callback
  .text.ab_mate_tws_disconnect_callback
-                0x0000000010025d0e       0x4a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025d0e                ab_mate_tws_disconnect_callback
+                0x0000000010025d36       0x4a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025d36                ab_mate_tws_disconnect_callback
  .text.ab_mate_tws_role_switch_callback
-                0x0000000010025d58       0x28 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025d58                ab_mate_tws_role_switch_callback
+                0x0000000010025d80       0x28 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025d80                ab_mate_tws_role_switch_callback
  .text.ab_mate_bt_connect_callback
-                0x0000000010025d80       0x18 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025d80                ab_mate_bt_connect_callback
+                0x0000000010025da8       0x18 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025da8                ab_mate_bt_connect_callback
  .text.ab_mate_ble_role_switch_get_data
-                0x0000000010025d98        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025d98                ab_mate_ble_role_switch_get_data
+                0x0000000010025dc0        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025dc0                ab_mate_ble_role_switch_get_data
  .text.ab_mate_ble_role_switch_set_data
-                0x0000000010025d9c        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025d9c                ab_mate_ble_role_switch_set_data
+                0x0000000010025dc4        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025dc4                ab_mate_ble_role_switch_set_data
  .text.role_switch_get_user_data
-                0x0000000010025da0       0x60 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025da0                role_switch_get_user_data
+                0x0000000010025dc8       0x60 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025dc8                role_switch_get_user_data
  .text.role_switch_set_user_data
-                0x0000000010025e00       0x8c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025e00                role_switch_set_user_data
+                0x0000000010025e28       0x8c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025e28                role_switch_set_user_data
  .text.ab_mate_bt_evt_notice
-                0x0000000010025e8c       0x44 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025e8c                ab_mate_bt_evt_notice
+                0x0000000010025eb4       0x44 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025eb4                ab_mate_bt_evt_notice
  .text.ab_mate_enter_sleep
-                0x0000000010025ed0       0x4e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025ed0                ab_mate_enter_sleep
+                0x0000000010025ef8       0x4e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025ef8                ab_mate_enter_sleep
  .text.ab_mate_exit_sleep
-                0x0000000010025f1e       0x1e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
-                0x0000000010025f1e                ab_mate_exit_sleep
+                0x0000000010025f46       0x1e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_app.o
+                0x0000000010025f46                ab_mate_exit_sleep
  .text.fot.update
-                0x0000000010025f3c       0x2a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010025f64       0x2a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
  .text.app_fota_breakpoint_info_read
-                0x0000000010025f66        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x0000000010025f66                app_fota_breakpoint_info_read
+                0x0000000010025f8e        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010025f8e                app_fota_breakpoint_info_read
  .text.app_fota_init
-                0x0000000010025f6a       0x1c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x0000000010025f6a                app_fota_init
+                0x0000000010025f92       0x1c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010025f92                app_fota_init
  .text.ab_mate_ota_init
-                0x0000000010025f86       0x2c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x0000000010025f86                ab_mate_ota_init
+                0x0000000010025fae       0x2c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010025fae                ab_mate_ota_init
  .text.ab_mate_ota_exit
-                0x0000000010025fb2       0x5a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x0000000010025fb2                ab_mate_ota_exit
+                0x0000000010025fda       0x5a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010025fda                ab_mate_ota_exit
  .text.ab_mate_ota_is_start
-                0x000000001002600c       0x10 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x000000001002600c                ab_mate_ota_is_start
+                0x0000000010026034       0x10 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010026034                ab_mate_ota_is_start
  .text.ab_mate_ota_seq_err_notify
-                0x000000001002601c       0x1c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x000000001002601c                ab_mate_ota_seq_err_notify
+                0x0000000010026044       0x1c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010026044                ab_mate_ota_seq_err_notify
  .text.fot_update_pause
-                0x0000000010026038       0x22 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x0000000010026038                fot_update_pause
+                0x0000000010026060       0x22 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010026060                fot_update_pause
  .text.fot_update_continue
-                0x000000001002605a       0x18 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x000000001002605a                fot_update_continue
+                0x0000000010026082       0x18 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010026082                fot_update_continue
  .text.is_fot_tws_support
-                0x0000000010026072        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x0000000010026072                is_fot_tws_support
+                0x000000001002609a        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x000000001002609a                is_fot_tws_support
  .text.ab_mate_tws_ota_req_proc
-                0x0000000010026076      0x116 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x0000000010026076                ab_mate_tws_ota_req_proc
+                0x000000001002609e      0x116 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x000000001002609e                ab_mate_tws_ota_req_proc
  .text.ab_mate_ota_disconnect_callback
-                0x000000001002618c       0x1e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x000000001002618c                ab_mate_ota_disconnect_callback
- *fill*         0x00000000100261aa        0x2 
+                0x00000000100261b4       0x1e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x00000000100261b4                ab_mate_ota_disconnect_callback
+ *fill*         0x00000000100261d2        0x2 
  .text.ab_mate_ota_tws_data_proc
-                0x00000000100261ac      0x1e8 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x00000000100261ac                ab_mate_ota_tws_data_proc
+                0x00000000100261d4      0x1e8 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x00000000100261d4                ab_mate_ota_tws_data_proc
  .text.ab_mate_ota_proc
-                0x0000000010026394      0x25a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x0000000010026394                ab_mate_ota_proc
+                0x00000000100263bc      0x25a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x00000000100263bc                ab_mate_ota_proc
  .text.ab_mate_ota_flag_do
-                0x00000000100265ee       0x7a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
-                0x00000000100265ee                ab_mate_ota_flag_do
+                0x0000000010026616       0x7a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_ota.o
+                0x0000000010026616                ab_mate_ota_flag_do
  .text.gatt_callback_ab_mate_write
-                0x0000000010026668       0x52 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
+                0x0000000010026690       0x52 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
  .text.ble_get_scan_data
-                0x00000000100266ba       0x50 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
-                0x00000000100266ba                ble_get_scan_data
+                0x00000000100266e2       0x50 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
+                0x00000000100266e2                ble_get_scan_data
  .text.ble_get_adv_data
-                0x000000001002670a       0x78 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
-                0x000000001002670a                ble_get_adv_data
+                0x0000000010026732       0x78 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
+                0x0000000010026732                ble_get_adv_data
  .text.ble_adv_data_update_bit
-                0x0000000010026782       0x52 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
-                0x0000000010026782                ble_adv_data_update_bit
+                0x00000000100267aa       0x52 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
+                0x00000000100267aa                ble_adv_data_update_bit
  .text.ab_mate_update_ble_adv_fmsk
-                0x00000000100267d4        0xe Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
-                0x00000000100267d4                ab_mate_update_ble_adv_fmsk
+                0x00000000100267fc        0xe Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
+                0x00000000100267fc                ab_mate_update_ble_adv_fmsk
  .text.ab_mate_update_ble_adv_bt_sta
-                0x00000000100267e2        0xc Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
-                0x00000000100267e2                ab_mate_update_ble_adv_bt_sta
+                0x000000001002680a        0xc Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
+                0x000000001002680a                ab_mate_update_ble_adv_bt_sta
  .text.ble_txpkt_init
-                0x00000000100267ee       0x30 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
-                0x00000000100267ee                ble_txpkt_init
+                0x0000000010026816       0x30 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
+                0x0000000010026816                ble_txpkt_init
  .text.ab_mate_ble_send_packet
-                0x000000001002681e       0x30 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
-                0x000000001002681e                ab_mate_ble_send_packet
+                0x0000000010026846       0x30 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
+                0x0000000010026846                ab_mate_ble_send_packet
  .text.ble_app_gatts_service_init
-                0x000000001002684e       0xec Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
-                0x000000001002684e                ble_app_gatts_service_init
+                0x0000000010026876       0xec Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
+                0x0000000010026876                ble_app_gatts_service_init
  .text.ab_mate_ble_app_init
-                0x000000001002693a        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
-                0x000000001002693a                ab_mate_ble_app_init
+                0x0000000010026962        0x4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_profile.o
+                0x0000000010026962                ab_mate_ble_app_init
  .text.soft_timer_init
-                0x000000001002693e       0x22 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_timer.o
-                0x000000001002693e                soft_timer_init
+                0x0000000010026966       0x22 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_timer.o
+                0x0000000010026966                soft_timer_init
  .text.soft_timer_create
-                0x0000000010026960       0x44 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_timer.o
-                0x0000000010026960                soft_timer_create
+                0x0000000010026988       0x44 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_timer.o
+                0x0000000010026988                soft_timer_create
  .text.soft_timer_start
-                0x00000000100269a4       0x60 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_timer.o
-                0x00000000100269a4                soft_timer_start
+                0x00000000100269cc       0x60 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_timer.o
+                0x00000000100269cc                soft_timer_start
  .text.soft_timer_restart
-                0x0000000010026a04       0x64 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_timer.o
-                0x0000000010026a04                soft_timer_restart
+                0x0000000010026a2c       0x64 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_timer.o
+                0x0000000010026a2c                soft_timer_restart
  .text.soft_timer_stop
-                0x0000000010026a68       0x4e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_timer.o
-                0x0000000010026a68                soft_timer_stop
+                0x0000000010026a90       0x4e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_timer.o
+                0x0000000010026a90                soft_timer_stop
  .text.tws_get_fot_data
-                0x0000000010026ab6       0x48 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010026ab6                tws_get_fot_data
+                0x0000000010026ade       0x48 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010026ade                tws_get_fot_data
  .text.tws_data_sync_do
-                0x0000000010026afe       0x24 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010026afe                tws_data_sync_do
+                0x0000000010026b26       0x24 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010026b26                tws_data_sync_do
  .text.ab_mate_tws_cmd_sync_byte
-                0x0000000010026b22       0x1e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010026b22                ab_mate_tws_cmd_sync_byte
+                0x0000000010026b4a       0x1e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010026b4a                ab_mate_tws_cmd_sync_byte
  .text.ab_mate_tws_cmd_sync_nbyte
-                0x0000000010026b40       0x2e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010026b40                ab_mate_tws_cmd_sync_nbyte
+                0x0000000010026b68       0x2e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010026b68                ab_mate_tws_cmd_sync_nbyte
  .text.ab_mate_tws_vbat_sync
-                0x0000000010026b6e       0x42 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010026b6e                ab_mate_tws_vbat_sync
+                0x0000000010026b96       0x42 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010026b96                ab_mate_tws_vbat_sync
  .text.ab_mate_tws_eq_info_sync
-                0x0000000010026bb0       0x10 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010026bb0                ab_mate_tws_eq_info_sync
+                0x0000000010026bd8       0x10 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010026bd8                ab_mate_tws_eq_info_sync
  .text.ab_mate_tws_key_info_sync
-                0x0000000010026bc0       0x10 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010026bc0                ab_mate_tws_key_info_sync
+                0x0000000010026be8       0x10 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010026be8                ab_mate_tws_key_info_sync
  .text.ab_mate_tws_device_reset_sync
-                0x0000000010026bd0        0x8 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010026bd0                ab_mate_tws_device_reset_sync
+                0x0000000010026bf8        0x8 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010026bf8                ab_mate_tws_device_reset_sync
  .text.ab_mate_tws_bt_name_sync
-                0x0000000010026bd8       0x48 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010026bd8                ab_mate_tws_bt_name_sync
+                0x0000000010026c00       0x48 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010026c00                ab_mate_tws_bt_name_sync
  .text.ab_mate_tws_connect_sta_sync
-                0x0000000010026c20        0xe Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010026c20                ab_mate_tws_connect_sta_sync
+                0x0000000010026c48        0xe Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010026c48                ab_mate_tws_connect_sta_sync
  .text.ab_mate_tws_link_clear_sync
-                0x0000000010026c2e        0x8 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010026c2e                ab_mate_tws_link_clear_sync
+                0x0000000010026c56        0x8 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010026c56                ab_mate_tws_link_clear_sync
  .text.ab_mate_tws_led_info_sync
-                0x0000000010026c36        0xe Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010026c36                ab_mate_tws_led_info_sync
+                0x0000000010026c5e        0xe Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010026c5e                ab_mate_tws_led_info_sync
  .text.ab_mate_tws_v3d_audio_sync
-                0x0000000010026c44        0xe Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010026c44                ab_mate_tws_v3d_audio_sync
+                0x0000000010026c6c        0xe Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010026c6c                ab_mate_tws_v3d_audio_sync
  .text.ab_mate_tws_ai_state_sync
-                0x0000000010026c52       0x10 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010026c52                ab_mate_tws_ai_state_sync
+                0x0000000010026c7a       0x10 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010026c7a                ab_mate_tws_ai_state_sync
  .text.ab_mate_tws_mult_dev_info_sync
-                0x0000000010026c62       0x56 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010026c62                ab_mate_tws_mult_dev_info_sync
+                0x0000000010026c8a       0x56 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010026c8a                ab_mate_tws_mult_dev_info_sync
  .text.ab_mate_tws_info_all_sync
-                0x0000000010026cb8      0x126 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010026cb8                ab_mate_tws_info_all_sync
+                0x0000000010026ce0      0x126 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010026ce0                ab_mate_tws_info_all_sync
  .text.ab_mate_tws_info_all_rsp
-                0x0000000010026dde       0x7e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010026dde                ab_mate_tws_info_all_rsp
+                0x0000000010026e06       0x7e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010026e06                ab_mate_tws_info_all_rsp
  .text.ab_mate_tws_info_eq_proc
-                0x0000000010026e5c       0x44 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010026e5c                ab_mate_tws_info_eq_proc
+                0x0000000010026e84       0x44 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010026e84                ab_mate_tws_info_eq_proc
  .text.ab_mate_tws_info_bat_proc
-                0x0000000010026ea0       0x2c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010026ea0                ab_mate_tws_info_bat_proc
+                0x0000000010026ec8       0x2c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010026ec8                ab_mate_tws_info_bat_proc
  .text.ab_mate_tws_info_key_proc
-                0x0000000010026ecc       0x1c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010026ecc                ab_mate_tws_info_key_proc
+                0x0000000010026ef4       0x1c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010026ef4                ab_mate_tws_info_key_proc
  .text.ab_mate_tws_info_all_proc
-                0x0000000010026ee8      0x2aa Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010026ee8                ab_mate_tws_info_all_proc
+                0x0000000010026f10      0x2aa Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010026f10                ab_mate_tws_info_all_proc
  .text.ab_mate_tws_info_name_proc
-                0x0000000010027192       0x3a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010027192                ab_mate_tws_info_name_proc
+                0x00000000100271ba       0x3a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x00000000100271ba                ab_mate_tws_info_name_proc
  .text.ab_mate_tws_info_all_rsp_proc
-                0x00000000100271cc       0x5c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x00000000100271cc                ab_mate_tws_info_all_rsp_proc
+                0x00000000100271f4       0x5c Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x00000000100271f4                ab_mate_tws_info_all_rsp_proc
  .text.ab_mate_tws_info_connect_sta_proc
-                0x0000000010027228       0x14 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010027228                ab_mate_tws_info_connect_sta_proc
+                0x0000000010027250       0x14 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010027250                ab_mate_tws_info_connect_sta_proc
  .text.ab_mate_tws_info_led_proc
-                0x000000001002723c       0x2e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x000000001002723c                ab_mate_tws_info_led_proc
+                0x0000000010027264       0x2e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010027264                ab_mate_tws_info_led_proc
  .text.ab_mate_tws_info_3d_audio_proc
-                0x000000001002726a       0x22 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x000000001002726a                ab_mate_tws_info_3d_audio_proc
+                0x0000000010027292       0x22 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010027292                ab_mate_tws_info_3d_audio_proc
  .text.ab_mate_tws_info_ai_state_proc
-                0x000000001002728c       0x1a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x000000001002728c                ab_mate_tws_info_ai_state_proc
+                0x00000000100272b4       0x1a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x00000000100272b4                ab_mate_tws_info_ai_state_proc
  .text.ab_mate_tws_info_mult_dev_en_set
-                0x00000000100272a6       0x1e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x00000000100272a6                ab_mate_tws_info_mult_dev_en_set
+                0x00000000100272ce       0x1e Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x00000000100272ce                ab_mate_tws_info_mult_dev_en_set
  .text.ab_mate_tws_info_mult_dev_info_set
-                0x00000000100272c4       0xd4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x00000000100272c4                ab_mate_tws_info_mult_dev_info_set
+                0x00000000100272ec       0xd4 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x00000000100272ec                ab_mate_tws_info_mult_dev_info_set
  .text.ab_mate_tws_info_mult_dev_proc
-                0x0000000010027398       0x6a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010027398                ab_mate_tws_info_mult_dev_proc
- *fill*         0x0000000010027402        0x2 
+                0x00000000100273c0       0x6a Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x00000000100273c0                ab_mate_tws_info_mult_dev_proc
+ *fill*         0x000000001002742a        0x2 
  .text.ab_mate_tws_recv_proc
-                0x0000000010027404      0x214 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010027404                ab_mate_tws_recv_proc
+                0x000000001002742c      0x214 Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x000000001002742c                ab_mate_tws_recv_proc
  .text.tws_set_fot_data
-                0x0000000010027618        0xe Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
-                0x0000000010027618                tws_set_fot_data
+                0x0000000010027640        0xe Output\obj\modules\bluetooth\app\ab_mate\ab_mate_tws.o
+                0x0000000010027640                tws_set_fot_data
  .text.app_ble_connect_callback
-                0x0000000010027626        0x4 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010027626                app_ble_connect_callback
+                0x000000001002764e        0x4 Output\obj\modules\bluetooth\app\app_interface.o
+                0x000000001002764e                app_ble_connect_callback
  .text.app_ble_disconnect_callback
-                0x000000001002762a       0x3c Output\obj\modules\bluetooth\app\app_interface.o
-                0x000000001002762a                app_ble_disconnect_callback
+                0x0000000010027652       0x3c Output\obj\modules\bluetooth\app\app_interface.o
+                0x0000000010027652                app_ble_disconnect_callback
  .text.app_process
-                0x0000000010027666        0x4 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010027666                app_process
- .text.app_var_init
-                0x000000001002766a        0x4 Output\obj\modules\bluetooth\app\app_interface.o
-                0x000000001002766a                app_var_init
- .text.app_ble_init
-                0x000000001002766e        0x4 Output\obj\modules\bluetooth\app\app_interface.o
-                0x000000001002766e                app_ble_init
- .text.app_init_do
-                0x0000000010027672        0x4 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010027672                app_init_do
- .text.app_eq_set
-                0x0000000010027676       0x18 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010027676                app_eq_set
- .text.app_enter_sleep
                 0x000000001002768e        0x4 Output\obj\modules\bluetooth\app\app_interface.o
-                0x000000001002768e                app_enter_sleep
- .text.app_exit_sleep
+                0x000000001002768e                app_process
+ .text.app_var_init
                 0x0000000010027692        0x4 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010027692                app_exit_sleep
+                0x0000000010027692                app_var_init
+ .text.app_ble_init
+                0x0000000010027696        0x4 Output\obj\modules\bluetooth\app\app_interface.o
+                0x0000000010027696                app_ble_init
+ .text.app_init_do
+                0x000000001002769a        0x4 Output\obj\modules\bluetooth\app\app_interface.o
+                0x000000001002769a                app_init_do
+ .text.app_eq_set
+                0x000000001002769e       0x18 Output\obj\modules\bluetooth\app\app_interface.o
+                0x000000001002769e                app_eq_set
+ .text.app_enter_sleep
+                0x00000000100276b6        0x4 Output\obj\modules\bluetooth\app\app_interface.o
+                0x00000000100276b6                app_enter_sleep
+ .text.app_exit_sleep
+                0x00000000100276ba        0x4 Output\obj\modules\bluetooth\app\app_interface.o
+                0x00000000100276ba                app_exit_sleep
  .text.app_need_wakeup
-                0x0000000010027696        0x8 Output\obj\modules\bluetooth\app\app_interface.o
-                0x0000000010027696                app_need_wakeup
+                0x00000000100276be        0x8 Output\obj\modules\bluetooth\app\app_interface.o
+                0x00000000100276be                app_need_wakeup
  .text.app_bt_evt_notice
-                0x000000001002769e        0x4 Output\obj\modules\bluetooth\app\app_interface.o
-                0x000000001002769e                app_bt_evt_notice
+                0x00000000100276c6        0x4 Output\obj\modules\bluetooth\app\app_interface.o
+                0x00000000100276c6                app_bt_evt_notice
  .text.app_ble_role_switch_get_data
-                0x00000000100276a2        0x4 Output\obj\modules\bluetooth\app\app_interface.o
-                0x00000000100276a2                app_ble_role_switch_get_data
+                0x00000000100276ca        0x4 Output\obj\modules\bluetooth\app\app_interface.o
+                0x00000000100276ca                app_ble_role_switch_get_data
  .text.app_ble_role_switch_set_data
-                0x00000000100276a6        0x4 Output\obj\modules\bluetooth\app\app_interface.o
-                0x00000000100276a6                app_ble_role_switch_set_data
+                0x00000000100276ce        0x4 Output\obj\modules\bluetooth\app\app_interface.o
+                0x00000000100276ce                app_ble_role_switch_set_data
  .text.app_sleep_mode_process
-                0x00000000100276aa        0x2 Output\obj\modules\bluetooth\app\app_interface.o
-                0x00000000100276aa                app_sleep_mode_process
+                0x00000000100276d2        0x2 Output\obj\modules\bluetooth\app\app_interface.o
+                0x00000000100276d2                app_sleep_mode_process
  .text.app_tws_user_key_process
-                0x00000000100276ac        0x2 Output\obj\modules\bluetooth\app\app_interface.o
-                0x00000000100276ac                app_tws_user_key_process
+                0x00000000100276d4        0x2 Output\obj\modules\bluetooth\app\app_interface.o
+                0x00000000100276d4                app_tws_user_key_process
  .text.app_tws_connect_callback
-                0x00000000100276ae        0x2 Output\obj\modules\bluetooth\app\app_interface.o
-                0x00000000100276ae                app_tws_connect_callback
+                0x00000000100276d6        0x2 Output\obj\modules\bluetooth\app\app_interface.o
+                0x00000000100276d6                app_tws_connect_callback
  .text.app_tws_disconnect_callback
-                0x00000000100276b0        0x2 Output\obj\modules\bluetooth\app\app_interface.o
-                0x00000000100276b0                app_tws_disconnect_callback
+                0x00000000100276d8        0x2 Output\obj\modules\bluetooth\app\app_interface.o
+                0x00000000100276d8                app_tws_disconnect_callback
  .text.app_spp_connect_callback
-                0x00000000100276b2        0x8 Output\obj\modules\bluetooth\app\app_interface.o
-                0x00000000100276b2                app_spp_connect_callback
+                0x00000000100276da        0x8 Output\obj\modules\bluetooth\app\app_interface.o
+                0x00000000100276da                app_spp_connect_callback
  .text.app_spp_disconnect_callback
-                0x00000000100276ba        0x8 Output\obj\modules\bluetooth\app\app_interface.o
-                0x00000000100276ba                app_spp_disconnect_callback
+                0x00000000100276e2        0x8 Output\obj\modules\bluetooth\app\app_interface.o
+                0x00000000100276e2                app_spp_disconnect_callback
  .text.app_spp_rx_callback
-                0x00000000100276c2       0x38 Output\obj\modules\bluetooth\app\app_interface.o
-                0x00000000100276c2                app_spp_rx_callback
+                0x00000000100276ea       0x38 Output\obj\modules\bluetooth\app\app_interface.o
+                0x00000000100276ea                app_spp_rx_callback
  .text.app_test_send_aec_param
-                0x00000000100276fa       0x72 Output\obj\modules\bluetooth\app\app_test\app_test.o
-                0x00000000100276fa                app_test_send_aec_param
+                0x0000000010027722       0x72 Output\obj\modules\bluetooth\app\app_test\app_test.o
+                0x0000000010027722                app_test_send_aec_param
  .text.app_test_send_aec_ack
-                0x000000001002776c       0x46 Output\obj\modules\bluetooth\app\app_test\app_test.o
-                0x000000001002776c                app_test_send_aec_ack
+                0x0000000010027794       0x46 Output\obj\modules\bluetooth\app\app_test\app_test.o
+                0x0000000010027794                app_test_send_aec_ack
  .text.app_test_cmd_process
-                0x00000000100277b2      0x1ee Output\obj\modules\bluetooth\app\app_test\app_test.o
-                0x00000000100277b2                app_test_cmd_process
+                0x00000000100277da      0x1ee Output\obj\modules\bluetooth\app\app_test\app_test.o
+                0x00000000100277da                app_test_cmd_process
  .text.ble_get_local_bd_addr
-                0x00000000100279a0        0x4 Output\obj\modules\bluetooth\ble\ble.o
-                0x00000000100279a0                ble_get_local_bd_addr
+                0x00000000100279c8        0x4 Output\obj\modules\bluetooth\ble\ble.o
+                0x00000000100279c8                ble_get_local_bd_addr
  .text.ble_get_local_addr_mode
-                0x00000000100279a4        0x4 Output\obj\modules\bluetooth\ble\ble.o
-                0x00000000100279a4                ble_get_local_addr_mode
+                0x00000000100279cc        0x4 Output\obj\modules\bluetooth\ble\ble.o
+                0x00000000100279cc                ble_get_local_addr_mode
  .text.ble_disconnect_callback
-                0x00000000100279a8       0x18 Output\obj\modules\bluetooth\ble\ble.o
-                0x00000000100279a8                ble_disconnect_callback
+                0x00000000100279d0       0x18 Output\obj\modules\bluetooth\ble\ble.o
+                0x00000000100279d0                ble_disconnect_callback
  .text.ble_connect_callback
-                0x00000000100279c0       0x18 Output\obj\modules\bluetooth\ble\ble.o
-                0x00000000100279c0                ble_connect_callback
+                0x00000000100279e8       0x18 Output\obj\modules\bluetooth\ble\ble.o
+                0x00000000100279e8                ble_connect_callback
  .text.role_switch_get_user_ble_data
-                0x00000000100279d8       0x1c Output\obj\modules\bluetooth\ble\ble.o
-                0x00000000100279d8                role_switch_get_user_ble_data
+                0x0000000010027a00       0x1c Output\obj\modules\bluetooth\ble\ble.o
+                0x0000000010027a00                role_switch_get_user_ble_data
  .text.role_switch_set_user_ble_data
-                0x00000000100279f4       0x22 Output\obj\modules\bluetooth\ble\ble.o
-                0x00000000100279f4                role_switch_set_user_ble_data
+                0x0000000010027a1c       0x22 Output\obj\modules\bluetooth\ble\ble.o
+                0x0000000010027a1c                role_switch_set_user_ble_data
  .text.ble_sm_param_init
-                0x0000000010027a16        0xa Output\obj\modules\bluetooth\ble\ble.o
-                0x0000000010027a16                ble_sm_param_init
+                0x0000000010027a3e        0xa Output\obj\modules\bluetooth\ble\ble.o
+                0x0000000010027a3e                ble_sm_param_init
  .text.ble_init_att
-                0x0000000010027a20       0x2e Output\obj\modules\bluetooth\ble\ble.o
-                0x0000000010027a20                ble_init_att
+                0x0000000010027a48       0x2e Output\obj\modules\bluetooth\ble\ble.o
+                0x0000000010027a48                ble_init_att
  .text.priv_ble_gatts_service_init
-                0x0000000010027a4e        0x2 Output\obj\modules\bluetooth\ble\priv_ble.o
-                0x0000000010027a4e                priv_ble_gatts_service_init
- .text.bts.clk  0x0000000010027a50       0x1e Output\obj\modules\bluetooth\bsp_bt.o
-                0x0000000010027a50                bt_set_sys_clk
+                0x0000000010027a76        0x2 Output\obj\modules\bluetooth\ble\priv_ble.o
+                0x0000000010027a76                priv_ble_gatts_service_init
+ .text.bts.clk  0x0000000010027a78       0x1e Output\obj\modules\bluetooth\bsp_bt.o
+                0x0000000010027a78                bt_set_sys_clk
  .text.bsp_bt_init
-                0x0000000010027a6e      0x1cc Output\obj\modules\bluetooth\bsp_bt.o
-                0x0000000010027a6e                bsp_bt_init
+                0x0000000010027a96      0x1cc Output\obj\modules\bluetooth\bsp_bt.o
+                0x0000000010027a96                bsp_bt_init
  .text.bsp_bt_vol_set
-                0x0000000010027c3a       0x22 Output\obj\modules\bluetooth\bsp_bt.o
-                0x0000000010027c3a                bsp_bt_vol_set
+                0x0000000010027c62       0x22 Output\obj\modules\bluetooth\bsp_bt.o
+                0x0000000010027c62                bsp_bt_vol_set
  .text.bsp_bt_get_hfp_vol
-                0x0000000010027c5c       0x1a Output\obj\modules\bluetooth\bsp_bt.o
-                0x0000000010027c5c                bsp_bt_get_hfp_vol
+                0x0000000010027c84       0x1a Output\obj\modules\bluetooth\bsp_bt.o
+                0x0000000010027c84                bsp_bt_get_hfp_vol
  .text.bsp_bt_call_volume_msg
-                0x0000000010027c76       0x3c Output\obj\modules\bluetooth\bsp_bt.o
-                0x0000000010027c76                bsp_bt_call_volume_msg
+                0x0000000010027c9e       0x3c Output\obj\modules\bluetooth\bsp_bt.o
+                0x0000000010027c9e                bsp_bt_call_volume_msg
  .text.bt_emit_notice
-                0x0000000010027cb2      0x466 Output\obj\modules\bluetooth\bsp_bt.o
-                0x0000000010027cb2                bt_emit_notice
+                0x0000000010027cda      0x466 Output\obj\modules\bluetooth\bsp_bt.o
+                0x0000000010027cda                bt_emit_notice
  .text.a2dp_recon_hook
-                0x0000000010028118        0x2 Output\obj\modules\bluetooth\bt\a2dp.o
-                0x0000000010028118                a2dp_recon_hook
+                0x0000000010028140        0x2 Output\obj\modules\bluetooth\bt\a2dp.o
+                0x0000000010028140                a2dp_recon_hook
  .text.a2dp_vol_reverse
-                0x000000001002811a       0x3a Output\obj\modules\bluetooth\bt\a2dp.o
-                0x000000001002811a                a2dp_vol_reverse
+                0x0000000010028142       0x3a Output\obj\modules\bluetooth\bt\a2dp.o
+                0x0000000010028142                a2dp_vol_reverse
  .text.a2dp_vol_conver
-                0x0000000010028154       0x34 Output\obj\modules\bluetooth\bt\a2dp.o
-                0x0000000010028154                a2dp_vol_conver
+                0x000000001002817c       0x34 Output\obj\modules\bluetooth\bt\a2dp.o
+                0x000000001002817c                a2dp_vol_conver
  .text.a2dp_get_vol
-                0x0000000010028188       0x14 Output\obj\modules\bluetooth\bt\a2dp.o
-                0x0000000010028188                a2dp_get_vol
+                0x00000000100281b0       0x14 Output\obj\modules\bluetooth\bt\a2dp.o
+                0x00000000100281b0                a2dp_get_vol
  .text.a2dp_vol_get_init_cb
-                0x000000001002819c       0x1e Output\obj\modules\bluetooth\bt\a2dp.o
-                0x000000001002819c                a2dp_vol_get_init_cb
+                0x00000000100281c4       0x1e Output\obj\modules\bluetooth\bt\a2dp.o
+                0x00000000100281c4                a2dp_vol_get_init_cb
  .text.a2dp_vol_adj_cb
-                0x00000000100281ba       0x24 Output\obj\modules\bluetooth\bt\a2dp.o
-                0x00000000100281ba                a2dp_vol_adj_cb
+                0x00000000100281e2       0x24 Output\obj\modules\bluetooth\bt\a2dp.o
+                0x00000000100281e2                a2dp_vol_adj_cb
  .text.bt_is_test_mode
-                0x00000000100281de       0x32 Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010028206       0x32 Output\obj\modules\bluetooth\bt\bt.o
  .text.bt_get_class_of_device
-                0x0000000010028210       0x1a Output\obj\modules\bluetooth\bt\bt.o
-                0x0000000010028210                bt_get_class_of_device
+                0x0000000010028238       0x1a Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010028238                bt_get_class_of_device
  .text.bt_get_local_name
-                0x000000001002822a       0x16 Output\obj\modules\bluetooth\bt\bt.o
-                0x000000001002822a                bt_get_local_name
+                0x0000000010028252       0x16 Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010028252                bt_get_local_name
  .text.bt_clr_master_addr
-                0x0000000010028240       0x2c Output\obj\modules\bluetooth\bt\bt.o
-                0x0000000010028240                bt_clr_master_addr
+                0x0000000010028268       0x2c Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010028268                bt_clr_master_addr
  .text.bt_save_master_addr
-                0x000000001002826c       0x64 Output\obj\modules\bluetooth\bt\bt.o
-                0x000000001002826c                bt_save_master_addr
+                0x0000000010028294       0x64 Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010028294                bt_save_master_addr
  .text.bt_get_master_addr
-                0x00000000100282d0       0x3a Output\obj\modules\bluetooth\bt\bt.o
-                0x00000000100282d0                bt_get_master_addr
+                0x00000000100282f8       0x3a Output\obj\modules\bluetooth\bt\bt.o
+                0x00000000100282f8                bt_get_master_addr
  .text.bt_get_local_bd_addr
-                0x000000001002830a       0x30 Output\obj\modules\bluetooth\bt\bt.o
-                0x000000001002830a                bt_get_local_bd_addr
+                0x0000000010028332       0x30 Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010028332                bt_get_local_bd_addr
  .text.bt_get_rand_seed
-                0x000000001002833a        0xa Output\obj\modules\bluetooth\bt\bt.o
-                0x000000001002833a                bt_get_rand_seed
+                0x0000000010028362        0xa Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010028362                bt_get_rand_seed
  .text.bt_get_fixed_bd_addr
-                0x0000000010028344       0x1e Output\obj\modules\bluetooth\bt\bt.o
-                0x0000000010028344                bt_get_fixed_bd_addr
+                0x000000001002836c       0x1e Output\obj\modules\bluetooth\bt\bt.o
+                0x000000001002836c                bt_get_fixed_bd_addr
  .text.bt_get_link_info_flash
-                0x0000000010028362       0x16 Output\obj\modules\bluetooth\bt\bt.o
-                0x0000000010028362                bt_get_link_info_flash
+                0x000000001002838a       0x16 Output\obj\modules\bluetooth\bt\bt.o
+                0x000000001002838a                bt_get_link_info_flash
  .text.bt_put_link_info_flash
-                0x0000000010028378       0x16 Output\obj\modules\bluetooth\bt\bt.o
-                0x0000000010028378                bt_put_link_info_flash
+                0x00000000100283a0       0x16 Output\obj\modules\bluetooth\bt\bt.o
+                0x00000000100283a0                bt_put_link_info_flash
  .text.bt_get_ext_link_info_flash
-                0x000000001002838e        0x8 Output\obj\modules\bluetooth\bt\bt.o
-                0x000000001002838e                bt_get_ext_link_info_flash
+                0x00000000100283b6        0x8 Output\obj\modules\bluetooth\bt\bt.o
+                0x00000000100283b6                bt_get_ext_link_info_flash
  .text.bt_put_ext_link_info_flash
-                0x0000000010028396        0x8 Output\obj\modules\bluetooth\bt\bt.o
-                0x0000000010028396                bt_put_ext_link_info_flash
+                0x00000000100283be        0x8 Output\obj\modules\bluetooth\bt\bt.o
+                0x00000000100283be                bt_put_ext_link_info_flash
  .text.bt_sync_link_info
-                0x000000001002839e        0x4 Output\obj\modules\bluetooth\bt\bt.o
-                0x000000001002839e                bt_sync_link_info
+                0x00000000100283c6        0x4 Output\obj\modules\bluetooth\bt\bt.o
+                0x00000000100283c6                bt_sync_link_info
  .text.bt_test_mode_init
-                0x00000000100283a2       0x12 Output\obj\modules\bluetooth\bt\bt.o
-                0x00000000100283a2                bt_test_mode_init
+                0x00000000100283ca       0x12 Output\obj\modules\bluetooth\bt\bt.o
+                0x00000000100283ca                bt_test_mode_init
  .text.bt_get_link_info
-                0x00000000100283b4       0x34 Output\obj\modules\bluetooth\bt\bt.o
-                0x00000000100283b4                bt_get_link_info
+                0x00000000100283dc       0x34 Output\obj\modules\bluetooth\bt\bt.o
+                0x00000000100283dc                bt_get_link_info
  .text.bt_put_link_info
-                0x00000000100283e8       0x34 Output\obj\modules\bluetooth\bt\bt.o
-                0x00000000100283e8                bt_put_link_info
+                0x0000000010028410       0x34 Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010028410                bt_put_link_info
  .text.bt_get_ext_link_info
-                0x000000001002841c        0x4 Output\obj\modules\bluetooth\bt\bt.o
-                0x000000001002841c                bt_get_ext_link_info
+                0x0000000010028444        0x4 Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010028444                bt_get_ext_link_info
  .text.bt_put_ext_link_info
-                0x0000000010028420        0x4 Output\obj\modules\bluetooth\bt\bt.o
-                0x0000000010028420                bt_put_ext_link_info
+                0x0000000010028448        0x4 Output\obj\modules\bluetooth\bt\bt.o
+                0x0000000010028448                bt_put_ext_link_info
  .text.bt_decode_init_cb
-                0x0000000010028424        0x2 Output\obj\modules\bluetooth\bt\bt.o
-                0x0000000010028424                bt_decode_init_cb
+                0x000000001002844c        0x2 Output\obj\modules\bluetooth\bt\bt.o
+                0x000000001002844c                bt_decode_init_cb
  .text.dev_vol_set_cb
-                0x0000000010028426       0x66 Output\obj\modules\bluetooth\bt\dev_vol.o
-                0x0000000010028426                dev_vol_set_cb
+                0x000000001002844e       0x66 Output\obj\modules\bluetooth\bt\dev_vol.o
+                0x000000001002844e                dev_vol_set_cb
  .text.dev_vol_req_cb
-                0x000000001002848c       0x6e Output\obj\modules\bluetooth\bt\dev_vol.o
-                0x000000001002848c                dev_vol_req_cb
+                0x00000000100284b4       0x6e Output\obj\modules\bluetooth\bt\dev_vol.o
+                0x00000000100284b4                dev_vol_req_cb
  .text.bt_redial_init
-                0x00000000100284fa       0x10 Output\obj\modules\bluetooth\bt\hfhs.o
-                0x00000000100284fa                bt_redial_init
+                0x0000000010028522       0x10 Output\obj\modules\bluetooth\bt\hfhs.o
+                0x0000000010028522                bt_redial_init
  .text.bt_reset_redial_number
-                0x000000001002850a       0x14 Output\obj\modules\bluetooth\bt\hfhs.o
-                0x000000001002850a                bt_reset_redial_number
+                0x0000000010028532       0x14 Output\obj\modules\bluetooth\bt\hfhs.o
+                0x0000000010028532                bt_reset_redial_number
  .text.bt_update_redial_number
-                0x000000001002851e       0x36 Output\obj\modules\bluetooth\bt\hfhs.o
-                0x000000001002851e                bt_update_redial_number
+                0x0000000010028546       0x36 Output\obj\modules\bluetooth\bt\hfhs.o
+                0x0000000010028546                bt_update_redial_number
  .text.bt_get_last_call_number
-                0x0000000010028554       0x14 Output\obj\modules\bluetooth\bt\hfhs.o
-                0x0000000010028554                bt_get_last_call_number
+                0x000000001002857c       0x14 Output\obj\modules\bluetooth\bt\hfhs.o
+                0x000000001002857c                bt_get_last_call_number
  .text.hfp_get_last_call_number
-                0x0000000010028568       0x14 Output\obj\modules\bluetooth\bt\hfhs.o
-                0x0000000010028568                hfp_get_last_call_number
+                0x0000000010028590       0x14 Output\obj\modules\bluetooth\bt\hfhs.o
+                0x0000000010028590                hfp_get_last_call_number
  .text.hfp_get_mic_gain
-                0x000000001002857c        0x4 Output\obj\modules\bluetooth\bt\hfhs.o
-                0x000000001002857c                hfp_get_mic_gain
+                0x00000000100285a4        0x4 Output\obj\modules\bluetooth\bt\hfhs.o
+                0x00000000100285a4                hfp_get_mic_gain
  .text.hfp_get_spk_gain
-                0x0000000010028580       0x10 Output\obj\modules\bluetooth\bt\hfhs.o
-                0x0000000010028580                hfp_get_spk_gain
+                0x00000000100285a8       0x10 Output\obj\modules\bluetooth\bt\hfhs.o
+                0x00000000100285a8                hfp_get_spk_gain
  .text.hfp_get_bat_level
-                0x0000000010028590       0x86 Output\obj\modules\bluetooth\bt\hfhs.o
-                0x0000000010028590                hfp_get_bat_level
+                0x00000000100285b8       0x86 Output\obj\modules\bluetooth\bt\hfhs.o
+                0x00000000100285b8                hfp_get_bat_level
  .text.hfp_is_list_curr_calls
-                0x0000000010028616        0x4 Output\obj\modules\bluetooth\bt\hfhs.o
-                0x0000000010028616                hfp_is_list_curr_calls
+                0x000000001002863e        0x4 Output\obj\modules\bluetooth\bt\hfhs.o
+                0x000000001002863e                hfp_is_list_curr_calls
  .text.hfp_get_at_cmd
-                0x000000001002861a        0x8 Output\obj\modules\bluetooth\bt\hfhs.o
-                0x000000001002861a                hfp_get_at_cmd
+                0x0000000010028642        0x8 Output\obj\modules\bluetooth\bt\hfhs.o
+                0x0000000010028642                hfp_get_at_cmd
  .text.bt_hfp_send_at_cmd_with_str
-                0x0000000010028622       0x1e Output\obj\modules\bluetooth\bt\hfhs.o
-                0x0000000010028622                bt_hfp_send_at_cmd_with_str
+                0x000000001002864a       0x1e Output\obj\modules\bluetooth\bt\hfhs.o
+                0x000000001002864a                bt_hfp_send_at_cmd_with_str
  .text.hfp_at_dial
-                0x0000000010028640       0x38 Output\obj\modules\bluetooth\bt\hfhs.o
-                0x0000000010028640                hfp_at_dial
+                0x0000000010028668       0x38 Output\obj\modules\bluetooth\bt\hfhs.o
+                0x0000000010028668                hfp_at_dial
  .text.bsp_bt_hid_photo
-                0x0000000010028678       0x40 Output\obj\modules\bluetooth\bt\hid.o
-                0x0000000010028678                bsp_bt_hid_photo
+                0x00000000100286a0       0x40 Output\obj\modules\bluetooth\bt\hid.o
+                0x00000000100286a0                bsp_bt_hid_photo
  .text.user_finger_down
-                0x00000000100286b8       0xae Output\obj\modules\bluetooth\bt\hid.o
-                0x00000000100286b8                user_finger_down
+                0x00000000100286e0       0xae Output\obj\modules\bluetooth\bt\hid.o
+                0x00000000100286e0                user_finger_down
  .text.user_finger_up
-                0x0000000010028766       0xc2 Output\obj\modules\bluetooth\bt\hid.o
-                0x0000000010028766                user_finger_up
+                0x000000001002878e       0xc2 Output\obj\modules\bluetooth\bt\hid.o
+                0x000000001002878e                user_finger_up
  .text.user_finger_p
-                0x0000000010028828       0x5a Output\obj\modules\bluetooth\bt\hid.o
-                0x0000000010028828                user_finger_p
+                0x0000000010028850       0x5a Output\obj\modules\bluetooth\bt\hid.o
+                0x0000000010028850                user_finger_p
  .text.user_finger_pp
-                0x0000000010028882       0x9e Output\obj\modules\bluetooth\bt\hid.o
-                0x0000000010028882                user_finger_pp
+                0x00000000100288aa       0x9e Output\obj\modules\bluetooth\bt\hid.o
+                0x00000000100288aa                user_finger_pp
  .text.bt_init_lib
-                0x0000000010028920       0x8a Output\obj\modules\bluetooth\bt\profile.o
-                0x0000000010028920                bt_init_lib
+                0x0000000010028948       0x8a Output\obj\modules\bluetooth\bt\profile.o
+                0x0000000010028948                bt_init_lib
  .text.spp_txpkt_init
-                0x00000000100289aa       0x30 Output\obj\modules\bluetooth\bt\spp.o
-                0x00000000100289aa                spp_txpkt_init
+                0x00000000100289d2       0x30 Output\obj\modules\bluetooth\bt\spp.o
+                0x00000000100289d2                spp_txpkt_init
  .text.get_spp_mtu_size
-                0x00000000100289da        0x6 Output\obj\modules\bluetooth\bt\spp.o
-                0x00000000100289da                get_spp_mtu_size
+                0x0000000010028a02        0x6 Output\obj\modules\bluetooth\bt\spp.o
+                0x0000000010028a02                get_spp_mtu_size
  .text.spp_rx_callback
-                0x00000000100289e0        0xa Output\obj\modules\bluetooth\bt\spp.o
-                0x00000000100289e0                spp_rx_callback
+                0x0000000010028a08        0xa Output\obj\modules\bluetooth\bt\spp.o
+                0x0000000010028a08                spp_rx_callback
  .text.spp_connect_callback
-                0x00000000100289ea       0x1c Output\obj\modules\bluetooth\bt\spp.o
-                0x00000000100289ea                spp_connect_callback
+                0x0000000010028a12       0x1c Output\obj\modules\bluetooth\bt\spp.o
+                0x0000000010028a12                spp_connect_callback
  .text.spp_disconnect_callback
-                0x0000000010028a06       0x4c Output\obj\modules\bluetooth\bt\spp.o
-                0x0000000010028a06                spp_disconnect_callback
+                0x0000000010028a2e       0x4c Output\obj\modules\bluetooth\bt\spp.o
+                0x0000000010028a2e                spp_disconnect_callback
  .text.peri_nr_init
-                0x0000000010028a52       0x1a Output\obj\modules\bluetooth\call\bt_sco.o
-                0x0000000010028a52                peri_nr_init
+                0x0000000010028a7a       0x1a Output\obj\modules\bluetooth\call\bt_sco.o
+                0x0000000010028a7a                peri_nr_init
  .text.bt_call_init
-                0x0000000010028a6c       0x60 Output\obj\modules\bluetooth\call\bt_sco.o
-                0x0000000010028a6c                bt_call_init
+                0x0000000010028a94       0x60 Output\obj\modules\bluetooth\call\bt_sco.o
+                0x0000000010028a94                bt_call_init
  .text.bt_call_exit
-                0x0000000010028acc       0x2e Output\obj\modules\bluetooth\call\bt_sco.o
-                0x0000000010028acc                bt_call_exit
+                0x0000000010028af4       0x2e Output\obj\modules\bluetooth\call\bt_sco.o
+                0x0000000010028af4                bt_call_exit
  .text.bt_tws_get_pair_id
-                0x0000000010028afa        0xa Output\obj\modules\bluetooth\tws\tws.o
-                0x0000000010028afa                bt_tws_get_pair_id
+                0x0000000010028b22        0xa Output\obj\modules\bluetooth\tws\tws.o
+                0x0000000010028b22                bt_tws_get_pair_id
  .text.bt_tws_name_suffix_replace
-                0x0000000010028b04       0x38 Output\obj\modules\bluetooth\tws\tws.o
-                0x0000000010028b04                bt_tws_name_suffix_replace
+                0x0000000010028b2c       0x38 Output\obj\modules\bluetooth\tws\tws.o
+                0x0000000010028b2c                bt_tws_name_suffix_replace
  .text.bt_tws_set_discon
-                0x0000000010028b3c       0x2c Output\obj\modules\bluetooth\tws\tws.o
-                0x0000000010028b3c                bt_tws_set_discon
+                0x0000000010028b64       0x2c Output\obj\modules\bluetooth\tws\tws.o
+                0x0000000010028b64                bt_tws_set_discon
  .text.bt_tws_get_channel_cfg
-                0x0000000010028b68       0x48 Output\obj\modules\bluetooth\tws\tws.o
-                0x0000000010028b68                bt_tws_get_channel_cfg
+                0x0000000010028b90       0x48 Output\obj\modules\bluetooth\tws\tws.o
+                0x0000000010028b90                bt_tws_get_channel_cfg
  .text.bt_tws_get_channel
-                0x0000000010028bb0       0x22 Output\obj\modules\bluetooth\tws\tws.o
-                0x0000000010028bb0                bt_tws_get_channel
+                0x0000000010028bd8       0x22 Output\obj\modules\bluetooth\tws\tws.o
+                0x0000000010028bd8                bt_tws_get_channel
  .text.bt_tws_channel_read
-                0x0000000010028bd2       0x1a Output\obj\modules\bluetooth\tws\tws.o
-                0x0000000010028bd2                bt_tws_channel_read
+                0x0000000010028bfa       0x1a Output\obj\modules\bluetooth\tws\tws.o
+                0x0000000010028bfa                bt_tws_channel_read
  .text.bt_tws_get_tws_channel
-                0x0000000010028bec       0x24 Output\obj\modules\bluetooth\tws\tws.o
-                0x0000000010028bec                bt_tws_get_tws_channel
+                0x0000000010028c14       0x24 Output\obj\modules\bluetooth\tws\tws.o
+                0x0000000010028c14                bt_tws_get_tws_channel
  .text.bt_tws_get_tws_role
-                0x0000000010028c10       0x56 Output\obj\modules\bluetooth\tws\tws.o
-                0x0000000010028c10                bt_tws_get_tws_role
+                0x0000000010028c38       0x56 Output\obj\modules\bluetooth\tws\tws.o
+                0x0000000010028c38                bt_tws_get_tws_role
  .text.bt_tws_channel_check
-                0x0000000010028c66       0x80 Output\obj\modules\bluetooth\tws\tws.o
-                0x0000000010028c66                bt_tws_channel_check
+                0x0000000010028c8e       0x80 Output\obj\modules\bluetooth\tws\tws.o
+                0x0000000010028c8e                bt_tws_channel_check
  .text.bt_tws_get_info
-                0x0000000010028ce6       0x2c Output\obj\modules\bluetooth\tws\tws.o
-                0x0000000010028ce6                bt_tws_get_info
+                0x0000000010028d0e       0x2c Output\obj\modules\bluetooth\tws\tws.o
+                0x0000000010028d0e                bt_tws_get_info
  .text.bt_tws_set_info
-                0x0000000010028d12       0x5a Output\obj\modules\bluetooth\tws\tws.o
-                0x0000000010028d12                bt_tws_set_info
+                0x0000000010028d3a       0x5a Output\obj\modules\bluetooth\tws\tws.o
+                0x0000000010028d3a                bt_tws_set_info
  .text.tws_get_custom_data
-                0x0000000010028d6c       0x1e Output\obj\modules\bluetooth\tws\tws.o
-                0x0000000010028d6c                tws_get_custom_data
+                0x0000000010028d94       0x1e Output\obj\modules\bluetooth\tws\tws.o
+                0x0000000010028d94                tws_get_custom_data
  .text.tws_set_custom_data
-                0x0000000010028d8a       0x2a Output\obj\modules\bluetooth\tws\tws.o
-                0x0000000010028d8a                tws_set_custom_data
+                0x0000000010028db2       0x2a Output\obj\modules\bluetooth\tws\tws.o
+                0x0000000010028db2                tws_set_custom_data
  .text.tws_user_key_process
-                0x0000000010028db4        0x4 Output\obj\modules\bluetooth\tws\tws.o
-                0x0000000010028db4                tws_user_key_process
- *fill*         0x0000000010028db8       0x48 
+                0x0000000010028ddc        0x4 Output\obj\modules\bluetooth\tws\tws.o
+                0x0000000010028ddc                tws_user_key_process
+ *fill*         0x0000000010028de0       0x20 
  .text.res_list_add
                 0x0000000010028e00       0x80 Output\obj\modules\bluetooth\tws\tws_res.o
  *fill*         0x0000000010028e80        0x0 
