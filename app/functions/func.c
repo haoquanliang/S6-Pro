@@ -611,7 +611,7 @@ void func_message(u16 msg)
                         app_lr_send_msg(EVT_TONE_AI);
 
                 }else{
-                        bsp_res_play(TWS_RES_TONE_AI);
+                        bsp_res_play(TWS_RES_TONE_AI_ON);
                 }
                 
               break;    
@@ -791,7 +791,7 @@ void func_message(u16 msg)
 #if APP_KEY_ADD_EQ_SWITCH
             case EVT_EQ_SWITCH:
 
-                
+
             if(!bt_tws_is_slave()){
                 printf("EVT_EQ_SWITCH\r\n");
                 if((ab_mate_app.eq_info.mode != 0x00) && (ab_mate_app.eq_info.mode != 0x06) && (!ab_mate_app.v3d_audio_en)){
