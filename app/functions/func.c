@@ -706,8 +706,8 @@ void func_message(u16 msg)
        
           //cal_in_case:%d peer_in_case:%d\r\n",sys_cb.flag_local_in_case,sys_cb.flag_peer_in_case);
            //  app_lr_send_notification(LR_NOTIFY_IN_CASE_STATUS, 1, &sys_cb.flag_local_in_case);
-          printf("ab_mate_app.con_sta:%d\r\n",ab_mate_app.con_sta);
-          printf("sys_cb.sleep_delay:%d sys_cb.pwroff_delay:%d sys_cb.sleep_en:%d port_2led_is_sleep_en:%d  bt_is_allow_sleep:%d\r\n",sys_cb.sleep_delay,sys_cb.pwroff_delay,sys_cb.sleep_en,port_2led_is_sleep_en(),bt_is_allow_sleep());
+         // printf("ab_mate_app.con_sta:%d\r\n",ab_mate_app.con_sta);
+        //  printf("sys_cb.sleep_delay:%d sys_cb.pwroff_delay:%d sys_cb.sleep_en:%d port_2led_is_sleep_en:%d  bt_is_allow_sleep:%d\r\n",sys_cb.sleep_delay,sys_cb.pwroff_delay,sys_cb.sleep_en,port_2led_is_sleep_en(),bt_is_allow_sleep());
         //  u8 bt_tws_addr[6];
         // printf("get_link:%d\r\n",bt_tws_get_link_info(bt_tws_addr));
         // printf("bt_tws_addr: %02X:%02X:%02X:%02X:%02X:%02X\n",
@@ -731,10 +731,11 @@ void func_message(u16 msg)
             }else{
             printf("Rkey_short:%d key_double:%d key_three:%d key_long:%d\r\n",ab_mate_app.local_key.key_short,ab_mate_app.local_key.key_double,ab_mate_app.local_key.key_three,ab_mate_app.local_key.key_long);
             }
-            printf("ab_mate_app.ai_state:%d\r\n",ab_mate_app.ai_state);
+            printf("xcfg_cb.user_def_kl_sel:%d three:%d\r\n",xcfg_cb.user_def_kl_sel,xcfg_cb.user_def_kt_sel);  
+        // printf("ab_mate_app.ai_state:%d\r\n",ab_mate_app.ai_state);
             // printf("ab_mate_app.ai_state:%d\r\n",ab_mate_app.ai_state);
-printf("gain:%d %d %d %d %d %d %d %d %d %d \r\n",ab_mate_app.eq_info.gain[0],ab_mate_app.eq_info.gain[1],ab_mate_app.eq_info.gain[2],ab_mate_app.eq_info.gain[3],ab_mate_app.eq_info.gain[4],ab_mate_app.eq_info.gain[5],ab_mate_app.eq_info.gain[6],ab_mate_app.eq_info.gain[7],ab_mate_app.eq_info.gain[8],ab_mate_app.eq_info.gain[9]);
-            printf("bt_get_curr_scan:%d\r\n",bt_get_curr_scan());
+// printf("gain:%d %d %d %d %d %d %d %d %d %d \r\n",ab_mate_app.eq_info.gain[0],ab_mate_app.eq_info.gain[1],ab_mate_app.eq_info.gain[2],ab_mate_app.eq_info.gain[3],ab_mate_app.eq_info.gain[4],ab_mate_app.eq_info.gain[5],ab_mate_app.eq_info.gain[6],ab_mate_app.eq_info.gain[7],ab_mate_app.eq_info.gain[8],ab_mate_app.eq_info.gain[9]);
+//             printf("bt_get_curr_scan:%d\r\n",bt_get_curr_scan());
 #if SWETZ_VBAT_VIR_PRESSURE
     app_bat_level_update(false);
 #endif
@@ -787,6 +788,80 @@ printf("gain:%d %d %d %d %d %d %d %d %d %d \r\n",ab_mate_app.eq_info.gain[0],ab_
             break;
 #endif
 
+#if APP_KEY_ADD_EQ_SWITCH
+            case EVT_EQ_SWITCH:
+
+                
+            if(!bt_tws_is_slave()){
+                printf("EVT_EQ_SWITCH\r\n");
+                if((ab_mate_app.eq_info.mode != 0x00) && (ab_mate_app.eq_info.mode != 0x06) && (!ab_mate_app.v3d_audio_en)){
+                        msg_enqueue(EVT_EQ_PARA_DEFAULT);//恢复经典eq
+
+                }else{
+                    u8 next_mode = 0;
+                    if(ab_mate_app.v3d_audio_en){
+                            printf("Space Audio ON ->  Classic\r\n");
+                            ab_mate_app.v3d_audio_en = 0;
+                            bt_tws_req_alarm_user(USER_SYNC_EVT_V3D_OFF);
+                            ab_mate_notify_audio();
+                            if(ab_mate_app.eq_info.mode != 0x00){//eq不是经典就切到经典
+                                    msg_enqueue(EVT_EQ_PARA_DEFAULT);//恢复经典eq
+                            } 
+                            
+  
+
+                    }else if(ab_mate_app.eq_info.mode == 0x06){
+                                    printf("bass ON -> Space Audio\r\n");
+                                    msg_enqueue(EVT_EQ_PARA_DEFAULT);
+                                    ab_mate_app.v3d_audio_en = 1;
+                                    bt_tws_req_alarm_user(USER_SYNC_EVT_V3D_ON);
+                                    ab_mate_notify_audio();
+
+                            }else {
+                                    printf("EQ class -> EQ bass\r\n");
+                                    bt_tws_req_alarm_user(USER_SYNC_EVT_SWITCH_EQ_TO_BASS);
+                            }
+                }   
+
+            }else{
+                app_lr_send_msg(EVT_EQ_SWITCH);    
+            }
+                 
+                 
+                break;
+
+        case EVT_SWITCH_EQ_TO_BASS:
+             printf("EVT_SWITCH_EQ_TO_BASS\r\n");
+                ab_mate_bypass_eq();
+
+ if (ab_mate_app.eq_info.mode != 0x06)
+        {
+                ab_mate_app.eq_info.mode = 0x06;
+                ab_mate_tws_eq_info_sync();
+                ab_mate_app.do_flag |= FLAG_EQ_SET;
+                ab_mate_cm_write(&ab_mate_app.eq_info.mode, AB_MATE_CM_EQ_DATA, 1+AB_MATE_EQ_BAND_CNT, 2); 
+                ab_mate_notify_eq(); 
+        }
+            break;
+#endif
+
+#if APP_KEY_ADD_EQ_SWITCH
+            case EVT_V3D_ON:
+                printf("EVT_V3D_ON\r\n");
+        if(!music_effect_get_state(MUSIC_EFFECT_SPATIAL_AUDIO)){
+                music_spatial_audio_start();
+                printf("v3d_audio open\r\n");
+        }
+                break;
+            case EVT_V3D_OFF:
+                printf("EVT_V3D_OFF\r\n");
+        if(music_effect_get_state(MUSIC_EFFECT_SPATIAL_AUDIO)){
+                music_spatial_audio_stop();
+                printf("v3d_audio close\r\n");
+        }
+                break;
+#endif
+
 #if SWETZ_SPP_CMD
         case EVT_SPP_AT_CMD:
             spp_at_cmd_process();
@@ -825,6 +900,8 @@ printf("gain:%d %d %d %d %d %d %d %d %d %d \r\n",ab_mate_app.eq_info.gain[0],ab_
                 break;
 
 #endif
+
+
 
 #if USER_EQ_SYNC_BYPASS
             case EVT_EQ_BYPASS:

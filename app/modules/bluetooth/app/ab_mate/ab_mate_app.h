@@ -257,9 +257,8 @@ enum{
     APP_KEY_PLAY_PAUSE,
     APP_KEY_LOW_LATENCY,
     APP_KEY_ANC,
-#if APP_KEY_AI
     APP_KEY_AI_REC,
-#endif
+    APP_KEY_EQ_SWITCH,
 };
 
 enum{

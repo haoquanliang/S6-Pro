@@ -572,6 +572,10 @@
 #define EVT_OVERHANG_TO_SLEEP   0x723
 #define EVT_TONE_AI             0x724
 #define EVT_EQ_BYPASS           0x725
+#define EVT_EQ_SWITCH           0x726
+#define EVT_V3D_ON              0x727
+#define EVT_V3D_OFF             0x728
+#define EVT_SWITCH_EQ_TO_BASS             0x729
 #endif
 
 

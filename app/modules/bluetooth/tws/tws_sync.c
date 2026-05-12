@@ -110,6 +110,20 @@ void tws_time_alarm_cb(uint32_t params, uint32_t alarm_tickn)
 
 #endif
 
+#if APP_KEY_ADD_EQ_SWITCH
+        if(params == USER_SYNC_EVT_V3D_ON){
+                msg_enqueue(EVT_V3D_ON);
+
+        }
+        if(params == USER_SYNC_EVT_V3D_OFF){
+                msg_enqueue(EVT_V3D_OFF);     
+
+        }
+        if(params == USER_SYNC_EVT_SWITCH_EQ_TO_BASS){
+                msg_enqueue(EVT_SWITCH_EQ_TO_BASS);     
+        }        
+#endif
+
     }
  
 #endif

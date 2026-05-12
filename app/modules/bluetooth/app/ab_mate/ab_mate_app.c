@@ -103,9 +103,10 @@ static const u8 key_app2local_table[] = {UDK_NONE,          UDK_REDIALING,
                                         UDK_LOW_LATENCY,   UDK_NR,                                        
 #if APP_KEY_AI                                         
                                          UDK_NONE,   UDK_NONE,
-                                         UDK_NONE,  UDK_KEY_AI_REC,
-                                         UDK_KEY_AI_REC
-#endif
+                                         UDK_NONE,  UDK_NONE,
+                                         UDK_KEY_AI_REC,UDK_KEY_EQ_SWITCH,
+                                         UDK_KEY_EQ_SWITCH
+#endif  
                                        
                                     };
 #if !AB_MATE_KEY_USER_DEF_EN
@@ -1569,10 +1570,15 @@ void ab_mate_anc_fade_en_set_do(u8 en, u8 sync)
 void ab_mate_key_set_do(void)
 {
 #if AB_MATE_KEY_EN
+   
     AB_MATE_KEY_SHORT = key_app2local_table[ab_mate_app.local_key.key_short];
     AB_MATE_KEY_DOUBLE = key_app2local_table[ab_mate_app.local_key.key_double];
     AB_MATE_KEY_THREE = key_app2local_table[ab_mate_app.local_key.key_three];
+    printf("ab_mate_app.local_key.key_long:%d\r\n",ab_mate_app.local_key.key_long);
+
     AB_MATE_KEY_LONG = key_app2local_table[ab_mate_app.local_key.key_long];
+    
+    printf("2222AB_MATE_KEY_THREE:%d %d %d\r\n",AB_MATE_KEY_THREE,AB_MATE_KEY_LONG,key_app2local_table[15]);
 
     ab_mate_cm_write(&ab_mate_app.local_key,AB_MATE_CM_KEY_LOCAL,sizeof(ab_mate_key_info_t),2);
 #endif

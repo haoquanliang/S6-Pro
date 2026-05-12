@@ -141,6 +141,10 @@
 #define APP_USER_EQ_SET                 1//增加自定义eq
 #define SWETZ_CANSEND_NOW               0//调试时这个变量暂时置1
 #define USER_EQ_SYNC_BYPASS             1//同步 bypass eq
+#define APP_KEY_ADD_EQ_SWITCH           1//经典/低音增强/空间音效
+
+
+
 
 #define SWETZ_CLOSE                 0//1:关掉V3D
 #define APP_MUSIC_AUDIO_TEST        0//音效调试

@@ -61,7 +61,7 @@ bool user_def_key_msg(u8 func_sel)
     }
 
 #if SWETZ_KEY_TONE
-    if(func_sel == UDK_PLAY_PAUSE || func_sel == UDK_PREV || func_sel == UDK_NEXT){
+    if(func_sel == UDK_PLAY_PAUSE || func_sel == UDK_PREV || func_sel == UDK_NEXT || func_sel == UDK_KEY_EQ_SWITCH){
             msg_enqueue(EVT_KEY_PRESS);
     }   
 #endif
@@ -147,9 +147,6 @@ bool user_def_key_msg(u8 func_sel)
 #if APP_KEY_AI
     else if(func_sel == UDK_KEY_AI_REC){
             printf("UDK_KEY_AI_REC\r\n");
-
-          
-
             if(!ab_mate_app.ai_state){
                     msg_enqueue(EVT_TONE_AI);
                     msg_enqueue(EVT_AL_KEY);
@@ -157,6 +154,15 @@ bool user_def_key_msg(u8 func_sel)
             
     }
 #endif
+#if APP_KEY_ADD_EQ_SWITCH
+    else if(func_sel == UDK_KEY_EQ_SWITCH){
+            printf("UDK_KEY_EQ_SWITCH\r\n");
+                     msg_enqueue(EVT_EQ_SWITCH);      
+
+    }
+#endif
+
+
     else {                                            //VOL+, VOL-
         func_message(get_user_def_vol_msg(func_sel));
     }
@@ -257,6 +263,7 @@ void func_bt_message_do(u16 msg)
     case KL_PLAY_PWR_USER_DEF:
         klu_flag = 1;                                                       //长按抬键的时候呼SIRI
     case KL_PLAY_USER_DEF:
+        printf("KL_PLAY_USER_DEF\r\n");
         f_bt.user_kl_flag = 0;
         if (!bt_tws_pair_mode(4)) {                                         //是否长按配对功能
             if (user_def_lkey_tone_is_enable(xcfg_cb.user_def_kl_sel)) {
@@ -265,6 +272,7 @@ void func_bt_message_do(u16 msg)
             if (klu_flag) {
                 f_bt.user_kl_flag = user_def_func_is_ready(xcfg_cb.user_def_kl_sel);     //长按抬键的时候再处理
             } else {
+                printf("xcfg_cb.user_def_kl_sel:%d\r\n",xcfg_cb.user_def_kl_sel);
                 user_def_key_msg(xcfg_cb.user_def_kl_sel);
             }
         }
@@ -296,6 +304,7 @@ void func_bt_message_do(u16 msg)
     ///三击按键处理
     case KTH_PLAY_USER_DEF:
     case KTH_PLAY_PWR_USER_DEF:
+        printf("KTH_PLAY_PWR_USER_DEF\r\n");
         user_def_key_msg(xcfg_cb.user_def_kt_sel);
         break;
 

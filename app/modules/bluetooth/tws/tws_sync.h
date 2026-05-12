@@ -22,6 +22,9 @@ enum
     USER_SYNC_EVT_RESET,//同步执行软复位
     USER_SYNC_EVT_OVERHANG_TO_SLEEP,//同步进休眠
     USER_SYNC_EVT_EQ_BYPASS,//同步eq bypass
+    USER_SYNC_EVT_V3D_ON,//空间音效同步变化
+    USER_SYNC_EVT_V3D_OFF,
+    USER_SYNC_EVT_SWITCH_EQ_TO_BASS,
 };
 #endif 
 
