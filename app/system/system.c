@@ -1859,7 +1859,10 @@ void sys_init(void)
     music_effect_init();
 #endif // BT_MUSIC_EFFECT_EN
 
-
+#if TONE_SYNC
+        extern uint16_t cfg_tws_sync_alarm_time;
+        cfg_tws_sync_alarm_time = 800;
+#endif
 
 }
 

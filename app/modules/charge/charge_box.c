@@ -935,7 +935,12 @@ u32 charge_box_ssw_process(u32 charge_sta)
             if (charge_sta) {
                 charge_box_analysis_packet_for_charge(packet);
             } else {
-                reset_sleep_delay();                    //耳机在仓内不进休眠, 需要接收电量心跳包数据
+#if USER_TEST
+
+#else
+                reset_sleep_delay();                    //耳机在仓内不进休眠, 需要接收电量心跳包数据               
+#endif
+
                 charge_box_analysis_packet(packet);
                 charge_box_update_bat_adv();
              }

@@ -386,7 +386,9 @@ static void sfunc_sleep(void)
 
 #if (CHARGE_EN || QTEST_EN) && (UART0_PRINTF_SEL != PRINTF_VUSB)
         if (xcfg_cb.charge_en && CHARGE_INBOX()) {
-            break;
+#if USER_TEST
+           // break;
+#endif
         }
 #endif // CHARGE_EN
         if(app_need_wakeup()){
@@ -478,14 +480,20 @@ bool sleep_process(is_sleep_func is_sleep)
 
 
 #if CHARGE_EN && (UART0_PRINTF_SEL != PRINTF_VUSB)
+
     if (xcfg_cb.charge_en && CHARGE_INBOX()) {
+
 #if (CHARGE_BOX_TYPE == CBOX_NOR)
         if((sys_cb.pwroff_delay == -1L)){
             en_auto_pwroff();
         }
 #endif
-        reset_sleep_delay();
-        return false;
+#if USER_TEST
+            //    reset_sleep_delay();
+           //         return false;
+#endif
+
+
     }
 #endif // CHARGE_EN
 

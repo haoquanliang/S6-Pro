@@ -21,6 +21,8 @@
 #define STR_PRI                     1//中断打印
 #define  SWETZ_TEST                       0
 
+
+
 #define SWETZ                       1
 #if SWETZ
 #define SWETZ_EVT_5S                1
@@ -142,7 +144,9 @@
 #define SWETZ_CANSEND_NOW               0//调试时这个变量暂时置1
 #define USER_EQ_SYNC_BYPASS             1//同步 bypass eq
 #define APP_KEY_ADD_EQ_SWITCH           1//经典/低音增强/空间音效
+#define TONE_SYNC                       1//提示音分开响
 
+#define USER_TIKTOCK                    1//刷抖音
 
 
 
@@ -150,7 +154,7 @@
 #define APP_MUSIC_AUDIO_TEST        0//音效调试
 
 #define OTA_TEST                    1
-
+#define USER_TEST                   1//在仓也要休眠，；临时处理
 #endif
 
 

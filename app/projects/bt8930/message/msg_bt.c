@@ -232,7 +232,7 @@ void func_bt_message_do(u16 msg)
     case KU_PLAY_PWR_USER_DEF:
         printf("33KU_PLAY_PWR_USER_DEF\r\n");
 #if !SWETZ_TEST
-        user_finger_up();
+        //user_finger_up();
 #endif
 #if SWETZ_SYNC_EVT
     //bt_tws_req_alarm_user(1);//双耳同步执行

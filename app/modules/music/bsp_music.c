@@ -138,6 +138,7 @@ void ab_mate_bypass_eq(void)
         WDT_CLR();
         music_set_eq_for_index(i,0);
     }
+    
     music_set_eq_overall_gain(0);
 
     while (!tick_check_expire(ab_mate_app.tick, 30)) {     //连续两次EQ设置相隔30ms，连续短时间设置容易失败

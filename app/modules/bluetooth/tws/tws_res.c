@@ -5,7 +5,7 @@
 #if BT_TWS_EN
 
 
-#define TRACE_EN                0
+#define TRACE_EN                1
 
 #if TRACE_EN
 #define TRACE(...)              printf(__VA_ARGS__)
@@ -148,6 +148,8 @@ static void res_list_try_add(void)
 //----------------------------------------------------------------------------
 static void tws_res_add_do(uint16_t param)
 {
+
+
     uint8_t res_idx = (uint8_t)param;
     uint8_t res_lable = (uint8_t)(param>>8) & 0xf;
     uint8_t res_flag = (uint8_t)(param>>12) & 0xf;
@@ -173,13 +175,16 @@ static void tws_res_done_do(uint16_t param)
 
 #if TRACE_EN
     uint8_t res_idx = (uint8_t)param;
-    TRACE("res_done: %d(%d--%d)\n", res_idx, res_lable, tws_res.res_lable);
+    TRACE("================res_done: %d(%d--%d)\n", res_idx, res_lable, tws_res.res_lable);
 #endif
 }
 
 ALIGNED(128) NO_INLINE
 static void tws_res_alarm_start(res_item_t *item, uint8_t role)
 {
+
+
+
     GLOBAL_INT_DISABLE();
     tws_res.res_idx = item->res_idx;
     tws_res.res_lable = item->res_lable;
@@ -196,7 +201,7 @@ static void tws_res_alarm_start(res_item_t *item, uint8_t role)
         bt_tws_req_alarm_res((item->res_lable<<8) | item->res_idx);
     }
 
-    TRACE("res_start: %d(%d) -- role=%d\n", tws_res.res_idx, tws_res.res_lable, role);
+    TRACE("========================res_start: %d(%d) -- role=%d\n", tws_res.res_idx, tws_res.res_lable, role);
 }
 
 static void tws_res_play_prepare(void)
@@ -204,7 +209,13 @@ static void tws_res_play_prepare(void)
     uint8_t res_type = tws_res.res_type;
 
     if(res_type == RES_TYPE_MP3) {
+#if TONE_SYNC
+        dac_src_fade_out(0, 4);
+        dac_fade_wait();
+#else
         dac_src_fade_out(0, 10);
+#endif
+
         bt_audio_bypass();
     }
 
@@ -391,6 +402,7 @@ static void tws_res_play_end(void)
 #if SYS_KARAOK_EN
     bsp_karaok_init();
 #endif
+
 }
 
 static bool tws_res_check_break(void)
@@ -498,7 +510,12 @@ static bool tws_res_is_busy(void)
 static bool tws_res_slave_w4_start(void)
 {
     res_item_t item;
+#if TONE_SYNC
+    uint retry = ITEM_MAX_NB + 24;
+#else
     uint retry = ITEM_MAX_NB + 4;
+#endif
+
     uint8_t req_lable = tws_res.req_lable;
     uint8_t req_idx = tws_res.req_idx;
 
@@ -514,14 +531,18 @@ static bool tws_res_slave_w4_start(void)
         if(diff == 0) {
             if(req_idx != item.res_idx) {
                 res_list_get(&item);        //discard
-                TRACE("res_miss: %d(%d), %d(%d) ####\n", item.res_idx, item.res_lable, req_idx, req_lable);
+                TRACE("===========1res_miss: %d(%d), %d(%d) ####\n", item.res_idx, item.res_lable, req_idx, req_lable);
             } else {
                 tws_res.rd_lable = req_lable;
                 return true;
             }
-        } else if(diff < ITEM_MAX_NB/2) {
+#if TONE_SYNC
+ } else if(diff < ITEM_MAX_NB*7/8) {
+#else
+ } else if(diff < ITEM_MAX_NB/2) {
+#endif
             res_list_get(&item);            //discard
-            TRACE("res_miss: %d(%d), %d(%d) ####\n", item.res_idx, item.res_lable, req_idx, req_lable);
+            TRACE("====================2res_miss: %d(%d), %d(%d) ####\n", item.res_idx, item.res_lable, req_idx, req_lable);
         }
     }
 
@@ -530,7 +551,7 @@ static bool tws_res_slave_w4_start(void)
 
 void tws_res_process_do(void)
 {
-    uint16_t delay = 200;
+    uint16_t delay = 500;
     uint8_t  role = 0;
     res_item_t item;
 
@@ -553,7 +574,12 @@ void tws_res_process_do(void)
         }
         if(res_list_get(&item)) {
             tws_res_alarm_start(&item, role);
-            tws_res.tickn = TICK_ADD(tws_time_tickn_get(), 500);
+#if TONE_SYNC
+            tws_res.tickn = TICK_ADD(tws_time_tickn_get(), 1500);
+#else
+            tws_res.tickn = TICK_ADD(tws_time_tickn_get(), 1000);
+#endif
+
             tws_res.state = RES_STA_WAIT_ALARM;
         }
         break;
@@ -569,7 +595,12 @@ void tws_res_process_do(void)
         tws_res_play_init();
         tws_res_play_init_cb();
         tws_res.state = RES_STA_WAIT_KICK;
-        tws_res.tickn = TICK_ADD(tws_time_tickn_get(), 500);
+#if TONE_SYNC
+        tws_res.tickn = TICK_ADD(tws_time_tickn_get(), 1500);
+#else
+        tws_res.tickn = TICK_ADD(tws_time_tickn_get(), 1000);
+#endif
+
         break;
 
     case RES_STA_WAIT_KICK:
@@ -597,7 +628,12 @@ void tws_res_process_do(void)
         }
 
         if(bt_tws_is_connected() && !bt_tws_is_slave()) {
+#if TONE_SYNC
+            delay = 1000;
+#else
             delay = 500;
+#endif
+
         }
         tws_res.tickn = TICK_ADD(tws_time_tickn_get(), delay);
         tws_res.state = RES_STA_DELAY;
@@ -615,7 +651,7 @@ void tws_res_process_do(void)
         }
         if(tws_time_tickn_expire(tws_res.tickn)) {
             if(!tws_res.done_flag) {
-                tws_res.tickn = TICK_ADD(tws_time_tickn_get(), 300);
+                tws_res.tickn = TICK_ADD(tws_time_tickn_get(), 1000);
                 tws_res.state = RES_STA_DELAY_MORE;
                 break;
             }
@@ -656,7 +692,7 @@ void tws_res_process_do(void)
 #endif
 
             tws_res_alarm_start(&item, role);
-            tws_res.tickn = TICK_ADD(tws_time_tickn_get(), 500);
+            tws_res.tickn = TICK_ADD(tws_time_tickn_get(), 1000);
             tws_res.state = RES_STA_NEXT_WAIT_ALARM;
 
 
