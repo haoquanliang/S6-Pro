@@ -776,7 +776,7 @@ void func_message(u16 msg)
 #if SWETZ_SCAN_STATE_TO_CASE
         if(!bt_tws_is_slave() && (sys_cb.flag_local_in_case || sys_cb.flag_peer_in_case)){
         sys_cb.scan_state = bt_get_curr_scan();
-#if USER_TEST
+#if INCASE_TO_SLEEP
       //  app_lr_send_notification(LR_NOTIFY_SYNC_SCAN_STATE, 1, &sys_cb.scan_state);
 #endif    
     }

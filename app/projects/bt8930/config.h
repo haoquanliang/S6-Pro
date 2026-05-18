@@ -89,7 +89,7 @@
 #define SWETZ_VBAT_VIR_PRESSURE     1//防止耳机充电转放电的时候虚压导致电量变化快
 #define SWETZ_SCAN_STATE_TO_CASE            1//扫描状态判断给仓
 #define USER_OVERHANG_TO_SLEEP               1//自定义回连,失败进休眠
-
+#define INCASE_TO_SLEEP                   1//在仓也要休眠，；临时处理
 
 
 
@@ -154,7 +154,7 @@
 #define APP_MUSIC_AUDIO_TEST        0//音效调试
 
 #define OTA_TEST                    1
-#define USER_TEST                   1//在仓也要休眠，；临时处理
+
 #endif
 
 
