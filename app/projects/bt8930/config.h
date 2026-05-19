@@ -87,10 +87,10 @@
 #define SWETZ_MUTE_CUR_VOL_0        1//当调节音量为0的时候直接mute音频输出
 #define SWETZ_DBB_LEVEL_FOLLOW_VOL  1//dbb等级跟随sys_cb.vol音量调整
 #define SWETZ_VBAT_VIR_PRESSURE     1//防止耳机充电转放电的时候虚压导致电量变化快
-#define SWETZ_SCAN_STATE_TO_CASE            1//扫描状态判断给仓
-#define USER_OVERHANG_TO_SLEEP               1//自定义回连,失败进休眠
-#define INCASE_TO_SLEEP                   1//在仓也要休眠，；临时处理
-
+#define SWETZ_SCAN_STATE_TO_CASE    1//扫描状态判断给仓
+#define USER_OVERHANG_TO_SLEEP      1//自定义回连,失败进休眠
+#define INCASE_TO_SLEEP             1//在仓也要休眠处理
+#define FUNC_1TO2_SWTICH_MUSIC      1//优化一拖二 杂音问题
 
 
 
@@ -144,9 +144,11 @@
 #define SWETZ_CANSEND_NOW               0//调试时这个变量暂时置1
 #define USER_EQ_SYNC_BYPASS             1//同步 bypass eq
 #define APP_KEY_ADD_EQ_SWITCH           1//经典/低音增强/空间音效
+#define APP_ONLY_ONE_CON                1//限制，只能连接一个app
+#define APP_LEN_TO_LONG_OVER            1//怀疑是这里数组越界访问导致的指针异常复位，加个限制
+
 #define TONE_SYNC                       1//提示音分开响
 
-#define USER_TIKTOCK                    1//刷抖音
 
 
 

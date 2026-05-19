@@ -141,7 +141,8 @@
 #define AB_MATE_CM_SWET_KEY_TONE_MODE       (150)                                                       //1byte，从地址150开始
 #define AB_MATE_CM_SWET_TONE_VOL              (AB_MATE_CM_SWET_KEY_TONE_MODE + 1)  
 #if SWETZ_VBAT_VIR_PRESSURE
-#define AB_MATE_CM_PARM_VBAT                (AB_MATE_CM_SWET_KEY_TONE_MODE + 1) 
+#define AB_MATE_CM_PARM_VBAT                (AB_MATE_CM_SWET_TONE_VOL + 1)
+#define AB_MATE_CM_PARM_VBAT_FLAG           (AB_MATE_CM_PARM_VBAT + 1)  
 #endif
 
 typedef enum{

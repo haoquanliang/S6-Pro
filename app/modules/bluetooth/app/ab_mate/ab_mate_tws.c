@@ -651,9 +651,14 @@ void ab_mate_tws_info_mult_dev_info_set(uint8_t *data_ptr)
         TRACE("bt_addr:");
         TRACE_R(bt_addr, 6);
         memset(name, 0, 32);
+#if APP_LEN_TO_LONG_OVER        
+        if(name_len > 31){
+            name_len = 31;
+        }
+#endif        
+    TRACE("name:%s,str_len:%d,name_len:%d\n",name,strlen(name),name_len);
         memcpy(name, &data_ptr[offset], name_len);
         offset += name_len;
-        TRACE("name:%s\n",name);
         memset(name_loc, 0, 32);
         bt_nor_get_link_info_name(bt_addr, name_loc, 32);
         if(memcmp(name_loc, name, 32)){

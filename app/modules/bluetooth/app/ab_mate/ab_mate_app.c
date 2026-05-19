@@ -2467,6 +2467,7 @@ int ab_mate_connect_info_set(u8* buf)
         TRACE("name:%s\n",name);
         memset(name_loc, 0, 32);
         bt_nor_get_link_info_name(bt_addr, name_loc, 32);
+        TRACE("name:%s,str_len:%d,name_len:%d\n",name,strlen(name),name_len);
         if(memcmp(name_loc, name, 32)){
             TRACE("bt_put_link_name\n");
             bt_nor_put_link_name(bt_addr, name);
@@ -3504,6 +3505,10 @@ void ab_mate_dynamic_bass_init(void)
 
 void ab_mate_device_reset_do(void)
 {
+#if SWETZ_VBAT_VIR_PRESSURE
+    vbat_write_param();
+#endif
+
     u8 bt_name_tag = 0xFF;
     ab_mate_cm_write((u8*)&bt_name_tag, AB_MATE_CM_BT_NAME_FLAG, 1, 2);
 

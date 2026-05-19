@@ -7,7 +7,7 @@
         <add key="spk_mute_io_sel" value="0" />
         <add key="high_mute" value="True" />
         <add key="loudspeaker_unmute_delay" value="6" />
-        <add key="sys_sleep_time" value="20" />
+        <add key="sys_sleep_time" value="300" />
         <add key="sys_off_time" value="0" />
         <add key="lowpower_warning_en" value="True" />
         <add key="lpwr_warning_vbat" value="3.4V" />

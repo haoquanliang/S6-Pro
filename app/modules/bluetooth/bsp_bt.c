@@ -407,6 +407,10 @@ void bt_emit_notice(uint evt, void *params)
 //        break;
 
     case BT_NOTICE_SET_SPK_GAIN:
+    if (packet == NULL) {
+        printf("BT_NOTICE_SET_SPK_GAIN: packet is NULL\n");
+        break;
+    }
         dev_vol_set_cb(packet[0], packet[1], 1 | BIT(3));
         break;
 
@@ -453,6 +457,13 @@ void bt_emit_notice(uint evt, void *params)
         }
         break;
     case BT_NOTICE_MUSIC_CHANGE_DEV:
+        printf("BT_NOTICE_MUSIC_CHANGE_DEV\r\n");
+#if FUNC_1TO2_SWTICH_MUSIC
+        {
+            extern uint16_t cfg_tws_sync_alarm_time;
+            cfg_tws_sync_alarm_time      = 200;
+        }
+#endif
         dev_vol_set_cb(packet[0], packet[1], 0);
         break;
     case BT_NOTICE_CALL_CHANGE_DEV:

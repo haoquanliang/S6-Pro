@@ -10,8 +10,8 @@ static bool is_update_level_using_charging_time;
 static uint8_t charging_update_gauge_count;
 static uint8_t bat_wait_stable_cnt;
 
-#define CHARGING_UPDATE_GAUGE_COUNT_NUMBER (12)//12*5=60秒
-#define BAT_STABLE_CNT (12)//12*5=60秒
+#define CHARGING_UPDATE_GAUGE_COUNT_NUMBER (5)//12*5=60秒
+#define BAT_STABLE_CNT (5)//12*5=60秒
 #endif
 
 
@@ -247,6 +247,7 @@ volatile u8  dc_in_filter;      //DC IN filter
 #endif
 #if SWETZ_VBAT_VIR_PRESSURE
     u8 param_vbta;
+    u8 param_vbta_flag;
 #endif
 
 
@@ -307,8 +308,8 @@ void swetz_ship_mode(bool mode);
 #if SWETZ_VBAT_VIR_PRESSURE
 void vbat_write_param(void);
 uint8_t vbat_read_param(void);
-
-
+u8 vbat_read_vbat_flag_param(void);
+void vbat_write_vbat_flag_param(void);
 #endif
 
 #if SWETZ_NTC

@@ -815,6 +815,7 @@ static void update_level_using_charging_time(void)
                 bat_level_temp = 100;
             }
             bat_level = bat_level_temp;
+            vbat_write_param();
             printf("bat_level_temp:%d\r\n",bat_level_temp);
         }       
     }
@@ -827,37 +828,37 @@ void app_bat_level_update(bool charging)
     if (charging)
     {
         if ((!is_update_level_using_charging_time)
-        && (sys_cb.vbat > VOLT_BAT_LEVEL_CHARGING_70)
-        && (old_level >= 70)
+        // && (sys_cb.vbat > VOLT_BAT_LEVEL_CHARGING_70)
+        // && (old_level >= 70)
         ) 
         {
              update_using_charging_time_start();
 
         }
 
-        if(!is_update_level_using_charging_time){
+        // if(!is_update_level_using_charging_time){
 
-            new_level = get_bat_level_from_volt_wi_charger(sys_cb.vbat);
-            printf("charing---------------------:%d\r\n",new_level);
-            if (new_level > old_level)
-            {
-                if (bat_wait_stable_cnt < BAT_STABLE_CNT)
-                {
-                    bat_wait_stable_cnt++;
-                }
-                else
-                {
-                    bat_wait_stable_cnt = 0;
-                    bat_level = new_level;
-                }
-            }
-            else 
-            {
-                bat_wait_stable_cnt = 0;
-            }
+        //     new_level = get_bat_level_from_volt_wi_charger(sys_cb.vbat);
+        //     printf("charing---------------------:%d\r\n",new_level);
+        //     if (new_level > old_level)
+        //     {
+        //         if (bat_wait_stable_cnt < BAT_STABLE_CNT)
+        //         {
+        //             bat_wait_stable_cnt++;
+        //         }
+        //         else
+        //         {
+        //             bat_wait_stable_cnt = 0;
+        //             bat_level = new_level;
+        //         }
+        //     }
+        //     else 
+        //     {
+        //         bat_wait_stable_cnt = 0;
+        //     }
 
 
-        }
+        // }
 
     }else {
             update_using_charging_time_stop();
@@ -865,6 +866,7 @@ void app_bat_level_update(bool charging)
             if (new_level < old_level)
             {
                 bat_level = new_level;
+                vbat_write_param();
             }
     }
     update_level_using_charging_time();
@@ -1586,10 +1588,13 @@ void swetz_ship_mode(bool mode)
 void vbat_param_init(void)
 {
     vbat_read_param();
-    if(sys_cb.param_vbta == 0 || sys_cb.param_vbta > 100){ 
+    vbat_read_vbat_flag_param();
+    if(sys_cb.param_vbta > 100 || sys_cb.param_vbta_flag != 0xff){
             sys_cb.param_vbta = 100;
+            sys_cb.param_vbta_flag = 0xff;
             bat_level = sys_cb.param_vbta;
             vbat_write_param();
+            vbat_write_vbat_flag_param();
     }
 
 }
@@ -1914,6 +1919,19 @@ uint8_t vbat_read_param(void)
     ab_mate_cm_read(&sys_cb.param_vbta, AB_MATE_CM_PARM_VBAT, 1);
     printf("-------------------------------read bat :%d \r\n",sys_cb.param_vbta);
     return sys_cb.param_vbta;
+}
+
+void vbat_write_vbat_flag_param(void)
+{
+    printf("-------------------------------write bat flag :%d\r\n ",sys_cb.param_vbta_flag);
+    ab_mate_cm_write(&sys_cb.param_vbta_flag, AB_MATE_CM_PARM_VBAT_FLAG, 1, 1);
+}
+
+u8 vbat_read_vbat_flag_param(void)
+{
+    ab_mate_cm_read(&sys_cb.param_vbta_flag, AB_MATE_CM_PARM_VBAT_FLAG, 1);
+    printf("-------------------------------read bat flag:%d \r\n",sys_cb.param_vbta_flag);
+    return sys_cb.param_vbta_flag;
 }
 
 #endif

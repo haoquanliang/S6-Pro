@@ -89,5 +89,31 @@ void spp_disconnect_callback(uint8_t *bd_addr, uint8_t ch)
 #endif // ANC_TOOL_EN
 }
 
+
+#if APP_ONLY_ONE_CON
+bool spp_reject_connect(uint8_t *bd_addr,uint16_t rfcomm_channel,uint16_t rfcomm_cid)
+{
+    if(spp_is_connect())
+    {
+		printf("spp_is_connect return 1\n");
+        return 1;
+    }
+	
+	if(ble_is_connect())
+	{
+		
+		printf("ble_is_connect return 1\n");
+        return 1;
+	}
+
+	printf("ble_is_connect return 0\n");
+    return 0;
+}
 #endif
+
+
+
+#endif
+
+
 

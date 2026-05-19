@@ -24,7 +24,9 @@ const uint32_t cfg_a2dp_aac_max_bitrate = 128000;       //����AAC���
 uint16_t cfg_bt_music_normal_latency   = 280;           //����������ͨģʽ�ӳ٣�Ĭ��ֵ280ms����ѡֵ100~450
 uint16_t cfg_bt_music_low_latency      = 60;            //����������Ϸģʽ�ӳ٣�Ĭ��ֵ60ms����ѡֵ60~100
 #endif
-
+#if FUNC_1TO2_SWTICH_MUSIC
+uint8_t cfg_silence_chk_cnt = 20;
+#endif
 
 #if BT_A2DP_LHDC_AUDIO_EN || BT_A2DP_LDAC_AUDIO_EN
 const u32 sbc_inbuf_size                = 0x10000;
