@@ -156,7 +156,7 @@
 #define APP_MUSIC_AUDIO_TEST        0//音效调试
 
 #define OTA_TEST                    1
-
+#define CM_TEST                     1//一次读写多个数据测试
 #endif
 
 

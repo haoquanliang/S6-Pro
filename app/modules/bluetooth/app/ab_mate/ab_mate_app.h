@@ -138,13 +138,20 @@
 #define AB_MATE_CM_DYNAMIC_BASS_INFO        (AB_MATE_CM_MULT_DEV_EN + 1)                                //2byte(EN,LEVEL)
 #define AB_MATE_CM_ANC_FADE                 (AB_MATE_CM_DYNAMIC_BASS_INFO + 2)                          //1byte
 
-#define AB_MATE_CM_SWET_KEY_TONE_MODE       (150)                                                       //1byte，从地址150开始
+#define AB_MATE_CM_SWET_KEY_TONE_MODE       (120)                                                       //1byte，从地址150开始
 #define AB_MATE_CM_SWET_TONE_VOL              (AB_MATE_CM_SWET_KEY_TONE_MODE + 1)  
 #if SWETZ_VBAT_VIR_PRESSURE
 #define AB_MATE_CM_PARM_VBAT                (AB_MATE_CM_SWET_TONE_VOL + 1)
 #define AB_MATE_CM_PARM_VBAT_FLAG           (AB_MATE_CM_PARM_VBAT + 1)  
 #endif
 
+#if CM_TEST
+#define    AB_MATE_CM_TEST                         (150)
+#define    AB_MATE_TEST1                           (AB_MATE_CM_TEST+1)
+#define    AB_MATE_TEST2                           (AB_MATE_TEST1+1)
+#define    AB_MATE_TEST3                           (AB_MATE_TEST2+1)
+#define    AB_MATE_TEST_SIZE                       3
+#endif
 typedef enum{
     AB_MATE_SUCCESS = 0,
     AB_MATE_FAIL,
@@ -524,6 +531,12 @@ typedef struct{
 #if APP_AL_REPLY
     u8 ai_state;
 #endif
+#if CM_TEST
+    u8 test1;
+    u8 test2;
+    u8 test3;
+#endif
+
 }ab_mate_app_var_t;
 
 

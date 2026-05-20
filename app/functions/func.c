@@ -24,8 +24,8 @@ void lowpower_warning_do(void)
 #else
 
         wav_res_play(RES_BUF_ZH_BAT_LOW_WAV, RES_LEN_ZH_BAT_LOW_WAV);
-#endif        
-#else 
+#endif
+#else
 //            bsp_res_play(TWS_RES_LOW_BATTERY);
         bsp_piano_warning_play(WARNING_TONE, TONE_LOW_BATTERY);
 #endif
@@ -61,7 +61,7 @@ void lowpower_switch_to_normal_do(void)
 void lowpower_poweroff_do(void)
 {
     bsp_piano_warning_play(WARNING_TONE, TONE_LOW_BATTERY);
-    sys_cb.pwrdwn_tone_en = 1;     
+    sys_cb.pwrdwn_tone_en = 1;
 #if SWETZ_LOWVBAT_OUT_SYNC_OFF
     sys_cb.local_bat_level = 0;//关机前把电量归0
     sys_cb.discon_reason = 0;
@@ -91,7 +91,7 @@ void lowpower_vbat_process(void)
     sys_cb.vbat_nor_cnt = 0;
 #if SWETZ_LOW_WARNING_TIME
 if (sys_cb.lpwr_warning_cnt > LOW_WARNING_TIME) {
-#else 
+#else
 if (sys_cb.lpwr_warning_cnt > xcfg_cb.lpwr_warning_period) {
 #endif
         sys_cb.lpwr_warning_cnt = 0;
@@ -270,32 +270,50 @@ static void spp_at_cmd_process(void)
     {
         if (bt_tws_is_connected())
         {
-            sprintf(spp_tx_buffer, "+dbb_on:ok");    
+            sprintf(spp_tx_buffer, "+dbb_on:ok");
             message_send(MSG_ID_DBB_SWITCH, 1, 0);
         }
-        else 
+        else
         {
-            sprintf(spp_tx_buffer, "+dbb_on:err"); 
+            sprintf(spp_tx_buffer, "+dbb_on:err");
         }
 
-        bt_spp_tx(SPP_SERVICE_CH0, (uint8_t *)spp_tx_buffer, strlen(spp_tx_buffer));        
+        bt_spp_tx(SPP_SERVICE_CH0, (uint8_t *)spp_tx_buffer, strlen(spp_tx_buffer));
     }
     else if (memcmp((char *)ptr, "dbb_off", strlen("dbb_off")) == 0)
     {
         if (bt_tws_is_connected())
         {
-            sprintf(spp_tx_buffer, "+dbb_off:ok");   
+            sprintf(spp_tx_buffer, "+dbb_off:ok");
             message_send(MSG_ID_DBB_SWITCH, 0, 0);
         }
-        else 
+        else
         {
-            sprintf(spp_tx_buffer, "+dbb_off:err"); 
+            sprintf(spp_tx_buffer, "+dbb_off:err");
         }
-        bt_spp_tx(SPP_SERVICE_CH0, (uint8_t *)spp_tx_buffer, strlen(spp_tx_buffer));        
-    } 
-#endif 
+        bt_spp_tx(SPP_SERVICE_CH0, (uint8_t *)spp_tx_buffer, strlen(spp_tx_buffer));
+    }
+#endif
 
+#if CM_TEST
+        if (memcmp((char *)ptr, "write_cm", strlen("write_cm")) == 0)
+    {
+        ab_mate_app.test1 = 1;
+        ab_mate_app.test2 = 2;
+        ab_mate_app.test3 = 3;
+        ab_mate_cm_write(&ab_mate_app.test1,AB_MATE_CM_TEST,AB_MATE_TEST_SIZE,2);
+		sprintf(spp_tx_buffer, "+write_ok");
+		bt_spp_tx(SPP_SERVICE_CH0, (uint8_t *)spp_tx_buffer, strlen(spp_tx_buffer));
+    }
 
+        if (memcmp((char *)ptr, "read_cm", strlen("read_cm")) == 0)
+    {
+        ab_mate_cm_read(&ab_mate_app.test1,AB_MATE_CM_TEST,AB_MATE_TEST_SIZE);
+		sprintf(spp_tx_buffer, "+read_cm_ok");
+		bt_spp_tx(SPP_SERVICE_CH0, (uint8_t *)spp_tx_buffer, strlen(spp_tx_buffer));
+    }
+
+#endif
 
 
 }
@@ -308,20 +326,20 @@ void app_check_mute(void)
 {
     bool current_state = vhouse_cb.inbox_sta;////CHARGE_INBOX();
     if (current_state)
-    {   
+    {
         if (!sys_cb.mute)
         {
             bsp_sys_mute();
         }
     }
-    
+
     else
     {
         if (sys_cb.mute)
         {
             bsp_sys_unmute();
         }
-        
+
     }
 
 
@@ -416,7 +434,7 @@ void func_message(u16 msg)
 #if SWETZ_CHECK_INBOX
         case EVT_IN_CASE:
                 printf("EVT_IN_CASE\r\n");
-                  lr_notify_in_case_info();  
+                  lr_notify_in_case_info();
 
 #if APP_USER_NOTIFY
 #if APP_INBOX_STA_1S_AFTER_UPDATE
@@ -428,7 +446,7 @@ void func_message(u16 msg)
 #else
                     message_cancel_all(MSG_ID_UPDATE_1S_AFTER_INCASE_STA);
                     message_send(MSG_ID_UPDATE_1S_AFTER_INCASE_STA, 0, 500);
-#endif                    
+#endif
 #else
                      msg_enqueue(EVT_UPDATE_INCASE_STA);
 #endif
@@ -451,25 +469,25 @@ void func_message(u16 msg)
         break;
 
         case EVT_USER_SYNC_DBB_OFF:
-        music_dbb_audio_stop();    
+        music_dbb_audio_stop();
         break;
-#endif 
-            
-#if APP_USER_FIND_EAR    
+#endif
+
+#if APP_USER_FIND_EAR
         case EVT_FIND_ME_LEFT_START:
-                
+
                 if(sys_cb.tws_left_channel){
                     printf("EVT_FIND_ME_LEFT_START\r\n");
-                     
+
                      sys_cb.find_me_count = 0;
                      message_send(MSG_ID_FIND_ME_LEFT, 0, 0);
                 }else if(bt_tws_is_connected()){
-                    
+
                     app_lr_send_msg(EVT_FIND_ME_LEFT_START);
                 }
                sys_cb.find_left_ear_going = true;
                app_lr_send_notification(LR_NOTIFY_SYNC_L_FIND_STA, 1, &sys_cb.find_left_ear_going);
-#if APP_USER_FIND_EAR               
+#if APP_USER_FIND_EAR
                  ab_mate_notify_find_me_left();
 #endif
             break;
@@ -478,7 +496,7 @@ void func_message(u16 msg)
                     printf("sys_cb.tws_left_channel:%d\r\n",sys_cb.tws_left_channel);
                     if(sys_cb.tws_left_channel){
                         printf("EVT_FIND_ME_LEFT_STOP\r\n");
-                        
+
                         message_cancel_all(MSG_ID_FIND_ME_LEFT);
                     }else if(bt_tws_is_connected()){
 
@@ -489,7 +507,7 @@ void func_message(u16 msg)
 #if APP_USER_FIND_EAR
                     ab_mate_notify_find_me_left();
 #endif
-                    
+
                 break;
 
 
@@ -498,27 +516,27 @@ void func_message(u16 msg)
                 if(!sys_cb.tws_left_channel){
                     printf("EVT_FIND_ME_RIGHT_START\r\n");
                     sys_cb.find_me_count = 0;
-                    
+
                      sys_cb.find_ear_count = 0;
                      message_send(MSG_ID_FIND_ME_RIGHT, 0, 0);
                 }else if(bt_tws_is_connected()){
-                    
+
                     app_lr_send_msg(EVT_FIND_ME_RIGHT_START);
                 }
                 sys_cb.find_right_ear_going = true;
                 app_lr_send_notification(LR_NOTIFY_SYNC_R_FIND_STA, 1, &sys_cb.find_right_ear_going);
 #if APP_USER_FIND_EAR
                     ab_mate_notify_find_me_right();
-#endif                
+#endif
                     break;
 
          case EVT_FIND_ME_RIGHT_STOP:
-                    
+
                     if(!sys_cb.tws_left_channel){
                         printf("EVT_FIND_ME_RIGHT_STOP\r\n");
                         sys_cb.find_ear_count = 0;
                         message_cancel_all(MSG_ID_FIND_ME_RIGHT);
-                       
+
                     }else if(bt_tws_is_connected()){
 
                         app_lr_send_msg(EVT_FIND_ME_RIGHT_STOP);
@@ -535,11 +553,11 @@ void func_message(u16 msg)
 
         case EVT_OUT_CASE:
                 printf("EVT_OUT_CASE\r\n");
-                lr_notify_in_case_info();  
+                lr_notify_in_case_info();
 
-               
+
 #if APP_USER_NOTIFY
-               
+
 #if APP_INBOX_STA_1S_AFTER_UPDATE
  #if APP_OTA_ING_LIMIT_INCASE_UPDATE
                     if(!ab_mate_ota_is_start()){
@@ -553,13 +571,13 @@ void func_message(u16 msg)
 #else
                      msg_enqueue(EVT_UPDATE_INCASE_STA);
 #endif
-                
+
 #endif
 #if SWETZ_OUTCASE_AFTER_NOT_KEY
              sys_cb.flag_outcase_5s_kye_null = true;
              message_cancel_all(MSG_ID_TIMEOUT_5S_AFTER_OUT_BOX);
              message_send(MSG_ID_TIMEOUT_5S_AFTER_OUT_BOX, 0, 5000);
-#endif                 
+#endif
 #if SWETZ_ROLE_SWITCH_BY_INBOX
                  msg_enqueue(EVT_OUTBOX_CHANGED);
 #endif
@@ -595,12 +613,12 @@ void func_message(u16 msg)
               //  wav_res_play(RES_BUF_KEY_TONE_WAV, RES_LEN_KEY_TONE_WAV);
               //mp3_res_play(RES_BUF_EVEN_TONE_MP3,RES_LEN_EVEN_TONE_MP3);
               if(bt_tws_is_slave()){//主机收到直接执行，从机收到发送主机执行
-                app_lr_send_msg(EVT_KEY_PRESS);    
+                app_lr_send_msg(EVT_KEY_PRESS);
               }else {
                 printf("EVT_KEY_PRESS\r\n");
                 bsp_res_play(TWS_RES_EVEN);
               }
-               
+
             break;
 #endif
 
@@ -612,8 +630,8 @@ void func_message(u16 msg)
                 }else{
                         bsp_res_play(TWS_RES_TONE_AI_ON);
                 }
-                
-              break;    
+
+              break;
 
 #endif
 
@@ -629,7 +647,7 @@ void func_message(u16 msg)
             {
                 printf("reconn ag\n");
                 bt_connect();
-#if SWETZ_RECON_TONE                
+#if SWETZ_RECON_TONE
                 sys_cb.recon_tone = 1;
 #endif
             }
@@ -667,7 +685,7 @@ void func_message(u16 msg)
 
 
 #if USER_OVERHANG_TO_SLEEP
-        case EVT_OVERHANG_TO_SLEEP: 
+        case EVT_OVERHANG_TO_SLEEP:
                 printf("EVT_OVERHANG_TO_SLEEP allow_sleep:%d\r\n",bt_is_allow_sleep());
                 message_send(MSG_ID_OVERHANG_TO_ELEEP_TIME,0,5000);
                 // sys_cb.sleep_delay = 0;//进入休眠
@@ -688,17 +706,17 @@ void func_message(u16 msg)
                     app_lr_send_notification(LR_NOTIFY_BATTERY_LEVEL, 1, &sys_cb.local_bat_level);
             }
         }
-
-#if SWETZ 
+        printf("ab_mate_app test:%d %d %d\r\n",ab_mate_app.test1,ab_mate_app.test2,ab_mate_app.test3);
+#if SWETZ
     // u8 bt_tws_addr[6];
     // u8 feature = bt_tws_get_link_info(bt_tws_addr);
     // printf("charge_box_get_tws_btaddr_ack: feature 0x%x, tws_addr ", feature);
-    // print_r(bt_tws_addr, 6);  
-    // u8 bt_tws_link_addr[16];   
+    // print_r(bt_tws_addr, 6);
+    // u8 bt_tws_link_addr[16];
     // bt_tws_get_link_info_key(bt_tws_addr,bt_tws_link_addr);
     //     printf("\r\nlink tws addr:");
-    //     print_r(bt_tws_link_addr, 16);        
-#endif 
+    //     print_r(bt_tws_link_addr, 16);
+#endif
      //   printf("vbat:%d adc_cb.vbat_val:%d sys_cb.local_bat_level:%d  sys_cb.peer_bat_level:%d  box_vbat:%d\r\n",sys_cb.vbat,adc_cb.vbat_val,sys_cb.local_bat_level,sys_cb.peer_bat_level,charge_box_get_charge_box_bat_level());
 
       // printf("sys_cb.SWETZ_tick:%d\r\n",sys_cb.SWETZ_tick);
@@ -712,7 +730,7 @@ void func_message(u16 msg)
         sys_cb.vol,sys_cb.hfp_vol,sys_cb.lang_id,bt_is_low_latency(),ab_mate_app.eq_info.mode,ab_mate_app.mult_dev.en,ab_mate_app.vp_vol);
       // printf("in_case:%d  peer_in_case:%d  mult_dev.en:%d \r\n",sys_cb.flag_local_in_case,sys_cb.flag_peer_in_case,ab_mate_app.mult_dev.en);
      //  printf("bass_level:%d\r\n",music_dbb_get_bass_level());
-       
+
           //cal_in_case:%d peer_in_case:%d\r\n",sys_cb.flag_local_in_case,sys_cb.flag_peer_in_case);
            //  app_lr_send_notification(LR_NOTIFY_IN_CASE_STATUS, 1, &sys_cb.flag_local_in_case);
          // printf("ab_mate_app.con_sta:%d\r\n",ab_mate_app.con_sta);
@@ -729,7 +747,7 @@ void func_message(u16 msg)
         // printf("a2dp_index:%d ring_index:%d",bt_get_cur_a2dp_media_index(),bt_call_get_ring_index());
          //printf("local_vbat:%d remote_vbat:%d\r\n",ab_mate_app.local_vbat,ab_mate_app.remote_vbat);
      //   printf("find_leftgoing:%d find_rightgoing:%d\r\n",sys_cb.find_left_ear_going,sys_cb.find_right_ear_going);
-   //printf("music_effect_get_state:%d %d\r\n",music_effect_get_state(MUSIC_EFFECT_DBB),music_effect_get_state_real(MUSIC_EFFECT_DBB));  
+   //printf("music_effect_get_state:%d %d\r\n",music_effect_get_state(MUSIC_EFFECT_DBB),music_effect_get_state_real(MUSIC_EFFECT_DBB));
    //printf("ab_mate_app.v3d_audio_en:%d\r\n",ab_mate_app.v3d_audio_en);
 //    printf("find_left:%d find_right:%d",sys_cb.find_left_ear_going,sys_cb.find_right_ear_going);
 //             printf("sys_cb.sw_rst_flag:%d\r\n",sys_cb.sw_rst_flag);
@@ -740,7 +758,7 @@ void func_message(u16 msg)
             }else{
             printf("Rkey_short:%d key_double:%d key_three:%d key_long:%d\r\n",ab_mate_app.local_key.key_short,ab_mate_app.local_key.key_double,ab_mate_app.local_key.key_three,ab_mate_app.local_key.key_long);
             }
-            printf("xcfg_cb.user_def_kl_sel:%d three:%d\r\n",xcfg_cb.user_def_kl_sel,xcfg_cb.user_def_kt_sel);  
+            printf("xcfg_cb.user_def_kl_sel:%d three:%d\r\n",xcfg_cb.user_def_kl_sel,xcfg_cb.user_def_kt_sel);
         // printf("ab_mate_app.ai_state:%d\r\n",ab_mate_app.ai_state);
             // printf("ab_mate_app.ai_state:%d\r\n",ab_mate_app.ai_state);
 // printf("gain:%d %d %d %d %d %d %d %d %d %d \r\n",ab_mate_app.eq_info.gain[0],ab_mate_app.eq_info.gain[1],ab_mate_app.eq_info.gain[2],ab_mate_app.eq_info.gain[3],ab_mate_app.eq_info.gain[4],ab_mate_app.eq_info.gain[5],ab_mate_app.eq_info.gain[6],ab_mate_app.eq_info.gain[7],ab_mate_app.eq_info.gain[8],ab_mate_app.eq_info.gain[9]);
@@ -749,7 +767,7 @@ void func_message(u16 msg)
     app_bat_level_update(false);
 #endif
         break;
-            
+
 #endif
 #if APP_KEY_AI
             case EVT_AL_KEY:
@@ -763,7 +781,7 @@ void func_message(u16 msg)
                     break;
 
 #endif
-#if APP_CASE_CHARGE_STA    
+#if APP_CASE_CHARGE_STA
         case EVT_CASE_BIT_SYNC:
                 case_charge_sta = charge_box_get_charge_box_bat_level();
                 case_charge_sta = case_charge_sta & 0x80;
@@ -778,7 +796,7 @@ void func_message(u16 msg)
         sys_cb.scan_state = bt_get_curr_scan();
 #if INCASE_TO_SLEEP
         app_lr_send_notification(LR_NOTIFY_SYNC_SCAN_STATE, 1, &sys_cb.scan_state);
-#endif    
+#endif
     }
 #endif
                 app_check_mute();
@@ -793,7 +811,7 @@ void func_message(u16 msg)
                 ntc_gpio_power_down();
             }
 
-#endif                
+#endif
             break;
 #endif
 
@@ -815,9 +833,9 @@ void func_message(u16 msg)
                             ab_mate_notify_audio();
                             if(ab_mate_app.eq_info.mode != 0x00){//eq不是经典就切到经典
                                     msg_enqueue(EVT_EQ_PARA_DEFAULT);//恢复经典eq
-                            } 
-                            
-  
+                            }
+
+
 
                     }else if(ab_mate_app.eq_info.mode == 0x06){
                                     printf("bass ON -> Space Audio\r\n");
@@ -830,13 +848,13 @@ void func_message(u16 msg)
                                     printf("EQ class -> EQ bass\r\n");
                                     bt_tws_req_alarm_user(USER_SYNC_EVT_SWITCH_EQ_TO_BASS);
                             }
-                }   
+                }
 
             }else{
-                app_lr_send_msg(EVT_EQ_SWITCH);    
+                app_lr_send_msg(EVT_EQ_SWITCH);
             }
-                 
-                 
+
+
                 break;
 
         case EVT_SWITCH_EQ_TO_BASS:
@@ -848,8 +866,8 @@ void func_message(u16 msg)
                 ab_mate_app.eq_info.mode = 0x06;
                 ab_mate_tws_eq_info_sync();
                 ab_mate_app.do_flag |= FLAG_EQ_SET;
-                ab_mate_cm_write(&ab_mate_app.eq_info.mode, AB_MATE_CM_EQ_DATA, 1+AB_MATE_EQ_BAND_CNT, 2); 
-                ab_mate_notify_eq(); 
+                ab_mate_cm_write(&ab_mate_app.eq_info.mode, AB_MATE_CM_EQ_DATA, 1+AB_MATE_EQ_BAND_CNT, 2);
+                ab_mate_notify_eq();
         }
             break;
 #endif
@@ -878,7 +896,7 @@ void func_message(u16 msg)
 #endif
 #if APP_SPATIAL_AUDIO_TONE
             case EVT_SPATIAL_AUDIO_ON:
-                    
+
             if (!music_effect_get_state(MUSIC_EFFECT_SPATIAL_AUDIO))
             {
                 printf("EVT_SPATIAL_AUDIO_ON\r\n");
@@ -896,15 +914,15 @@ void func_message(u16 msg)
 #endif
 #if APP_SPATIAL_AUDIO_TONE
             case EVT_EQ_PARA_DEFAULT:
-                printf("EVT_EQ_PARA_DEFAULT\r\n");  
+                printf("EVT_EQ_PARA_DEFAULT\r\n");
 {
                bt_tws_req_alarm_user(USER_SYNC_EVT_EQ_BYPASS);
-                
+
 }
 
                 break;
             case EVT_SP_AUDIO_DEFAULT:
-                    ab_mate_notify_audio();  
+                    ab_mate_notify_audio();
                 break;
 
 #endif
@@ -921,13 +939,13 @@ void func_message(u16 msg)
                 ab_mate_app.eq_info.mode = 0;
                 ab_mate_tws_eq_info_sync();
                 ab_mate_app.do_flag |= FLAG_EQ_SET;
-                ab_mate_cm_write(&ab_mate_app.eq_info.mode, AB_MATE_CM_EQ_DATA, 1+AB_MATE_EQ_BAND_CNT, 2); 
-                ab_mate_notify_eq(); 
+                ab_mate_cm_write(&ab_mate_app.eq_info.mode, AB_MATE_CM_EQ_DATA, 1+AB_MATE_EQ_BAND_CNT, 2);
+                ab_mate_notify_eq();
         }
                 break;
 #endif
 
-#if SWETZ_BT_TO_PAIR    
+#if SWETZ_BT_TO_PAIR
 
 // 在断开设备时，根据不同的状态选择断开哪个设备：
 // • 如果正在播放音乐（BT_STA_PLAYING）：断开非当前A2DP媒体索引的设备。
@@ -956,25 +974,25 @@ void func_message(u16 msg)
                                 {
                                     disc_index = 0;
                                 }
-                                else 
+                                else
                                 {
                                     disc_index = 1;
-                                }      
+                                }
                         }else if ((bt_status == BT_STA_OUTGOING) || (bt_status == BT_STA_INCALL))
                     {
                         if (hfp_index)
                         {
                             disc_index = 0;
                         }
-                        else 
+                        else
                         {
                             disc_index = 1;
                         }
                     }
 
-                        
 
-                        
+
+
                         bt_get_link_btaddr(disc_index, bt_addr);//拿到没活动设备的连接地址
                         bt_nor_get_link_info_name(bt_addr, name, 32);//获取配对信息中的蓝牙名
                         printf("disc device:%s  disc_index:%d \n",name,disc_index);
@@ -1016,7 +1034,7 @@ void func_message(u16 msg)
             if(bt_nor_is_connected())
             {
                 bt_nor_disconnect();
-            }            
+            }
         }
             break;
 
