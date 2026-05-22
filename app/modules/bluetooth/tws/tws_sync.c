@@ -123,6 +123,15 @@ void tws_time_alarm_cb(uint32_t params, uint32_t alarm_tickn)
                 msg_enqueue(EVT_SWITCH_EQ_TO_BASS);     
         }        
 #endif
+#if MUSIC_PIAO_TEST
+        if(params == USER_SYNC_EVT_MUSIC_EN){
+                msg_enqueue(EVT_SWITCH_MUSIC_EN);     
+        }  
+        if(params == USER_SYNC_EVT_MUSIC_BYPASS){
+                msg_enqueue(EVT_SWITCH_MUSIC_BYPASS);     
+        }  
+#endif
+
 
     }
  

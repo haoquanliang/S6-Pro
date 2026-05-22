@@ -7,7 +7,7 @@
         <add key="spk_mute_io_sel" value="0" />
         <add key="high_mute" value="True" />
         <add key="loudspeaker_unmute_delay" value="6" />
-        <add key="sys_sleep_time" value="300" />
+        <add key="sys_sleep_time" value="60" />
         <add key="sys_off_time" value="0" />
         <add key="lowpower_warning_en" value="True" />
         <add key="lpwr_warning_vbat" value="3.4V" />
@@ -34,7 +34,7 @@
         <add key="vol_max" value="16级音量" />
         <add key="sys_init_vol" value="10" />
         <add key="sys_recover_initvol" value="10" />
-        <add key="warning_volume" value="6" />
+        <add key="warning_volume" value="8" />
         <add key="buck_mode_en" value="True" />
         <add key="vddba_buck_en" value="True" />
         <add key="vddbt_capless_en" value="False" />
@@ -87,7 +87,7 @@
         <add key="bt_tswi_en" value="True" />
         <add key="bt_tswi_kpwr_en" value="False" />
         <add key="bt_tswi_msc_en" value="True" />
-        <add key="bt_tswi_sco_en" value="False" />
+        <add key="bt_tswi_sco_en" value="True" />
         <add key="bt_tswi_charge_rst_en" value="True" />
         <add key="bt_outbox_voice_pwron_en" value="False" />
         <add key="bt_rf_pwrdec" value="0" />

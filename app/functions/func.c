@@ -857,6 +857,15 @@ void func_message(u16 msg)
 
 
                 break;
+#if MUSIC_PIAO_TEST
+            case EVT_SWITCH_MUSIC_EN:
+                    bt_audio_enable();
+                    break;
+            case EVT_SWITCH_MUSIC_BYPASS:
+                    bt_audio_bypass();
+                    break;
+#endif
+
 
         case EVT_SWITCH_EQ_TO_BASS:
              printf("EVT_SWITCH_EQ_TO_BASS\r\n");

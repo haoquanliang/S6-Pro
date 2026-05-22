@@ -25,6 +25,8 @@ enum
     USER_SYNC_EVT_V3D_ON,//空间音效同步变化
     USER_SYNC_EVT_V3D_OFF,
     USER_SYNC_EVT_SWITCH_EQ_TO_BASS,
+    USER_SYNC_EVT_MUSIC_EN,//同步en
+    USER_SYNC_EVT_MUSIC_BYPASS,//同步bypass
 };
 #endif 
 

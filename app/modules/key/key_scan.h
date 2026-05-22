@@ -576,6 +576,8 @@
 #define EVT_V3D_ON              0x727
 #define EVT_V3D_OFF             0x728
 #define EVT_SWITCH_EQ_TO_BASS             0x729
+#define EVT_SWITCH_MUSIC_EN             0x72A
+#define EVT_SWITCH_MUSIC_BYPASS             0x72B
 #endif
 
 

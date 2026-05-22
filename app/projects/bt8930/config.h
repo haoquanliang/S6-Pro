@@ -148,7 +148,7 @@
 #define APP_LEN_TO_LONG_OVER            1//怀疑是这里数组越界访问导致的指针异常复位，加个限制
 
 #define TONE_SYNC                       1//提示音分开响
-
+#define MUSIC_PIAO_TEST                 1//切eq声音飘
 
 
 
