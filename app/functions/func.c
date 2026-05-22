@@ -701,12 +701,13 @@ void func_message(u16 msg)
 #endif
         {
             u8 bat_level = bsp_get_bat_level();
-            if(sys_cb.local_bat_level != bat_level){
+       //     if(sys_cb.local_bat_level != bat_level){
+ u8 diff = sys_cb.local_bat_level > bat_level ? sys_cb.local_bat_level - bat_level : bat_level - sys_cb.local_bat_level;
+            if(diff > 4){       //电量差大于3才更新
                     sys_cb.local_bat_level = bat_level;
                     app_lr_send_notification(LR_NOTIFY_BATTERY_LEVEL, 1, &sys_cb.local_bat_level);
             }
         }
-        printf("ab_mate_app test:%d %d %d\r\n",ab_mate_app.test1,ab_mate_app.test2,ab_mate_app.test3);
 #if SWETZ
     // u8 bt_tws_addr[6];
     // u8 feature = bt_tws_get_link_info(bt_tws_addr);

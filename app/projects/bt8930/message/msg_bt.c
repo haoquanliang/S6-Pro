@@ -665,6 +665,7 @@ void sfunc_bt_call_message_do(u16 msg)
 
     ///拒接第2路通话, 或私密接听切换
     case KL_PLAY_PWR_USER_DEF:
+        
         sys_cb.poweron_flag = 1;                        //PWRKEY松开前不产生KHL_PLAY_PWR消息。按键松开自动清此标志。
     case KL_PLAY_USER_DEF:
         printf("KL_PLAY_USER_DEF\r\n");

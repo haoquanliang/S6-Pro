@@ -144,7 +144,7 @@
 #define SWETZ_CANSEND_NOW               0//调试时这个变量暂时置1
 #define USER_EQ_SYNC_BYPASS             1//同步 bypass eq
 #define APP_KEY_ADD_EQ_SWITCH           1//经典/低音增强/空间音效
-#define APP_ONLY_ONE_CON                1//限制，只能连接一个app
+#define APP_ONLY_ONE_CON                0//限制，只能连接一个app
 #define APP_LEN_TO_LONG_OVER            1//怀疑是这里数组越界访问导致的指针异常复位，加个限制
 
 #define TONE_SYNC                       1//提示音分开响
@@ -157,6 +157,7 @@
 
 #define OTA_TEST                    1
 #define CM_TEST                     1//一次读写多个数据测试
+#define TEST                        1
 #endif
 
 
@@ -256,7 +257,7 @@
 #define BT_POWER_UP_RECONNECT_TIMES     3   //上电回连次数
 #define BT_TIME_OUT_RECONNECT_TIMES     58  //掉线回连次数，5.12s一次
 #define BT_SIMPLE_PAIR_EN               1   //是否打开蓝牙简易配对功能（关闭时需要手机端输入PIN码）
-#define BT_DISCOVER_CTRL_EN             2   //是否使用按键打开可被发现（需自行添加配对键处理才能被连接配对）
+#define BT_DISCOVER_CTRL_EN             2   //是否使用按键打开可被发现（需自行添加配对键处理才能被连接配对）,1表示连上一个手机后会自动关闭可发现，2表示完全由UI决定
 #define BT_PWRKEY_5S_DISCOVER_EN        0   //是否使用长按5S开机进入可被发现(耳机长按开机功能)
 #define BT_DISCOVER_TIMEOUT             100 //按键打开可被发现后，多久后仍无连接自动关闭，0不自动关闭，单位100ms
 #define BT_ANTI_LOST_EN                 0   //是否打开蓝牙防丢报警

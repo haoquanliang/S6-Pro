@@ -265,6 +265,7 @@ void bt_emit_notice(uint evt, void *params)
 
 #if SWETZ_SAVE_AG_ADDR
         app_dm_handle_ag_disconnect((bt_bd_addr_t*)&packet[2]);
+        app_dm_sync_info();
 #endif    
 
 #if SWETZ_SET_SCAN_STATE
@@ -305,6 +306,7 @@ void bt_emit_notice(uint evt, void *params)
 #endif
 #if SWETZ_SAVE_AG_ADDR
         app_dm_handle_ag_connect((bt_bd_addr_t*)&packet[2]);
+        app_dm_sync_info();
 #endif
 
 #if SWETZ_RECON_TONE

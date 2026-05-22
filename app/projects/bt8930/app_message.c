@@ -270,7 +270,13 @@ static void message_process(message_item_t *message)
 #endif 
         case MSG_ID_UPDATE_INCASE_STA:
             printf("MSG_ID_UPDATE_INCASE_STA\r\n");
-            lr_notify_in_case_info();  
+            lr_notify_in_case_info(); 
+#if TEST
+        if(!bt_tws_is_slave()){
+        sys_cb.scan_state = bt_get_curr_scan();
+        app_lr_send_notification(LR_NOTIFY_SYNC_SCAN_STATE, 1, &sys_cb.scan_state);
+        }
+#endif
             break;
 
 #if APP_INBOX_STA_1S_AFTER_UPDATE

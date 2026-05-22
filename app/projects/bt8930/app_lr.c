@@ -134,6 +134,13 @@ static void lr_parse_notification(void)
         break;        
 
 
+        case LR_NOTIFY_SYNC_DM_INFO:
+        if (payload_size == sizeof(dm_t))
+        {
+            memcpy(app_dm_get_info(), &tws_rx_buf[PAYLOAD_INDEX], sizeof(dm_t));
+        }
+        break;
+
         case LR_NOTIFY_SYNC_AB_VOL:
         {
             if (payload_size == 1)
