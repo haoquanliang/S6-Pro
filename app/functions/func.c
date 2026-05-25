@@ -859,10 +859,23 @@ void func_message(u16 msg)
                 break;
 #if MUSIC_PIAO_TEST
             case EVT_SWITCH_MUSIC_EN:
-                    bt_audio_enable();
+                //     bt_audio_enable();
+                if(sys_cb.flag_bypass == true){
+                    sys_cb.flag_bypass = false;
+                    dac_fade_in();
+                    bt_audio_enable(); 
+                }
+
                     break;
             case EVT_SWITCH_MUSIC_BYPASS:
-                    bt_audio_bypass();
+                 //   bt_audio_bypass();
+                if(sys_cb.flag_bypass == false){
+                        dac_fade_out();
+                        dac_fade_wait();
+                        bt_audio_bypass();
+                        sys_cb.flag_bypass = true;
+                }
+
                     break;
 #endif
 

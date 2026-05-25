@@ -720,9 +720,7 @@ void user_eq_rm_recover(u8 *payload,u8 payload_len)
 void ab_mate_eq_set(u8 *payload,u8 payload_len)
 {
     printf("payload[0]:%x\r\n",payload[0]);
-#if MUSIC_PIAO_TEST
-    bt_tws_req_alarm_user(USER_SYNC_EVT_MUSIC_BYPASS);
-#endif
+
 
 #if APP_EQ_SET
     if(payload_len == 1 && payload[0] < AB_MATE_EQ_RES_CNT){
@@ -2899,6 +2897,10 @@ void ab_mate_request_receive_proc(u8 cmd,u8 *payload,u8 payload_len)
 #else
             sys_cb.flag_getcmd_time = tick_get();
 #endif
+#if MUSIC_PIAO_TEST
+    bt_tws_req_alarm_user(USER_SYNC_EVT_MUSIC_BYPASS);
+    
+#endif  
             break;
 
 #if APP_USER_EQ_SET
@@ -3219,7 +3221,7 @@ void ab_mate_eq_overall_gain_set(void)
 #endif
 u8 ab_mate_eq_set_do(void)
 {
-   
+
  printf("555555555555555555555555555555555\r\n");
 #if AB_MATE_EQ_EN
 #if AB_MATE_EQ_USE_RES
@@ -3688,6 +3690,7 @@ void ab_mate_flag_do(void)
 {
     if(ab_mate_app.do_flag & FLAG_EQ_SET){
         if(!sco_is_connected()){
+          
             ab_mate_app.do_flag &= ~FLAG_EQ_SET;
             ab_mate_eq_set_do();
 #if MUSIC_PIAO_TEST
