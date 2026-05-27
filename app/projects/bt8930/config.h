@@ -158,6 +158,7 @@
 #define OTA_TEST                    1
 #define CM_TEST                     1//一次读写多个数据测试
 #define TEST                        1
+#define USER_TEST                   1
 #endif
 
 

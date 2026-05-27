@@ -315,6 +315,15 @@ void bt_emit_notice(uint evt, void *params)
         }
 #endif
 
+#if USER_TEST
+        case BT_NOTICE_SCO_SETUP:
+            printf("BT_NOTICE_SCO_SETUP\r\n");
+            break;
+        case BT_NOTICE_SCO_FAIL:
+            printf("BT_NOTICE_SCO_FAIL\r\n");
+            break;            
+#endif
+
 #if SWETZ_SET_SCAN_STATE
         if (ab_mate_app.mult_dev.en)
         {
@@ -436,6 +445,7 @@ void bt_emit_notice(uint evt, void *params)
         break;
 
     case BT_NOTICE_MUSIC_CHANGE_VOL:
+        printf("BT_NOTICE_MUSIC_CHANGE_VOL\r\n");
         if(packet[0] == 0) {
             msg_enqueue(KU_VOL_DOWN);
         } else {
@@ -443,6 +453,7 @@ void bt_emit_notice(uint evt, void *params)
         }
         break;
     case BT_NOTICE_MUSIC_SET_VOL:
+        printf("BT_NOTICE_MUSIC_SET_VOL\r\n");
         if((sys_cb.incall_flag & INCALL_FLAG_SCO) == 0) {
 #if SWETZ_TEST
             if(!tws_res_is_playing()){

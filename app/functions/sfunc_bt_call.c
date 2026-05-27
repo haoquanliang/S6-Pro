@@ -234,6 +234,7 @@ void sco_audio_init(void)
         audio_path_start(AUDIO_PATH_BTMIC);
 #endif
         bsp_change_volume(bsp_bt_get_hfp_vol(sys_cb.hfp_vol));
+        printf("bsp_bt_get_hfp_vol:%d\r\n",bsp_bt_get_hfp_vol(sys_cb.hfp_vol));
         dac_fade_in();
     }
 
