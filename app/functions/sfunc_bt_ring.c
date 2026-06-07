@@ -1,4 +1,4 @@
-#include "include.h"
+﻿#include "include.h"
 #include "func.h"
 #include "func_bt.h"
 
@@ -187,7 +187,7 @@ static void sfunc_bt_ring_num_exit(void)
 #endif
 }
 #endif
-#if !SWETZ_RING_SEC_ROUTE
+
 AT(.text.func.btring) ALIGNED(128) NO_INLINE
 static void sfunc_bt_ring_res_init(void)
 {
@@ -201,7 +201,6 @@ static void sfunc_bt_ring_res_init(void)
     bt_ring.tickn = TICK_ADD(TICKN_GET(), 1200);
     bt_tws_sync_ring_sta();
 }
-#endif
 //Э��״̬
 AT(.text.func.btring)
 static void sfunc_bt_ring_nego(void)
@@ -286,12 +285,11 @@ static void sfunc_bt_ring_sco(void)
         }
     } else
 #endif
-#if !SWETZ_RING_SEC_ROUTE
     if((bt_ring.loc_flag & RING_FLAG_SCO) && !sco_is_connected()) {
         bt_audio_bypass();
         sfunc_bt_ring_res_init();
     }
-#endif
+
 }
 
 

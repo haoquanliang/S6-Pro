@@ -391,6 +391,9 @@ void bt_tws_report_dgb(void)
 
     ind[19] = sys_cb.tws_left_channel;   //0=right, 1=left
     if(bt_tws_get_link_rssi(rssi, sys_cb.tws_left_channel)) {
+        printf("rssi_left_tws: %d, rssi_right_tws: %d, rssi_left_phone: %d, rssi_right_phone: %d\n", 
+               rssi[0], rssi[1], rssi[2], rssi[3]);
+
         bt_spp_tx(SPP_SERVICE_CH0, tws_dbg_ind, 24);
 //        ble_set_adv_data(tws_dbg_ind+3, 21);
 //        ble_adv_en();

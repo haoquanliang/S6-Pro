@@ -95,7 +95,7 @@ u8 sys_ntc_check(void)
 }
 
 #else
-AT(.com_text.str2) 
+AT(.com_text.str2)
 const char ntc[] = "====ntc\r\n";
 
 
@@ -133,7 +133,7 @@ static void ntc_charge_exit_0p3c(void)
 
 
 
-enum 
+enum
 {
     NTC_NORMAL = 0,
     NTC_OUT_RANGE,
@@ -148,14 +148,14 @@ u8 user_ntc_check(void)
 
     u8 ntc_value = saradc_get_value8(ADCCH_NTC);
     printf("ntc:%d vbat:%d\n", ntc_value,sys_cb.vbat);//温度越高值越低
-    
+
          if (func_cb.sta == FUNC_BT)
          {
             // if ((ntc_value > (xcfg_cb.ntc_discharge_thd_risk_high - 5)) || (ntc_value < (xcfg_cb.ntc_discharge_thd_risk_low + 5)))
             // {
             //     sys_cb.ntc_discharge_out_normal_range = true;
             // }
-            // else 
+            // else
             // {
             //     sys_cb.ntc_discharge_out_normal_range = false;
             // }
@@ -167,7 +167,7 @@ u8 user_ntc_check(void)
                     printf("ntc:out range\n");
                     sys_cb.discon_reason = 0;   //不同步关机
                     sys_cb.pwrdwn_tone_en = 1;
-                    func_cb.sta = FUNC_PWROFF; 
+                    func_cb.sta = FUNC_PWROFF;
                 }
 
             }
@@ -180,7 +180,7 @@ u8 user_ntc_check(void)
                 if (ntc_status == NTC_NORMAL){
                         ntc_status = NTC_OUT_RANGE;
                         printf("ntc:charge out range\n");
-                        RTCCON8 = (RTCCON8 & ~BIT(6)) | BIT(1);     //disable charger function  
+                        RTCCON8 = (RTCCON8 & ~BIT(6)) | BIT(1);     //disable charger function
                 }
 
             }
@@ -208,12 +208,12 @@ u8 user_ntc_check(void)
                         ntc_charge_exit_0p3c();
                     }
                 }
-            } 
+            }
 
          }
 
 
-  
+
 
 }
 
@@ -250,7 +250,7 @@ AT(.com_text.timer)
 void check_ear_inbox()
 {
             bool inbox = vhouse_cb.inbox_sta;//CHARGE_INBOX();//
-          
+
             if (sys_cb.flag_local_in_case)
             {
                 if (!inbox)
@@ -259,7 +259,7 @@ void check_ear_inbox()
                     msg_enqueue(EVT_OUT_CASE);
                 }
             }
-            else 
+            else
             {
                 if (inbox)
                 {
@@ -270,12 +270,12 @@ void check_ear_inbox()
                     msg_enqueue(EVT_IN_CASE);
                 }
             }
-            
+
 }
 #endif
 
 #if STR_PRI
-AT(.com_text.str2) 
+AT(.com_text.str2)
 const char str[] = "====str %d\r\n";
 #endif
 
@@ -296,12 +296,12 @@ void usr_tmr5ms_thread(void)
 #if PWRKEY_2_HW_PWRON
     pwrkey_2_hw_pwroff_detect();
 #endif
-   
+
 #if SWETZ_EVT_5S
      sys_cb.sys_5ms_cnt++;
     if (sys_cb.sys_5ms_cnt >= 1000)
     {
-        sys_cb.sys_5ms_cnt = 0;        
+        sys_cb.sys_5ms_cnt = 0;
         msg_enqueue(EVT_SYS_5S);
     }
 
@@ -320,7 +320,7 @@ void usr_tmr5ms_thread(void)
 #if USER_NTC
 #if !SWETZ_NTC
     sys_ntc_check();
-#endif    
+#endif
 #endif
 
 #if USB_SUPPORT_EN
@@ -354,7 +354,7 @@ void usr_tmr5ms_thread(void)
         }
 #endif
     }
-    
+
     //50ms timer process
     if ((tmr5ms_cnt % 10) == 0) {
         ticks_50ms++;
@@ -387,12 +387,12 @@ void usr_tmr5ms_thread(void)
         dac_fifo_detect();
     #if SWETZ_CHECK_INBOX
             check_ear_inbox();
-    #endif 
+    #endif
     }
 
 
     // if ((tmr5ms_cnt % 40) == 0) {//200ms
-          
+
     // }
 
 
@@ -418,7 +418,7 @@ void usr_tmr5ms_thread(void)
 #if SWETZ_EVT_1S
     if ((tmr5ms_cnt % 200) == 0) {
         msg_enqueue(EVT_SYS_1S);
-       
+
     }
 #endif
 }
@@ -435,35 +435,35 @@ static uint8_t get_bat_level_from_volt_wi_charger(uint16_t volt)
     else if (volt <= VOLT_BAT_LEVEL_CHARGING_5)
     {
         level = 5*(volt - (LPWR_OFF_VBAT * 100 + 2700))/(VOLT_BAT_LEVEL_CHARGING_5 - (LPWR_OFF_VBAT * 100 + 2700));
-    }   
+    }
     else if (volt <= VOLT_BAT_LEVEL_CHARGING_10)
     {
         level = 5 + 5*(volt - VOLT_BAT_LEVEL_CHARGING_5)/(VOLT_BAT_LEVEL_CHARGING_10 - VOLT_BAT_LEVEL_CHARGING_5);
-    }      
+    }
     else if (volt <= VOLT_BAT_LEVEL_CHARGING_15)
     {
         level = 10 + 5*(volt - VOLT_BAT_LEVEL_CHARGING_10)/(VOLT_BAT_LEVEL_CHARGING_15 - VOLT_BAT_LEVEL_CHARGING_10);
-    } 
+    }
     else if (volt <= VOLT_BAT_LEVEL_CHARGING_20)
     {
         level = 15 + 5*(volt - VOLT_BAT_LEVEL_CHARGING_15)/(VOLT_BAT_LEVEL_CHARGING_20 - VOLT_BAT_LEVEL_CHARGING_15);
-    } 
+    }
     else if (volt <= VOLT_BAT_LEVEL_CHARGING_25)
     {
         level = 20 + 5*(volt - VOLT_BAT_LEVEL_CHARGING_20)/(VOLT_BAT_LEVEL_CHARGING_25 - VOLT_BAT_LEVEL_CHARGING_20);
-    } 
+    }
     else if (volt <= VOLT_BAT_LEVEL_CHARGING_30)
     {
         level = 25 + 5*(volt - VOLT_BAT_LEVEL_CHARGING_25)/(VOLT_BAT_LEVEL_CHARGING_30 - VOLT_BAT_LEVEL_CHARGING_25);
-    } 
+    }
     else if (volt <= VOLT_BAT_LEVEL_CHARGING_35)
     {
         level = 30 + 5*(volt - VOLT_BAT_LEVEL_CHARGING_30)/(VOLT_BAT_LEVEL_CHARGING_35 - VOLT_BAT_LEVEL_CHARGING_30);
-    } 
+    }
     else if (volt <= VOLT_BAT_LEVEL_CHARGING_40)
     {
         level = 35 + 5*(volt - VOLT_BAT_LEVEL_CHARGING_35)/(VOLT_BAT_LEVEL_CHARGING_40 - VOLT_BAT_LEVEL_CHARGING_35);
-    } 
+    }
     else if (volt <= VOLT_BAT_LEVEL_CHARGING_45)
     {
         level = 40 + 5*(volt - VOLT_BAT_LEVEL_CHARGING_40)/(VOLT_BAT_LEVEL_CHARGING_45 - VOLT_BAT_LEVEL_CHARGING_40);
@@ -646,10 +646,10 @@ uint8_t app_bat_level_show_for_phone(uint8_t bat_real_level)
     return bat_show;
 }
 
-uint8_t app_bat_level_show_for_app(uint8_t bat_real_level) 
+uint8_t app_bat_level_show_for_app(uint8_t bat_real_level)
 {
     uint8_t bat_show;
-    
+
     if (bat_real_level < 15)
     {
         bat_show = 10;
@@ -657,19 +657,19 @@ uint8_t app_bat_level_show_for_app(uint8_t bat_real_level)
     else if (bat_real_level < 25)
     {
         bat_show = 20;
-    } 
+    }
     else if (bat_real_level < 35)
     {
         bat_show = 30;
-    }    
+    }
     else if (bat_real_level < 45)
     {
         bat_show = 40;
-    }  
+    }
     else if (bat_real_level < 55)
     {
         bat_show = 50;
-    }  
+    }
     else if (bat_real_level < 65)
     {
         bat_show = 60;
@@ -677,16 +677,16 @@ uint8_t app_bat_level_show_for_app(uint8_t bat_real_level)
     else if (bat_real_level < 75)
     {
         bat_show = 70;
-    }   
+    }
     else if (bat_real_level < 85)
     {
         bat_show = 80;
-    }  
+    }
     else if (bat_real_level < 95)
     {
         bat_show = 90;
-    }   
-    else 
+    }
+    else
     {
         bat_show = 100;
     }
@@ -713,7 +713,7 @@ uint bsp_get_bat_level(void)
             bat_level = bat_level_temp;
             printf("1010old_bat_level:%d\r\n",bat_level);
         }
-        else 
+        else
         {
             u8 old_bat_level = vbat_read_param();//获取记忆的电量
             printf("2020old_bat_level:%d\r\n",old_bat_level);
@@ -722,7 +722,7 @@ uint bsp_get_bat_level(void)
             {
                 bat_level = bat_level_temp;
             }
-            else 
+            else
             {
                 bat_level = old_bat_level;
             }
@@ -731,7 +731,7 @@ uint bsp_get_bat_level(void)
         }
 
 
-        
+
     }
 
 #endif
@@ -740,7 +740,7 @@ uint bsp_get_bat_level(void)
 
 #if SWETZ_VBAT_DISCHARGE
     static uint old_vbat = 0xff;
-    
+
 #endif
 
 
@@ -756,7 +756,7 @@ uint bsp_get_bat_level(void)
     if(old_vbat == 0xff){
         old_vbat = bat_level;
     }else {
-        if(old_vbat > bat_level){  
+        if(old_vbat > bat_level){
             old_vbat = bat_level;
         }else {
             bat_level = old_vbat;
@@ -802,7 +802,7 @@ static void update_using_charging_time_stop(void)
 static void update_level_using_charging_time(void)
 {
     uint8_t bat_level_temp = bat_level;
-    
+
     if (is_update_level_using_charging_time)
     {
         charging_update_gauge_count++;
@@ -817,7 +817,7 @@ static void update_level_using_charging_time(void)
             bat_level = bat_level_temp;
             vbat_write_param();
             printf("bat_level_temp:%d\r\n",bat_level_temp);
-        }       
+        }
     }
 }
 void app_bat_level_update(bool charging)
@@ -830,7 +830,7 @@ void app_bat_level_update(bool charging)
         if ((!is_update_level_using_charging_time)
         // && (sys_cb.vbat > VOLT_BAT_LEVEL_CHARGING_70)
         // && (old_level >= 70)
-        ) 
+        )
         {
              update_using_charging_time_start();
 
@@ -852,7 +852,7 @@ void app_bat_level_update(bool charging)
         //             bat_level = new_level;
         //         }
         //     }
-        //     else 
+        //     else
         //     {
         //         bat_wait_stable_cnt = 0;
         //     }
@@ -1302,8 +1302,8 @@ bool power_off_check(void)
 #else
             mp3_res_play(RES_BUF_POWERON, RES_LEN_POWERON);
 #endif
-                
-                
+
+
 #endif
             DEBUG_SW("RES_BUF_POWERON\r\n");
             #endif
@@ -1420,9 +1420,12 @@ static void power_on_check_do(void)
 #if SWETZ_NTC
     static u16 ntc_cnt;
 #endif
+#if USER_RECHARGE
+    u16 cc_cnt = 0;
+#endif
 
 #if SWETZ_VBAT_VIR_PRESSURE
-    u16 charging_cnt = 0;
+    static u16 charging_cnt = 0;
 #endif
 
     u32 rtccon9 = RTCCON9;                          //wakeup pending
@@ -1528,6 +1531,20 @@ static void power_on_check_do(void)
                 sfunc_pwrdown(1);
             }
         }
+
+#if USER_RECHARGE
+        if (sys_cb.flag_recharge_complete == 1)
+        {
+            if (cc_cnt++ >= 1000) //5秒转换状态
+            {
+                cc_cnt = 0;
+                sys_cb.flag_recharge_complete = 2;
+                RTCCON8 = (RTCCON8 & ~BIT(1)) | BIT(6);// 重新使能充电,enable charger function
+            }
+        }
+
+#endif
+
 #if SWETZ_NTC
         ntc_cnt++;
         if(ntc_cnt == 980){
@@ -1569,16 +1586,16 @@ void power_on_check(void)
 #if SWETZ_SHIP_MODE
 void swetz_ship_mode(bool mode)
 {
-        GPIOBFEN &= ~BIT(2);        
-        GPIOBDE |= BIT(2);          
-        GPIOBDIR &= ~BIT(2); 
+        GPIOBFEN &= ~BIT(2);
+        GPIOBDE |= BIT(2);
+        GPIOBDIR &= ~BIT(2);
     if(mode == 1){
          GPIOBSET |= BIT(2);
 
     }else{
-         GPIOBCLR |= BIT(2); 
-    }           
-             
+         GPIOBCLR |= BIT(2);
+    }
+
 }
 
 
@@ -1778,11 +1795,11 @@ void sys_init(void)
     if(!CHARGE_INBOX()){
 #if APP_SWITCH_TONE_TYPE
             user_poweron_tone_play();
-#else        
+#else
         mp3_res_play(RES_BUF_POWERON, RES_LEN_POWERON);
-#endif        
+#endif
         DEBUG_SW("RES_BUF_POWERON\r\n");
-    }        
+    }
 
         #endif
     }

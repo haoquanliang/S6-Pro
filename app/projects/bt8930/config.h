@@ -91,8 +91,9 @@
 #define USER_OVERHANG_TO_SLEEP      1//自定义回连,失败进休眠
 #define INCASE_TO_SLEEP             1//在仓也要休眠处理
 #define FUNC_1TO2_SWTICH_MUSIC      1//优化一拖二 杂音问题
-
-
+#define USER_RECHARGE               1//耳机增加二次充电
+#define USER_INCAHARGE_IS_RESET     1//充电是否复位
+#define IS_RESET                    (1)//
 
 //APP功能
 #define APP_BLE_RADIO               1//广播ble修改
@@ -282,7 +283,7 @@
 #define BT_HID_MANU_EN                  0   //蓝牙HID是否需要手动连接/断开
 #define BT_HID_DISCON_DEFAULT_EN        0   //蓝牙HID服务默认不连接，需要手动进行连接。
 #define BT_HID_VOL_CTRL_EN              0   //是否支持HID调手机音量功能（需同时打开BT_HID_EN和BT_A2DP_VOL_CTRL_EN）
-#define BT_HFP_CALL_PRIVATE_SWITCH_EN   1   //是否打开按键切换私密接听与蓝牙接听功能
+#define BT_HFP_CALL_PRIVATE_SWITCH_EN   0   //是否打开按键切换私密接听与蓝牙接听功能
 #define BT_HFP_CALL_PRIVATE_FORCE_EN    0   //是否强制使用私密接听（仅在手机接听，不通过蓝牙外放）
 #define BT_HFP_RECORD_DEVICE_VOL_EN     0   //是否支持分别记录不同连接设备的通话音量
 #define BT_HFP_RING_NUMBER_EN           0   //是否支持来电报号
@@ -313,7 +314,7 @@
 #define BT_TWS_PAIR_BONDING_EN          1   //是否支持TWS组队绑定，调用bt_tws_delete_link_info()删除配对信息可解除绑定
 #define BT_TWS_MS_SWITCH_EN             1   //是否支TWS主从切换
 #define BLE_TWS_MS_SWITCH_EN            1   //是否支BLE主从切换
-#define BT_TWS_DBG_EN                   0   //是否支持BT-Assistant工具分析信号质量，需要打开BT_SPP_EN
+#define BT_TWS_DBG_EN                   1   //是否支持BT-Assistant工具分析信号质量，需要打开BT_SPP_EN
 #define BT_TWS_PUBLIC_ADDR_EN           0   //是否支持TWS配对后生成新地址连接手机（0：使用主耳地址，1：使用新地址，注意0、1程序不兼容不能相互配对）
 #define BT_TWS_SLEEP_LED_SYNC_EN        0   //是否打开休眠模式下led灯同步闪烁功能
 

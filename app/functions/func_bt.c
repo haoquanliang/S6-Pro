@@ -636,11 +636,14 @@ bool func_bt_charge_dcin(void)
     }
 #endif
 printf("888888888888555555555\r\n");
+    
 
-
-
+#if USER_INCAHARGE_IS_RESET
+    xcfg_cb.bt_tswi_charge_rst_en = IS_RESET;
+#endif
     if ((xcfg_cb.bt_tswi_charge_rst_en) || (func_cb.sta != FUNC_BT)) {
 		sys_cb.discon_reason = 0;
+        
 
 		//开启UART2检测VUSB KEY，避免func_bt_exit过程太久，无法进入VUSB升级
 		sys_clk_set(SYS_24M);
@@ -648,6 +651,7 @@ printf("888888888888555555555\r\n");
 		uart2_key_mode(9600);
         #endif
        func_bt_exit();
+       printf("SW_RST_DC_IN\r\n");
        sw_reset_kick(SW_RST_DC_IN);                    //直接复位进入充电
         while(1);
     }

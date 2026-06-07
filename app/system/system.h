@@ -242,6 +242,7 @@ volatile u8  dc_in_filter;      //DC IN filter
     u8 scan_state;
     u8 flag_overhang_to_sleep;
     u8 flag_bypass;
+    u8 flag_recharge_complete;// 0=没充满，1=充满+VBAT供电，2=充满+VUSB供电 
 #endif
 #if SWETZ_TEST
     u8 test;

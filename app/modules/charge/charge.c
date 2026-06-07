@@ -122,15 +122,38 @@ void charge_status(u8 sta)
         TRACE(charge_off_str, sta);
         sys_cb.charge_sta = 0;
         sys_cb.charge_bled_flag = 0;
+#if !USER_RECHARGE
         charge_led_off();
+#endif
         if (sta == 2) {
             sys_cb.charge_sta = 2;
+#if !USER_RECHARGE
             //充电满亮蓝灯
             if (BLED_CHARGE_FULL) {
                 sys_cb.charge_bled_flag = 1;
                 sys_cb.ch_bled_cnt = charge_cfg.bled_on_pr;
                 charge_bled_on();
             }
+#endif
+#if USER_RECHARGE
+            printf("charge full\n");
+            if((sys_cb.flag_recharge_complete == 0) && (CHARGE_VOLT_FOLLOW_EN)){
+                        if(RTCCON7 & BIT(17)){//如果二次充电功能还开启
+                                printf("recharge\n");
+                                // 停止充电电流，允许电池电压回落
+                                RTCCON7 = (RTCCON7 & ~(0xf << 11)) | (3 << 11);  // 设置二次充电停止电流
+                                RTCCON7 &= ~BIT(17);   // 关闭二次充电功能
+                                charge_cfg.chag_sta = 1;  // 回到充电状态重新充电
+                        }else{
+                                // 二次充电已关闭 → 彻底禁用充电器，标记充满
+                                RTCCON8 = (RTCCON8 & ~BIT(6)) | BIT(1);     //disable charger function
+                                sys_cb.flag_recharge_complete = 1;
+                        }
+            }
+
+#endif
+
+
         }
     }
 }
@@ -192,6 +215,19 @@ void charge_enter(u8 out_auto_pwron)
 	charge_power_save();
 
     vusb4s_reset_dis();
+
+#if USER_RECHARGE
+//开启二次充电能力
+    if(CHARGE_VOLT_FOLLOW_EN){
+        RTCCON8 = (RTCCON8 & ~BIT(1)) | BIT(6);// enable charger function
+        RTCCON7 |= BIT(17);//使能二次充电功能
+        RTCCON7 = (RTCCON7 & ~(0xf << 11)) | ((charge_cfg.stop_curr + 0) << 11);  //设置停止充电电流,RI_IENDS, RTCCON7[14:11]， stop charging current
+        sys_cb.flag_recharge_complete = 0;
+ 
+    }
+
+#endif
+
 }
 
 AT(.text.charge)
@@ -203,6 +239,10 @@ void charge_exit(void)
     charge_box_reinit();
 #endif
     tkey_stop_calibration_in_charge();
+#if USER_RECHARGE
+    sys_cb.flag_recharge_complete = 0;// 退出复位状态
+#endif
+
 #if SWETZ_VBAT_VIR_PRESSURE
     vbat_write_param();
 #endif

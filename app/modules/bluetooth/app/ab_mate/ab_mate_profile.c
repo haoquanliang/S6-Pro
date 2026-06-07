@@ -180,13 +180,13 @@ void latt_txpkt_init(void)
 }
 #endif
 
-const uint8_t ab_mate_primay_uuid16[2]={0xB3,0xFD};
+const uint8_t ab_mate_primay_uuid16[2]={0xB3,0xFD};//Servicce UUID 0xFDB3
 static const gatts_uuid_base_st uuid_ab_mate_primay_base = {
     .type = BLE_GATTS_UUID_TYPE_16BIT,
     .uuid = ab_mate_primay_uuid16,
 };
 
-const uint8_t ab_mate_notify_uuid16[2]={0x18,0xff};
+const uint8_t ab_mate_notify_uuid16[2]={0x18,0xff};//Notify Characteristic UUID 0xFF18
 static const gatts_uuid_base_st uuid_ab_mate_notify_base = {
     .props = ATT_NOTIFY | ATT_READ,
     .type = BLE_GATTS_UUID_TYPE_16BIT,
@@ -194,14 +194,14 @@ static const gatts_uuid_base_st uuid_ab_mate_notify_base = {
 };
 static gatts_service_base_st gatts_ab_mate_notify_base AT(.app.buf.gatt);
 
-const uint8_t ab_mate_write_uuid16[2]={0x16,0xff};
+const uint8_t ab_mate_write_uuid16[2]={0x16,0xff};//Write Characteristic UUID 0xFF16
 static const gatts_uuid_base_st uuid_ab_mate_write_base = {
     .props = ATT_WRITE | ATT_READ,
     .type = BLE_GATTS_UUID_TYPE_16BIT,
     .uuid = ab_mate_write_uuid16,
 };
 
-const uint8_t ab_mate_write_cmd_uuid16[2]={0x17,0xff};
+const uint8_t ab_mate_write_cmd_uuid16[2]={0x17,0xff};//WriteWithNoRsp Characteristic UUID 0xFF17
 static const gatts_uuid_base_st uuid_ab_mate_write_cmd_base = {
     .props = ATT_WRITE_WITHOUT_RESPONSE | ATT_WRITE,
     .type = BLE_GATTS_UUID_TYPE_16BIT,
@@ -209,7 +209,7 @@ static const gatts_uuid_base_st uuid_ab_mate_write_cmd_base = {
 };
 
 #if AB_MATE_CTKD_EN
-const uint8_t ab_mate_ctkd_uuid16[2]={0x20,0xff};
+const uint8_t ab_mate_ctkd_uuid16[2]={0x20,0xff};//Write Characteristic UUID 0xFF20
 static const gatts_uuid_base_st uuid_ab_mate_ctkd_base = {
     .props = ATT_WRITE | ATT_AUTHENTICATION_REQUIRED,
     .type = BLE_GATTS_UUID_TYPE_16BIT,

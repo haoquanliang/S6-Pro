@@ -299,6 +299,16 @@ void bt_emit_notice(uint evt, void *params)
         msg_enqueue(EVT_AUTO_PWFOFF_EN);
         delay_5ms(5);
         break;
+
+#if USER_TEST
+        case BT_NOTICE_SCO_SETUP:
+            printf("BT_NOTICE_SCO_SETUP\r\n");
+            break;
+        case BT_NOTICE_SCO_FAIL:
+            printf("BT_NOTICE_SCO_FAIL\r\n");
+            break;            
+#endif
+
     case BT_NOTICE_CONNECTED:
 
 #if USER_OVERHANG_TO_SLEEP
@@ -315,14 +325,7 @@ void bt_emit_notice(uint evt, void *params)
         }
 #endif
 
-#if USER_TEST
-        case BT_NOTICE_SCO_SETUP:
-            printf("BT_NOTICE_SCO_SETUP\r\n");
-            break;
-        case BT_NOTICE_SCO_FAIL:
-            printf("BT_NOTICE_SCO_FAIL\r\n");
-            break;            
-#endif
+
 
 #if SWETZ_SET_SCAN_STATE
         if (ab_mate_app.mult_dev.en)
