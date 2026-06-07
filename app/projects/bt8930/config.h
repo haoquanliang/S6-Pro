@@ -93,7 +93,7 @@
 #define FUNC_1TO2_SWTICH_MUSIC      1//优化一拖二 杂音问题
 #define USER_RECHARGE               1//耳机增加二次充电
 #define USER_INCAHARGE_IS_RESET     1//充电是否复位
-#define IS_RESET                    (1)//
+#define IS_RESET                    (1)
 
 //APP功能
 #define APP_BLE_RADIO               1//广播ble修改
