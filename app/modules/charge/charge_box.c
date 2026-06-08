@@ -490,8 +490,8 @@ static void charge_box_send_data(u8 *buf,u8 len)
 #endif
 #if SWETZ 
     //if(buf[3] != 0x01){
-        printf("box tx:");
-        print_r(buf, len);
+        // printf("box tx:");
+        // print_r(buf, len);
    //  }
 
 #endif 

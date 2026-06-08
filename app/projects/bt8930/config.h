@@ -91,9 +91,14 @@
 #define USER_OVERHANG_TO_SLEEP      1//自定义回连,失败进休眠
 #define INCASE_TO_SLEEP             1//在仓也要休眠处理
 #define FUNC_1TO2_SWTICH_MUSIC      1//优化一拖二 杂音问题
-#define USER_RECHARGE               1//耳机增加二次充电
+#define USER_RECHARGE               0//耳机增加二次充电
 #define USER_INCAHARGE_IS_RESET     1//充电是否复位
 #define IS_RESET                    (1)
+
+#define SWETZ_REDIS_TO_SLEEP        1//只要回连失败就进休眠
+#define SWETZ_DIS_TO_SLEEP          1//设备主动断开进休眠
+#define SWETZ_USER_SET_ADV          1//自定义ble开关  ,仅在连接经典蓝牙后才进行BLE广播，在配对模式、未连接待机状态不广播;已连接APP停止广播，已连接经典蓝牙仅断开APP时恢复BLE广播
+
 
 //APP功能
 #define APP_BLE_RADIO               1//广播ble修改
@@ -157,7 +162,7 @@
 #define APP_MUSIC_AUDIO_TEST        0//音效调试
 
 #define OTA_TEST                    1
-#define CM_TEST                     1//一次读写多个数据测试
+#define CM_TEST                     0//一次读写多个数据测试
 #define TEST                        1
 #define USER_TEST                   1
 #endif

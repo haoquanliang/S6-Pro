@@ -15,7 +15,8 @@ u32 charge_pll0con0;
 #endif
 void unlock_code_charge(void);
 
-static charge_cfg_t charge_cfg;
+charge_cfg_t charge_cfg;
+
 
 //充满电亮蓝灯时间table表
 AT(.rodata.charge)

@@ -820,9 +820,10 @@ static void update_level_using_charging_time(void)
         }
     }
 }
+extern charge_cfg_t charge_cfg;
 void app_bat_level_update(bool charging)
 {
-    uint8_t new_level;
+    uint8_t new_level = 0xff;
     uint8_t old_level = bat_level;
 
     if (charging)
@@ -870,7 +871,7 @@ void app_bat_level_update(bool charging)
             }
     }
     update_level_using_charging_time();
-    printf("sys_cb.vbat:%d  new_level:%d  old_level:%d  bat_level:%d\r\n",sys_cb.vbat,new_level,old_level,bat_level);
+    printf("sys_cb.vbat:%d  new_level:%d  old_level:%d  bat_level:%d chag_sta:%d\r\n",sys_cb.vbat,new_level,old_level,bat_level,(charge_cfg.chag_sta & 0x07));
 }
 
 #endif
@@ -1606,6 +1607,7 @@ void vbat_param_init(void)
 {
     vbat_read_param();
     vbat_read_vbat_flag_param();
+    printf("sys_cb.param_vbta:%d sys_cb.param_vbta_flag:%d\r\n",sys_cb.param_vbta,sys_cb.param_vbta_flag);
     if(sys_cb.param_vbta > 100 || sys_cb.param_vbta_flag != 0xff){
             sys_cb.param_vbta = 100;
             sys_cb.param_vbta_flag = 0xff;

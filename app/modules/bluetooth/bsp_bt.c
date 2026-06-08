@@ -263,6 +263,12 @@ void bt_emit_notice(uint evt, void *params)
 
 #endif
 
+#if  SWETZ_USER_SET_ADV
+        if((!bt_tws_is_slave())){
+            ble_adv_dis();
+        }
+#endif
+
 #if SWETZ_SAVE_AG_ADDR
         app_dm_handle_ag_disconnect((bt_bd_addr_t*)&packet[2]);
         app_dm_sync_info();
@@ -271,8 +277,22 @@ void bt_emit_notice(uint evt, void *params)
 #if SWETZ_SET_SCAN_STATE
             ag_num = app_dm_get_connected_ag_num();
         if(ag_num == 0){
+#if SWETZ_DIS_TO_SLEEP
+                if(packet[1] == 0x13){ //设备主动断开，才进入休眠
+            
+                    if(bt_tws_is_connected()){
+                        bt_tws_req_alarm_user(USER_SYNC_EVT_OVERHANG_TO_SLEEP);
+
+                }else{
+                          msg_enqueue(EVT_OVERHANG_TO_SLEEP);
+                        //单耳直接进入休眠
+                }
+            }
+#else
+
                 bt_set_scan(0x03);
                 f_bt.warning_status |= BT_WARN_PAIRING;   
+#endif
         }else{
                 bt_set_scan(0x02);
         }
@@ -310,7 +330,11 @@ void bt_emit_notice(uint evt, void *params)
 #endif
 
     case BT_NOTICE_CONNECTED:
-
+#if  SWETZ_USER_SET_ADV
+        if(!ble_is_connect()){
+                ble_adv_en();
+        }
+#endif
 #if USER_OVERHANG_TO_SLEEP
         sys_cb.flag_overhang_to_sleep = false;
 #endif
@@ -378,7 +402,11 @@ void bt_emit_notice(uint evt, void *params)
     case BT_NOTICE_CONNECT_FAIL:
     DEBUG_SW("BT_NOTICE_CONNECT_FAIL\r\n");
 
-
+#if  SWETZ_USER_SET_ADV
+        if((!bt_tws_is_slave())){
+             ble_adv_dis();
+        }
+#endif
 
 #if SWETZ_RECONNECT_BT_STATE
         bt_set_scan(0x03);
@@ -392,6 +420,17 @@ void bt_emit_notice(uint evt, void *params)
             f_bt.warning_status |= BT_WARN_PAIRING;
         }
 #endif
+
+
+#if SWETZ_REDIS_TO_SLEEP
+            if(bt_tws_is_connected() && (!sys_cb.flag_overhang_to_sleep)){//暂时判断避开一下超距回连失败的情况，因为下面有处理
+                    bt_tws_req_alarm_user(USER_SYNC_EVT_OVERHANG_TO_SLEEP);
+                }else{
+                    sys_cb.sleep_delay = 0;//进入休眠 
+                }
+
+#endif
+
 #if USER_OVERHANG_TO_SLEEP
         if(sys_cb.flag_overhang_to_sleep){
             sys_cb.flag_overhang_to_sleep = false;
