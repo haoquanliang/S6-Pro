@@ -88,15 +88,16 @@
 #define SWETZ_DBB_LEVEL_FOLLOW_VOL  1//dbb等级跟随sys_cb.vol音量调整
 #define SWETZ_VBAT_VIR_PRESSURE     1//防止耳机充电转放电的时候虚压导致电量变化快
 #define SWETZ_SCAN_STATE_TO_CASE    1//扫描状态判断给仓
-#define USER_OVERHANG_TO_SLEEP      1//自定义回连,失败进休眠
-#define INCASE_TO_SLEEP             1//在仓也要休眠处理
+#define USER_OVERHANG_TO_SLEEP      1//自定义回连,
+#define INCASE_TO_SLEEP             1//在仓也要休眠处理失败进休眠
 #define FUNC_1TO2_SWTICH_MUSIC      1//优化一拖二 杂音问题
 #define USER_RECHARGE               0//耳机增加二次充电
 #define USER_INCAHARGE_IS_RESET     1//充电是否复位
 #define IS_RESET                    (1)
 
-#define SWETZ_REDIS_TO_SLEEP        1//只要回连失败就进休眠
-#define SWETZ_DIS_TO_SLEEP          1//设备主动断开进休眠
+
+#define SWETZ_BT_DIS_TO_BLE_DISC    1//蓝牙断开，ble也要主动断开
+#define SWETZ_BT_NO_CON_TO_REJECT_BLE_CON   1//蓝牙未连接，则拒绝ble连接
 #define SWETZ_USER_SET_ADV          1//自定义ble开关  ,仅在连接经典蓝牙后才进行BLE广播，在配对模式、未连接待机状态不广播;已连接APP停止广播，已连接经典蓝牙仅断开APP时恢复BLE广播
 
 

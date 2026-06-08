@@ -73,6 +73,14 @@ void ble_connect_callback(void)
 #if GFPS_EN
     gfps_ble_connected_callback();
 #endif
+#if SWETZ_BT_NO_CON_TO_REJECT_BLE_CON
+    if(!bt_is_connected()){
+        ble_disconnect();
+        return;
+    }
+#endif
+
+
     app_ble_connect_callback();
 }
 

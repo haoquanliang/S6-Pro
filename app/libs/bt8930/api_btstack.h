@@ -207,7 +207,7 @@ enum {
 //param[0]=feat,index
 enum
 {
-    FEAT_TWS_FLAG       = 0x80,
+    FEAT_TWS_FLAG       = 0x80, //
     FEAT_TWS_ROLE       = 0x40,
     FEAT_TWS_MUTE_FLAG  = 0x20,
     FEAT_TWS_FIRST_ROLE = 0x10,

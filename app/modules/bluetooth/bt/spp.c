@@ -55,6 +55,14 @@ void spp_connect_callback(uint8_t *bd_addr, uint8_t ch)
 #endif
     }
 
+#if SWETZ_BT_NO_CON_TO_REJECT_BLE_CON
+    if(!bt_is_connected()){
+        spp_disconnect();
+        return;
+    }
+
+#endif
+
     app_spp_connect_callback(ch);
 
 #if ANC_TOOL_EN

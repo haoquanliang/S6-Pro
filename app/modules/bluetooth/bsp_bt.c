@@ -263,6 +263,16 @@ void bt_emit_notice(uint evt, void *params)
 
 #endif
 
+#if SWETZ_BT_DIS_TO_BLE_DISC
+        if(ab_mate_app.con_sta == AB_MATE_CON_BLE){
+                ble_disconnect();
+        }else if(ab_mate_app.con_sta == AB_MATE_CON_SPP){
+                spp_disconnect();
+        }
+
+#endif
+
+
 #if  SWETZ_USER_SET_ADV
         if((!bt_tws_is_slave())){
             ble_adv_dis();
@@ -277,22 +287,8 @@ void bt_emit_notice(uint evt, void *params)
 #if SWETZ_SET_SCAN_STATE
             ag_num = app_dm_get_connected_ag_num();
         if(ag_num == 0){
-#if SWETZ_DIS_TO_SLEEP
-                if(packet[1] == 0x13){ //设备主动断开，才进入休眠
-            
-                    if(bt_tws_is_connected()){
-                        bt_tws_req_alarm_user(USER_SYNC_EVT_OVERHANG_TO_SLEEP);
-
-                }else{
-                          msg_enqueue(EVT_OVERHANG_TO_SLEEP);
-                        //单耳直接进入休眠
-                }
-            }
-#else
-
                 bt_set_scan(0x03);
                 f_bt.warning_status |= BT_WARN_PAIRING;   
-#endif
         }else{
                 bt_set_scan(0x02);
         }
@@ -314,6 +310,7 @@ void bt_emit_notice(uint evt, void *params)
 #if LE_WIN10_POPUP
         ble_adv0_set_ctrl(1);				//打开LE广播，可被win10发现
 #endif
+
         printf("BT_NOTICE_DISCONNECT:%x, %x\n", packet[1], packet[0]);   //打印断连reason和feature
         print_r(&packet[2], 6);                                          //打印远端蓝牙地址
         msg_enqueue(EVT_AUTO_PWFOFF_EN);
@@ -379,7 +376,17 @@ void bt_emit_notice(uint evt, void *params)
 #if BT_PWRKEY_5S_DISCOVER_EN
         bsp_bt_pwrkey5s_clr();
 #endif // BT_PWRKEY_5S_DISCOVER_EN
-        printf("BT_NOTICE_CONNECTED:%x\n", (packet[0]&0x08));            //打印是否是被连接
+/*SWETZ_USER
+bit7 (0x80): FEAT_TWS_FLAG        — TWS 连接标志
+bit6 (0x40): FEAT_TWS_ROLE        — TWS 角色
+bit5 (0x20): FEAT_TWS_MUTE_FLAG   — TWS 静音标志
+bit4 (0x10): FEAT_TWS_FIRST_ROLE  — TWS 首次角色
+bit3 (0x08): FEAT_INCOME_CON      — 是否被连接（被动连接）
+bit2 (0x04): FEAT_FIRST_CON       — 是否首次连接
+bit1-0(0x03): FEAT_INDEX_MASK     — 连接索引（一拖二场景区分设备0/1）
+*/
+        printf("BT_FIRST_CONNECTED:%x\n", (packet[0]&0x04));  
+        printf("BT_NOTICE_CONNECTED:%x\n", (packet[0]&0x08));            //打印是否是被连接 
         print_r(&packet[2], 6);                                          //打印远端蓝牙地址
         delay_5ms(5);
         msg_enqueue(EVT_AUTO_PWFOFF_DIS);
@@ -422,14 +429,7 @@ void bt_emit_notice(uint evt, void *params)
 #endif
 
 
-#if SWETZ_REDIS_TO_SLEEP
-            if(bt_tws_is_connected() && (!sys_cb.flag_overhang_to_sleep)){//暂时判断避开一下超距回连失败的情况，因为下面有处理
-                    bt_tws_req_alarm_user(USER_SYNC_EVT_OVERHANG_TO_SLEEP);
-                }else{
-                    sys_cb.sleep_delay = 0;//进入休眠 
-                }
 
-#endif
 
 #if USER_OVERHANG_TO_SLEEP
         if(sys_cb.flag_overhang_to_sleep){
