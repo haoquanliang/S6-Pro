@@ -635,9 +635,7 @@ bool func_bt_charge_dcin(void)
         qtest_cb.sta = 0;
     }
 #endif
-printf("888888888888555555555\r\n");
     
-
 #if USER_INCAHARGE_IS_RESET
     xcfg_cb.bt_tswi_charge_rst_en = IS_RESET;
 #endif

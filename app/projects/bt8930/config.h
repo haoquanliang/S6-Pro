@@ -195,7 +195,7 @@
 #define PWRKEY_2_HW_PWRON               0                       //用PWRKEY模拟硬开关
 #define USB_SD_UPDATE_EN                0                       //是否支持UDISK/SD的离线升级
 #define GUI_SELECT                      GUI_NO                  //GUI Display Select
-#define UART0_PRINTF_SEL                PRINTF_PB3              //选择UART打印信息输出IO，或关闭打印信息输出
+#define UART0_PRINTF_SEL                PRINTF_NONE              //选择UART打印信息输出IO，或关闭打印信息输出
 #define SYS_PARAM_RTCRAM                0                       //是否系统参数保存到RTCRAM
 #define PWRON_ENTER_BTMODE_EN           0                       //是否上电默认进蓝牙模式
 #define SLEEP_DAC_OFF_EN                (is_sleep_dac_off_enable()) //sfunc_sleep是否关闭DAC， 复用MICL检测方案不能关DAC。
@@ -320,7 +320,7 @@
 #define BT_TWS_PAIR_BONDING_EN          1   //是否支持TWS组队绑定，调用bt_tws_delete_link_info()删除配对信息可解除绑定
 #define BT_TWS_MS_SWITCH_EN             1   //是否支TWS主从切换
 #define BLE_TWS_MS_SWITCH_EN            1   //是否支BLE主从切换
-#define BT_TWS_DBG_EN                   1   //是否支持BT-Assistant工具分析信号质量，需要打开BT_SPP_EN
+#define BT_TWS_DBG_EN                   0   //是否支持BT-Assistant工具分析信号质量，需要打开BT_SPP_EN
 #define BT_TWS_PUBLIC_ADDR_EN           0   //是否支持TWS配对后生成新地址连接手机（0：使用主耳地址，1：使用新地址，注意0、1程序不兼容不能相互配对）
 #define BT_TWS_SLEEP_LED_SYNC_EN        0   //是否打开休眠模式下led灯同步闪烁功能
 
@@ -506,7 +506,7 @@
 
 #define BT_SCO_LDMIC_AI_EN              0                           //是否打开自研长麦距双麦AI降噪算法
 
-#define BT_SNDP_SMIC_AI_EN              1                           //是否打开声加单麦AI降噪算法
+#define BT_SNDP_SMIC_AI_EN              0                           //是否打开声加单麦AI降噪算法
 
 #define BT_SNDP_FBDM_EN                 0                           //是否打开声加双mic（1+1）降噪算法
 
@@ -553,9 +553,9 @@
  * Module    : usb device 功能选择
  *****************************************************************************/
 #define UDE_STORAGE_EN                  0                           //使能usb udisk
-#define UDE_SPEAKER_EN                  1                           //使能usb speaker audio下行
-#define UDE_HID_EN                      1                           //使能usb hid按键
-#define UDE_MIC_EN                      1                           //使能usb mic audio上行
+#define UDE_SPEAKER_EN                  0                           //使能usb speaker audio下行
+#define UDE_HID_EN                      0                           //使能usb hid按键
+#define UDE_MIC_EN                      0                           //使能usb mic audio上行
 
 #define USB_DET_VER_SEL                 0                           //USB插入检测方式,0-旧方式,1-新方式
 #define UAC_VER_SEL                     1                           //0-none, 1-UAC1.0, 2-UAC2.0/UAC3.0
@@ -572,7 +572,7 @@
 #define CFG_GET_CONF_LEN                1                           //0-兼容海贝音乐软件上的usb独占模式音量调节,1-默认
 #define USB_BC_EN                       1                           //0-disable, 1-使能USB Battery Charging描述符
 #define UDM_VOL_DEFAULT_SEL             0                           //MIC电脑端默认音量: 100%: 0, 90%: 1, 80%: 2, 70%: 3
-#define UDA_BALANCE_VOL_EN              1                           //是否使能Window/MacBook USB左右声道均衡调节功能(切换使能PC需要卸载设备)
+#define UDA_BALANCE_VOL_EN              0                           //是否使能Window/MacBook USB左右声道均衡调节功能(切换使能PC需要卸载设备)
 #define UDA_BALANCE_ID_SEL              0                           //0-MacBook兼容性更好,但不支持3节耳机左右声道均衡,1-支持3节耳机左右声道均衡,但某些MacBook系统异常
 #define USB_IPHONE_PREMOTE_EN           0                           //使能后开启iPhone/iPad音乐PP键快进/快退功能(AppleMusic/网易云音乐支持此功能)
 
@@ -705,7 +705,7 @@
 #define USER_TKEY_LOWPWR_WAKEUP_DIS     0           //是否电池低电时关掉触摸唤醒, 无保护板的电池需要打开。
 #define USER_TKEY_INEAR                 0           //是否使用TouchKey的入耳检测功能
 #define USER_TKEY_TEMP_EN               0           //是否使用TouchKey的温度检测功能
-#define USER_TKEY_DEBUG_EN              0           //仅调试使用，用于确认TKEY的参数
+#define USER_TKEY_DEBUG_EN              1           //仅调试使用，用于确认TKEY的参数
 #define TKEY_IS_PRESS()			        (tkey_is_pressed() && USER_TKEY_SOFT_PWR_EN)
 
 #define USER_TKEY_SLIDE                 0           //是否使用TouchKey的滑动检测功能
