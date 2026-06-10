@@ -27,6 +27,7 @@ enum
     USER_SYNC_EVT_SWITCH_EQ_TO_BASS,
     USER_SYNC_EVT_MUSIC_EN,//同步en
     USER_SYNC_EVT_MUSIC_BYPASS,//同步bypass
+    USER_SYNC_EVT_OVERHANG_TO_SLEEP_NOTDELAY,//不做延时进休眠
 };
 #endif 
 

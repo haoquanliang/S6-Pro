@@ -88,7 +88,7 @@
 #define SWETZ_DBB_LEVEL_FOLLOW_VOL  1//dbb等级跟随sys_cb.vol音量调整
 #define SWETZ_VBAT_VIR_PRESSURE     1//防止耳机充电转放电的时候虚压导致电量变化快
 #define SWETZ_SCAN_STATE_TO_CASE    1//扫描状态判断给仓
-#define USER_OVERHANG_TO_SLEEP      1//自定义回连,
+#define USER_OVERHANG_TO_SLEEP      1//自定义回连,回连失败进休眠
 #define INCASE_TO_SLEEP             1//在仓也要休眠处理失败进休眠
 #define FUNC_1TO2_SWTICH_MUSIC      1//优化一拖二 杂音问题
 #define USER_RECHARGE               0//耳机增加二次充电
@@ -99,6 +99,7 @@
 #define SWETZ_BT_DIS_TO_BLE_DISC    1//蓝牙断开，ble也要主动断开
 #define SWETZ_BT_NO_CON_TO_REJECT_BLE_CON   1//蓝牙未连接，则拒绝ble连接
 #define SWETZ_USER_SET_ADV          1//自定义ble开关  ,仅在连接经典蓝牙后才进行BLE广播，在配对模式、未连接待机状态不广播;已连接APP停止广播，已连接经典蓝牙仅断开APP时恢复BLE广播
+#define SWETZ_LINK_TIMEOUT_AND_DISC_TO_SLEEP    1//手机主动断连、回连失败进休眠
 
 
 //APP功能
@@ -195,7 +196,7 @@
 #define PWRKEY_2_HW_PWRON               0                       //用PWRKEY模拟硬开关
 #define USB_SD_UPDATE_EN                0                       //是否支持UDISK/SD的离线升级
 #define GUI_SELECT                      GUI_NO                  //GUI Display Select
-#define UART0_PRINTF_SEL                PRINTF_NONE              //选择UART打印信息输出IO，或关闭打印信息输出
+#define UART0_PRINTF_SEL                PRINTF_PB3              //选择UART打印信息输出IO，或关闭打印信息输出
 #define SYS_PARAM_RTCRAM                0                       //是否系统参数保存到RTCRAM
 #define PWRON_ENTER_BTMODE_EN           0                       //是否上电默认进蓝牙模式
 #define SLEEP_DAC_OFF_EN                (is_sleep_dac_off_enable()) //sfunc_sleep是否关闭DAC， 复用MICL检测方案不能关DAC。

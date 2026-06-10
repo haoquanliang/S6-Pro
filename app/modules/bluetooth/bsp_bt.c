@@ -284,15 +284,7 @@ void bt_emit_notice(uint evt, void *params)
         app_dm_sync_info();
 #endif    
 
-#if SWETZ_SET_SCAN_STATE
-            ag_num = app_dm_get_connected_ag_num();
-        if(ag_num == 0){
-                bt_set_scan(0x03);
-                f_bt.warning_status |= BT_WARN_PAIRING;   
-        }else{
-                bt_set_scan(0x02);
-        }
-#endif
+
 
 
 #if QTEST_EN
@@ -309,6 +301,30 @@ void bt_emit_notice(uint evt, void *params)
         f_bt.warning_status |= BT_WARN_DISCON;
 #if LE_WIN10_POPUP
         ble_adv0_set_ctrl(1);				//打开LE广播，可被win10发现
+#endif
+
+#if SWETZ_SET_SCAN_STATE
+#if !SWETZ_LINK_TIMEOUT_AND_DISC_TO_SLEEP
+            ag_num = app_dm_get_connected_ag_num();
+        if(ag_num == 0){
+                bt_set_scan(0x03);
+                f_bt.warning_status |= BT_WARN_PAIRING;   
+        }else{
+                bt_set_scan(0x02);
+        }
+#endif
+#endif
+
+#if SWETZ_LINK_TIMEOUT_AND_DISC_TO_SLEEP
+        bt_set_scan(0x02);
+        if(packet[1] == 0x13){
+                if(bt_tws_is_connected()){
+                        bt_tws_req_alarm_user(USER_SYNC_EVT_OVERHANG_TO_SLEEP);
+                }else{
+                        msg_enqueue(EVT_OVERHANG_TO_SLEEP);
+                }
+        }
+       
 #endif
 
         printf("BT_NOTICE_DISCONNECT:%x, %x\n", packet[1], packet[0]);   //打印断连reason和feature
@@ -416,15 +432,20 @@ bit1-0(0x03): FEAT_INDEX_MASK     — 连接索引（一拖二场景区分设备
 #endif
 
 #if SWETZ_RECONNECT_BT_STATE
+#if !SWETZ_LINK_TIMEOUT_AND_DISC_TO_SLEEP
         bt_set_scan(0x03);
+#endif
 #endif
 #if SWETZ_RECON_TONE
         printf("sys_cb.recon_tone:%d\r\n",sys_cb.recon_tone);
         if(sys_cb.recon_tone ){
             sys_cb.recon_tone = 0;
         }else{
-            if(sys_cb.flag_overhang_to_sleep == false)
+            if(sys_cb.flag_overhang_to_sleep == false){
+#if !SWETZ_LINK_TIMEOUT_AND_DISC_TO_SLEEP
             f_bt.warning_status |= BT_WARN_PAIRING;
+#endif
+            }
         }
 #endif
 
@@ -442,6 +463,17 @@ bit1-0(0x03): FEAT_INDEX_MASK     — 连接索引（一拖二场景区分设备
             // message_send(MSG_ID_OVERHANG_TO_ELEEP_TIME,0,10000);
            // sys_cb.sleep_delay = 0;//进入休眠
         }
+#endif
+
+#if SWETZ_LINK_TIMEOUT_AND_DISC_TO_SLEEP
+        bt_set_scan(0x02);
+     
+                if(bt_tws_is_connected()){
+                        bt_tws_req_alarm_user(USER_SYNC_EVT_OVERHANG_TO_SLEEP);
+                }else{
+                        msg_enqueue(EVT_OVERHANG_TO_SLEEP);
+                }
+        
 #endif
 
 #if BT_RF_POWER_BALANCE_EN

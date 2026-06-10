@@ -131,7 +131,11 @@ void tws_time_alarm_cb(uint32_t params, uint32_t alarm_tickn)
                 msg_enqueue(EVT_SWITCH_MUSIC_BYPASS);     
         }  
 #endif
-
+#if SWETZ_LINK_TIMEOUT_AND_DISC_TO_SLEEP
+        if(params == USER_SYNC_EVT_OVERHANG_TO_SLEEP_NOTDELAY ){
+                msg_enqueue(EVT_TO_SLEEP_NOT_DELAY);  
+        }
+#endif
 
     }
  

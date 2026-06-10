@@ -687,9 +687,17 @@ void func_message(u16 msg)
 #if USER_OVERHANG_TO_SLEEP
         case EVT_OVERHANG_TO_SLEEP:
                 printf("EVT_OVERHANG_TO_SLEEP allow_sleep:%d\r\n",bt_is_allow_sleep());
-                message_send(MSG_ID_OVERHANG_TO_ELEEP_TIME,0,5000);
+                message_send(MSG_ID_OVERHANG_TO_ELEEP_TIME,0,7000);
                 // sys_cb.sleep_delay = 0;//进入休眠
                 break;
+
+#endif
+
+#if SWETZ_LINK_TIMEOUT_AND_DISC_TO_SLEEP
+        case EVT_TO_SLEEP_NOT_DELAY:
+            printf("EVT_TO_SLEEP_NOT_DELAY\r\n");
+            sys_cb.sleep_delay = 0;
+            break;
 
 #endif
 
