@@ -2,19 +2,14 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="..\..\libs\bt8930\api_btstack.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\..\functions\sfunc_bt_call.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="34288" topLine="679" />
+			<Cursor1 position="8804" topLine="344" />
 		</Cursor>
 	</File>
-	<File name="..\..\include\clib.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\..\modules\bluetooth\bsp_bt.c" open="1" top="1" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="53" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="..\..\modules\bluetooth\tws\tws.c" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="11480" topLine="374" />
+			<Cursor1 position="22124" topLine="742" />
 		</Cursor>
 	</File>
 	<File name="xcfg.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -22,19 +17,29 @@
 			<Cursor1 position="38485" topLine="323" />
 		</Cursor>
 	</File>
-	<File name="..\..\functions\func.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\..\include\clib.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="7534" topLine="293" />
-		</Cursor>
-	</File>
-	<File name="..\..\functions\sfunc_bt_call.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="8804" topLine="344" />
+			<Cursor1 position="53" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="..\..\system\system.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="21977" topLine="853" />
+		</Cursor>
+	</File>
+	<File name="..\..\libs\bt8930\api_btstack.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="34288" topLine="679" />
+		</Cursor>
+	</File>
+	<File name="..\..\functions\func.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7534" topLine="293" />
+		</Cursor>
+	</File>
+	<File name="..\..\modules\bluetooth\tws\tws.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11480" topLine="374" />
 		</Cursor>
 	</File>
 	<File name="Output\bin\xcfg.xm" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">

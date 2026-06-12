@@ -212,6 +212,9 @@ enum{
     CMD_OTA_STA,
 
     CMD_CUSTOM = 0xE0,
+#if USER_ENCRYPT
+    CMD_ENCRYPT = 0xFF;//获取随机数指令
+#endif
 };
 
 enum{

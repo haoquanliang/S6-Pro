@@ -3039,6 +3039,13 @@ void ab_mate_request_receive_proc(u8 cmd,u8 *payload,u8 payload_len)
             break;
 #endif
 
+#if USER_ENCRYPT
+        case CMD_ENCRYPT:
+            printf("CMD_ENCRYPT\r\n");
+            
+            break;
+#endif
+
         default:
             break;
     }

@@ -97,7 +97,7 @@
 
 
 #define SWETZ_BT_DIS_TO_BLE_DISC    1//蓝牙断开，ble也要主动断开
-#define SWETZ_BT_NO_CON_TO_REJECT_BLE_CON   1//蓝牙未连接，则拒绝ble连接
+#define SWETZ_BT_NO_CON_TO_REJECT_BLE_CON   0//蓝牙未连接，则拒绝ble连接，本来下面就做了没有连接经典蓝牙就关ble
 #define SWETZ_USER_SET_ADV          1//自定义ble开关  ,仅在连接经典蓝牙后才进行BLE广播，在配对模式、未连接待机状态不广播;已连接APP停止广播，已连接经典蓝牙仅断开APP时恢复BLE广播
 #define SWETZ_LINK_TIMEOUT_AND_DISC_TO_SLEEP    1//手机主动断连、回连失败进休眠
 
@@ -167,6 +167,10 @@
 #define CM_TEST                     0//一次读写多个数据测试
 #define TEST                        1
 #define USER_TEST                   1
+
+
+//加密算法
+#define USER_ENCRYPT                1//app通讯加密
 #endif
 
 
