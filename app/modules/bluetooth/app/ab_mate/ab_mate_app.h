@@ -60,7 +60,7 @@
 #define AB_MATE_DYNAMIC_BASS_EN 0                       //动态低音设置
 #define AB_MATE_BT_ATT_EN       BT_ATT_EN               //GATT_OVER_BREDR
 #define AB_MATE_ADV0_EN         (LE_ADV0_EN&&LE_ADV0_CON_EN) //是否使用adv0发送ab_mate广播
-#define AB_MATE_RECORD_EN       OPUS_ENC_EN              
+#define AB_MATE_RECORD_EN       OPUS_ENC_EN
 
 //Ex
 #define AB_MATE_CUSTOM_CMD_EN       1                    //自定义命令
@@ -139,10 +139,10 @@
 #define AB_MATE_CM_ANC_FADE                 (AB_MATE_CM_DYNAMIC_BASS_INFO + 2)                          //1byte
 
 #define AB_MATE_CM_SWET_KEY_TONE_MODE       (120)                                                       //1byte，从地址150开始
-#define AB_MATE_CM_SWET_TONE_VOL              (AB_MATE_CM_SWET_KEY_TONE_MODE + 1)  
+#define AB_MATE_CM_SWET_TONE_VOL              (AB_MATE_CM_SWET_KEY_TONE_MODE + 1)
 #if SWETZ_VBAT_VIR_PRESSURE
 #define AB_MATE_CM_PARM_VBAT                (AB_MATE_CM_SWET_TONE_VOL + 1)
-#define AB_MATE_CM_PARM_VBAT_FLAG           (AB_MATE_CM_PARM_VBAT + 1)  
+#define AB_MATE_CM_PARM_VBAT_FLAG           (AB_MATE_CM_PARM_VBAT + 1)
 #endif
 
 #if CM_TEST
@@ -213,7 +213,7 @@ enum{
 
     CMD_CUSTOM = 0xE0,
 #if USER_ENCRYPT
-    CMD_ENCRYPT = 0xFF;//获取随机数指令
+    CMD_ENCRYPT = 0xFF,//获取随机数指令
 #endif
 };
 
@@ -359,7 +359,7 @@ enum{
 };
 
 
-enum 
+enum
 {
     SWET_LANG_SET_TYPE = 1,
     SWET_AB_VOL,
@@ -443,7 +443,7 @@ typedef struct __attribute__((packed)){
 
 typedef struct __attribute__((packed)){
     ab_mate_cmd_head_t cmd_head;
-    u8 payload[128];
+    u8 payload[256];
     u32 next_header_seq     : 4;
     u32 next_frame_seq      : 4;
     u8 recv_len;
@@ -539,6 +539,13 @@ typedef struct{
     u8 test2;
     u8 test3;
 #endif
+#if USER_ENCRYPT
+    u8 encrypt_enabled;       // 加密通信是否已激活
+    u8 random1[16];           // APP端发送的随机数R1
+    u8 random2[16];           // 设备端生成的随机数R2
+    u8 aes_key[32];           // AES-256密钥
+    u8 aes_iv[16];            // AES CBC IV
+#endif
 
 }ab_mate_app_var_t;
 
@@ -567,6 +574,14 @@ void ab_mate_bt_evt_notice(uint evt, void *params);
 
 void ab_mate_ble_app_init(void);
 void ab_mate_ble_connect_callback(void);
+#if USER_ENCRYPT
+void ab_mate_encrypt_init(void);
+void ab_mate_encrypt_generate_random(u8 *buf, u8 len);
+void ab_mate_encrypt_derive_key(u8 *random1, u8 *random2, u8 *key_out, u8 *iv_out);
+int  ab_mate_encrypt_payload(u8 *input, u16 input_len, u8 *output, u16 *output_len);
+int  ab_mate_decrypt_payload(u8 *input, u16 input_len, u8 *output, u16 *output_len);
+void ab_mate_encrypt_handle_random(u8 *random1, u8 len);
+#endif
 void ab_mate_ble_disconnect_callback(void);
 int ab_mate_ble_send_packet(u8 *buf, u8 len);
 int ab_mate_latt_send_packet(u8 *buf, u8 len);

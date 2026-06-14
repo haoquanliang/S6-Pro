@@ -8,7 +8,18 @@
 #include "map.h"
 
 #if AB_MATE_APP_EN
+#if USER_ENCRYPT
+#include "aes.h"
+#include "sha256.h"
 
+#if USER_ENCRYPT
+// 固定因子K，用于密钥派生（不传输）
+static const u8 g_encrypt_fixed_key[16] = {
+    0x75, 0x47, 0x1D, 0x58, 0xFA, 0x4F, 0x1E, 0xE4,
+    0xB2, 0x45, 0xAF, 0x40, 0xA0, 0xE7, 0xCD, 0x63
+};
+#endif
+#endif
 #if AB_MATE_RECORD_EN
 #include "bsp_opus.h"
 #endif
@@ -26,6 +37,8 @@
 #define AB_MATE_MAP_GET_CNT         3      //bt时间获取尝试次数
 static u8 ab_mate_time_get_cnt;
 #endif
+
+
 
 #if AB_MATE_EQ_EN
 struct __attribute__((packed)) eq_all_mode_info_st{
@@ -224,6 +237,26 @@ void ab_mate_data_send(u8* buf, u16 len)
     ab_mate_app.can_send_now = 1;
 #endif
     if(ab_mate_app.con_sta && ab_mate_app.can_send_now){
+
+#if USER_ENCRYPT
+        // 加密通信已激活，且当前包未加密
+        if(ab_mate_app.encrypt_enabled){
+            ab_mate_cmd_head_t *head = (ab_mate_cmd_head_t*)buf;
+            if(!head->encrypt && head->cmd  != CMD_ENCRYPT){
+                // 仅对 Request 和 Notify 加密，Response 不重复加密
+                u8 *payload = buf + AB_MATE_HEADER_LEN;
+                u16 payload_len = len - AB_MATE_HEADER_LEN;
+                u8 enc_payload[256];
+                u16 enc_len = 0;
+                if(payload_len > 0 && ab_mate_encrypt_payload(payload, payload_len, enc_payload, &enc_len) == 0){
+                    memcpy(payload, enc_payload, enc_len);
+                    head->encrypt = 1;
+                    head->payload_len = (u8)enc_len;
+                    len = AB_MATE_HEADER_LEN + enc_len;
+                }
+            }
+        }
+#endif
 
         u8 mtu = ab_mate_mtu_get() - AB_MATE_HEADER_LEN;
         u8 total_frame = 0;
@@ -2883,6 +2916,196 @@ bool ab_mate_system_need_wakeup(void)
     return (ab_mate_app.wakeup == 1);
 }
 
+
+#if USER_ENCRYPT
+
+// 加密状态初始化
+void ab_mate_encrypt_init(void)
+{
+    ab_mate_app.encrypt_enabled = 0;
+    memset(ab_mate_app.random1, 0, 16);
+    memset(ab_mate_app.random2, 0, 16);
+    memset(ab_mate_app.aes_key, 0, 32);
+    memset(ab_mate_app.aes_iv, 0, 16);
+}
+
+// 生成随机数（使用硬件随机数发生器）
+void ab_mate_encrypt_generate_random(u8 *buf, u8 len)
+{
+#if USER_ENCRYPT_TEST
+    static const u8 g_test_random2[16] = {
+        0xB2, 0xB2, 0xB2, 0xB2, 0xB2, 0xB2, 0xB2, 0xB2,
+        0xB2, 0xB2, 0xB2, 0xB2, 0xB2, 0xB2, 0xB2, 0xB2
+    };
+    memcpy(buf, g_test_random2, len);
+#else
+    u8 i;
+    for(i = 0; i < len; i++){
+        buf[i] = (u8)get_random(0xFF);
+    }
+#endif
+}
+
+// 密钥派生: SHA256(K + R1 + R2) → AES Key + IV
+void ab_mate_encrypt_derive_key(u8 *random1, u8 *random2, u8 *key_out, u8 *iv_out)
+{
+    u8 hash_input[16 + 16 + 16];  // K(16) + R1(16) + R2(16) = 48 bytes
+    u8 hash_output[32];
+
+    // 拼接 K + R1 + R2
+    memcpy(hash_input, g_encrypt_fixed_key, 16);
+    memcpy(hash_input + 16, random1, 16);
+    memcpy(hash_input + 32, random2, 16);
+
+    // SHA256 哈希
+    mbedtls_sha256_context sha_ctx;
+    mbedtls_sha256_init(&sha_ctx);
+    mbedtls_sha256_starts_ret(&sha_ctx, 0);  // 0 = SHA-256
+    mbedtls_sha256_update_ret(&sha_ctx, hash_input, sizeof(hash_input));
+    mbedtls_sha256_finish_ret(&sha_ctx, hash_output);
+    mbedtls_sha256_free(&sha_ctx);
+
+    // AES Key = hash[0:31] (32 bytes), IV = hash[16:31] (16 bytes)
+    memcpy(key_out, hash_output, 32);
+    memcpy(iv_out, hash_output + 16, 16);
+}
+
+// PKCS#7 填充 + AES-256-CBC 加密
+// 返回 0=成功, -1=失败
+int ab_mate_encrypt_payload(u8 *input, u16 input_len, u8 *output, u16 *output_len)
+{
+    u8 padding_len;
+    u16 padded_len;
+
+    // PKCS#7 填充: 缺N字节就填N个值为N的字节
+    padding_len = 16 - (input_len % 16);
+    padded_len = input_len + padding_len;
+
+    if(padded_len > 255) return -1;  // 超出协议限制
+
+    // 复制原始数据
+    memcpy(output, input, input_len);
+    // 填充
+    memset(output + input_len, padding_len, padding_len);
+
+    // AES-256-CBC 加密
+    mbedtls_aes_context aes_ctx;
+    mbedtls_aes_init(&aes_ctx);
+    mbedtls_aes_setkey_enc(&aes_ctx, ab_mate_app.aes_key, 256);
+
+    u8 iv[16];
+    memcpy(iv, ab_mate_app.aes_iv, 16);
+    mbedtls_aes_crypt_cbc(&aes_ctx, MBEDTLS_AES_ENCRYPT, padded_len, iv, output, output);
+
+    mbedtls_aes_free(&aes_ctx);
+    *output_len = padded_len;
+    return 0;
+}
+
+// AES-256-CBC 解密 + 去除 PKCS#7 填充
+// 返回 0=成功, -1=失败
+int ab_mate_decrypt_payload(u8 *input, u16 input_len, u8 *output, u16 *output_len)
+{
+    u8 padding_len;
+
+    if(input_len % 16 != 0 || input_len == 0) return -1;
+
+    // AES-256-CBC 解密
+    mbedtls_aes_context aes_ctx;
+    mbedtls_aes_init(&aes_ctx);
+    mbedtls_aes_setkey_dec(&aes_ctx, ab_mate_app.aes_key, 256);
+
+    u8 iv[16];
+    memcpy(iv, ab_mate_app.aes_iv, 16);
+    mbedtls_aes_crypt_cbc(&aes_ctx, MBEDTLS_AES_DECRYPT, input_len, iv, input, output);
+
+    mbedtls_aes_free(&aes_ctx);
+
+    // 去除 PKCS#7 填充
+    padding_len = output[input_len - 1];
+    if(padding_len == 0 || padding_len > 16) return -1;
+
+    *output_len = input_len - padding_len;
+    return 0;
+}
+
+// 处理 0xFF 加密握手请求
+void ab_mate_encrypt_handle_random(u8 *random1, u8 len)
+{
+    u8 r1_r2[32];        // R1 + R2 拼接
+    u8 encrypted_r1r2[48]; // 加密后的 R1+R2 (32字节 + PKCS#7填充16字节 = 48字节)
+    u16 enc_len;
+
+    if(len != 16){
+        printf("encrypt: invalid random1 len=%d\r\n", len);
+        ab_mate_request_common_response(AB_MATE_FAIL);
+        return;
+    }
+
+    // 保存APP的随机数R1
+    memcpy(ab_mate_app.random1, random1, 16);
+
+    // 生成设备随机数R2
+    ab_mate_encrypt_generate_random(ab_mate_app.random2, 16);
+
+    // 派生密钥和IV
+    ab_mate_encrypt_derive_key(ab_mate_app.random1, ab_mate_app.random2,
+                                ab_mate_app.aes_key, ab_mate_app.aes_iv);
+
+#if USER_ENCRYPT_TEST
+    printf("\r\n======== ENCRYPT TEST KEY INFO ========\r\n");
+    printf("R1:      "); print_r(ab_mate_app.random1, 16);
+    printf("R2:      "); print_r(ab_mate_app.random2, 16);
+    printf("AES Key: "); print_r(ab_mate_app.aes_key, 32);
+    printf("AES IV:  "); print_r(ab_mate_app.aes_iv, 16);
+    printf("========================================\r\n\r\n");
+#endif
+
+    // 拼接 R1 + R2 = 32 bytes
+    memcpy(r1_r2, ab_mate_app.random1, 16);
+    memcpy(r1_r2 + 16, ab_mate_app.random2, 16);
+
+    // 加密 R1+R2
+    ab_mate_encrypt_payload(r1_r2, 32, encrypted_r1r2, &enc_len);
+
+    // 构造 TLV 响应
+    // Type=0x00, Len=1, Value=0x00(成功)
+    // Type=0x01, Len=16, Value=R2
+    // Type=0x02, Len=enc_len, Value=encrypted(R1+R2)
+    u8 resp_buf[3 + 18 + 2 + enc_len];
+    u16 offset = 0;
+
+    resp_buf[offset++] = 0x00;  // Type: status
+    resp_buf[offset++] = 0x01;  // Len: 1
+    resp_buf[offset++] = 0x00;  // Value: success
+
+    resp_buf[offset++] = 0x01;  // Type: R2
+    resp_buf[offset++] = 0x10;  // Len: 16
+    memcpy(resp_buf + offset, ab_mate_app.random2, 16);
+    offset += 16;
+
+    resp_buf[offset++] = 0x02;  // Type: encrypted R1+R2
+    resp_buf[offset++] = (u8)enc_len;  // Len
+    memcpy(resp_buf + offset, encrypted_r1r2, enc_len);
+    offset += enc_len;
+
+    // 标记加密已激活
+    ab_mate_app.encrypt_enabled = 1;
+
+    printf("encrypt: key exchange success, encrypt_enabled=1\r\n");
+
+    // 发送响应（此时不加密，因为这是握手响应）
+    ab_mate_cmd_send.cmd_head.cmd = CMD_ENCRYPT;
+    ab_mate_cmd_send.cmd_head.cmd_type = CMD_TYPE_RESPONSE;
+    ab_mate_cmd_send.cmd_head.frame_seq = 0;
+    ab_mate_cmd_send.cmd_head.frame_total = 0;
+    ab_mate_cmd_send.cmd_head.payload_len = offset;
+    memcpy(ab_mate_cmd_send.payload, resp_buf, offset);
+    ab_mate_data_send((u8*)&ab_mate_cmd_send, AB_MATE_HEADER_LEN + offset);
+}
+
+#endif // USER_ENCRYPT
+
 void ab_mate_request_receive_proc(u8 cmd,u8 *payload,u8 payload_len)
 {
     ab_mate_cmd_send.cmd_head.cmd = cmd;
@@ -2933,6 +3156,7 @@ void ab_mate_request_receive_proc(u8 cmd,u8 *payload,u8 payload_len)
             break;
 
         case CMD_MODE_SET:
+            printf("CMD_MODE_SET\r\n");
 #if !APP_MESSAGE_DELYA
          ab_mate_mode_set(payload, payload_len);
 #else
@@ -3042,7 +3266,7 @@ void ab_mate_request_receive_proc(u8 cmd,u8 *payload,u8 payload_len)
 #if USER_ENCRYPT
         case CMD_ENCRYPT:
             printf("CMD_ENCRYPT\r\n");
-            
+            ab_mate_encrypt_handle_random(payload, payload_len);
             break;
 #endif
 
@@ -3129,6 +3353,20 @@ bool ab_mate_receive_proc(u8 *data,u16 len, u8 con_type)
             memcpy(&ab_mate_cmd_recv.cmd_head, cmd_head, AB_MATE_HEADER_LEN);
             memcpy(&ab_mate_cmd_recv.payload, p_data, payload_len);
             ab_mate_cmd_recv.total_len = payload_len;
+#if USER_ENCRYPT
+            // 解密
+            if(cmd_head->encrypt && ab_mate_app.encrypt_enabled){
+                u8 dec_buf[256];
+                u16 dec_len = 0;
+                if(ab_mate_decrypt_payload(ab_mate_cmd_recv.payload, payload_len, dec_buf, &dec_len) == 0){
+                    memcpy(ab_mate_cmd_recv.payload, dec_buf, dec_len);
+                    ab_mate_cmd_recv.total_len = dec_len;
+                }else{
+                    printf("encrypt: decrypt fail\r\n");
+                    return false;
+                }
+            }
+#endif
             ab_mate_receive_proc_do();
         }
     }else{
@@ -3145,6 +3383,20 @@ bool ab_mate_receive_proc(u8 *data,u16 len, u8 con_type)
             ab_mate_cmd_recv.total_len = ab_mate_cmd_recv.recv_len;
             ab_mate_cmd_recv.next_frame_seq = 0;
             ab_mate_cmd_recv.recv_len = 0;
+#if USER_ENCRYPT
+            // 解密
+            if(cmd_head->encrypt && ab_mate_app.encrypt_enabled){
+                u8 dec_buf[256];
+                u16 dec_len = 0;
+                if(ab_mate_decrypt_payload(ab_mate_cmd_recv.payload, ab_mate_cmd_recv.total_len, dec_buf, &dec_len) == 0){
+                    memcpy(ab_mate_cmd_recv.payload, dec_buf, dec_len);
+                    ab_mate_cmd_recv.total_len = dec_len;
+                }else{
+                    printf("encrypt: decrypt fail\r\n");
+                    return false;
+                }
+            }
+#endif
             ab_mate_receive_proc_do();
         }
     }
@@ -3570,6 +3822,9 @@ void ab_mate_var_init(void)
 #endif
 
     ab_mate_cm_read((u8*)&ab_mate_app.cm_flag, AB_MATE_CM_FLAG, 2);
+#if USER_ENCRYPT
+    ab_mate_encrypt_init();
+#endif
 	#if BT_TWS_EN
     tws_lr_xcfg_sel();
 	#endif
