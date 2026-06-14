@@ -298,6 +298,16 @@ static void message_process(message_item_t *message)
 
 #endif
 
+#if USER_ENCRYPT_CON_AFTER_5S
+        case MSG_ID_ENCRYPT_CON_AFTER_5S:
+                printf("MSG_ID_ENCRYPT_CON_AFTER_5S\r\n");
+                   
+                        spp_disconnect();
+                            
+                break;
+
+#endif
+
 #if APP_USER_FIND_EAR
         case MSG_ID_FIND_ME_LEFT:
 

@@ -3266,6 +3266,9 @@ void ab_mate_request_receive_proc(u8 cmd,u8 *payload,u8 payload_len)
 #if USER_ENCRYPT
         case CMD_ENCRYPT:
             printf("CMD_ENCRYPT\r\n");
+#if USER_ENCRYPT_CON_AFTER_5S
+            message_cancel_all(MSG_ID_ENCRYPT_CON_AFTER_5S);
+#endif
             ab_mate_encrypt_handle_random(payload, payload_len);
             break;
 #endif

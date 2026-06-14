@@ -172,7 +172,9 @@
 //加密算法
 #define USER_ENCRYPT                1//app通讯加密
 #define USER_ENCRYPT_TEST           1//测试程序，App端的随机数（Random1）为A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1，
-                                      //固件的随机数（Random2）先固定为B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2  
+                                      //固件的随机数（Random2）先固定为B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
+#define USER_ENCRYPT_CON_AFTER_5S   1//app连接5S后没有发送FF，则主动断开app
+                                      
 #endif
 
 

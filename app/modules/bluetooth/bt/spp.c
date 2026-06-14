@@ -55,6 +55,10 @@ void spp_connect_callback(uint8_t *bd_addr, uint8_t ch)
 #endif
     }
 
+#if USER_ENCRYPT_CON_AFTER_5S
+    message_send(MSG_ID_ENCRYPT_CON_AFTER_5S,0,10000);
+#endif
+
 #if SWETZ_BT_NO_CON_TO_REJECT_BLE_CON
     if(!bt_is_connected()){
         spp_disconnect();

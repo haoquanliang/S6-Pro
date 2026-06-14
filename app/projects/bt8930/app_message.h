@@ -50,7 +50,7 @@ typedef enum {
     MSG_ID_UPDATE_INCASE_STA,
     MSG_ID_UPDATE_1S_AFTER_INCASE_STA,
     MSG_ID_OVERHANG_TO_ELEEP_TIME,
-  
+    MSG_ID_ENCRYPT_CON_AFTER_5S,
 } msg_id_t;
 
 extern message_mgr_t message_mgr;
