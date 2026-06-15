@@ -3376,6 +3376,9 @@ bool ab_mate_receive_proc(u8 *data,u16 len, u8 con_type)
                 if(ab_mate_decrypt_payload(ab_mate_cmd_recv.payload, payload_len, dec_buf, &dec_len) == 0){
                     memcpy(ab_mate_cmd_recv.payload, dec_buf, dec_len);
                     ab_mate_cmd_recv.total_len = dec_len;
+                    printf("decrypted ok, len=%d\r\n", dec_len);
+                    printf("dec data: "); 
+                    print_r(ab_mate_cmd_recv.payload, dec_len);                    
                 }else{
                     printf("encrypt: decrypt fail\r\n");
                     return false;
