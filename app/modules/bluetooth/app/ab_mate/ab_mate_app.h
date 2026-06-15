@@ -152,6 +152,27 @@
 #define    AB_MATE_TEST3                           (AB_MATE_TEST2+1)
 #define    AB_MATE_TEST_SIZE                       3
 #endif
+
+#if APP_DEV_COLOR
+// 产品颜色对照表（0x27 0x1B）
+enum{
+    DEV_COLOR_WHITE  = 0x01,    // 白色（银白色、山茶白等）
+    DEV_COLOR_BLACK  = 0x02,    // 黑色（墨黑、沉思黑等）
+    DEV_COLOR_GRAY   = 0x03,    // 灰色（冷灰色、星光灰等）
+    DEV_COLOR_PINK   = 0x04,    // 粉色
+    DEV_COLOR_RED    = 0x05,    // 红色
+    DEV_COLOR_ORANGE = 0x06,    // 橙色
+    DEV_COLOR_YELLOW = 0x07,    // 黄色
+    DEV_COLOR_GREEN  = 0x08,    // 绿色
+    DEV_COLOR_CYAN   = 0x09,    // 青色
+    DEV_COLOR_BLUE   = 0x0A,    // 蓝色
+    DEV_COLOR_PURPLE = 0x0B,    // 紫色
+    DEV_COLOR_GOLD   = 0x0C,    // 金色
+    DEV_COLOR_SILVER = 0x0D,    // 银色
+    DEV_COLOR_BROWN  = 0x0E,    // 棕色
+};
+#endif
+
 typedef enum{
     AB_MATE_SUCCESS = 0,
     AB_MATE_FAIL,
@@ -310,7 +331,7 @@ enum{
     INFO_DYNAMIC_BASS,
     INFO_DYNAMIC_BASS_LEVEL,
     INFO_DYNAMIC_BASS_RANGE,
-
+    
     INFO_BT_STA = 0x23,
     INFO_PID,
 

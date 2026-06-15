@@ -1421,6 +1421,16 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
                 break;
 #endif
 
+#if APP_DEV_COLOR
+            case INFO_DEV_COLOR:
+                TRACE("INFO_DEV_COLOR\n");
+                val_len = payload[read_offset + 1];
+                buf[write_offset++] = INFO_DEV_COLOR;   // Type=0x1B
+                buf[write_offset++] = 1;                 // Len=1
+                buf[write_offset++] = APP_DEV_COLOR_VAL; // Value=颜色值
+                break;
+#endif
+
             case INFO_DEV_CAP:{
                 TRACE("INFO_DEV_CAP\n");
                 u16 capacity = 0;
@@ -1446,6 +1456,8 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
                 memcpy(&buf[write_offset], &capacity, 2);
                 write_offset += 2;
             } break;
+
+
 
             default:
                 val_len = payload[read_offset + 1];

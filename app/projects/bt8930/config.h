@@ -96,6 +96,7 @@
 #define IS_RESET                    (1)
 
 
+
 #define SWETZ_BT_DIS_TO_BLE_DISC    1//蓝牙断开，ble也要主动断开
 #define SWETZ_BT_NO_CON_TO_REJECT_BLE_CON   0//蓝牙未连接，则拒绝ble连接，本来下面就做了没有连接经典蓝牙就关ble
 #define SWETZ_USER_SET_ADV          1//自定义ble开关  ,仅在连接经典蓝牙后才进行BLE广播，在配对模式、未连接待机状态不广播;已连接APP停止广播，已连接经典蓝牙仅断开APP时恢复BLE广播
@@ -157,8 +158,8 @@
 
 #define TONE_SYNC                       1//提示音分开响
 #define MUSIC_PIAO_TEST                 1//切eq声音飘
-
-
+#define APP_DEV_COLOR                   1//增加颜色标志
+#define APP_DEV_COLOR_VAL               DEV_COLOR_BLACK   // 产品颜色，参考 DEV_COLOR_XXX 枚举
 
 #define SWETZ_CLOSE                 0//1:关掉V3D
 #define APP_MUSIC_AUDIO_TEST        0//音效调试
@@ -173,7 +174,7 @@
 #define USER_ENCRYPT                1//app通讯加密
 #define USER_ENCRYPT_TEST           1//测试程序，App端的随机数（Random1）为A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1，
                                       //固件的随机数（Random2）先固定为B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
-#define USER_ENCRYPT_CON_AFTER_5S   1//app连接5S后没有发送FF，则主动断开app
+#define USER_ENCRYPT_CON_AFTER_5S   0//app连接5S后没有发送FF，则主动断开app
                                       
 #endif
 
