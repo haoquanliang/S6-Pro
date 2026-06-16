@@ -251,7 +251,9 @@ volatile u8  dc_in_filter;      //DC IN filter
     u8 param_vbta;
     u8 param_vbta_flag;
 #endif
-
+#if APP_DEV_COLOR
+    u8 flag_color;
+#endif
 
 } sys_cb_t;
 extern sys_cb_t sys_cb;
@@ -287,6 +289,11 @@ void cpu_clr_sfr(psfr_t sfr, u32 value);
 static uint8_t get_bat_level_from_volt_wi_charger(uint16_t volt);
 void app_bat_level_update(bool charging);
 
+#endif
+
+#if APP_DEV_COLOR
+void vbat_write_color_flag_param(void);
+u8 vbat_read_color_flag_param(void);
 #endif
 
 #if SWETZ_VBAT_TO_PHONE

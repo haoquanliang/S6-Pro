@@ -1701,6 +1701,10 @@ void sys_init(void)
    vbat_param_init();
 #endif
 
+#if APP_DEV_COLOR
+    vbat_read_color_flag_param();
+#endif
+
     //晶振配置
     xosc_init();
 
@@ -1888,6 +1892,10 @@ void sys_init(void)
         cfg_tws_sync_alarm_time = 800;
 #endif
 
+#if BLE_ADD_COLOR_PROFILE
+    ab_mate_update_ble_adv_color(1);
+#endif
+
 }
 
 
@@ -1953,4 +1961,18 @@ u8 vbat_read_vbat_flag_param(void)
     return sys_cb.param_vbta_flag;
 }
 
+#endif
+#if APP_DEV_COLOR
+void vbat_write_color_flag_param(void)
+{
+    printf("-------------------------------write flag_color:%x\r\n ",sys_cb.flag_color);
+    ab_mate_cm_write(&sys_cb.flag_color, AB_MATE_CM_PARM_COLOR_FLAG, 1, 1);
+}
+
+u8 vbat_read_color_flag_param(void)
+{
+    ab_mate_cm_read(&sys_cb.flag_color, AB_MATE_CM_PARM_COLOR_FLAG, 1);
+    printf("-------------------------------read flag_color:%x \r\n",sys_cb.flag_color);
+    return sys_cb.flag_color;
+}
 #endif

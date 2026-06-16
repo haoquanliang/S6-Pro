@@ -18,8 +18,12 @@ const uint8_t sdp_ab_mate_spp_service_record[] = {
 #define ADV_VID_POS     (3 + 4)
 #define ADV_MAC_POS     (3 + 7)
 #define ADV_FMASK_POS   (3 + 13)
+#if BLE_ADD_COLOR_PROFILE
+#define ADV_COLOR_POS   (3 + 14)
+#define ADV_BID_POS     (3 + 15)
+#else
 #define ADV_BID_POS     (3 + 14)
-
+#endif
 static u8 *p_adv_data = NULL;
 static u8 adv_data_len = 0;
 #define TRACE(...)              printf(__VA_ARGS__)
@@ -42,14 +46,26 @@ static const uint8_t adv_data_const[] = {
 
 //     0x03, 0x03, 0xB3, 0xFD,
 // };//S6M能连的
+#if BLE_ADD_COLOR_PROFILE
 static const uint8_t adv_data_const[] = {
     // Flags general discoverable, BR/EDR not supported
     0x02, 0x01, 0x18,
-                //CID      VID   PID        MAC                            FMASK  BID
-    0x10, 0xff, 0x42,0x06, 0x02, 0x01,0x00, 0x00,0x00,0x00,0x00,0x00,0x00, 0x00,  0x00,0x04,0x00,
+                //CID      VID   PID        MAC                            FMASK  COLOR  BID
+    0x11, 0xff, 0x42,0x06, 0x02, 0x01,0x00, 0x00,0x00,0x00,0x00,0x00,0x00, 0x00,  0x00,  0x00,0x04,0x00,
 
     0x03, 0x03, 0xB3, 0xFD,
 };
+#else
+static const uint8_t adv_data_const[] = {
+    // Flags general discoverable, BR/EDR not supported
+    0x02, 0x01, 0x18,
+                //CID      VID   PID        MAC                            FMASK BID
+    0x11, 0xff, 0x42,0x06, 0x02, 0x01,0x00, 0x00,0x00,0x00,0x00,0x00,0x00, 0x00, 0x00,0x04,0x00,
+
+    0x03, 0x03, 0xB3, 0xFD,
+};
+#endif
+
 
 #endif
 static const uint8_t scan_data_const[] = {
@@ -100,7 +116,11 @@ u32 ble_get_adv_data(u8 *adv_buf, u32 buf_size)
     }
 
     memcpy(&adv_buf[ADV_MAC_POS], edr_addr, 6);
-
+#if BLE_ADD_COLOR_PROFILE
+    vbat_read_color_flag_param();
+    printf("3333333flag_color:%x\r\n",sys_cb.flag_color);
+    memcpy(&adv_buf[ADV_COLOR_POS], sys_cb.flag_color, 1);
+#endif
     memcpy(&adv_buf[ADV_BID_POS], &bid, 3);
 
 #if AB_MATE_CTKD_EN
@@ -126,6 +146,13 @@ void ble_adv_data_update_byte(u8 pos, u8* val, u8 len, u8 proc)
         }
     }
 }
+
+#if BLE_ADD_COLOR_PROFILE
+void ab_mate_update_ble_adv_color(u8 proc)//更新颜色标志，proc，用于控制是否立即生效
+{
+    ble_adv_data_update_byte(ADV_COLOR_POS,&sys_cb.flag_color,1,proc);
+}
+#endif
 
 void ble_adv_data_update_bit(u8 pos, u8 bit, u8 val, u8 len, u8 proc)
 {

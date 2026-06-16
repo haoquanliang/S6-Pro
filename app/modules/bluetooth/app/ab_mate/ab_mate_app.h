@@ -140,10 +140,10 @@
 
 #define AB_MATE_CM_SWET_KEY_TONE_MODE       (120)                                                       //1byte，从地址150开始
 #define AB_MATE_CM_SWET_TONE_VOL              (AB_MATE_CM_SWET_KEY_TONE_MODE + 1)
-#if SWETZ_VBAT_VIR_PRESSURE
+//SWETZ_VBAT_VIR_PRESSURE
 #define AB_MATE_CM_PARM_VBAT                (AB_MATE_CM_SWET_TONE_VOL + 1)
 #define AB_MATE_CM_PARM_VBAT_FLAG           (AB_MATE_CM_PARM_VBAT + 1)
-#endif
+#define AB_MATE_CM_PARM_COLOR_FLAG           (AB_MATE_CM_PARM_VBAT_FLAG + 1)
 
 #if CM_TEST
 #define    AB_MATE_CM_TEST                         (150)

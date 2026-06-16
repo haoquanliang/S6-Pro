@@ -12,5 +12,7 @@
 
 
 void ab_mate_update_ble_adv_bt_sta(u8 val, u8 proc);
-
+#if BLE_ADD_COLOR_PROFILE
+void ab_mate_update_ble_adv_color(u8 proc);//proc，用于控制是否立即生效
+#endif
 #endif

@@ -327,6 +327,13 @@ void ab_mate_notify_audio(void)
 }
 
 #endif
+#if APP_DEV_COLOR
+// void ab_mate_notify_color(void)
+// {
+        //协议没有上报，留空
+// }
+
+#endif
 
 void ab_mate_device_info_notify(u8* payload,u8 len)
 {
@@ -1427,7 +1434,7 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
                 val_len = payload[read_offset + 1];
                 buf[write_offset++] = INFO_DEV_COLOR;   // Type=0x1B
                 buf[write_offset++] = 1;                 // Len=1
-                buf[write_offset++] = APP_DEV_COLOR_VAL; // Value=颜色值
+                buf[write_offset++] = sys_cb.flag_color; // Value=颜色值参考产品颜色对照表
                 break;
 #endif
 

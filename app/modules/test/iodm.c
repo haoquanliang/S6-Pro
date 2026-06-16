@@ -486,6 +486,26 @@ void iodm_reveice_data_deal(void)
         }
             break;
 
+#if APP_DEV_COLOR
+        case VHOUSE_CMD_CUSTOM_WRITE_COLOR:
+                printf("VHOUSE_CMD_CUSTOM_WRITE_COLOR\r\n");
+               // printf("packet->buf:%x\r\n",packet->buf[0]);
+               
+               sys_cb.flag_color = packet->buf[0];
+               vbat_write_color_flag_param();
+#if BLE_ADD_COLOR_PROFILE
+        //        ab_mate_update_ble_adv_color(1);    
+#endif
+                break;
+
+        case VHOUSE_CMD_CUSTOM_READ_COLOR:
+                printf("VHOUSE_CMD_CUSTOM_READ_COLOR\r\n");
+                vbat_read_color_flag_param();
+                cmd_rsp_param_len = 1;
+                tx_buf[0] = sys_cb.flag_color;
+                break;
+#endif
+
 #if SWETZ_FACTORY_RESET
         case VHOUSE_CMD_CUSTOM_RESET_TO_FACTORY:
         printf("VHOUSE_CMD_CUSTOM_RESET_TO_FACTORY\r\n");

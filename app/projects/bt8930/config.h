@@ -158,8 +158,9 @@
 
 #define TONE_SYNC                       1//提示音分开响
 #define MUSIC_PIAO_TEST                 1//切eq声音飘
-#define APP_DEV_COLOR                   1//增加颜色标志
-#define APP_DEV_COLOR_VAL               DEV_COLOR_BLACK   // 产品颜色，参考 DEV_COLOR_XXX 枚举
+
+#define APP_DEV_COLOR                   1//增加颜色标志； 产品颜色，参考 DEV_COLOR_XXX 枚举
+#define BLE_ADD_COLOR_PROFILE                 1//颜色标志增加到广播包里面
 
 #define SWETZ_CLOSE                 0//1:关掉V3D
 #define APP_MUSIC_AUDIO_TEST        0//音效调试
@@ -171,8 +172,8 @@
 
 
 //加密算法
-#define USER_ENCRYPT                1//app通讯加密
-#define USER_ENCRYPT_TEST           1//测试程序，App端的随机数（Random1）为A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1，
+#define USER_ENCRYPT                0//app通讯加密
+#define USER_ENCRYPT_TEST           0//测试程序，App端的随机数（Random1）为A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1，
                                       //固件的随机数（Random2）先固定为B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2
 #define USER_ENCRYPT_CON_AFTER_5S   0//app连接5S后没有发送FF，则主动断开app
                                       
