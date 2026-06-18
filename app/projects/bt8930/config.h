@@ -101,7 +101,7 @@
 #define SWETZ_BT_NO_CON_TO_REJECT_BLE_CON   0//蓝牙未连接，则拒绝ble连接，本来下面就做了没有连接经典蓝牙就关ble
 #define SWETZ_USER_SET_ADV          1//自定义ble开关  ,仅在连接经典蓝牙后才进行BLE广播，在配对模式、未连接待机状态不广播;已连接APP停止广播，已连接经典蓝牙仅断开APP时恢复BLE广播
 #define SWETZ_LINK_TIMEOUT_AND_DISC_TO_SLEEP    1//手机主动断连、回连失败进休眠
-
+#define SWITCH_EQ_DAC_FADE          1//切eq增加淡入淡出
 
 //APP功能
 #define APP_BLE_RADIO               1//广播ble修改

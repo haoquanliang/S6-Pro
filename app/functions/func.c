@@ -734,9 +734,9 @@ void func_message(u16 msg)
         }else{
             printf("R ");
         }
-        printf("disp status %d,tws conn %d,tws slave %d, nor conn %d, scan %d,\r\n sys_cb.vol:%d  sys_cb.hfp_vol:%d sys_cb.lang_id:%d low_latency:%d \r\n sys_cb.eq_mode:%d dev.en:%d ab_mate_app.vp_vol:%d color:%x\n\r",
+        printf("disp status %d,tws conn %d,tws slave %d, nor conn %d, scan %d,\r\n sys_cb.vol:%d  sys_cb.hfp_vol:%d sys_cb.lang_id:%d low_latency:%d ble_sta:%d\r\n sys_cb.eq_mode:%d dev.en:%d ab_mate_app.vp_vol:%d color:%x\n\r",
         f_bt.disp_status,bt_tws_is_connected(),bt_tws_is_slave(),bt_nor_is_connected(), bt_get_scan(),
-        sys_cb.vol,sys_cb.hfp_vol,sys_cb.lang_id,bt_is_low_latency(),ab_mate_app.eq_info.mode,ab_mate_app.mult_dev.en,ab_mate_app.vp_vol,sys_cb.flag_color);
+        sys_cb.vol,sys_cb.hfp_vol,sys_cb.lang_id,bt_is_low_latency(),ab_mate_app.eq_info.mode,ab_mate_app.mult_dev.en,ab_mate_app.vp_vol,sys_cb.flag_color,ble_get_status());
       // printf("in_case:%d  peer_in_case:%d  mult_dev.en:%d \r\n",sys_cb.flag_local_in_case,sys_cb.flag_peer_in_case,ab_mate_app.mult_dev.en);
      //  printf("bass_level:%d\r\n",music_dbb_get_bass_level());
             

@@ -735,7 +735,7 @@ void user_eq_set(u8 *payload,u8 payload_len)
 #if BT_TWS_EN
                 ab_mate_tws_eq_info_sync();
 #endif
-            f_bt.warning_status |= BT_WARN_EQ;
+          //  f_bt.warning_status |= BT_WARN_EQ;
             ab_mate_app.do_flag |= FLAG_EQ_SET;
             ab_mate_cm_write(&ab_mate_app.eq_info.mode, AB_MATE_CM_EQ_DATA, 1+AB_MATE_EQ_BAND_CNT, 2);
             ab_mate_request_common_response(AB_MATE_SUCCESS);
@@ -1432,7 +1432,7 @@ void ab_mate_device_info_query(u8 *payload,u8 payload_len)
             case INFO_DEV_COLOR:
                 TRACE("INFO_DEV_COLOR\n");
                 val_len = payload[read_offset + 1];
-                buf[write_offset++] = INFO_DEV_COLOR;   // Type=0x1B
+                buf[write_offset++] = 0x1B;//INFO_DEV_COLOR;   // Type=0x1B
                 buf[write_offset++] = 1;                 // Len=1
                 buf[write_offset++] = sys_cb.flag_color; // Value=颜色值参考产品颜色对照表
                 break;
@@ -3979,7 +3979,15 @@ void ab_mate_flag_do(void)
         if(!sco_is_connected()){
           
             ab_mate_app.do_flag &= ~FLAG_EQ_SET;
+#if SWITCH_EQ_DAC_FADE
+            dac_fade_out();
+            dac_fade_wait();
             ab_mate_eq_set_do();
+            dac_fade_in();
+#else
+            ab_mate_eq_set_do();
+#endif
+            
 #if MUSIC_PIAO_TEST
             bt_tws_req_alarm_user(USER_SYNC_EVT_MUSIC_EN);
 #endif

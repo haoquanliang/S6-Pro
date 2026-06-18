@@ -494,7 +494,7 @@ void iodm_reveice_data_deal(void)
                sys_cb.flag_color = packet->buf[0];
                vbat_write_color_flag_param();
 #if BLE_ADD_COLOR_PROFILE
-        //        ab_mate_update_ble_adv_color(1);    
+                ab_mate_update_ble_adv_color(1);    
 #endif
                 break;
 
