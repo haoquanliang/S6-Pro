@@ -114,9 +114,9 @@ AT(.text.fot.cache)
 void app_fota_write(void *buf, u32 addr, u32 len)
 {
 #if (AB_FOT_TYPE == AB_FOT_TYPE_NORMAL)
-    fot_write(buf, addr, len);
+    fot_write(buf, addr, len);  // ← SDK 库函数：直接写 Flash 地址
 #elif (AB_FOT_TYPE == AB_FOT_TYPE_PACK)
-    ota_pack_write(buf);
+    ota_pack_write(buf);// ← SDK 库函数：OTA Pack 格式写入
 #else
     if(fot_var.type == AB_FOT_TYPE_NORMAL){
         fot_write(buf, addr, len);
@@ -709,11 +709,11 @@ void ab_mate_ota_proc(u8 cmd,u8 *payload,u8 payload_len)
 #endif
     switch(cmd){
     case CMD_OTA_REQ:
-        memset(&fot_var,0,sizeof(fot_var));
-        memcpy(&fot_var.remote_ver,&payload[0],4);
-        memcpy(&fot_var.hash,&payload[4],4);
-        memcpy(&fot_var.file_size,&payload[8],4);
-        fot_var.fot_sta = FOT_STA_START_REQ;
+        memset(&fot_var,0,sizeof(fot_var));// 清空 OTA 状态
+        memcpy(&fot_var.remote_ver,&payload[0],4);// 升级文件版本号
+        memcpy(&fot_var.hash,&payload[4],4);// 升级文件对应 HASH 值
+        memcpy(&fot_var.file_size,&payload[8],4);// 升级文件大小
+        fot_var.fot_sta = FOT_STA_START_REQ;// 进入状态机
         break;
 
     case CMD_OTA_DATA_START:

@@ -227,10 +227,10 @@ enum{
     CMD_MIC_CTRL,
     CMD_RECORD_CTRL,
     CND_RECORD_DATA_NOTIFY,
-    CMD_OTA_REQ = 0xA0,
-    CMD_OTA_DATA_START,
-    CMD_OTA_DATA_CONTINUE,
-    CMD_OTA_STA,
+    CMD_OTA_REQ = 0xA0,// ← 对应文档 5.1: APP 发起 OTA 升级请求
+    CMD_OTA_DATA_START, // ← 对应文档 5.2: APP 开始下发升级文件数据
+    CMD_OTA_DATA_CONTINUE,  // ← 对应文档 5.3: APP 继续下发升级文件数据
+    CMD_OTA_STA,            // ← 对应文档 5.4: 设备端主动上报升级状态
 
     CMD_CUSTOM = 0xE0,
 #if USER_ENCRYPT
@@ -447,14 +447,14 @@ typedef struct __attribute__((packed)){
 }record_data_t;
 
 typedef struct __attribute__((packed)){
-    u32 seq     : 4;
-    u32 reserve : 3;
-    u32 encrypt : 1;
-    u8 cmd;
-    u8 cmd_type;
-    u32 frame_seq : 4;
-    u32 frame_total : 4;
-    u8 payload_len;
+    u32 seq     : 4;// Byte 0, Bit0~3:  Seq Num（0~15 递增）
+    u32 reserve : 3;// Byte 0, Bit4~6:  保留，填 0
+    u32 encrypt : 1;// Byte 0, Bit7:    加密指示（0=不加密，1=加密）
+    u8 cmd;         // Byte 1:          Cmd 命令号
+    u8 cmd_type;    // Byte 2:          Cmd Type（1=Request, 2=Response, 3=Notify）
+    u32 frame_seq : 4;  // Byte 3, Bit0~3:  Frame Seq 帧序号
+    u32 frame_total : 4;    // Byte 3, Bit4~7:  Total Frame 总帧数
+    u8 payload_len;         // Byte 4:          Frame Length（Payload 长度）
 }ab_mate_cmd_head_t;
 
 typedef struct __attribute__((packed)){
