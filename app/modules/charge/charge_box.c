@@ -147,7 +147,7 @@ void charge_box_inbox_process(void)
         }
     }
 }
-
+#define TE      1
 ///5ms调用一次
 AT(.text.charge_box)
 u8 charge_box_charge_on_process(void)
@@ -174,6 +174,7 @@ u8 charge_box_charge_on_process(void)
 //        }
         charge_box_leakage_set(0, 0);
         inbox_sta = charge_box_inbox_check() & 0x3;                     //检查inbox online状态
+    //     printf("inbox_sta:%d\r\n",inbox_sta);
 #if (CHARGE_BOX_TYPE == CBOX_SSW)
         if (chbox_sta) {                                               //智能充电仓已开盖, 需要退出充电流程
             charge_box_leakage_set(1, 0);
@@ -184,6 +185,7 @@ u8 charge_box_charge_on_process(void)
         }
 #endif
         if (inbox_sta == 1) {                                           //dc_in = 0, 且inbox = 0
+           
             charge_box_leakage_set(1, 0);
             if ((chbox_cb.out2pwr_en) || (chbox_sta)) {                //拿起开机
                 sys_cb.outbox_pwron_flag = 1;
@@ -191,6 +193,8 @@ u8 charge_box_charge_on_process(void)
             }
             return 1;
         } else if (inbox_sta == 2) {                                    //dc_in = 0, inbox = 1, 需要关机
+
+
 #if UART0_PRINTF_SEL != PRINTF_VUSB                                     //vusb打印不关机
             charge_exit();
             unlock_code_charge();
