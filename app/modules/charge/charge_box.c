@@ -253,8 +253,15 @@ void charge_box_enter(u8 out_auto_pwron)
 {
     memset(&chbox_cb, 0, sizeof(chbox_cb));
     chbox_cb.out2pwr_en = out_auto_pwron;
-    charge_box_inbox_chk_init(20, 120);                                 //inbox online检测长点，等待VUSB电容放电
-    if ((chbox_cb.out2pwr_en) && (!xcfg_cb.ch_box_type_sel)) {          //短暂掉0V的仓
+#if INBOX_DALAY
+    charge_box_inbox_chk_init(20, 200);  
+#else   
+     charge_box_inbox_chk_init(20, 120);                                 //inbox online检测长点，等待VUSB电容放电
+
+#endif
+ 
+   
+   if ((chbox_cb.out2pwr_en) && (!xcfg_cb.ch_box_type_sel)) {          //短暂掉0V的仓
         inbox_cb.off_delay = 100+(u16)xcfg_cb.chbox_out_delay*20;       //inbox offline check 500ms + n*100ms
     }
 }

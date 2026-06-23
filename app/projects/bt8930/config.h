@@ -94,7 +94,7 @@
 #define USER_RECHARGE               0//耳机增加二次充电
 #define USER_INCAHARGE_IS_RESET     1//充电是否复位
 #define IS_RESET                    (1)
-
+#define INBOX_DALAY                 1//延长inbox delay时间，防止耳机短暂无5V短暂掉维持电压关机现象
 
 
 #define SWETZ_BT_DIS_TO_BLE_DISC    1//蓝牙断开，ble也要主动断开
